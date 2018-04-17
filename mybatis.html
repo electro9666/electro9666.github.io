@@ -114,14 +114,13 @@ function isTableAlias(){
 </script>
 </head>
 <body>
-<div>
+<div style="width:450px;border:orange;float:left;">
 	* Mybatis SQL을 좀더 편하게 작성하자<br><br>
+	<b style="font-size:20px;">입력:</b><br>
 	<input type="checkbox" id="chk1" value="" onchange="updateSQL();" checked/><label for="chk1">컬럼대문자</label>
 	<input type="checkbox" id="chk2" value="" onchange="updateSQL();" checked/><label for="chk2">콤마위치(앞)</label>
 	<input type="checkbox" id="chk3" value="" onchange="updateSQL();" checked/><label for="chk3">주석</label>
-</div>
-
-<div style="width:450px;border:orange;float:left;">
+	<br>
 	TABLE NAME: 
 	<br><input id="table" style="width:400px;" onchange="updateSQL();" value="user"/>
 	TABLE ALIAS: 
@@ -138,7 +137,8 @@ address
 </div>
 
 <div style="width:650px;border:orange;float:left;">
-	SQL:
+	<br><br>
+	<b style="font-size:20px;">출력 SQL:</b><br>
 	<br><textarea id="target" style="width:600px;height:900px;" >
 	
 	</textarea>
