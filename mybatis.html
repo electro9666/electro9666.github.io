@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<style>
+body, div, input, textarea {
+	font-family : Consolas;
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script>
+var table = ''
+var column = '';
+var columnList = [];
+
+function updateSQL(){
+	// 초기화
+	columnList = [];
+	
+	table = $("#table").val().trim();
+	
+	column = $("#column").val();
+	var columnArr = column.split("\n");
+	for(var i = 0 ; i<columnArr.length; i++){
+		var name = columnArr[i].trim();
+		if(name != ""){
+			columnList.push(name);
+		}
+	}
+	if(columnList.length > 0){
+		var obj = {"table":table, "columnList":columnList};
+		var template = $("#template1").html();
+		var compiled_template = Handlebars.compile(template);
+		var rendered = compiled_template(obj);
+		$("#target").html(rendered);			
+	}
+}
+
+$(document).ready(function(){
+	Handlebars.registerHelper('comma1', function(value) {
+		if(isSuffixComma()){
+			if(value == 0){
+				return "";
+			}else{
+				return ",";
+			}
+		}else{
+			return "";	
+		}
+	});
+	Handlebars.registerHelper('comma2', function(value, last) {
+		if(!isSuffixComma()){
+			if(last){
+				return "";
+			}else{
+				return ",";
+			}
+		}else{
+			return "";
+		}
+	});
+	Handlebars.registerHelper('value', function(str) {
+		return new Handlebars.SafeString("\#\{" + str.toLowerCase() + "\}");
+	});
+	Handlebars.registerHelper('isColumn', function(str) {
+		if(isUpperCase()){
+			str = str.toUpperCase();
+		}else{
+			str = str;
+		}
+		
+		if(isTableAlias()){
+			str = $("#tableAlias").val() + "." + str;
+		}
+		return str;
+	});
+	Handlebars.registerHelper('isTable', function(str) {
+		if(isUpperCase()){
+			return str.toUpperCase();
+		}else{
+			return str;
+		}
+	});
+	Handlebars.registerHelper('upper1', function(str) {
+		return str.charAt(0).toUpperCase() + str.slice(1);
+	});
+	Handlebars.registerHelper('isComment', function(str) {
+		if(isComment()){
+			return str;
+		}else{
+			return '';
+		}
+	});
+	
+	updateSQL();
+});
+function isUpperCase(){
+	return $("#chk1").is(":checked");
+}
+function isSuffixComma(){
+	return $("#chk2").is(":checked");
+}
+function isComment(){
+	return $("#chk3").is(":checked");
+}
+function isTableAlias(){
+	return $("#tableAlias").val() != "";
+}
+</script>
+</head>
+<body>
+<div>
+	* Mybatis SQL을 좀더 편하게 작성하자<br><br>
+	<input type="checkbox" id="chk1" value="" onchange="updateSQL();" checked/><label for="chk1">컬럼대문자</label>
+	<input type="checkbox" id="chk2" value="" onchange="updateSQL();" checked/><label for="chk2">콤마위치(앞)</label>
+	<input type="checkbox" id="chk3" value="" onchange="updateSQL();" checked/><label for="chk3">주석</label>
+</div>
+
+<div style="width:450px;border:orange;float:left;">
+	TABLE NAME: 
+	<br><input id="table" style="width:400px;" onchange="updateSQL();" value="user"/>
+	TABLE ALIAS: 
+	<br><input id="tableAlias" style="width:400px;" onchange="updateSQL();" value="a"/>
+	COLUMN NAME:
+	<br><div style="width:50px;border:orange;float:left;">
+</div>
+<textarea id="column" style="width:400px;height:400px;" onchange="updateSQL();">
+name
+id
+phone
+address
+</textarea>
+</div>
+
+<div style="width:650px;border:orange;float:left;">
+	SQL:
+	<br><textarea id="target" style="width:600px;height:900px;" >
+	
+	</textarea>
+</div>
+
+<script id="template1" type="text/x-handlebars-template">
+<select id="get{{upper1 table}}" resultType="{{table}}">
+SELECT
+{{#each columnList}}
+&emsp;{{comma1 @index}}{{isColumn this}}{{comma2 @index @last}}
+{{/each}}	 
+FROM {{isTable table}}
+WHERE 1=1
+AND {{isColumn columnList.[0]}} = {{value columnList.[0]}} {{isComment '--첫번째 컬럼'}}
+ORDER BY {{isColumn columnList.[0]}}
+</select>
+
+<select id="get{{upper1 table}}List" resultType="{{table}}">
+SELECT
+{{#each columnList}}
+&emsp;{{comma1 @index}}{{isColumn this}}{{comma2 @index @last}}
+{{/each}}	 
+FROM {{isTable table}}
+WHERE 1=1
+ORDER BY {{isColumn columnList.[0]}}
+</select>
+
+<insert id="insert{{upper1 table}}">
+INSERT INTO {{isTable table}} (
+{{#each columnList}}
+&emsp;{{comma1 @index}}{{isColumn this}}
+{{/each}}
+)
+VALUES(
+{{#each columnList}}
+&emsp;{{comma1 @index}}{{value this}}
+{{/each}}
+)
+</insert>
+
+<update id="update{{upper1 table}}">
+UPDATE {{isTable table}}
+SET
+{{#each columnList}}
+&emsp;{{comma1 @index}}{{isColumn this}} = {{value this}}{{comma2 @index @last}}
+{{/each}}
+WHERE 1=1
+AND {{isColumn columnList.[0]}} = {{value columnList.[0]}} {{isComment '--첫번째 컬럼'}}
+</update>
+
+<delete id="delete{{upper1 table}}">
+DELETE FROM {{isTable table}} 
+WHERE 1=1 
+AND {{isColumn columnList.[0]}} = {{value columnList.[0]}} {{isComment '--첫번째 컬럼'}}
+</delete>
+
+</script>
+</body>
+</html>
