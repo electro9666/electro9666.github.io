@@ -4,7 +4,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <style>
+svg{
+	border:1px solid gray;
+}
 
 .node {
   cursor: pointer;
@@ -62,7 +66,7 @@ function zoom() {
 </head>
 <body>
 <p>전자정부 표준프레임워크의 샘플소스를 기준 (v3.6.0)<p>
-<br><img width="200px" height="200px" src="eGovCapture.PNG" />
+<!-- <br><img width="200px" height="200px" src="eGovCapture.PNG" /> -->
 </body>
 <script>
 		var validCheckLink = function(){
@@ -110,7 +114,7 @@ function zoom() {
 		var myLink2;
 // 		var myLink = [{"from":"AgglomerativeCluster", "to":"Easing"}];
 		var margin = {top: 20, right: 120, bottom: 20, left: 50},
-		    width = 2060 - margin.right - margin.left,
+		    width = 1860 - margin.right - margin.left,
 		    height = 800 - margin.top - margin.bottom;
 	
 		var i = 0,
@@ -196,10 +200,26 @@ function zoom() {
 			    .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
 			
 			nodeEnter.append("text")
-			    .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
+			    .attr("x", function(d) { 
+			    	if(d.children){
+			    		if(d.children.length>0) return -10;
+			    	}
+			    	if(d._children){
+			    		if(d._children.length>0) return -10;
+			    	}
+			    	return 10;			    	
+			    })
 			    .attr("dy", ".35em")
 			    .attr("class", "text1")
-			    .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+			    .attr("text-anchor", function(d) {
+			    	if(d.children){
+			    		if(d.children.length>0) return "end";
+			    	}
+			    	if(d._children){
+			    		if(d._children.length>0) return "end";
+			    	}
+			    	return "start"; 
+			    })
 			    .text(function(d) { return d.name; })
 			    .style("fill-opacity", 1e-6);
 			
@@ -370,6 +390,7 @@ function zoom() {
 					$(d).addClass("text1");
             	});
             });
+        	
 			
         	
 			// node mouse over event2
@@ -424,5 +445,47 @@ function zoom() {
 			update(d);
 		}
 		
+		// TODO 추후 리팩토링을 위해 일단 이렇게
+		// legend - circle
+		d3.select("body").select("svg")
+		.append("circle")
+		.attr("r", 5)
+		.attr("cx", 50)
+		.attr("cy", 50)
+		.attr("stroke", "red")
+		.attr("stroke-width", "1.5px")
+	    .style("fill", "#fff");
+		d3.select("body").select("svg")
+		.append("circle")
+		.attr("r", 5)
+		.attr("cx", 50)
+		.attr("cy", 80)
+		.attr("stroke", "green")
+		.attr("stroke-width", "1.5px")
+	    .style("fill", "#fff");
+		d3.select("body").select("svg")
+		.append("circle")
+		.attr("r", 5)
+		.attr("cx", 50)
+		.attr("cy", 110)
+		.attr("stroke", "steelblue")
+		.attr("stroke-width", "1.5px")
+	    .style("fill", "#fff");
+		// legend -text
+		d3.select("body").select("svg")		
+		.append("text")
+	    .attr("x", 60)
+	    .attr("y", 50)
+	    .text("package");
+		d3.select("body").select("svg")		
+		.append("text")
+	    .attr("x", 60)
+	    .attr("y", 80)
+	    .text("class");
+		d3.select("body").select("svg")		
+		.append("text")
+	    .attr("x", 60)
+	    .attr("y", 110)
+	    .text("method");
 </script>
 </html>
