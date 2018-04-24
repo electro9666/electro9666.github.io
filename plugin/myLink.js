@@ -1,2 +1,14 @@
+	var w = 1860, h = 800;
+	var jsonFile = "eGov1.json";
+	var _injectionFn = function(nodes){
+		nodes.forEach(function(d) {
+			d.y = d.depth * 180;
+			
+			// TODO 라인이 겹치는 문제 일시적인 해결
+			if(d.pk.indexOf("SampleDAO>") != -1){
+				d.y += 100;	
+			}
+		});		
+	}
 var myLink = 
 	[{'from':'egovframework.example.sample.service.impl-SampleDAO>insertSample', 'to':'egovframework.example.sample.service.impl-EgovSampleServiceImpl>insertSample'},{'from':'egovframework.example.sample.service.impl-EgovSampleServiceImpl>insertSample', 'to':'egovframework.example.sample.web-EgovSampleController>addSample'},{'from':'egovframework.example.sample.service.impl-SampleDAO>updateSample', 'to':'egovframework.example.test-TestController>test1'},{'from':'egovframework.example.sample.service.impl-SampleDAO>updateSample', 'to':'egovframework.example.sample.service.impl-EgovSampleServiceImpl>updateSample'},{'from':'egovframework.example.sample.service.impl-EgovSampleServiceImpl>updateSample', 'to':'egovframework.example.sample.web-EgovSampleController>updateSample'},{'from':'egovframework.example.sample.service.impl-SampleDAO>deleteSample', 'to':'egovframework.example.sample.service.impl-EgovSampleServiceImpl>deleteSample'},{'from':'egovframework.example.sample.service.impl-EgovSampleServiceImpl>deleteSample', 'to':'egovframework.example.sample.web-EgovSampleController>deleteSample'},{'from':'egovframework.example.sample.service.impl-SampleDAO>selectSample', 'to':'egovframework.example.sample.service.impl-EgovSampleServiceImpl>selectSample'},{'from':'egovframework.example.sample.service.impl-EgovSampleServiceImpl>selectSample', 'to':'egovframework.example.sample.web-EgovSampleController>selectSample'},{'from':'egovframework.example.sample.web-EgovSampleController>selectSample', 'to':'egovframework.example.sample.web-EgovSampleController>updateSampleView'},{'from':'egovframework.example.sample.service.impl-SampleDAO>selectSampleList', 'to':'egovframework.example.sample.service.impl-EgovSampleServiceImpl>selectSampleList'},{'from':'egovframework.example.sample.service.impl-EgovSampleServiceImpl>selectSampleList', 'to':'egovframework.example.sample.web-EgovSampleController>selectSampleList'},{'from':'egovframework.example.sample.service.impl-SampleDAO>selectSampleList', 'to':'egovframework.example.test-TestController>test2'},{'from':'egovframework.example.sample.service.impl-SampleDAO>selectSampleListTotCnt', 'to':'egovframework.example.sample.service.impl-EgovSampleServiceImpl>selectSampleListTotCnt'},{'from':'egovframework.example.sample.service.impl-EgovSampleServiceImpl>selectSampleListTotCnt', 'to':'egovframework.example.sample.web-EgovSampleController>selectSampleList'}]
