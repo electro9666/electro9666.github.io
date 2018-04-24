@@ -1,3 +1,6 @@
+<!-- 
+	includeD3Js.jsp 을 기반으로 작성
+ -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,8 +61,8 @@ function zoom() {
 </script>
 </head>
 <body>
-<p><p>
-<br><img src="eGovCapture.PNG" />
+<p>전자정부 표준프레임워크의 샘플소스를 기준 (v3.6.0)<p>
+<br><img width="200px" height="200px" src="eGovCapture.PNG" />
 </body>
 <script>
 		var validCheckLink = function(){
@@ -122,7 +125,7 @@ function zoom() {
 		var svgBase = d3.select("body").append("svg")
 		    .attr("width", width + margin.right + margin.left)
 		    .attr("height", height + margin.top + margin.bottom)
- 		    .call(zoomListener)
+		    .call(zoomListener)
 		    
 		var svg =
 			svgBase.append("g")
@@ -335,7 +338,7 @@ function zoom() {
 			.attr("stroke", "#1DDB16");
 			
 			// path mouse over event1
-			svg.selectAll("path")
+			svg.selectAll("path.link2")
             .on("mouseover", function () {
             	var mo = d3.select(this);
             	mo.style("stroke", "red");
@@ -358,7 +361,7 @@ function zoom() {
 				})
 
             });
-        	svg.selectAll("path")
+        	svg.selectAll("path.link2")
             .on("mouseout", function () {
             	d3.select(this).style("stroke", "#1DDB16");
             	
