@@ -120,7 +120,7 @@ function zoom() {
 		var svgBase = d3.select("body").append("svg")
 		    .attr("width", width + margin.right + margin.left)
 		    .attr("height", height + margin.top + margin.bottom)
-// 		    .call(zoomListener)
+ 		    .call(zoomListener)
 		    
 		var svg =
 			svgBase.append("g")
