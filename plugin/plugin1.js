@@ -1,3 +1,4 @@
+	var output = '';
 	var zoomListener = d3.behavior.zoom().scaleExtent([0.1, 3]).on("zoom", zoom);
 	function zoom() {
 		svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
@@ -291,7 +292,7 @@
 				}
 				return pathString;
 			})
-			.attr("marker-end", "url(#end)")
+			.attr("marker-start", "url(#end)")
 			;	
 			
 			// 링크는 시간 지연으로 보여주기
@@ -315,13 +316,21 @@
 //     			.selectAll("text")
 //     			.attr("class", "text2");
 
-            	// nodeEnter를 사용하지 않고, 사전에 <g>에 pk attr를 넣고 가져다 사용하자 
+            	// nodeEnter를 사용하지 않고, 사전에 <g>에 pk attr를 넣고 가져다 사용하자
+            	var from = "", to = "";
 				$("svg g.node").each(function(i, d){
 					if(mo.attr("from") == $(d).attr("pk") || mo.attr("to") == $(d).attr("pk")){
 						$(d).find("text").removeClass("text1");
     					$(d).find("text").addClass("text2");
+    					if(mo.attr("from") == $(d).attr("pk")){
+    						from = $(d).find("text").html(); 
+    					}
+    					if(mo.attr("to") == $(d).attr("pk")){
+    						to = $(d).find("text").html();
+    					}
     				}
 				})
+				$("#output").html(to + " -> " + from);	// 반대로
 
             });
         	svg.selectAll("path.link2")
@@ -332,6 +341,8 @@
 					$(d).removeClass("text2");
 					$(d).addClass("text1");
             	});
+            	
+            	$("#output").html(" ");
             });
         	
 			/**
