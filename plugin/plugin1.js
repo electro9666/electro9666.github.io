@@ -241,6 +241,20 @@
 // 						.source( getXY(d.from) )
 // 					    .target( getXY(d.to) )()
 // 			});
+			
+			svg.append("svg:defs").selectAll("marker")
+			  .data(["end"]) // Different link/path types can be defined here
+			  .enter().append("svg:marker") // This section adds in the arrows
+			  .attr("id", String)
+			  .attr("viewBox", "0 -5 10 10")
+			  .attr("refX", 10)
+			  .attr("refY", 0)
+			  .attr("markerWidth", 4)
+			  .attr("markerHeight", 4)
+			  .attr("orient", 0)
+			  .append("svg:path")
+			  .attr("d", "M0,-5L10,0L0,5");
+			
 			validCheckLink();
 			// 라인 추가3 - 커브곡선을 마음대로
 			$("path.link2").remove();		//기존의 것 지우고 다시 그리기
@@ -267,16 +281,18 @@
 //					console.log(getXY(d.from), getXY(d.to), d3.svg.diagonal()
 //							.source( getXY(d.from) )
 //						    .target( getXY(d.to) )());
+				var pathString = "";
 				if(Math.abs(getXY(d.from).x - getXY(d.to).x) < 20){
-					return "M"+getXY(d.from).x+","+getXY(d.from).y+"C"+(getXY(d.from).x-30)+","+(getXY(d.from).y+30)+" "+(getXY(d.to).x-30)+","+(getXY(d.to).y-30)+" "+getXY(d.to).x+"," + getXY(d.to).y;
+					pathString = "M"+getXY(d.from).x+","+getXY(d.from).y+"C"+(getXY(d.from).x-30)+","+(getXY(d.from).y+30)+" "+(getXY(d.to).x-30)+","+(getXY(d.to).y-30)+" "+getXY(d.to).x+"," + getXY(d.to).y;
 				}else if(Math.abs(getXY(d.from).y - getXY(d.to).y) < 20){
-					return "M"+getXY(d.from).x+","+getXY(d.from).y+"C"+(getXY(d.from).x+30)+","+(getXY(d.from).y-30)+" "+(getXY(d.to).x-30)+","+(getXY(d.to).y-30)+" "+getXY(d.to).x+"," + getXY(d.to).y;
+					pathString = "M"+getXY(d.from).x+","+getXY(d.from).y+"C"+(getXY(d.from).x+30)+","+(getXY(d.from).y-30)+" "+(getXY(d.to).x-30)+","+(getXY(d.to).y-30)+" "+getXY(d.to).x+"," + getXY(d.to).y;
 				}else{
-					return d3.svg.diagonal()
-						.source( getXY(d.from))
-					    .target( getXY(d.to))();					
+					pathString = d3.svg.diagonal().source( getXY(d.from)).target( getXY(d.to))();					
 				}
-			});	
+				return pathString;
+			})
+			.attr("marker-end", "url(#end)")
+			;	
 			
 			// 링크는 시간 지연으로 보여주기
 			d3.selectAll("path.link2").transition().duration(3000)
