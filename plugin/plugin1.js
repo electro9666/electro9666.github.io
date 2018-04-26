@@ -1,97 +1,86 @@
-var zoomListener = d3.behavior.zoom().scaleExtent([0.1, 3]).on("zoom", zoom);
-function zoom() {
-	svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-}
-
-		var validCheckLink = function(){
-			// 초기화
-			myLink2 = [];
-			for(var i = 0 ; i<myLink.length; i++){
-				var f1=false, f2=false;
-				for(var j = 0 ; j<myNode.length; j++){
-					if(myLink[i].from == myNode[j].pk){
-						f1 = true;
-						break;
-					}
-				}
-				for(var j = 0 ; j<myNode.length; j++){
-					if(myLink[i].to == myNode[j].pk){
-						f2 = true;
-						break;
-					}
-				}
-				if(f1 && f2){
-					myLink2.push(myLink[i]);
+	var zoomListener = d3.behavior.zoom().scaleExtent([0.1, 3]).on("zoom", zoom);
+	function zoom() {
+		svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+	}
+	
+	var validCheckLink = function(){
+		// 초기화
+		myLink2 = [];
+		for(var i = 0 ; i<myLink.length; i++){
+			var f1=false, f2=false;
+			for(var j = 0 ; j<myNode.length; j++){
+				if(myLink[i].from == myNode[j].pk){
+					f1 = true;
+					break;
 				}
 			}
-		}
-		var getXY = function(pk){
-			for(var z = 0 ; z<myNode.length; z++){
-				if(pk === myNode[z].pk){
-					return {"x":myNode[z].y, "y":myNode[z].x};
+			for(var j = 0 ; j<myNode.length; j++){
+				if(myLink[i].to == myNode[j].pk){
+					f2 = true;
+					break;
 				}
 			}
+			if(f1 && f2){
+				myLink2.push(myLink[i]);
+			}
 		}
-// 		var getDiff = function(name){
-// 			for(var z = 0 ; z<myLink.length; z++){
-// 				if(name === myLink[z].from){
-// 					var f = getXY(myLink[z].from);
-// 					var t = getXY(myLink[z].to);
-// 					return {"x": t.y - f.y, "y":t.x - f.x};
-// 				}
-// 			}
-// 		}
-// 		var myNode = [{"name":"AgglomerativeCluster", "x":0, "y":0}, {"name":"and", "x":0, "y":0}, {"name":"Easing", "x":0, "y":0}, {"name":"DataUtil", "x":0, "y":0}, {"name":"add", "x":0, "y":0}, {"name":"Converters", "x":0, "y":0}, {"name":"JSONConverter", "x":0, "y":0}];
-		var myNode;
-		// scirpt로 주입
-// 		var myLink = [{"from":"AgglomerativeCluster", "to":"Easing"}, {"from":"AgglomerativeCluster", "to":"add"}, {"from":"DataUtil", "to":"add"}, {"from":"Converters", "to":"JSONConverter"}];
-		var myLink2;
-// 		var myLink = [{"from":"AgglomerativeCluster", "to":"Easing"}];
-		var margin = {top: 20, right: 120, bottom: 20, left: 50},
-		    width = w - margin.right - margin.left,
-		    height = h - margin.top - margin.bottom;
+	}
+	var getXY = function(pk){
+		for(var z = 0 ; z<myNode.length; z++){
+			if(pk === myNode[z].pk){
+				return {"x":myNode[z].y, "y":myNode[z].x};
+			}
+		}
+	}
+	//var myNode = [{"name":"AgglomerativeCluster", "x":0, "y":0}, {"name":"and", "x":0, "y":0}, {"name":"Easing", "x":0, "y":0}, {"name":"DataUtil", "x":0, "y":0}, {"name":"add", "x":0, "y":0}, {"name":"Converters", "x":0, "y":0}, {"name":"JSONConverter", "x":0, "y":0}];
+	//var myNode;
+	// scirpt로 주입
+	//var myLink = [{"from":"AgglomerativeCluster", "to":"Easing"}, {"from":"AgglomerativeCluster", "to":"add"}, {"from":"DataUtil", "to":"add"}, {"from":"Converters", "to":"JSONConverter"}];
+	var myLink2;
+	//var myLink = [{"from":"AgglomerativeCluster", "to":"Easing"}];
+	var margin = {top: 20, right: 120, bottom: 20, left: 50},
+	    width = w - margin.right - margin.left,
+	    height = h - margin.top - margin.bottom;
+		
+	var i = 0, duration = 750;
 	
-		var i = 0,
-		    duration = 750, root;
+	var tree = d3.layout.tree()
+	    .size([height, width]);
 	
-		var tree = d3.layout.tree()
-		    .size([height, width]);
+	var diagonal = d3.svg.diagonal()
+	    .projection(function(d) { return [d.y, d.x]; });
 	
-		var diagonal = d3.svg.diagonal()
-		    .projection(function(d) { return [d.y, d.x]; });
+	var svgBase = d3.select("body").append("svg")
+	    .attr("width", width + margin.right + margin.left)
+	    .attr("height", height + margin.top + margin.bottom)
+	//    .call(zoomListener)
+			    
+	var svg =
+		svgBase.append("g")
+	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+	;
 	
-		var svgBase = d3.select("body").append("svg")
-		    .attr("width", width + margin.right + margin.left)
-		    .attr("height", height + margin.top + margin.bottom)
-//		    .call(zoomListener)
-		    
-		var svg =
-			svgBase.append("g")
-		    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-			;
-	
-		d3.json(jsonFile, function(error, flare) {
-			if (error) throw error;
+//	d3.json(jsonFile, function(error, flare) {
+//		if (error) throw error;
+//			root = flare;
 			
-			root = flare;
-			root.x0 = height / 2;
-			root.y0 = 0;
-	
-			function collapse(d) {
-			  if (d.children) {
-			    d._children = d.children;
-			    d._children.forEach(collapse);
-// 			    d.children = null;	// 주석처리하면, 전부나온다. , 주석 해제하면 0,1단계만 나온다. <주석1>
-			  }
-			}
-	
-			root.children.forEach(collapse);
-			update(root);
-		});
+		root.x0 = height / 2;
+		root.y0 = 0;
+		function collapse(d) {
+		  if (d.children) {
+		    d._children = d.children;
+		    d._children.forEach(collapse);
+//		    d.children = null;	/C/ 주석처리하면, 전부나온다. , 주석 해제하면 0,1단계만 나온다. <주석1>
+		  }
+		}
+		root.children.forEach(collapse);
+		update(root);
+//	});
 	
 		d3.select(self.frameElement).style("height", "800px");
 	
 		function update(source) {
+//			console.log(source);
 			
 			// Compute the new tree layout.
 			var nodes = tree.nodes(root).reverse(),
@@ -100,13 +89,13 @@ function zoom() {
 			// Normalize for fixed-depth.
 //			nodes.forEach(function(d) {
 //				d.y = d.depth * 180;
-//				
 //				// TODO 라인이 겹치는 문제 일시적인 해결
 //				if(d.pk.indexOf("SampleDAO>") != -1){
 //					d.y += 100;	
 //				}
 //			});
-			_injectionFn(nodes);
+			// ->
+			_injectionFn(nodes);	// 외부에서 예외처리 하기 위해 주입함.
 			
 			// Update the nodes…
 			var node = svg.selectAll("g.node")
@@ -270,21 +259,22 @@ function zoom() {
 			.attr("stroke", "#fff")
 			.attr("d", function(d){
 				// 일단 기본형으로
-				return d3.svg.diagonal()
-				.source( getXY(d.from) )
-			    .target( getXY(d.to) )();
+//				return d3.svg.diagonal()
+//				.source( getXY(d.from) )
+//			    .target( getXY(d.to) )();
 				// 기본 diagnoal
 // 				return "M"+getXY(d.from).x+","+getXY(d.from).y+"C"+getXY(d.from).x+",81.97260273972603 "+getXY(d.to).x+",81.97260273972603 "+getXY(d.to).x+"," + getXY(d.to).y
-					console.log(getXY(d.from), getXY(d.to), d3.svg.diagonal()
-							.source( getXY(d.from) )
-						    .target( getXY(d.to) )());
+//					console.log(getXY(d.from), getXY(d.to), d3.svg.diagonal()
+//							.source( getXY(d.from) )
+//						    .target( getXY(d.to) )());
 				if(Math.abs(getXY(d.from).x - getXY(d.to).x) < 20){
-					
-					return "M"+getXY(d.from).x+","+getXY(d.from).y+"C"+getXY(d.from).x+",81.97260273972603 500,81.97260273972603 "+getXY(d.to).x+"," + getXY(d.to).y
+					return "M"+getXY(d.from).x+","+getXY(d.from).y+"C"+(getXY(d.from).x-30)+","+(getXY(d.from).y+30)+" "+(getXY(d.to).x-30)+","+(getXY(d.to).y-30)+" "+getXY(d.to).x+"," + getXY(d.to).y;
+				}else if(Math.abs(getXY(d.from).y - getXY(d.to).y) < 20){
+					return "M"+getXY(d.from).x+","+getXY(d.from).y+"C"+(getXY(d.from).x+30)+","+(getXY(d.from).y-30)+" "+(getXY(d.to).x-30)+","+(getXY(d.to).y-30)+" "+getXY(d.to).x+"," + getXY(d.to).y;
 				}else{
 					return d3.svg.diagonal()
-						.source( getXY(d.from) )
-					    .target( getXY(d.to) )()					
+						.source( getXY(d.from))
+					    .target( getXY(d.to))();					
 				}
 			});	
 			
@@ -292,12 +282,14 @@ function zoom() {
 			d3.selectAll("path.link2").transition().duration(3000)
 			.attr("stroke", "#1DDB16");
 			
-			// path mouse over event1
+			/**
+			 * path mouse over event1
+			 */ 
 			svg.selectAll("path.link2")
             .on("mouseover", function () {
             	var mo = d3.select(this);
             	mo.style("stroke", "red");
-                
+            	
 //     			nodeEnter.filter(function(d) {
 //     				if(mo.attr("from") == d.pk || mo.attr("to") == d.pk){
 //     					return true;
@@ -326,9 +318,9 @@ function zoom() {
             	});
             });
         	
-			
-        	
-			// node mouse over event2
+			/**
+			 * node mouse over event2
+			 */ 
 			svg.selectAll("g.node")
             .on("mouseover", function () {
             	var mo = d3.select(this);
