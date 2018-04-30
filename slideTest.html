@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.focus{
+	background-color:yellow;
+}
+</style>
+<script>
+var data = {
+	'size':15
+	, videos:[
+	          {'title':'동영상0'}
+	          , {'title':'동영상1'}
+	          , {'title':'동영상2'}
+	          , {'title':'동영상3'}
+	          , {'title':'동영상4'}
+	          , {'title':'동영상5'}
+	          , {'title':'동영상6'}
+	          , {'title':'동영상7'}
+	          , {'title':'동영상8'}
+	          , {'title':'동영상9'}
+	          , {'title':'동영상10'}
+	          , {'title':'동영상11'}
+	          , {'title':'동영상12'}
+	          , {'title':'동영상13'}
+	          , {'title':'동영상14'}
+	          ]
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script>
+	var idxNum = 0;
+	$(document).ready(function(){
+		document.addEventListener('keydown', myKeydown);
+		
+		Handlebars.registerHelper("calc", function(value) {
+			return value*200+'px';
+		});
+		
+		var source = $("#template1").html(); 
+		var template = Handlebars.compile(source);
+		var html = template(data.videos);
+		$("#div1").html(html);
+		
+		myFocus(0);
+	});
+	
+	function myFocus(idx){
+		$(".item").removeClass("focus");
+		$(".item[idx="+idx+"]").addClass("focus");
+	}
+	function myKeydown(e){
+		// left:39, right:37
+		console.log(e.keyCode);
+		if(e.keyCode == 39){
+			idxNum++;
+			if(idxNum > data.videos.length - 1){
+				idxNum = data.videos.length - 1;
+				return;
+			}
+			
+			if(idxNum >= 4){
+				$("#div1").scrollLeft($("#div1").scrollLeft() + 200);
+			}
+			
+		}else if(e.keyCode == 37){
+			idxNum--;
+			if(idxNum < 0){
+				idxNum = 0;
+				return;
+			}
+			
+			
+			if(idxNum <= data.videos.length - 5){
+				$("#div1").scrollLeft($("#div1").scrollLeft() - 200);
+			}
+		}
+		myFocus(idxNum);
+	}	
+	
+	$("#div1").scrollLeft("300")
+</script>  
+</head>
+<body>
+
+<div id="div1" style="width:900px;border:1px solid red;height:200px;position:relative;overflow-x:scroll;max-width:100%">
+
+</div>
+
+<script id="template1" type="text/x-handlebars-template">
+	{{#each this}}
+	<div class="item" style="width:200px;height:200px;border:1px solid blue;position:absolute;left:{{calc @index}};" idx={{@index}}>
+		{{title}}
+	</div>
+	{{/each}}
+</script>
+</body>
+</html>
