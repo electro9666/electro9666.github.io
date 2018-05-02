@@ -4,8 +4,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-.focus{
+.normal {
+	background-color:white;
+	width:200px;
+	height:200px;
+	z-index:1;
+}	
+.focus {
 	background-color:yellow;
+	width:220px;
+	height:220px;
+	z-index:10;
 }
 </style>
 <script>
@@ -54,6 +63,7 @@ var data = {
 	
 	function myFocus(idx){
 		$(".item").removeClass("focus");
+		$(".item").addClass("normal");
 		$(".item[idx="+idx+"]").addClass("focus");
 	}
 	function myKeydown(e){
@@ -88,13 +98,13 @@ var data = {
 </head>
 <body>
 
-<div id="div1" style="width:900px;border:1px solid red;height:200px;position:relative;overflow-x:scroll;max-width:100%">
+<div id="div1" style="margin:50px;width:900px;border:1px solid red;height:220px;position:relative;overflow:hidden;max-width:100%">
 
 </div>
 
 <script id="template1" type="text/x-handlebars-template">
 	{{#each this}}
-	<div class="item" style="width:200px;height:200px;border:1px solid blue;position:absolute;left:{{calc @index}};" idx={{@index}}>
+	<div class="item normal" style="border:1px solid blue;position:absolute;left:{{calc @index}};" idx={{@index}}>
 		{{title}}
 	</div>
 	{{/each}}
