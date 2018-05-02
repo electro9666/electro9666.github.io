@@ -4,18 +4,30 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-.normal {
-	background-color:white;
-	width:200px;
-	height:200px;
-	z-index:1;
-}	
-.focus {
-	background-color:yellow;
-	width:220px;
-	height:220px;
-	z-index:10;
-}
+    #div1{
+        margin:100px;
+        overflow:hidden;
+/*        max-width:100%;*/
+        width:900px;
+        height:230px;     
+        position:relative;
+        border:3px solid red;
+    }
+    .normal {
+        background-color:white;
+        z-index:1;
+        border:1px solid blue;
+        position:absolute;
+        width:200px;
+        height:200px;
+    }	
+    .focus {
+        background-color:yellow;
+        width:220px;
+        height:220px;
+        z-index:10;
+        
+    }
 </style>
 <script>
 var data = {
@@ -50,7 +62,7 @@ var data = {
 		document.addEventListener('keydown', myKeydown);
 		
 		Handlebars.registerHelper("calc", function(value) {
-			return value*200+'px';
+			return value*200;
 		});
 		
 		var source = $("#template1").html(); 
@@ -67,8 +79,11 @@ var data = {
 		$(".item[idx="+idx+"]").addClass("focus");
 	}
 	function myKeydown(e){
-		// left:39, right:37
-		console.log(e.keyCode);
+		// left:37, right:39
+		// console.log(e.keyCode);
+        // 스크롤 이동 유효?
+        
+        var curr = idxNum;
 		if(e.keyCode == 39){
 			idxNum++;
 			if(idxNum > data.videos.length - 1){
@@ -76,9 +91,12 @@ var data = {
 				return;
 			}
 			
-			if(idxNum >= 4){
-				$("#div1").scrollLeft($("#div1").scrollLeft() + 200);
-			}
+            // 스크롤 우측 이동
+            if(Number($(".item[idx="+curr+"]").attr("left")) - $("#div1").scrollLeft() >= 600){
+                if(idxNum >= 4){
+                    $("#div1").scrollLeft($("#div1").scrollLeft() + 200);
+                }
+            }
 			
 		}else if(e.keyCode == 37){
 			idxNum--;
@@ -87,10 +105,12 @@ var data = {
 				return;
 			}
 			
-			
-			if(idxNum <= data.videos.length - 5){
-				$("#div1").scrollLeft($("#div1").scrollLeft() - 200);
-			}
+            // 스크롤 좌측 이동
+            if(Number($(".item[idx="+curr+"]").attr("left")) - $("#div1").scrollLeft() <= 102){
+                if(idxNum <= data.videos.length - 5){
+                    $("#div1").scrollLeft($("#div1").scrollLeft() - 200);
+                }
+            }
 		}
 		myFocus(idxNum);
 	}	
@@ -98,13 +118,13 @@ var data = {
 </head>
 <body>
 
-<div id="div1" style="margin:50px;width:900px;height:230px;position:relative;overflow:hidden;max-width:100%">
+<div id="div1">
 
 </div>
 
 <script id="template1" type="text/x-handlebars-template">
 	{{#each this}}
-	<div class="item normal" style="border:1px solid blue;position:absolute;left:{{calc @index}};" idx={{@index}}>
+	<div class="item normal" style="left:{{calc @index}}px;" idx={{@index}} left="{{calc @index}}">
 		{{title}}
 	</div>
 	{{/each}}
