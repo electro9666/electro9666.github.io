@@ -161,44 +161,46 @@
                 }else{
                     gPlayer[id].loadVideoById($(this).val());
                 }
-                
             });
             
             // event
             $('.grid-stack').on('gsresizestop', function(event, elem) {
-                var newWidth = $(elem).attr('data-gs-width');
-                var newHeight = $(elem).attr('data-gs-height');
-                var id =  $(elem).find(".grid-stack-item-content").find("iframe").attr("id");
-
-                console.log(newWidth);
-                console.log(newHeight);
-                console.log(id);
-                /*
-                    +160 +80                
-                        w	  h
-                    1	140	  60
-                    2	300	  140
-                    3	460	  220
-                    4	620	  300
-                    5	780	  380
-                    6	940	  460
-                    7	1100  540
-                    8	1260  620
-                    9	1420  700
-                */
-
-                gPlayer[id].setSize(getWidtdh(newWidth), getHeight(newHeight));
+                resizeCallback(elem);
             });            
             
             // change ui 기능 표현 샘플
             setTimeout(function(){
                 var grid = $('.grid-stack').data('gridstack');
-                grid.resize($("#video0").parent().parent(), 6, 6);
+                grid.resize($("#video0").parent().parent(), 6, 6);  
+                resizeCallback($("#video0").parent().parent());   // resize를 직접하면 gsresizestop event가 작동하지 않아서 따로 실행해줌
                 
                 $(".grid-stack-item-content").eq(2).find("button").eq(0).trigger("click");
             }, 2000);
         });
-        
+    function resizeCallback(elem){
+        var newWidth = $(elem).attr('data-gs-width');
+        var newHeight = $(elem).attr('data-gs-height');
+        var id =  $(elem).find(".grid-stack-item-content").find("iframe").attr("id");
+
+        console.log(newWidth);
+        console.log(newHeight);
+        console.log(id);
+        /*
+                +160 +80                
+                w	  h
+            1	140	  60
+            2	300	  140
+            3	460	  220
+            4	620	  300
+            5	780	  380
+            6	940	  460
+            7	1100  540
+            8	1260  620
+            9	1420  700
+        */
+
+        gPlayer[id].setSize(getWidtdh(newWidth), getHeight(newHeight));        
+    }
     function makePlayer(width, height, iframeId, videoId, playlist){
         $("#" + iframeId).prev().find("input").val(videoId);
         
