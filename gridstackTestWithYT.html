@@ -30,55 +30,83 @@
             <div class="grid-stack" data-gs-width="12" data-gs-animate="yes">
                 <div class="grid-stack-item" data-gs-x="0" data-gs-y="0" data-gs-width="4" data-gs-height="4">
                     <div class="grid-stack-item-content">
-                        <div class="grid-header"><input type="text"/> Drag</div>
+                        <div class="myHeader"><input type="text"/> Drag
+                        <button class="rot" onclick="rotateFn(this);return false;">R</button>
+                        <button class="del" onclick="deleteFn(this);return false;">X</button>
+                        </div>
+                        
                         <div id="video0"></div>
                     </div>
                 </div>
                 <div class="grid-stack-item" data-gs-x="4" data-gs-y="0" data-gs-width="4" data-gs-height="4">
                     <div class="grid-stack-item-content">
-                        <div class="grid-header"><input type="text"/> Drag</div>
+                        <div class="myHeader"><input type="text"/> Drag
+                        <button class="rot" onclick="rotateFn(this);return false;">R</button>
+                        <button class="del" onclick="deleteFn(this);return false;">X</button>
+                        </div>
                         <div id="video1"></div>
                     </div>
                 </div>
                 <div class="grid-stack-item" data-gs-x="8" data-gs-y="0" data-gs-width="4" data-gs-height="4">
                     <div class="grid-stack-item-content">
-                        <div class="grid-header"><input type="text"/> Drag</div>
+                        <div class="myHeader"><input type="text"/> Drag
+                        <button class="rot" onclick="rotateFn(this);return false;">R</button>
+                        <button class="del" onclick="deleteFn(this);return false;">X</button>
+                        </div>
                         <div id="video2"></div>
                     </div>
                 </div>
                 <div class="grid-stack-item" data-gs-x="0" data-gs-y="4" data-gs-width="4" data-gs-height="4">
                     <div class="grid-stack-item-content">
-                        <div class="grid-header"><input type="text"/> Drag</div>
+                        <div class="myHeader"><input type="text"/> Drag
+                        <button class="rot" onclick="rotateFn(this);return false;">R</button>
+                        <button class="del" onclick="deleteFn(this);return false;">X</button>
+                        </div>
                         <div id="video3"></div>
                     </div>
                 </div>
                 <div class="grid-stack-item" data-gs-x="4" data-gs-y="4" data-gs-width="4" data-gs-height="4">
                     <div class="grid-stack-item-content">
-                        <div class="grid-header"><input type="text"/> Drag</div>
+                        <div class="myHeader"><input type="text"/> Drag
+                        <button class="rot" onclick="rotateFn(this);return false;">R</button>
+                        <button class="del" onclick="deleteFn(this);return false;">X</button>
+                        </div>
                         <div id="video4"></div>
                     </div>
                 </div>
                 <div class="grid-stack-item" data-gs-x="8" data-gs-y="4" data-gs-width="4" data-gs-height="4">
                     <div class="grid-stack-item-content">
-                        <div class="grid-header"><input type="text"/> Drag</div>
+                        <div class="myHeader"><input type="text"/> Drag
+                        <button class="rot" onclick="rotateFn(this);return false;">R</button>
+                        <button class="del" onclick="deleteFn(this);return false;">X</button>
+                        </div>
                         <div id="video5"></div>
                     </div>
                 </div>
                 <div class="grid-stack-item" data-gs-x="0" data-gs-y="8" data-gs-width="4" data-gs-height="4">
                     <div class="grid-stack-item-content">
-                        <div class="grid-header"><input type="text"/> Drag</div>
+                        <div class="myHeader"><input type="text"/> Drag
+                        <button class="rot" onclick="rotateFn(this);return false;">R</button>
+                        <button class="del" onclick="deleteFn(this);return false;">X</button>
+                        </div>
                         <div id="video6"></div>
                     </div>
                 </div>
                 <div class="grid-stack-item" data-gs-x="4" data-gs-y="8" data-gs-width="4" data-gs-height="4">
                     <div class="grid-stack-item-content">
-                        <div class="grid-header"><input type="text"/> Drag</div>
+                        <div class="myHeader"><input type="text"/> Drag
+                        <button class="rot" onclick="rotateFn(this);return false;">R</button>
+                        <button class="del" onclick="deleteFn(this);return false;">X</button>
+                        </div>
                         <div id="video7"></div>
                     </div>
                 </div>
                 <div class="grid-stack-item" data-gs-x="8" data-gs-y="8" data-gs-width="4" data-gs-height="4">
                     <div class="grid-stack-item-content">
-                        <div class="grid-header"><input type="text"/> Drag</div>
+                        <div class="myHeader"><input type="text"/> Drag
+                        <button class="rot" onclick="rotateFn(this);return false;">R</button>
+                        <button class="del" onclick="deleteFn(this);return false;">X</button>
+                        </div>
                         <div id="video8"></div>
                     </div>
                 </div>                
@@ -140,20 +168,35 @@
             $('.grid-stack').on('gsresizestop', function(event, elem) {
                 var newWidth = $(elem).attr('data-gs-width');
                 var newHeight = $(elem).attr('data-gs-height');
-                var videoId =  $(elem).find(".grid-stack-item-content").find("iframe").attr("id");
+                var id =  $(elem).find(".grid-stack-item-content").find("iframe").attr("id");
 
                 console.log(newWidth);
                 console.log(newHeight);
-                console.log(videoId);
+                console.log(id);
                 /*
-                    1: 140, 60
                     +160 +80                
-                    2 : 300, 140
-                    3 : 460, 220
+                        w	  h
+                    1	140	  60
+                    2	300	  140
+                    3	460	  220
+                    4	620	  300
+                    5	780	  380
+                    6	940	  460
+                    7	1100  540
+                    8	1260  620
+                    9	1420  700
                 */
 
-                gPlayer[videoId].setSize(getWidtdh(newWidth), getHeight(newHeight));
+                gPlayer[id].setSize(getWidtdh(newWidth), getHeight(newHeight));
             });            
+            
+            // change ui 기능 표현 샘플
+            setTimeout(function(){
+                var grid = $('.grid-stack').data('gridstack');
+                grid.resize($("#video0").parent().parent(), 6, 6);
+                
+                $(".grid-stack-item-content").eq(2).find("button").eq(0).trigger("click");
+            }, 2000);
         });
         
     function makePlayer(width, height, iframeId, videoId, playlist){
@@ -205,6 +248,66 @@
     }
     function getHeight(num){
         return (num-1) * 80 + 60;
+    }
+    function deleteFn(obj){
+        var parent = $(obj).parent().parent().parent();     // grid-stack-item
+        var id = $(obj).parent().next().attr("id");
+        
+        var grid = $('.grid-stack').data('gridstack');
+        grid.removeWidget(parent);
+        
+        delete gPlayer[id];
+    }
+    function rotateFn(obj){
+        // rotate 90 grid
+        var parent = $(obj).parent().parent().parent();     // grid-stack-item
+        var width = Number(parent.attr("data-gs-width"));
+        var height =Number( parent.attr("data-gs-height"));
+//        console.log(width);
+//        console.log(height);
+        
+        if(height % 2 === 1){ // 홀수
+            height++;
+        }
+        var newWidth = height / 2;
+        var newHeight = width * 2;
+            
+        var grid = $('.grid-stack').data('gridstack');
+        grid.resize(parent, newWidth, newHeight);
+        
+        // rotate 90 iframe(youtube)
+        var iframe = $(obj).parent().parent().find("iframe");
+        if(iframe.length == 1){
+            var degValue = iframe.attr("degValue");
+            if(typeof degValue === "undefined"){
+                degValue = 90;
+            }else{
+                degValue = Number(degValue) + 90;
+            }
+            iframe.attr("degValue", degValue);
+            console.log("degValue=" + degValue);
+            iframe.css("transform", "rotate(" + degValue + "deg)");
+            
+            if(degValue % 180 == 0){
+                iframe.css("left", "0px");
+                iframe.css("top", "0px");
+            }else{
+                var ifw = parseInt(iframe.css("width")) / 2;
+                var ifh = parseInt(iframe.css("height")) / 2;
+                
+                var gw = getWidtdh(newWidth) / 2;
+                var gh = getHeight(newHeight) / 2;
+                
+                // iframe은 정중앙을 중심으로 회전하고, grid-stack-item은 좌측으로 크기만 조절된다.
+                // --> 회전축의 이동이라 생각하고 iframe을 이동시킨다.
+                var diffW = (gw-ifw);
+                var diffH = (gh-ifh);
+                console.log(diffW, diffH);
+                iframe.css("left",  diffW + "px");
+                iframe.css("top", diffH + "px");
+            }
+        }
+        
     }
     </script>      
 </body>
