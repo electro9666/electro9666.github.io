@@ -30,7 +30,7 @@
             <div class="grid-stack" data-gs-width="12" data-gs-animate="yes">
                 <div class="grid-stack-item" data-gs-x="0" data-gs-y="0" data-gs-width="4" data-gs-height="4">
                     <div class="grid-stack-item-content">
-                        <div class="myHeader"><input type="text" placeholder="videoId"/> Drag
+                        <div class="myHeader"><input type="text"/> Drag
                         <button class="rot" onclick="rotateFn(this);return false;">R</button>
                         <button class="del" onclick="deleteFn(this);return false;">X</button>
                         </div>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="grid-stack-item" data-gs-x="4" data-gs-y="0" data-gs-width="4" data-gs-height="4">
                     <div class="grid-stack-item-content">
-                        <div class="myHeader"><input type="text" placeholder="videoId"/> Drag
+                        <div class="myHeader"><input type="text"/> Drag
                         <button class="rot" onclick="rotateFn(this);return false;">R</button>
                         <button class="del" onclick="deleteFn(this);return false;">X</button>
                         </div>
@@ -49,7 +49,7 @@
                 </div>
                 <div class="grid-stack-item" data-gs-x="8" data-gs-y="0" data-gs-width="4" data-gs-height="4">
                     <div class="grid-stack-item-content">
-                        <div class="myHeader"><input type="text" placeholder="videoId"/> Drag
+                        <div class="myHeader"><input type="text"/> Drag
                         <button class="rot" onclick="rotateFn(this);return false;">R</button>
                         <button class="del" onclick="deleteFn(this);return false;">X</button>
                         </div>
@@ -58,7 +58,7 @@
                 </div>
                 <div class="grid-stack-item" data-gs-x="0" data-gs-y="4" data-gs-width="4" data-gs-height="4">
                     <div class="grid-stack-item-content">
-                        <div class="myHeader"><input type="text" placeholder="videoId"/> Drag
+                        <div class="myHeader"><input type="text"/> Drag
                         <button class="rot" onclick="rotateFn(this);return false;">R</button>
                         <button class="del" onclick="deleteFn(this);return false;">X</button>
                         </div>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="grid-stack-item" data-gs-x="4" data-gs-y="4" data-gs-width="4" data-gs-height="4">
                     <div class="grid-stack-item-content">
-                        <div class="myHeader"><input type="text" placeholder="videoId"/> Drag
+                        <div class="myHeader"><input type="text"/> Drag
                         <button class="rot" onclick="rotateFn(this);return false;">R</button>
                         <button class="del" onclick="deleteFn(this);return false;">X</button>
                         </div>
@@ -76,7 +76,7 @@
                 </div>
                 <div class="grid-stack-item" data-gs-x="8" data-gs-y="4" data-gs-width="4" data-gs-height="4">
                     <div class="grid-stack-item-content">
-                        <div class="myHeader"><input type="text" placeholder="videoId"/> Drag
+                        <div class="myHeader"><input type="text"/> Drag
                         <button class="rot" onclick="rotateFn(this);return false;">R</button>
                         <button class="del" onclick="deleteFn(this);return false;">X</button>
                         </div>
@@ -85,7 +85,7 @@
                 </div>
                 <div class="grid-stack-item" data-gs-x="0" data-gs-y="8" data-gs-width="4" data-gs-height="4">
                     <div class="grid-stack-item-content">
-                        <div class="myHeader"><input type="text" placeholder="videoId"/> Drag
+                        <div class="myHeader"><input type="text"/> Drag
                         <button class="rot" onclick="rotateFn(this);return false;">R</button>
                         <button class="del" onclick="deleteFn(this);return false;">X</button>
                         </div>
@@ -94,7 +94,7 @@
                 </div>
                 <div class="grid-stack-item" data-gs-x="4" data-gs-y="8" data-gs-width="4" data-gs-height="4">
                     <div class="grid-stack-item-content">
-                        <div class="myHeader"><input type="text" placeholder="videoId"/> Drag
+                        <div class="myHeader"><input type="text"/> Drag
                         <button class="rot" onclick="rotateFn(this);return false;">R</button>
                         <button class="del" onclick="deleteFn(this);return false;">X</button>
                         </div>
@@ -103,7 +103,7 @@
                 </div>
                 <div class="grid-stack-item" data-gs-x="8" data-gs-y="8" data-gs-width="4" data-gs-height="4">
                     <div class="grid-stack-item-content">
-                        <div class="myHeader"><input type="text" placeholder="videoId"/> Drag
+                        <div class="myHeader"><input type="text"/> Drag
                         <button class="rot" onclick="rotateFn(this);return false;">R</button>
                         <button class="del" onclick="deleteFn(this);return false;">X</button>
                         </div>
@@ -129,6 +129,8 @@
     <script type="text/javascript" src='youtube/gridstack.min.js'></script>
     <script type="text/javascript" src='youtube/gridstack.jQueryUI.min.js'></script>    
     
+    <script type="text/javascript" src='youtube/cors.js'></script>    
+    
     <!-- youtube -->
     <script src="youtube/youtube_iframe_api.js" type="text/javascript"></script>
     
@@ -150,6 +152,8 @@
                 makePlayer(getWidtdh(4), getHeight(4), 'video0', 'aR8Fe1lTKHo', '');
                 makePlayer(getWidtdh(4), getHeight(4), 'video1', '9ZpwOfKmYk8', '');
                 makePlayer(getWidtdh(4), getHeight(4), 'video2', 'A9K-7AVG2i4', '');
+                makePlayer(getWidtdh(4), getHeight(4), 'video3', '9ZpwOfKmYk8', '');
+                makePlayer(getWidtdh(4), getHeight(4), 'video4', '9ZpwOfKmYk8', '');
             }, 1000);
             
             // event
@@ -168,14 +172,20 @@
                 resizeCallback(elem);
             });            
             
-            // change ui 기능 표현 샘플
+            // change ui sample
             setTimeout(function(){
                 var grid = $('.grid-stack').data('gridstack');
-                grid.resize($("#video0").parent().parent(), 6, 6);  
-                resizeCallback($("#video0").parent().parent());   // resize를 직접하면 gsresizestop event가 작동하지 않아서 따로 실행해줌
                 
-                $(".grid-stack-item-content").eq(2).find("button").eq(0).trigger("click");
-            }, 2000);
+                // resize
+                grid.resize($("#video4").parent().parent(), 2, 2);  
+                resizeCallback($("#video4").parent().parent());   // resize를 직접하면 gsresizestop event가 작동하지 않아서 따로 실행해줌
+                
+                // rotate
+                $(".grid-stack-item-content").eq(4).find("button").eq(0).trigger("click");
+                
+                // cors.js
+                getJtbcVideoId(3);
+            }, 4000);
         });
     function resizeCallback(elem){
         var newWidth = $(elem).attr('data-gs-width');
@@ -199,7 +209,10 @@
             9	1420  700
         */
 
-        gPlayer[id].setSize(getWidtdh(newWidth), getHeight(newHeight));        
+        if(typeof id !== "undefined"){
+            // iframe이 생성되지 않은 경우
+            gPlayer[id].setSize(getWidtdh(newWidth), getHeight(newHeight));        
+        }
     }
     function makePlayer(width, height, iframeId, videoId, playlist){
         $("#" + iframeId).prev().find("input").val(videoId);
