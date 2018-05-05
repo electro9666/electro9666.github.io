@@ -175,11 +175,11 @@
                 var grid = $('.grid-stack').data('gridstack');
                 
                 // resize
-                grid.resize($("#video4").parent().parent(), 2, 2);  
-                resizeCallback($("#video4").parent().parent());   // resize를 직접하면 gsresizestop event가 작동하지 않아서 따로 실행해줌
+                grid.resize($("#video1").parent().parent(), 2, 4);  
+                resizeCallback($("#video1").parent().parent());   // resize를 직접하면 gsresizestop event가 작동하지 않아서 따로 실행해줌
                 
                 // rotate
-                $(".grid-stack-item-content").eq(4).find("button").eq(0).trigger("click");
+                $(".grid-stack-item-content").eq(2).find("button").eq(0).trigger("click");
                 
                 // cors.js
                 getJtbcVideoId(3);
