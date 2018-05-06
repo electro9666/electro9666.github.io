@@ -17,23 +17,37 @@
         }
         
         function parseHTML(htmlString){
-            console.log("parseHTML start");
-            var el = document.createElement('html');
-            // el.innerHTML = "<html><head><title>titleTest</title></head><body><a href='test0'>test01</a><a href='test1'>test02</a><a href='test2'>test03</a></body></html>";
-            el.innerHTML = htmlString;
-            var p = el.getElementsByTagName("script");
+            try{
+                console.log("parseHTML start");
+                console.log(htmlString);
+                var el = document.createElement('html');
+                // el.innerHTML = "<html><head><title>titleTest</title></head><body><a href='test0'>test01</a><a href='test1'>test02</a><a href='test2'>test03</a></body></html>";
+                el.innerHTML = htmlString;
+                var p = el.getElementsByTagName("script");
 
-            var scriptString = p[p.length-3].innerHTML;
-//            var obj = JSON.parse(scriptString);
-//            console.log(obj);
-            
-            var script = document.createElement('script');
-            script.innerHTML = scriptString;
-            document.getElementsByTagName('head')[0].appendChild(script);
-            
-            var videoId = window.ytInitialData.contents.twoColumnBrowseResultsRenderer.tabs[0].tabRenderer.content.sectionListRenderer.contents[0].itemSectionRenderer.contents[0].channelVideoPlayerRenderer.readMoreText.runs[0].navigationEndpoint.watchEndpoint.videoId;
-            console.log(videoId);
-            return videoId;
+                var scriptString = p[p.length-3].innerHTML;
+    //            var obj = JSON.parse(scriptString);
+    //            console.log(obj);
+
+                var script = document.createElement('script');
+                script.innerHTML = scriptString;
+                document.getElementsByTagName('head')[0].appendChild(script);
+
+                // youtube parsing / specific
+                var videoId = window.ytInitialData.contents.twoColumnBrowseResultsRenderer.tabs[0].tabRenderer.content.sectionListRenderer.contents[0].itemSectionRenderer.contents[0].channelVideoPlayerRenderer.readMoreText.runs[0].navigationEndpoint.watchEndpoint.videoId;
+                
+                console.log('not onair: ' + videoId);
+                return videoId;
+            }catch(e){
+                console.log(e.message);
+                
+                // when onair
+                var videoId = window.ytInitialData.contents.twoColumnBrowseResultsRenderer.tabs[0].tabRenderer.content.sectionListRenderer.contents[0].itemSectionRenderer.contents[0].channelFeaturedContentRenderer.items[0].videoRenderer.videoId;
+                console.log('onair=' + videoId);
+                return videoId;                
+                
+            }
+            return '';
         }
 
         function getJtbcVideoId(num){
