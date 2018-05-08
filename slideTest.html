@@ -58,6 +58,7 @@ var data = {
   crossorigin="anonymous"></script>
 <script>
 	var idxNum = 0;
+	var position = 0;
 	$(document).ready(function(){
 		document.addEventListener('keydown', myKeydown);
 		
@@ -79,6 +80,7 @@ var data = {
 		$(".item[idx="+idx+"]").addClass("focus");
 	}
 	function myKeydown(e){
+		var consoleDiv = $("#console");
 		// left:37, right:39
 		// console.log(e.keyCode);
         // 스크롤 이동 유효?
@@ -91,11 +93,16 @@ var data = {
 				return;
 			}
 			
+			position++;
+			consoleDiv.html(position);
+
             // 스크롤 우측 이동
-            if(Number($(".item[idx="+curr+"]").attr("left")) - $("#div1").scrollLeft() >= 600){
+            // if(Number($(".item[idx="+curr+"]").attr("left")) - $("#div1").scrollLeft() >= 600){
+			if(position == 4){
                 if(idxNum >= 4){
                     $("#div1").scrollLeft($("#div1").scrollLeft() + 200);
                 }
+				position = 3;
             }
 			
 		}else if(e.keyCode == 37){
@@ -105,11 +112,16 @@ var data = {
 				return;
 			}
 			
+			position--;
+			consoleDiv.html(position);
+
             // 스크롤 좌측 이동
-            if(Number($(".item[idx="+curr+"]").attr("left")) - $("#div1").scrollLeft() <= 102){
+            // if(Number($(".item[idx="+curr+"]").attr("left")) - $("#div1").scrollLeft() <= 102){
+			if(position == -1){
                 if(idxNum <= data.videos.length - 5){
                     $("#div1").scrollLeft($("#div1").scrollLeft() - 200);
                 }
+				position = 0;
             }
 		}
 		myFocus(idxNum);
@@ -117,10 +129,11 @@ var data = {
 </script>  
 </head>
 <body>
-key event - left, right
-<br>
-<div id="div1">
 
+<div id="div1">
+	
+</div>
+<div id="console" style="clear:both;">
 </div>
 
 <script id="template1" type="text/x-handlebars-template">
