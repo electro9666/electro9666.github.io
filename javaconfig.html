@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">    
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="scrollspy/scrollspy.css">        
+    <link rel="stylesheet" href="highlight/styles/vs2015.css">    
+    <style>
+    body, pre, tt, code, kbd, samp {
+        font-style: consolas;
+        font-size: 11px;
+    }
+    a{
+        font-size: 16px !important;
+    }
+    h2, h3, h4, h5 {
+        font-style: consolas;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="" id="container">
+        <div class="row">
+            <div class="col-sm-1" id="scrollspy">
+            </div>               
+            <div class="col-sm-11" id="contents">
+               <h2>XML -> JavaConfig</h2>
+                <!-- 시작 -->
+                <h3>test</h3>
+                <div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <pre><code class="xml">
+                            &lt;test&gt;AAA&lt;/test&gt;
+                            </code></pre>            
+                            </div>    
+                        <div class="col-sm-6">
+                            <pre><code class="java">
+                            String a = "";
+                            </code></pre>                        
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <p>출처: 
+        <br>전자정부프레임워크 샘플 기준
+        <br>https://okky.kr/article/318618
+    </p>
+    
+    <!-- highlight.js -->
+    <script src="highlight/highlight.pack.js"></script>
+
+    <!-- scrollspy & bootstrap -->
+    <script src="jquery/jquery-1.12.3.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>    
+    <script src="scrollspy/dynamicscrollspy.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    
+    <script>
+//        hljs.initHighlightingOnLoad();    // Attaches highlighting to the page load event.
+        var idx = 0;
+        var totalIdx = 0;
+
+        function makeTeplate(obj){
+            totalIdx++;
+            
+            var title = obj.title;
+            var source = $("#template1").html(); 
+            var template = Handlebars.compile(source);
+            var html = template({"title":title});
+            $("#contents").append(html);   
+            
+            if(obj.path1 !== "" && obj.path1.endsWith("-xml.txt")){
+                // 1
+                $.get(obj.path1, function(data) {
+                    data = data.replace(/</g, '&lt;')
+                    data = data.replace(/>/g, '&gt;')
+                    $("#" + title + "_1").html(data);
+                    
+                    // 2
+                    if(obj.path2 !== "" && obj.path2.endsWith("-java.txt")){
+                        $.get(obj.path2, function(data) {
+                            $("#" + title + "_2").html(data);
+
+                            endProcess();
+                        });
+                    }
+                    
+                    // 특이케이스
+                    if(obj.path2 !== "" && obj.path2.endsWith("-xml.txt")){
+                        $.get(obj.path2, function(data) {
+                            data = data.replace(/</g, '&lt;')
+                            data = data.replace(/>/g, '&gt;')
+                            $("#" + title + "_2").html(data);
+                            $("#" + title + "_2").removeClass("java");
+                            $("#" + title + "_2").addClass("xml");
+                            endProcess();
+                        });                
+                    }            
+                });
+            }
+        }
+        function endProcess(){
+            idx++;
+            
+            // finish
+            if(idx >= totalIdx){
+                console.log("idx=" + idx +", totalIdx=" + totalIdx);
+                hljs.initHighlighting();
+                $(function() {
+                    $('#scrollspy').DynamicScrollspy({
+                        genIDs: true
+                    });
+                });                        
+            }                
+        }
+        $(document).ready(function(){
+            makeTeplate({"title":"aop", "path1":"javaconfig/01.aop-xml.txt", "path2":"javaconfig/01.aop-java.txt"});
+            makeTeplate({"title":"common", "path1":"javaconfig/02.common-xml.txt", "path2":"javaconfig/02.common-java.txt"});
+            makeTeplate({"title":"db", "path1":"javaconfig/03.db-xml.txt", "path2":"javaconfig/03.db-java.txt"});
+            makeTeplate({"title":"sqlMap", "path1":"javaconfig/04.sqlMap-xml.txt", "path2":"javaconfig/04.sqlMap-java.txt"});
+            makeTeplate({"title":"mapper", "path1":"javaconfig/05.mapper-xml.txt", "path2":"javaconfig/05.mapper-java.txt"});
+            makeTeplate({"title":"transaction", "path1":"javaconfig/06.transaction-xml.txt", "path2":"javaconfig/06.transaction-java.txt"});
+            makeTeplate({"title":"transaction2", "path1":"javaconfig/06.transaction-xml.txt", "path2":"javaconfig/06.transaction2-java.txt"});
+            makeTeplate({"title":"idgen", "path1":"javaconfig/07.idgen-xml.txt", "path2":"javaconfig/07.idgen-java.txt"});
+            makeTeplate({"title":"properties", "path1":"javaconfig/08.properties-xml.txt", "path2":"javaconfig/08.properties-java.txt"});
+            makeTeplate({"title":"validator", "path1":"javaconfig/09.validator-xml.txt", "path2":"javaconfig/09.validator-java.txt"});
+            makeTeplate({"title":"root", "path1":"javaconfig/10.root-xml.txt", "path2":"javaconfig/10.root-java.txt"});
+            makeTeplate({"title":"web", "path1":"javaconfig/11.web-xml.txt", "path2":"javaconfig/11.web2-xml.txt"});
+            makeTeplate({"title":"servlet", "path1":"javaconfig/12.servlet-xml.txt", "path2":"javaconfig/12.servlet-java.txt"});
+            makeTeplate({"title":"web2", "path1":"javaconfig/13.web-xml.txt", "path2":"javaconfig/13.web2-xml.txt"});
+        })
+    </script>
+
+
+<script id="template1" type="text/x-handlebars-template">
+<h3>{{title}}</h3>
+<div>
+    <div class="row">
+        <div class="col-sm-6">
+            <pre><code class="xml" id="{{title}}_1">
+
+            </code></pre>            
+            </div>    
+        <div class="col-sm-6">
+            <pre><code class="java" id="{{title}}_2">
+
+            </code></pre>                        
+        </div>
+    </div>
+</div>
+</script>
+</body>
+
+</html>

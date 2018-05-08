@@ -1,0 +1,29 @@
+@Aspect
+@Configuration
+public class ContextTransaction2 {
+    @Autowired
+    private PlatformTransactionManager transactionManager;
+    @Bean
+    public TransactionInterceptor txAdvice() {
+        MatchAlwaysTransactionAttributeSource source = new MatchAlwaysTransactionAttributeSource();
+        RuleBasedTransactionAttribute transactionAttribute = new RuleBasedTransactionAttribute();
+        transactionAttribute.setName("*");
+        transactionAttribute.setRollbackRules(Collections.singletonList(new RollbackRuleAttribute(Exception.class)));
+        source.setTransactionAttribute(transactionAttribute);
+        TransactionInterceptor txAdvice = new TransactionInterceptor(transactionManager, source);
+        return txAdvice;
+    }
+    @Bean
+    public Advisor txAdviceAdvisor() {
+        AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
+        pointcut.setExpression("execution(* egovframework.let..impl.*Impl.*(..)) or execution(* egovframework.com..*Impl.*(..))");
+        return new DefaultPointcutAdvisor(pointcut, txAdvice());
+    }
+    
+    /**
+     *  ContextDataSource.java에 추가 후 Autowired로 사용 
+     */
+//    public PlatformTransactionManager transactionManager() {
+//    	return new DataSourceTransactionManager(dataSource());
+//    }
+}

@@ -1,0 +1,14 @@
+@Configuration
+// 방법1 <tx:annotation-driven/> 과 동일, 각 서비스에 @Transactional 추가 필요
+@EnableTransactionManagement
+// 방법2 XML 설정파일을 Java Config에서 사용한다는 의미
+// @ImportResource("classpath:/egovframework/spring/context-transaction.xml")
+public class ContextTransaction {
+
+	@Bean
+	public DataSourceTransactionManager transactionManager(DataSource dataSource){
+		DataSourceTransactionManager dstm = new DataSourceTransactionManager();
+		dstm.setDataSource(dataSource);
+		return dstm;
+	}
+}
