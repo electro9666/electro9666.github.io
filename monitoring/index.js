@@ -98,6 +98,7 @@
     /* dom 생성 */
     function createElement2(elString, key, clazz, html, parent, callBackFn, isAppendChild){
         var iDiv = document.createElement(elString);
+        iDiv.setAttribute("idx", ++elementInx);
         if(key !== null){
             iDiv.id = key;
         }
@@ -109,15 +110,58 @@
         }
         if(callBackFn){   /* false인 경우는 실행 안하기 위해서 */
             iDiv.addEventListener("click", callBackFn);
+            // mouse right button for diff text
+            iDiv.oncontextmenu = function(event) {
+                var tickerNum = toggleTickerCount();
+
+                var ticker = document.createElement("div");
+                ticker.className = "ticker";
+                ticker.style.top = iDiv.offsetTop + "px";
+                ticker.style.left = iDiv.offsetLeft + "px";
+                ticker.innerHTML = tickerNum;
+                ticker.setAttribute("num", tickerNum);
+                document.getElementById("__monitoringResult__").appendChild(ticker);
+
+                tickerArr[tickerNum] = Number(iDiv.getAttribute("idx"));
+
+                // diff
+                if(tickerNum === 1){
+                    diffFn();
+                }
+
+                event.preventDefault(); // context menu가 나오지 않도록 막기
+            };
         }
         if(typeof isAppendChild === "undefined" || isAppendChild === true){   /* false인 경우는 실행 안하기 위해서 */
             document.getElementById(parent).appendChild(iDiv);
         }
         return iDiv;
     }
+    var toggleTickerCount = (function(){
+        var tickerCount = 1;    // 0 or 1   , private
+        function toggleFn(){
+            tickerCount = 1 - tickerCount;
+
+            // 이전 데이터 삭제
+            if(tickerCount === 0){
+                var arr = document.getElementsByClassName("ticker");
+                var len = arr.length;   // 배열의 요소를 지울때, len이 변동된다.
+                for (var i = 0; i < len; i++) {
+                    arr[0].remove();
+                }
+            }
+            return tickerCount;
+        }
+        return toggleFn;
+    }());
+    function toggleTickerCount(){
+
+    }
     /**
      * 04. 변수 정의
      */
+    var tickerArr = [];     // length = 2
+    var elementInx = 0;     // idx
     var value = "";
     var autoScroll;         // width autoScroll
     var intervalSeq = 0;  // run 함수 실행 순서
@@ -170,7 +214,7 @@
     // wordWrap
     if(window.localStorage.getItem("isWordWrap") === null || window.localStorage.getItem("isWordWrap") === ""){
         isWordWrap = "";
-        document.getElementById("__scrollCheckbox__").checked = false;
+        document.getElementById("__wordWrapCheckbox__").checked = false;
     }else{
         isWordWrap = window.localStorage.getItem("isWordWrap");
         document.getElementById("__wordWrapCheckbox__").checked = isWordWrap === "wordWrap";
@@ -262,7 +306,7 @@
         // past에서 삭제된 데이터 확인(past에는 있었지만 target에서 사라진 경우)
         var deleteList = [];
         for(k in pastObj){
-            if(Object.keys(targetObj).indexOf(k) === -1){
+            if(tKeyArr.indexOf(k) === -1){
                 // 사라진 데이터 !!
                 c(k + " deleted");
                 deleteList.push(k);
@@ -416,9 +460,19 @@
     // textarea에 출력해준다.
     function contentClickFn(){
         // div내에 pre가 들어있는 경우 제거한다.
-        var v = this.innerHTML.replace("<pre>", "");
-        v = v.replace("</pre>", "");
+        var v = removePre(this.innerHTML);
         c2(beautyContent(v));
+    }
+    function removePre(str){
+        str = str.replace("<pre>", "");
+        str = str.replace("</pre>", "");
+        
+        str = str.replace(/<span class="ht1">/g, "");
+        str = str.replace(/<span class="ht2">/g, "");
+        str = str.replace(/<\/span>/g, "");
+
+        console.log(str);
+        return str;
     }
     function beautyContent(content){
         try{
@@ -477,8 +531,7 @@
 
             for (var i = 0; i < m2Cells.length; i++) {
                 m2Cells[i].classList.remove("wordWrap");
-                m2Cells[i].innerHTML = m2Cells[i].innerHTML.replace("<pre>", "");
-                m2Cells[i].innerHTML = m2Cells[i].innerHTML.replace("</pre>", "");
+                m2Cells[i].innerHTML = removePre(m2Cells[i].innerHTML);
             }        
         }
         window.localStorage.setItem("isWordWrap", isWordWrap);
@@ -546,6 +599,142 @@
         //document.getElementById("__monitoringResult__").style.width = 100 * (colCount - 1) + 400 + "px";
         // m100 -> 100        
         document.getElementById("__monitoringResult__").style.width = Number(M100.replace("m", "")) * (colCount - 1) + 400 + "px";
+    }
+    function diffFn(){
+        try{
+            // console.log(tickerArr[0], tickerArr[1]);
+            var arr = document.getElementsByClassName("m2");
+            var selectedEle = [];   // lenght = 2;
+            for (var i = 0; i < arr.length; i++) {
+                if(Number(arr[i].getAttribute("idx")) === tickerArr[0]){
+                    selectedEle[0] = arr[i];
+                }
+                if(Number(arr[i].getAttribute("idx")) === tickerArr[1]){
+                    selectedEle[1] = arr[i];
+                }                        
+            }
+            if(!selectedEle[0] || !selectedEle[1]){
+                c2("firstE or secondE is undefined.");
+                console.log(selectedEle[0], selectedEle[1]);
+                return;
+            }
+            
+            var innerHtmlsWithoutPre = [];  // innerHTML 임시 보관, 마지막에 다시 사용할 예정
+            var objs = [];
+            for (var i = 0; i < selectedEle.length; i++) {
+                var v = selectedEle[i].innerHTML;
+                v = removePre(v);
+                innerHtmlsWithoutPre[i] = v;
+    
+                objs[i] = JSON.parse(v);
+            }
+    
+            if(!objs[0] instanceof Object || !objs[1] instanceof Object){
+                c2("objs is not Object.");
+                console.log("objs is not Object.");
+                return;
+            }
+            if(objs[0] instanceof Array || objs[1] instanceof Array){
+                c2("objs is Array. diff ignore...");
+                console.log("objs is Array. diff ignore...");
+                return;                
+            }
+
+            // diff
+            console.log(objs);
+            var diff_new = [];
+            var diff_delete = [];
+            var diff_change = [];
+            var firstKeyArr = Object.keys(objs[0]);
+            var secondKeyArr = Object.keys(objs[1]);
+            for(k in objs[1]){ // second
+                if(typeof k !== "string"){
+                    // string key가 아닌 경우 pass
+                    c(k + " is not a string key.");
+                    continue;
+                }
+
+                if(firstKeyArr.indexOf(k) === -1){
+                    // new key
+                    diff_new.push(k);
+                }else{
+                    var pStr = JSON.stringify(objs[0][k]);
+                    var tStr = JSON.stringify(objs[1][k]);
+                    if(pStr === tStr){
+                        // 기존의 것과 키와 값이 같다. (무시)
+                    }else{
+                        // 키는 같지만 내용이 다름
+                        diff_change.push(k);
+                    }                
+                }
+            }
+            // key 가 삭제된 경우
+            for(k in objs[0]){  // first
+                if(typeof k !== "string"){
+                    // string key가 아닌 경우 pass
+                    c(k + " is not a string key.");
+                    continue;
+                }                
+                if(secondKeyArr.indexOf(k) === -1){
+                    // 사라진 데이터 !!
+                    diff_delete.push(k);
+                }
+            }        
+            c2();
+            c2("new key="+diff_new)
+            c2("changed key="+diff_change)
+            c2("deleted key="+diff_delete);
+
+            // new
+            for (var i = 0; i < diff_new.length; i++) {
+                // second obj
+                objs[1]['<span class=\'ht1\'>' + diff_new[i] + '</span>'] = objs[1][diff_new[i]];
+                delete objs[1][diff_new[i]];
+            }
+            // change
+            for (var i = 0; i < diff_change.length; i++) {
+                // first obj
+                objs[0]['<span class=\'ht2\'>' + diff_change[i] + '</span>'] = objs[0][diff_change[i]];
+                delete objs[0][diff_change[i]];                
+                // second obj
+                objs[1]['<span class=\'ht2\'>' + diff_change[i] + '</span>'] = objs[1][diff_change[i]];
+                delete objs[1][diff_change[i]]; 
+            }
+            // delete (시간의 흐름상 new와 delete는 같은 색상으로 표시)
+            for (var i = 0; i < diff_delete.length; i++) {
+                // first obj
+                objs[0]['<span class=\'ht1\'>' + diff_delete[i] + '</span>'] = objs[0][diff_delete[i]];
+                delete objs[0][diff_delete[i]];                                
+            }
+            // // new
+            // for (var i = 0; i < diff_new.length; i++) {
+            //     // second obj
+            //     innerHtmlsWithoutPre[1] = innerHtmlsWithoutPre[1].replace(diff_new[i], '<span class=\'ht1\'>' + diff_new[i] + '</span>');
+            // }
+            // // change
+            // for (var i = 0; i < diff_change.length; i++) {
+            //     // first obj
+            //     innerHtmlsWithoutPre[0] = innerHtmlsWithoutPre[0].replace(diff_change[i], '<span class=\'ht2\'>' + diff_change[i] + '</span>');
+            //     // second obj
+            //     innerHtmlsWithoutPre[1] = innerHtmlsWithoutPre[1].replace(diff_change[i], '<span class=\'ht2\'>' + diff_change[i] + '</span>');
+            // }
+            // // delete
+            // for (var i = 0; i < diff_delete.length; i++) {
+            //     // first obj
+            //     innerHtmlsWithoutPre[0] = innerHtmlsWithoutPre[0].replace(diff_delete[i], '<span class=\'ht3\'>' + diff_delete[i] + '</span>');
+            // }
+
+            // 다시 주입
+            // selectedEle[0].innerHTML = "<pre>" + innerHtmlsWithoutPre[0] + "</pre>";
+            // selectedEle[1].innerHTML = "<pre>" + innerHtmlsWithoutPre[1] + "</pre>";
+            selectedEle[0].innerHTML = "<pre>" + JSON.stringify(objs[0], null, 4) + "</pre>";
+            selectedEle[1].innerHTML = "<pre>" + JSON.stringify(objs[1], null, 4) + "</pre>";
+
+
+        }catch(e){
+            c2(e);
+            console.log(e);
+        }
     }
     document.getElementById("__monitoringStartButton__").addEventListener("click", startIntervalFn);
     document.getElementById("__monitoringStopButton__").addEventListener("click", stopIntervalFn);
