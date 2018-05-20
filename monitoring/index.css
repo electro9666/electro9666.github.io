@@ -1,0 +1,88 @@
+body, textarea {
+    font-family: consolas;
+    font-size:10px;
+    background-color:rgb(30, 30, 30);
+    color:white;
+}
+div{
+    box-sizing:border-box; /*border 포함 */
+}
+.filterHeader{
+    position:fixed;
+    top:0px;
+    width:100%;
+    background-color:darkgreen;
+}
+.m0{
+    width:200px;
+}
+.m1{
+    /* border:1px solid darkslategray; */
+    width:100%;
+    height:30px;
+    clear:both;
+    margin-top:2px;
+}
+.m2{
+    border:1px solid darkslategray;
+    height:30px;
+    float:left;
+    overflow:hidden;
+}
+.m20{ width:20px;}
+.m50{ width:50px;}
+.m100{ width:100px;}
+.m200{ width:200px;}
+.m300{ width:300px;}
+.m400{ width:400px;}
+.m500{ width:500px;}
+.m2_head{
+    border:1px solid darkslategray;
+    background-color:black;
+    width:200px;
+    height:30px;
+    float:left;
+    overflow:hidden;
+}
+.m3{
+    /* change */
+    background-color:rgb(0, 0, 56);
+}
+.m4{
+    /* delete */
+    background-color:gray;
+}
+.m5{
+    /* new */
+    font-weight: bold;
+    background-color:rgb(70, 1, 70);
+}
+.m2_right{
+    border:1px solid darkslategray;
+    background-color:black;
+    width:200px;
+    height:30px;    
+    float:right;
+    overflow:hidden;
+}
+.po{
+    cursor: pointer;
+}
+.desc{
+    font-size:16px;
+}
+textarea{
+    width:48%;
+}
+.exceptionItem{
+    margin:5px;
+    border:1px solid black;
+}
+.po_copy{
+    cursor: copy;
+}
+.wordWrap{
+    word-wrap: break-word;
+    height: auto;
+    min-height:30px;
+}
