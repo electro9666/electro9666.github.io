@@ -70,7 +70,7 @@
     /**
      * 03. 함수 정의
      */
-    // textArea 출력
+    /* textArea 출력 */
     function c(){
         var str="";
         for (var index = 0; index < arguments.length; index++) {
@@ -83,7 +83,7 @@
         ta.value = ta.value + "\n[[[ intervalSeq=" + intervalSeq + " ]]]";
         ta.value = ta.value + "\n" + str;
     }
-    // textArea 출력
+    /* textArea 출력 */
     function c2(){
         var str="";
         for (var index = 0; index < arguments.length; index++) {
@@ -95,7 +95,7 @@
         var ta = document.getElementById("__monitoringTextarea2__");
         ta.value = ta.value + "\n" + str;
     }
-    // dom 생성
+    /* dom 생성 */
     function createElement2(elString, key, clazz, html, parent, callBackFn, isAppendChild){
         var iDiv = document.createElement(elString);
         if(key !== null){
@@ -107,10 +107,10 @@
         if(html !== null){
             iDiv.innerHTML = html;
         }
-        if(callBackFn){   // false인 경우는 실행 안하기 위해서
+        if(callBackFn){   /* false인 경우는 실행 안하기 위해서 */
             iDiv.addEventListener("click", callBackFn);
         }
-        if(typeof isAppendChild === "undefined" || isAppendChild === true){   // false인 경우는 실행 안하기 위해서
+        if(typeof isAppendChild === "undefined" || isAppendChild === true){   /* false인 경우는 실행 안하기 위해서 */
             document.getElementById(parent).appendChild(iDiv);
         }
         return iDiv;
@@ -358,10 +358,7 @@
             }else{
                 colCount++;
             }
-            // 100은 m2의 값, 400은 left, right의 합.
-            //document.getElementById("__monitoringResult__").style.width = 100 * (colCount - 1) + 400 + "px";
-            // m100 -> 100
-            document.getElementById("__monitoringResult__").style.width = Number(M100.replace("m", "")) * (colCount - 1) + 400 + "px";
+            windowWidthResize();
 
             // if(colCount === 2){
             //     // __monitoringReloadCount__ 위로 올리기 (1회)
@@ -542,6 +539,13 @@
             m2Cells[i].classList.remove("m500");
             m2Cells[i].classList.add(M100);
         }
+        windowWidthResize();
+    }
+    function windowWidthResize(){
+        // 100은 m2의 값, 400은 left, right의 합.
+        //document.getElementById("__monitoringResult__").style.width = 100 * (colCount - 1) + 400 + "px";
+        // m100 -> 100        
+        document.getElementById("__monitoringResult__").style.width = Number(M100.replace("m", "")) * (colCount - 1) + 400 + "px";
     }
     document.getElementById("__monitoringStartButton__").addEventListener("click", startIntervalFn);
     document.getElementById("__monitoringStopButton__").addEventListener("click", stopIntervalFn);
