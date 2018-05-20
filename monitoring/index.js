@@ -110,6 +110,7 @@
         }
         if(callBackFn){   /* false인 경우는 실행 안하기 위해서 */
             iDiv.addEventListener("click", callBackFn);
+
             // mouse right button for diff text
             iDiv.oncontextmenu = function(event) {
                 var tickerNum = toggleTickerCount();
@@ -125,7 +126,7 @@
                 tickerArr[tickerNum] = Number(iDiv.getAttribute("idx"));
 
                 // diff
-                if(tickerNum === 1){
+                if(tickerNum === 1){    // 0과 1에서, 1이 나올때 비교한다.
                     diffFn();
                 }
 
@@ -629,7 +630,8 @@
                 objs[i] = JSON.parse(v);
             }
     
-            if(!objs[0] instanceof Object || !objs[1] instanceof Object){
+            console.log(objs);
+            if(typeof objs[0] !== "object" || typeof objs[1] !== "object"){
                 c2("objs is not Object.");
                 console.log("objs is not Object.");
                 return;
