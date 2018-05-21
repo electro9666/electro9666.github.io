@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        div{
+            border:1px solid black;
+            padding:5px;
+            margin:0px;
+            float:left;
+            margin:10px;
+        }
+        #div1 h5:first-child
+        , #div2 p:first-child
+        , #div3 p:first-of-type
+        , #div4 h5:last-child
+        , #div5 h5:last-of-type
+        , #div6 h5:nth-child(odd)
+        , #div7 h5:nth-child(even)
+        , #div8 h5:nth-child(2n+1)
+        , #div9 h5:nth-of-type(3) 
+        , #div10 h5[for]
+        , #div11 h5[for=A]
+        {
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        #div1 h5:first-child<br>
+        <div id="div1">
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+        </div>
+    </div>
+    <div>
+        #div2 p:first-child<br>
+        <div id="div2">
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+        </div>
+        해당 child 중에서<br>
+        첫번째가 아니라서 효과없음
+    </div>
+    <div>
+        #div3 p:first-of-type<br>
+        <div id="div3">
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+        </div>
+        p 중에서는 첫번째
+    </div>
+    <div>
+        #div4 h5:last-child<br>
+        <div id="div4">
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+        </div>
+        효과없음
+    </div>   
+    <div>
+        #div5 h5:last-of-type<br>
+        <div id="div5">
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+        </div>
+    </div>   
+    <div>
+        #div6 h5:nth-child(odd)<br>
+        <div id="div6">
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+        </div>
+        홀수
+    </div>   
+    <div>
+        #div7 h5:nth-child(even)<br>
+        <div id="div7">
+            <p>p</p>
+            <h5>h5</h5>
+            <h5>h5</h5>
+            <p>p</p>
+            <h5>h5</h5>
+            <p>p</p>
+            <p>p</p>
+            <h5>h5</h5>
+            <h5>h5</h5>
+            <p>p</p>
+        </div>
+        (전체 child중에서 > <br>
+        짝수 > 그 중에서 h5)
+    </div>   
+    <div>
+        #div8 h5:nth-child(2n+1)<br>
+        <div id="div8">
+            <p>p</p>
+            <h5>h5</h5>
+            <h5>h5</h5>
+            <p>p</p>
+            <p>p</p>
+            <p>p</p>
+            <h5>h5</h5>
+            <h5>h5</h5>
+            <h5>h5</h5>
+            <p>p</p>
+        </div>
+        (전체 child중에서 > <br>
+        2n+1(n>=0) > 그 중에서 h5)
+    </div>   
+    <div>
+        #div9 h5:nth-of-type(3)<br>
+        <div id="div9">
+            <p>p</p>
+            <h5>h5</h5>
+            <h5>h5</h5>
+            <p>p</p>
+            <p>p</p>
+            <p>p</p>
+            <h5>h5</h5>
+            <h5>h5</h5>
+            <h5>h5</h5>
+            <p>p</p>
+        </div>
+        child중에서 > h5 3번째
+    </div>   
+    <div style="clear:both;"></div>
+    <div>
+        #div10 h5[for]<br>
+        <div id="div10">
+            <p>p</p>
+            <h5>h5</h5>
+            <h5>h5</h5>
+            <p>p</p>
+            <p>p</p>
+            <p>p</p>
+            <h5 for="">h5</h5>
+            <h5 for="">h5</h5>
+            <h5>h5</h5>
+            <p>p</p>
+        </div>
+        for속성을 가진 h5
+    </div>   
+    <div>
+        #div11 h5[for=A]<br>
+        <div id="div11">
+            <p>p</p>
+            <h5>h5</h5>
+            <h5>h5</h5>
+            <p>p</p>
+            <p>p</p>
+            <p>p</p>
+            <h5 for="">h5</h5>
+            <h5 for="A">h5</h5>
+            <h5>h5</h5>
+            <p>p</p>
+        </div>
+        for=A속성을 가진 h5
+    </div>   
+    <br>
+    <div style="clear:both;">
+    <pre>
+    A
+    #id
+    A  B
+    #id  A
+    .classname
+    A.className
+    A, B
+    *
+    A *         // This selects all elements inside of A
+    div + a	    // div + a selects every a element that directly follows a div
+    A ~ B		// selects all B that follow a A
+    A > B       // selects all B that are a direct children A
+
+    :only-child
+    :first-child
+    :last-child
+
+    :nth-of-type(n)
+    :nth-of-type(2n+1)
+    :nth-child(n)
+    :nth-last-child(n)
+
+    :only-of-type
+    :first-of-type
+    :last-of-type
+
+    :empty
+    div:not(:first-child)   // selects every div that is not a first child.
+
+    a[href]                 // selects all a elements that have a href="anything" attribute.
+    input[type="checkbox"]  // selects all checkbox input elements.
+    .toy[category^="Swim"]  // selects elements with class toy and either category="Swimwear or category="Swimming".
+    img[src$=".jpg"]        // selects all images display a .jpg image.
+    [class*="heading"]      // selects all elements with "heading" in their class, like class="main-heading" and class="sub-heading"
+
+    출처: http://flukeout.github.io/
+    </pre>
+    </div>
+    
+</body>
+</html>
