@@ -22,10 +22,10 @@ function checkObject(obj, address){
             address = address + __DEL__ + obj["id"]["name"]; 
         }
     }else if(obj["type"] === "AssignmentExpression"){
-        if(obj["left"]["type"] === "MemberExpression"){
+        if(obj["left"]["type"] === "MemberExpression" && obj["right"]["type"] !== "CallExpression"){
             // address = address + __DEL__ + obj["type"] + "(" + loopMemberExpressionAddress(obj["left"]) + ")"; 
             address = address + __DEL__ + loopMemberExpressionAddress(obj["left"]); 
-        }else if(obj["left"]["type"] === "Identifier"){
+        }else if(obj["left"]["type"] === "Identifier" && obj["right"]["type"] !== "CallExpression"){
             // address = address + __DEL__ + obj["type"] + "(" + obj["left"]["name"] + ")"; 
             address = address + __DEL__ + obj["left"]["name"]; 
         }else{
@@ -60,7 +60,7 @@ function checkObject(obj, address){
             if(obj["callee"]["type"] === "Identifier"){
                 console.log(address, "CallExpression", obj["callee"]["name"]);
                 address = address.substring(0, address.lastIndexOf("###CallExpression"));
-                functionAddressList.push({type:"call", address:address, call:obj["callee"]["name"]});
+                functionAddressList.push({type:"call", address:address, call:obj["callee"]["name"]});   // TODO undefined될 수 있다.(예: handstudio1.js)
             }else if(obj["callee"]["type"] === "MemberExpression"){
                 console.log(address, "callee", loopMemberExpressionValue(obj["callee"]));
                 address = address.substring(0, address.lastIndexOf("###CallExpression"));
@@ -162,6 +162,10 @@ for (var i = 0; i < functionAddressList.length; i++) {
     }else{
         // TODO : functionList에 있는 것만
         var call = functionAddressList[i].call;
+        if(typeof call === "undefined"){
+            console.error("typeof call is undefined.", functionAddressList[i]);
+            continue;
+        }
         var fnName = "";
         if(call.indexOf(".") !== -1){
             fnName = call.substring(call.lastIndexOf(".") + 1)
