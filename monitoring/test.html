@@ -34,6 +34,12 @@
         }
         setInterval(aaa, 1000);
     }());
+    var __MO__;
+    (function(){
+        var a = 1;
+        var b = "as";
+        // __MO__ = this;   // Window객체
+    }());
     setInterval(function(){
         dudu.age = Math.random();
         dudu[Math.random()] = Math.random();
@@ -41,7 +47,7 @@
     </script>
 </head>
 <body>
-    <a id="aaa" href="javascript:__monitoringCount__=0;w=window.open('index.html');">클릭</a>
+    <a id="aaa" href="javascript:w=window.open('index.html');">클릭</a>
     <div style="border:1px solid red;overflow:hidden;height:50px;font-size:100px;">ddd</div>
     <br>
     <br>
