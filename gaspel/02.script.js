@@ -179,13 +179,6 @@ function detectmob() {
     return false;
   }
 }
-if (detectmob()) {
-  // mobile
-
-} else {
-  // pc
-
-}
 
 $(document).ready(() => {
 $('.radio1').click(function(e) {
@@ -229,5 +222,11 @@ $('.radio1').click(function(e) {
     });
   }
 });
-$('.radio1').eq(0).trigger('click');
+if (detectmob()) {
+  // mobile
+  $('.radio1').eq(1).trigger('click');
+} else {
+  // pc
+  $('.radio1').eq(0).trigger('click');
+}  
 })
