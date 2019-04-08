@@ -1,5 +1,5 @@
 var node = [
-  { book: 0, desc: '예수그리스도의 계보', chapter: 1, start: 1, end: 17, id: '0_1_1_17' },
+  { book: 0, desc: '(마태복음)예수그리스도의 계보', chapter: 1, start: 1, end: 17, id: '0_1_1_17' },
   { book: 0, desc: '예수그리스도의 나심', chapter: 1, start: 18, end: 25, id: '0_1_18_25' },
   { book: 0, desc: '동방박사', chapter: 2, start: 1, end: 12, id: '0_2_1_12' },
   { book: 0, desc: '애굽피신', chapter: 2, start: 13, end: 18, id: '0_2_13_18' },
@@ -129,7 +129,7 @@ var node = [
   { book: 0, desc: '살아나시다', chapter: 28, start: 1, end: 10, id: '0_28_1_10' },
   { book: 0, desc: '경비병의 보고', chapter: 28, start: 11, end: 15, id: '0_28_11_15' },
   { book: 0, desc: '제자들에게 할일을 분부하다', chapter: 28, start: 16, end: 20, id: '0_28_16_20' },
-  { book: 1, desc: '복음을 전파하다', chapter: 1, start: 1, end: 8, id: '1_1_1_8' },
+  { book: 1, desc: '(마가복음)복음을 전파하다', chapter: 1, start: 1, end: 8, id: '1_1_1_8' },
   { book: 1, desc: '세례를 받다', chapter: 1, start: 9, end: 11, id: '1_1_9_11' },
   { book: 1, desc: '시험을 받다', chapter: 1, start: 12, end: 13, id: '1_1_12_13' },
   { book: 1, desc: '갈릴리에서 복음전파', chapter: 1, start: 14, end: 15, id: '1_1_14_15' },
@@ -221,7 +221,7 @@ var node = [
   { book: 1, desc: '두 제자에게 나타남', chapter: 16, start: 12, end: 13, id: '1_16_12_13' },
   { book: 1, desc: '만민에게 복음을 전파하라', chapter: 16, start: 14, end: 18, id: '1_16_14_18' },
   { book: 1, desc: '하늘로 올려지다', chapter: 16, start: 19, end: 20, id: '1_16_19_20' },
-  { book: 2, desc: '데오빌로 각하에게', chapter: 1, start: 1, end: 4, id: '2_1_1_4' },
+  { book: 2, desc: '(누가복음)데오빌로 각하에게', chapter: 1, start: 1, end: 4, id: '2_1_1_4' },
   { book: 2, desc: '세례요한의 출생 예고', chapter: 1, start: 5, end: 25, id: '2_1_5_25' },
   { book: 2, desc: '예수의 나심 예고', chapter: 1, start: 26, end: 38, id: '2_1_26_38' },
   { book: 2, desc: '마리아가 엘리사벳을 방문', chapter: 1, start: 39, end: 45, id: '2_1_39_45' },
@@ -353,7 +353,7 @@ var node = [
   { book: 2, desc: '엠마오길에서 나타남', chapter: 24, start: 13, end: 35, id: '2_24_13_35' },
   { book: 2, desc: '열한제자에게 나타남', chapter: 24, start: 36, end: 49, id: '2_24_36_49' },
   { book: 2, desc: '하늘로 올려지다', chapter: 24, start: 50, end: 53, id: '2_24_50_53' },
-  { book: 3, desc: '말씀이 육신이 되다', chapter: 1, start: 1, end: 18, id: '3_1_1_18' },
+  { book: 3, desc: '(요한복음)말씀이 육신이 되다', chapter: 1, start: 1, end: 18, id: '3_1_1_18' },
   { book: 3, desc: '세례요한의 증언', chapter: 1, start: 19, end: 28, id: '3_1_19_28' },
   { book: 3, desc: '하나님의 어린양을 보라', chapter: 1, start: 29, end: 34, id: '3_1_29_34' },
   { book: 3, desc: '요한의 두제자', chapter: 1, start: 35, end: 42, id: '3_1_35_42' },
@@ -426,7 +426,7 @@ var node = [
   { book: 3, desc: '이 책을 기록한 목적', chapter: 20, start: 30, end: 31, id: '3_20_30_31' },
   { book: 3, desc: '일곱 제자에게 나타남', chapter: 21, start: 1, end: 14, id: '3_21_1_14' },
   { book: 3, desc: '내 양을 먹이라', chapter: 21, start: 15, end: 25, id: '3_21_15_25' },
-  
+    
 ];
 var originalLink = [
   {t: '0_1_1_17', k: '', n: '2_3_23_38', j: '' },
