@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    svg {
+      border: 1px solid gray;
+      overflow: hidden;
+    }
+    .node {
+      cursor: move;
+      stroke: #000;
+      stroke-width: 1.5px;
+    }
+    .node-white {
+      fill: white;
+    }
+    .solid {
+      stroke: solid;
+    }
+    .dashed {
+      stroke-dasharray: 5, 5;
+    }
+    .line-stroke {
+      stroke-width: 10px;
+      /* stroke: rgba(90, 137, 144, 0.2); */
+      opacity: 0.4;
+      fill: none;
+    }
+    .chapter {
+      font-size: 12px;
+    }    
+  </style>
+</head>
+
+<body>
+  <svg></svg>
+  <br/>참고: 개역개정 4판 소제목 및 참조 구절
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+  <script src="//d3js.org/d3.v3.min.js"></script>
+  <script src="02.data.js"></script>
+  <script src="02.data-process.js"></script>
+  <script src="02.script.js"></script>
+</body>
+
+</html>
