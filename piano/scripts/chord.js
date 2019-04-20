@@ -249,8 +249,9 @@ class ChordManager {
         break;
       default:
         // console.log('result', result);
-        console.error('not match, note:', note, note.substring(1));
-        document.getElementById('error').innerHTML = 'not match, note: ' + note + ', ' + note.substring(1);
+        alert('invalid note:' + note);
+        throw new Error('invalid note:' + note);
+        // document.getElementById('error').innerHTML = 'not match, note: ' + note + ', ' + note.substring(1);
         break;
     }
     return result;

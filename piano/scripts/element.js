@@ -6,10 +6,10 @@ $(document).ready(function () {
   Handlebars.registerHelper('showFn', function(params) {
     return params === 0 ? 'show' : '';
   });
-  Handlebars.registerHelper('chordFn', function(params) {
+  const parseChord = (chord) => {
     let html = '';
     let index = 0;    
-    this.chord.split('\n').forEach((v) => {
+    chord.split('\n').forEach((v) => {
       v = v.trim();
       if (!v) return;
       v.split(',').forEach((v) => {
@@ -27,6 +27,9 @@ $(document).ready(function () {
       html += '<br/>';
     });    
     return html;
+  }
+  Handlebars.registerHelper('chordFn', function(params) {
+    return parseChord(params.chord);
   });
   Handlebars.registerHelper('chordFn2', function(params) {
     return JSON.stringify(this)
@@ -85,9 +88,22 @@ $(document).ready(function () {
   /**
    * event
    */
+  window.openCard0 = (obj) => {
+    const isClose = $(obj).attr('aria-expanded');
+    if (isClose === 'false') {
+      window._testTextarea();
+
+      playButton.playing();
+      window.clickChord(null, 0, $(obj).closest('.card').find('.card-body'), true);
+    } else {
+      playButton.stopped();
+      if (currentPlay) {
+        currentPlay.stop();
+      }      
+    } 
+  }
   window.openCard = (obj) => {
     const isClose = $(obj).attr('aria-expanded');
-    console.log('isClose', isClose);
     if (isClose === 'false') {
       playButton.playing();
       window.clickChord(null, 0, $(obj).closest('.card').find('.card-body'));
@@ -98,7 +114,7 @@ $(document).ready(function () {
       }      
     }
   };
-  window.clickChord = (obj, index, cm) => {
+  window.clickChord = (obj, index, cm, isTest) => {
     if (!myMidi._isLoadSampler) {
       alert('sampler is loading...');
       return;
@@ -122,17 +138,25 @@ $(document).ready(function () {
       currentPlay.stop();
     }
   
-    currentPlay = new PlayChord(newNotes, myMidi);
+    currentPlay = new PlayChord(newNotes, myMidi, isTest);
     currentPlay.play(index);
   
-    $('#music_sheet').attr('src', source.img);
+    // $('#music_sheet').attr('src', source.img);
     // $('#music_sheet').css('height', window.innerHeight + 'px');
   }
   
   window._play = () => {
     if (currentPlay) {
-      currentPlay.resume();
-    }    
+      if (currentPlay.isTest) {
+        window._testTextarea();
+        window.clickChord(null, 0, $('#card-body0'), true);
+      } else {
+        currentPlay.resume();
+      }
+    } else {
+      window._testTextarea();
+      window.clickChord(null, 0, $('#card-body0'), true);      
+    }
   }
   window._pause = () => {
     if (currentPlay) {
@@ -163,5 +187,26 @@ $(document).ready(function () {
   }
   window._gotoGoogle = (keyword) => {
     window.open(`https://www.google.com/search?q=${encodeURIComponent(keyword + ' 악보')}&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjlrci50d3hAhWBXrwKHWeXDEYQ_AUIDigB&biw=1920&bih=937`);
+  }
+  window._testTextarea = () => {
+    var chord = $('.tx').val();
+    $('#card-body0').closest('.card').find('.card-body').data('source',  {
+      name: 'test',
+      speed: 1,
+      baseNote: 'A',
+      baseOctave: 3,    
+      chord: chord
+    });
+    var html = parseChord(chord);
+    $('.badgeModeList').html(html);
+    $('.badgeMode').show();
+    $('.editMode').hide();
+  }
+  window._editTextarea = () => {
+    $('.badgeMode').hide();
+    $('.editMode').show();
+    if (currentPlay) {
+      currentPlay.stop();
+    }    
   }
 });

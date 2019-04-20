@@ -92,7 +92,7 @@ class MyMidi {
           this._isLoadSampler = true;
         } catch(e) {
           console.log(e);
-          document.getElementById('error').innerHTML = JSON.stringify(e, null, 4);
+          // document.getElementById('error').innerHTML = JSON.stringify(e, null, 4);
         }
       },
     }).toMaster();
@@ -274,8 +274,9 @@ class MyMidi {
 }
 
 class PlayChord {
-  constructor(newNotes, myMidi) {
+  constructor(newNotes, myMidi, isTest=false) {
     this.myMidi = myMidi;
+    this.isTest = isTest;
 
     this.stopFlag = false;
     this.newNotes = newNotes;

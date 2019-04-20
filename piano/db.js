@@ -1,13 +1,13 @@
 var _play_data = [
-  {
-    name: 'test',
-    speed: 1,
-    baseNote: 'C',
-    baseOctave: 4,    
-    img: '',
-    // chord: `A#,B,C/D#,E/F`
-    chord: `C,D,E,F`
-  },
+  // {
+  //   name: 'test',
+  //   speed: 1,
+  //   baseNote: 'C',
+  //   baseOctave: 4,    
+  //   img: '',
+  //   // chord: `A#,B,C/D#,E/F`
+  //   chord: `C,D,E,F`
+  // },
   {
     name: '하나님의 등불',
     speed: 1,
@@ -195,7 +195,7 @@ var _play_data = [
     ^E,*B/D#,C#m7,A,B7,E,E`
   },     
   {
-    name: 'B밤이나 낮이나',
+    name: 'B 밤이나 낮이나',
     speed: 1,
     baseNote: 'F#',
     baseOctave: 3,
@@ -206,7 +206,7 @@ var _play_data = [
     A,B/A,G#m7,C#m7,F#m7,B7,E,E`
   },  
   {
-    name: 'C나의 삶의 결이',
+    name: 'C 나의 삶의 결이',
     speed: 1,
     baseNote: 'C',
     baseOctave: 4,
@@ -221,7 +221,7 @@ var _play_data = [
     G,D/F#,^Em7,*G/A,D,D`
   },
   {
-    name: 'C다윗의 노래',
+    name: 'C 다윗의 노래',
     speed: 1,
     baseNote: 'C',
     baseOctave: 4,
@@ -234,7 +234,7 @@ var _play_data = [
     FM7,E7,Am7,^Dsus4,*D,Dm7,F/G,C,C`
   },
   {
-    name: 'C먼저 그 나라와 의를 구하라',
+    name: 'C 먼저 그 나라와 의를 구하라',
     speed: 1,
     baseNote: 'C',
     baseOctave: 4,
@@ -244,7 +244,7 @@ var _play_data = [
     C,Em,F,C,F,C,G,G7,C,Em,F,C,F,C,Gsus4,C`
   },
   {
-    name: 'C사랑하는 나의 아버지',
+    name: 'C 사랑하는 나의 아버지',
     speed: 1,
     baseNote: 'C',
     baseOctave: 4,
@@ -259,7 +259,7 @@ var _play_data = [
     F,G7,C,G7`
   },  
   {
-    name: 'G그가 오신 이유',
+    name: 'G 그가 오신 이유',
     speed: 1,
     baseNote: 'C',
     baseOctave: 4,
@@ -291,7 +291,7 @@ var _play_data = [
     `
   },
   {
-    name: 'G물댄동산',
+    name: 'G 물댄동산',
     speed: 1,
     baseNote: 'C',
     baseOctave: 4,
@@ -302,7 +302,7 @@ var _play_data = [
     Em,Em/D,C,D,G,G`
   },  
   {
-    name: 'E대단한 믿음 없어도',
+    name: 'E 대단한 믿음 없어도',
     speed: 1,
     baseNote: 'C',
     baseOctave: 4,
