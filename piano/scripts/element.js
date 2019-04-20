@@ -89,18 +89,21 @@ $(document).ready(function () {
    * event
    */
   window.openCard0 = (obj) => {
-    const isClose = $(obj).attr('aria-expanded');
-    if (isClose === 'false') {
-      window._testTextarea();
+    // const isClose = $(obj).attr('aria-expanded');
+    // if (isClose === 'false') {
+    //   window._testTextarea();
 
-      playButton.playing();
-      window.clickChord(null, 0, $(obj).closest('.card').find('.card-body'), true);
-    } else {
-      playButton.stopped();
-      if (currentPlay) {
-        currentPlay.stop();
-      }      
-    } 
+    //   playButton.playing();
+    //   window.clickChord(null, 0, $(obj).closest('.card').find('.card-body'), true);
+    // } else {
+    //   playButton.stopped();
+    //   if (currentPlay) {
+    //     currentPlay.stop();
+    //   }      
+    // } 
+    if (currentPlay) {
+      currentPlay.stop();
+    }     
   }
   window.openCard = (obj) => {
     const isClose = $(obj).attr('aria-expanded');
@@ -190,7 +193,7 @@ $(document).ready(function () {
   }
   window._testTextarea = () => {
     _octaveAdd = 0;
-    
+
     var chord = $('.tx').val();
     $('#card-body0').closest('.card').find('.card-body').data('source',  {
       name: 'test',
