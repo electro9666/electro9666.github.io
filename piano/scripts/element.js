@@ -189,6 +189,8 @@ $(document).ready(function () {
     window.open(`https://www.google.com/search?q=${encodeURIComponent(keyword + ' 악보')}&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjlrci50d3hAhWBXrwKHWeXDEYQ_AUIDigB&biw=1920&bih=937`);
   }
   window._testTextarea = () => {
+    _octaveAdd = 0;
+    
     var chord = $('.tx').val();
     $('#card-body0').closest('.card').find('.card-body').data('source',  {
       name: 'test',
