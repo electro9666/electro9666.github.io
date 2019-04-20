@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137924761-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-137924761-1');
+</script>  
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="piano.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>  
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <style>
+        .card-header {
+            padding: 5px 10px;
+        }
+        .card {
+            margin-bottom: 4px;
+        }
+        .badge.chordunit {
+            font-size: 10px;
+            margin: 2px;
+            /* overflow: hidden; */
+            padding-left: 0;
+            padding-right: 0;
+            height: 34px;
+            line-height: 30px;
+        }
+        .badge.chordunit.time1 {
+            width: 15px;
+        }
+        .badge.chordunit.time2 {
+            width: 34px;
+        }
+        #content {
+            padding: 5px; /* reset */
+            margin-top: 60px;
+            margin-bottom: 60px; /* Margin bottom by footer height */            
+        }
+        .my-container {
+            padding: 5px;
+        }
+        .card-body {
+            padding: 5px; /* reset */ 
+        }
+        .card-link {
+            display: block;
+            user-select: none;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 60px; /* Set the fixed height of the footer here */
+            line-height: 60px; /* Vertically center the text there */
+            background-color: #495057;
+        }
+        .footer-container {
+            margin-left: 10px;
+        }
+        .footer-btn {
+            position: relative;
+            border: none;
+            background: none;
+        }
+        .footer-btn:focus {
+            outline: none;
+        }
+        .footer-btn .desc {
+            position: absolute;
+            top: 23px;
+            color: white;
+            font-size: 10px;
+            width: 39px;
+            text-align: center;
+        }
+        .footer-btn .badge {
+            font-size: 23px;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px; /* Set the fixed height of the footer here */
+            line-height: 60px; /* Vertically center the text there */
+            background-color: #495057;
+            z-index: 10;
+        }
+        @media (min-width: 700px) {
+            .badge.chordunit.time1 {
+                width: 40px;
+            }
+            .badge.chordunit.time2 {
+                width: 84px;
+            }
+        }
+        @media (min-width: 1000px) {
+            .badge.chordunit.time1 {
+                width: 50px;
+            }
+            .badge.chordunit.time2 {
+                width: 104px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                <i class="fas fa-align-left"></i>
+                <span>Sidebar</span>
+            </button>
+            <button type="button" id="sidebarCollapse2" class="btn btn-dark">
+                <i class="fas fa-expand"></i>
+            </button>
+        </div>
+    </nav>
+</div>    
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+        </div>
+
+        <!-- list-unstyled components -->
+        <ul class="nav flex-column" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link my-menu" data-toggle="tab" href="#menu0">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link my-menu" data-toggle="tab" href="#menu1">준비중1</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link my-menu" data-toggle="tab" href="#menu2">준비중2</a>
+            </li>            
+        </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+        <div class="tab-content">
+            <div id="menu0" class="my-container tab-pane active"><br>
+                <h3>chord</h3>
+                <p>...</p>
+                <div id="db" class="db">
+
+                </div>
+            </div>
+            <div id="menu1" class="my-container tab-pane fade"><br>
+                <h3>준비중</h3>
+            </div>
+            <div id="menu2" class="my-container tab-pane fade"><br>
+                <h3>준비중</h3>
+            </div>
+        </div>        
+    </div>
+</div>
+<footer class="footer">
+    <div class="piano" style="position:absolute;right:0px;"></div>
+    <div class="footer-container">
+        <button class="footer-btn footer-play" onclick="_play();"><span class="badge badge-light"><i class="fas fa-play"></i></span><div class="desc">play</div></button>
+        <button class="footer-btn footer-pause" onclick="_pause();" style="display:none;"><span class="badge badge-light"><i class="fas fa-pause"></i></span><div class="desc">pause</div></button>
+        <button class="footer-btn" onclick="_octaveUp();"><span class="badge badge-light"><i class="fas fa-chevron-up"></i></span><div class="desc">octave</div></button>
+        <button class="footer-btn" onclick="_octaveDown();"><span class="badge badge-light"><i class="fas fa-chevron-down"></i></span><div class="desc">octave</div></button>
+        <button class="footer-btn" onclick="_changeMode();"><span class="badge badge-light"><i class="fas fa-filter"></i></span><div class="desc" id="mode2">2</div></button>
+    </div>
+</footer>
+<div class="overlay"></div>
+
+<script id="db-template" type="text/x-handlebars-template">
+    <div id="accordion">
+        {{#each this}}
+        <div class="card">
+            <div class="card-header">
+                <a class="card-link" data-toggle="collapse" href="#collapse{{@index}}" onclick="openCard(this);" aria-expanded="false">
+                    {{name}}
+                </a>
+            </div>
+            <div id="collapse{{@index}}" class="collapse" data-parent="#accordion">
+                <div class="card-body" data-source="{{chordFn2 this}}">
+                    <a href="javascript:void(0);" onclick="_gotoGoogle('{{name}}');"><span class="badge badge-secondary">search google</span></a>
+                    <br/><br/>
+                    {{{chordFn this}}}
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>    
+</script>
+<script id="piano-template" type="text/x-handlebars-template">
+    {{#each this}}
+    <div class="pianoSet">
+        {{#each this}}
+        {{#if2}}
+            <div class="{{class}} {{noteAndNum}} i{{seq}}" style="left:{{left}}px;"><span class="desc">{{noteAndNum}}</span></div>
+        {{else}}
+            <div class="{{class}} {{noteAndNum}} i{{seq}}" style="left:{{left}}px;"></div>
+        {{/if2}}      
+        {{/each}}
+    </div>
+    {{/each}}
+</script>
+<script src="scripts/common.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.1/handlebars.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.8.3/Tone.min.js"></script>
+<script src="db.js"></script>
+<script src="scripts/chord.js"></script>
+<script src="scripts/sound.js"></script>
+<script src="scripts/element.js"></script>
+
+<div>
+    <div id="disqus_thread"></div>
+    <script>
+
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+    var disqus_config = function () {
+    this.page.url = 'https://electro9666.github.io/piano';
+    this.page.identifier = 'piano';
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://electro9666.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>  
+</body>
+</html>
