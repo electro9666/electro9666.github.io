@@ -370,7 +370,7 @@ $(document).ready(function () {
 //   });
   $('#sidebarCollapse5').on('click', function() {
     // search
-    search();
+    search(0);
     // $('.searchPage').hide();
   });
   // more button
@@ -393,7 +393,7 @@ $(document).ready(function () {
   $('#text').on('keyup', function(event) {
     if (event.keyCode === 13) {
       // enter
-      search();
+      search(0);
     //   $('.searchPage').hide();
     }
   });
