@@ -64,44 +64,51 @@ var search = function(page) {
   console.log(text);
 
   // $('.output').html('');
-  $.get(`${host}/api/search?text=${encodeURIComponent(text)}&page=${page}&videoId=${videoId}&channelId=${channelId}`, (res) => {
-    console.log('search res', res);
-    if (res.error) {
-      alert(res.error);
-      return;
-    }
-    clickNav(0);
-    $('.tab0').tab('show');
-
-    if ((page + 1) * 5 < res.total.value) {
-      // page
-      $('#list-more-button').show();
-      _page = page + 1;
-    } else {
-      $('#list-more-button').hide();
-    }
-
-    var source = document.getElementById("list-template").innerHTML;
-    var template = Handlebars.compile(source);
-    var html = template({
-      page: page,
-      data: res.resultList
-    });
-    if (page === 0) {
-      $('#list-output').html(html);   
-    } else {
-      $('#list-output').append($(html));
-    }
-
-    // 
-    var clickTargets = $(`#list-output .page${page} .clickTarget`);
-    for (let i = 0, len = clickTargets.length; i < len; i++) {
-      const $element = $(clickTargets[i]);
-      var $parent = $element.closest('.list-group');
-      var json = $parent.data('source');
-      youtube_init_single($parent, $element, json._source, `-search-page${page}-${i}`);
-    }
-  });    
+  $('.spinner-border').show();
+  try {
+    $.get(`${host}/api/search?text=${encodeURIComponent(text)}&page=${page}&videoId=${videoId}&channelId=${channelId}`, (res) => {
+      $('.spinner-border').hide();
+      console.log('search res', res);
+      if (res.error) {
+        alert(res.error);
+        return;
+      }
+      clickNav(0);
+      $('.tab0').tab('show');
+  
+      if ((page + 1) * 5 < res.total.value) {
+        // page
+        $('#list-more-button').show();
+        _page = page + 1;
+      } else {
+        $('#list-more-button').hide();
+      }
+  
+      var source = document.getElementById("list-template").innerHTML;
+      var template = Handlebars.compile(source);
+      var html = template({
+        page: page,
+        data: res.resultList
+      });
+      if (page === 0) {
+        $('#list-output').html(html);   
+      } else {
+        $('#list-output').append($(html));
+      }
+  
+      // 
+      var clickTargets = $(`#list-output .page${page} .clickTarget`);
+      for (let i = 0, len = clickTargets.length; i < len; i++) {
+        const $element = $(clickTargets[i]);
+        var $parent = $element.closest('.list-group');
+        var json = $parent.data('source');
+        youtube_init_single($parent, $element, json._source, `-search-page${page}-${i}`);
+      }
+    });    
+  } catch(e) {
+    $('.spinner-border').hide();
+    console.log(e);
+  }
 }
 
 var clickNav = (num) => {

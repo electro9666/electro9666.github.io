@@ -10,6 +10,16 @@
     <meta property="og:description"        content="youtube subtitle search" />
     <meta property="og:image"              content="https://electro9666.github.io/english2/capture.png" />
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140427485-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-140427485-1');
+    </script>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link rel="stylesheet" href="mobile.css">
 
@@ -98,6 +108,24 @@
         .list-group {
             margin-bottom: 10px;
         }
+        .spinner-border {
+            display: none;
+            width: 50px;
+            height: 50px;
+            vertical-align: text-bottom;
+            border: 5px solid currentColor;
+            border-right-color: transparent;
+            border-radius: 50%;
+            animation: spinner-border .75s linear infinite;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin-left: -25px;
+            margin-top: -25px;
+        }
+        @keyframes spinner-border {
+           to { transform: rotate(360deg); }
+        }        
     </style>
 </head>
 <body>
@@ -194,6 +222,7 @@
         </div>
     </div>
 </footer>
+<div class="spinner-border"></div>
 <div class="overlay"></div>
 
 <script id="list-template" type="text/x-handlebars-template">
