@@ -32,13 +32,30 @@ var init = function() {
     var d = {videoId: this._source.videoId, cursorStart: this._source.cursorStart};
     var existObj = _.find(lsArray, d);
     if (existObj) {
-      return 'btn-danger';
+      return 'heart-danger';
     } else {
       return ''
     }
   });    
   Handlebars.registerHelper('calcDateTime', function(datetime) {
-    return datetime.split(' ')[0];
+    var timestamp = new Date(datetime).getTime() / 1000;
+    var current = new Date().getTime() / 1000;
+    if (current - timestamp < (3600 * 24)) {
+      var time = parseInt((current - timestamp) / 3600);
+      return `${time} hour${1 < time ? 's': ''} ago`;
+    } else if (current - timestamp < (3600 * 24 * 7)) {
+      var time = parseInt((current - timestamp) / 3600 / 24);
+      return `${time} day${1 < time ? 's': ''} ago`;
+    } else if (current - timestamp < (3600 * 24 * 7 * 4)) {
+      var time = parseInt((current - timestamp) / 3600 / 24 / 7);
+      return `${time} week${1 < time ? 's': ''} ago`;
+    } else if (current - timestamp < (3600 * 24 * 365)) {
+      var time = parseInt((current - timestamp) / 3600 / 24 / 31);
+      return `${time} month${1 < time ? 's': ''} ago`;
+    } else {
+      var time = parseInt((current - timestamp) / 3600 / 24 / 365);
+      return `${time} year${1 < time ? 's': ''} ago`;
+    }
   });    
 }
 

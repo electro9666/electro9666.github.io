@@ -72,7 +72,7 @@ class Player {
         console.log('exist localStorage');
         // delete
         lsArray.splice(findIndexResult, 1);
-        this.$heart.removeClass('btn-danger');
+        this.$heart.removeClass('heart-danger');
       } else {
         // add
         d = Object.assign({}, d, {
@@ -83,7 +83,7 @@ class Player {
           thumbnails: this._source.thumbnails
         });
         lsArray.push(d);
-        this.$heart.addClass('btn-danger');
+        this.$heart.addClass('heart-danger');
       }
 
       window.localStorage.setItem('youtube-video', JSON.stringify(lsArray));
