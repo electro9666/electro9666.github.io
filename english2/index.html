@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta property="og:url"                content="https://electro9666.github.io/english2/" />
+    <meta property="og:type"               content="website" />
+    <meta property="og:title"              content="상훈's 작업실" />
+    <meta property="og:description"        content="youtube subtitle search" />
+    <meta property="og:image"              content="https://electro9666.github.io/english2/capture.png" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="mobile.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <style>
+        .navbar {
+            padding: 0px 0px; /* reset */
+            margin-bottom: 0px; /* reset */
+        }
+
+        .card-header {
+            padding: 5px 10px;
+        }
+        .card {
+            margin-bottom: 4px;
+        }
+
+        #content {
+            padding: 0px; /* reset */
+            margin-top: 45px;
+            margin-bottom: 50px;
+        }
+        .my-container {
+            padding: 0px;
+        }
+        .card-body {
+            padding: 5px; /* reset */ 
+        }
+        .card-link {
+            display: block;
+            user-select: none;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #495057;
+            z-index: 10;
+        }
+        .searchPage {
+            z-index: 1111;
+            display: none;
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background: white;
+        }
+        .sHeader {
+            margin-top: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        #text:focus {
+            box-shadow: none !important;
+        }
+        .nav-item.selected {
+            background-color: lightblue;
+        }
+        @media (min-width: 700px) {
+         
+        }
+        @media (min-width: 1000px) {
+         
+        }
+        /* reset */
+        .mb-3, .my-3 {
+            margin: 0 !important;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+            /* line-height: 60px; */
+            background-color: darkgray;
+        }
+        .footer .col-2, .footer .col-8 {
+            padding: 0px 0px;
+        }
+        .list-group {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="input-group mb-3">
+            <div class="input-group-append">
+                <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <i class="fas fa-align-left"></i>
+                    <span></span>
+                </button>                    
+            </div>
+            <input id="text" type="text" class="form-control" placeholder="whatever you want" aria-label="whatever you want" aria-describedby="basic-addon2" value="I love you">
+            <div class="input-group-append">
+                <button type="button" id="sidebarCollapse5" class="btn btn-dark">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>     
+    </nav>
+</div>    
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div id="dismiss">
+            <i class="fas fa-arrow-left"></i>
+        </div>
+
+        <div class="sidebar-header">
+            <h3>Subtitles</h3>
+        </div>
+
+        <!-- list-unstyled components -->
+        <ul class="nav flex-column" role="tablist">
+            <li class="nav-item selected">
+                <a class="nav-link my-menu tab0" data-toggle="tab" href="#menu0" onclick="clickNav(0);">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link my-menu tab1" data-toggle="tab" href="#menu1" onclick="clickNav(1);">
+                    <i class="fas fa-heart" style="color: #dc3545;"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+        <div class="tab-content">
+            <div id="menu0" class="my-container tab-pane active">
+                <div id="list-output">
+                    please, search
+                </div>
+                <div id="list-more-button" class="list-group" data-source="" style="display:none;">
+                    <button type="button" id="sidebarCollapse6" class="btn btn-dark" >
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>   
+            </div>
+            <div id="menu1" class="my-container tab-pane fade">
+                <div id="heart-list"></div>
+            </div>
+            <div id="menu2" class="my-container tab-pane fade">
+                <h3>preparing...</h3>
+            </div>
+        </div>        
+    </div>
+</div>
+<footer class="footer">
+    <div class="timestamp-controller d-flex w-100 justify-content-between" style="margin-top: 10px;">
+        <div>
+            <button type="button" class="backward-start btn btn-sm">
+                <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="start btn btn-sm">
+                <!-- {{calcTime _source.start}} -->
+            </button>                        
+            <button type="button" class="forward-start btn btn-sm">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+        <div class="current_time">
+            <!-- {{calcTime _source.start}} -->
+        </div>
+        <div>
+            <button type="button" class="backward-end btn btn-sm">
+                <i class="fas fa-minus"></i>
+            </button>                        
+            <button type="button" class="end btn btn-sm">
+                <!-- {{calcTime _source.end}} -->
+            </button>                        
+            <button type="button" class="forward-end btn btn-sm">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+    </div>
+</footer>
+<div class="overlay"></div>
+
+<script id="list-template" type="text/x-handlebars-template">
+    {{#each data}}
+        {{#each hits.hits}}
+            <div class="list-group page{{../../page}}" data-source="{{json2string this}}">
+                <span class="">
+                    <div class="yt"></div>                    
+                    <div class="clickTarget">
+                        <img class="thumbnails" src="{{_source.thumbnails}}" style="width:100px;">
+                    </div>
+                    <div style="padding: 0px 0px;">
+                        <button type="button" class="heart btn btn-sm {{calcHeart}}">
+                            <i class="fas fa-heart"></i>
+                        </button>                        
+                        {{_source.sentence}} [{{calcDateTime _source.publishedAt}}]</div>
+                    <div class="slider-range"></div>
+                    <!-- <div class="d-flex w-100 justify-content-between" style="margin-top: 10px;">
+                        <div>
+                            <button type="button" class="backward-start btn btn-sm">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button" class="start btn btn-sm">
+                                {{calcTime _source.start}}
+                            </button>                        
+                            <button type="button" class="forward-start btn btn-sm">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div class="current_time">
+                            {{calcTime _source.start}}
+                        </div>
+                        <div>
+                            <button type="button" class="backward-end btn btn-sm">
+                                <i class="fas fa-minus"></i>
+                            </button>                        
+                            <button type="button" class="end btn btn-sm">
+                                {{calcTime _source.end}}
+                            </button>                        
+                            <button type="button" class="forward-end btn btn-sm">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                        <div>
+                            <button type="button" class="play btn btn-sm btn-primary">
+                                <i class="fas fa-play"></i>
+                            </button>                        
+                            <button type="button" class="pause btn btn-sm btn-warning">
+                                <i class="fas fa-pause"></i>
+                            </button>
+                            <button type="button" class="heart btn btn-sm {{calcHeart}}">
+                                <i class="fas fa-heart"></i>
+                            </button>                        
+                        </div>
+                    </div> -->
+                </span>
+            </div>
+        {{/each}}
+    {{/each}}
+</script>
+
+<script>
+/**
+ * common
+ */
+function toggleFullScreen() {
+  var doc = window.document;
+  var docEl = doc.documentElement;
+
+  var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+  var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+  if (!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+    requestFullScreen.call(docEl);
+  }
+  else {
+    cancelFullScreen.call(doc);
+  }
+}
+$(document).ready(function () {
+  /**
+   * sidebar
+   */
+  $("#sidebar").mCustomScrollbar({
+    theme: "minimal"
+  });
+
+  $('#dismiss, .overlay, .my-menu').on('click', function () {
+    $('#sidebar').removeClass('active');
+    $('.overlay').removeClass('active');
+  });
+
+  $('#sidebarCollapse').on('click', function () {
+    $('#sidebar').addClass('active');
+    $('.overlay').addClass('active');
+    $('.collapse.in').toggleClass('in');
+    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+  });
+
+  /**
+   * fullscreen
+   */
+  $('#sidebarCollapse2').on('click', function () {
+    toggleFullScreen();
+  });
+
+//   $('#sidebarCollapse3').on('click', function() {
+//     $('.searchPage').show();
+//     // TODO
+//     // $('#text').focus();
+//   });
+//   $('#sidebarCollapse4').on('click', function() {
+//     $('.searchPage').hide();
+//   });
+  $('#sidebarCollapse5').on('click', function() {
+    // search
+    search();
+    // $('.searchPage').hide();
+  });
+  // more button
+  $('#sidebarCollapse6').on('click', function() {
+    // search
+    searchMore();
+    // $('.searchPage').hide();
+  });
+
+  $(window).on('keydown', function(event) {
+    if (event) {
+        if (event.which === 27) {
+            // esc
+            $('#sidebar').removeClass('active');
+            $('.overlay').removeClass('active');            
+            // $('.searchPage').hide();
+        }
+    }
+  });
+  $('#text').on('keyup', function(event) {
+    if (event.keyCode === 13) {
+      // enter
+      search();
+    //   $('.searchPage').hide();
+    }
+  });
+  
+    // timestamp
+    var $timestamp = $('.timestamp-controller');
+    $timestamp.find('.backward-start').on('click', () => {
+        if (_currentPlayer) {
+            _currentPlayer._source.start--;
+            $timestamp.find('.start').html(calcTime(_currentPlayer._source.start));
+            _currentPlayer.startPlay();
+        }
+    });
+    $timestamp.find('.forward-start').on('click', () => {
+        if (_currentPlayer) {
+            _currentPlayer._source.start++;
+            $timestamp.find('.start').html(calcTime(_currentPlayer._source.start));
+            _currentPlayer.startPlay();
+        }
+    });
+    $timestamp.find('.backward-end').on('click', () => {
+        if (_currentPlayer) {
+            _currentPlayer._source.end--;
+            $timestamp.find('.end').html(calcTime(_currentPlayer._source.end));
+            _currentPlayer.startPlay();
+        }        
+    });
+    $timestamp.find('.forward-end').on('click', () => {
+        if (_currentPlayer) {
+            _currentPlayer._source.end++;
+            $timestamp.find('.end').html(calcTime(_currentPlayer._source.end));
+            _currentPlayer.startPlay();
+        }        
+    });
+});
+</script>
+
+<script>
+/**
+ * action
+ */
+// $(document).ready(function () {
+//     var _data = [
+//         {name: 1},
+//         {name: 2},
+//         {name: 3}
+//     ]
+//     var source = document.getElementById("list-template").innerHTML;
+//     var template = Handlebars.compile(source);  
+//     var html = template(_data);
+//     $('#list-output').html(html);
+// });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.1/handlebars.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
+<script src="mobile.js"></script>
+<script src="youtube-play.js"></script>
+</body>
+</html>
