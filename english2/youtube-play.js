@@ -137,8 +137,6 @@ class Player {
     this.player.setVolume(100);   
   }
   _onStateChange(event) {
-    window.yyy = this.player;
-        
     clearInterval(this.intervalObj);
     var state = "undefiend";
     switch (event.data) {
