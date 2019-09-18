@@ -1,12 +1,27 @@
-
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
-    <meta charset="utf-8">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
     <style>
+    a:link {
+      color: white;
+    }
+    a:visited {
+      color: white;
+    }
+    a:hover {
+      color: white;
+    }
+    a:active {
+      color: white;
+      }
+
     body{
     	background-color:black;
+      text-align: center;
+      padding: 20px;
     }
     input, button{
     	background-color:gray;
@@ -14,51 +29,72 @@
     input:focus{
     	background-color:white;
     }
+    #query {
+      font-size:20px;
+    }
+    .buttons {
+      margin-top: 30px;
+    }
+    .btn {
+      margin: 0px 10px;
+      height: 50px;
+    }
+    .anchor{
+      margin-top: 20px;
+      color: white;
+    }
+    .touchme {
+      margin-top: 100px;
+      color: gray;
+      font-size: 20px;
+    }
     </style>
 	<script>
 	function search(){
-		var search = document.getElementById("search").value;
-		search = encodeURIComponent(search);
-		https://m.search.naver.com/search.naver?sm=mtb_hty.top&where=m&oquery=fd&tab=&query=%EB%82%A0%EC%94%A8
-		location.href ="https://m.search.naver.com/search.naver?sm=mtb_hty.top&where=m&oquery=fd&tab=&query=" + search;
+		var query = document.getElementById("query").value;
+		query = encodeURIComponent(query);
+		location.href ="https://m.search.naver.com/search.naver?sm=mtb_hty.top&where=m&oquery=fd&tab=&query=" + query;
+	}
+	function searchDaum(){
+		var query = document.getElementById("query").value;
+		query = encodeURIComponent(query);
+		location.href ="https://m.search.daum.net/search?w=tot&nil_mtopsearch=btn&DA=YZR&q=" + query;
 	}
 	function checkEnter(event){
 		if (event.which == 13 || event.keyCode == 13) {
 	    	search();
-	        return false;
+        return false;
 	    }		
 	}
 	function focus1(){
-		var search = document.getElementById("search");
-		search.value = "";
-		search.focus();
+		var query = document.getElementById("query");
+		query.focus();
 		return false;
 	}
 	function onloadFn(){
 		document.getElementById("bbb").addEventListener("click", function(){ focus1(); });
-	}
+  }
+  function deleteFn() {
+		var query = document.getElementById("query");
+    query.value = "";
+    query.focus();
+		return false;
+  }
 	</script>
 </head>
 <body id="bbb" onload="onloadFn();">
-	<div align="center" id="divId">
-		<input id="search" onkeypress="checkEnter(event);" style="width:80%;height:100px;font-size:80px;" placeholder="검색어" />
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<button id="btn" onclick="search();" style="width:50%;height:100px;font-size:40px;">네이버 검색</button>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<br/>
-		<div style="width:80%;height:100px;font-size:80px;color:gray;">Touch Me</div>		
+	<div id="divId">
+    <div><input id="query" onkeypress="checkEnter(event);" placeholder="검색어" /></div>
+    <div class="buttons">
+      <button class="btn" onclick="search();">네이버</button>
+      <button class="btn" onclick="searchDaum();">다음</button>
+      <button class="btn" onclick="deleteFn();">삭제</button>
+      <br/>
+    </div>
+    <div class="anchor"><a href="https://m.search.naver.com/search.naver?where=m&query=%EC%A0%84%EA%B5%AD%EB%82%A0%EC%94%A8&ie=utf8&sm=tab_she&qdt=0">날씨</a></div>
+    <div class="anchor"><a href="http://news.naver.com">뉴스</a></div>
+    <div class="anchor"><a href="http://m.yes24.com/">yes24</a></div>
+		<div class="touchme">Touch Me</div>		
 	</div>
 </body>
 </html>
