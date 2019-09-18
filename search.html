@@ -1,0 +1,64 @@
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <style>
+    body{
+    	background-color:black;
+    }
+    input, button{
+    	background-color:gray;
+    }
+    input:focus{
+    	background-color:white;
+    }
+    </style>
+	<script>
+	function search(){
+		var search = document.getElementById("search").value;
+		search = encodeURIComponent(search);
+		https://m.search.naver.com/search.naver?sm=mtb_hty.top&where=m&oquery=fd&tab=&query=%EB%82%A0%EC%94%A8
+		location.href ="https://m.search.naver.com/search.naver?sm=mtb_hty.top&where=m&oquery=fd&tab=&query=" + search;
+	}
+	function checkEnter(event){
+		if (event.which == 13 || event.keyCode == 13) {
+	    	search();
+	        return false;
+	    }		
+	}
+	function focus1(){
+		var search = document.getElementById("search");
+		search.value = "";
+		search.focus();
+		return false;
+	}
+	function onloadFn(){
+		document.getElementById("bbb").addEventListener("click", function(){ focus1(); });
+	}
+	</script>
+</head>
+<body id="bbb" onload="onloadFn();">
+	<div align="center" id="divId">
+		<input id="search" onkeypress="checkEnter(event);" style="width:80%;height:100px;font-size:80px;" placeholder="검색어" />
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<button id="btn" onclick="search();" style="width:50%;height:100px;font-size:40px;">네이버 검색</button>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<div style="width:80%;height:100px;font-size:80px;color:gray;">Touch Me</div>		
+	</div>
+</body>
+</html>
