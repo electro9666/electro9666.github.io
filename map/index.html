@@ -1,0 +1,186 @@
+<!--
+  http://bl.ocks.org/enjalot/0d87f32a1ccb9a720d29ba74142ba365
+
+  v3
+  topo.json없이 하기 (topojson.js 없어도 됨)
+  google map에서의 절대 위도,경도 좌표 이용하기
+
+  v4
+  나의 mapbox이용하기
+  mapbox-gl 소스 링크 변경
+  mapbox-gl 소스 버전업에 따른 명령어 수정
+-->
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <!-- <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.12.0/mapbox-gl.js'></script> -->
+  <!-- <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.12.0/mapbox-gl.css' rel='stylesheet' /> -->
+
+  <link href="https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css" rel="stylesheet">
+  <link href="https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css" rel="stylesheet">
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
+
+  <style>
+    body { margin:0;position:fixed;top:0;right:0;bottom:0;left:0; }
+    #map { 
+      position:absolute; 
+      width: 100%;
+      height: 100%;
+    }
+    svg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="map"></div>
+  <script>
+  
+    mapboxgl.accessToken = 'pk.eyJ1IjoieXVzYW5nIiwiYSI6ImNrMnltaWZ1ZDA5cWgzY21kZnVwZTJkcm0ifQ.ommEg1Z0bzMZvbYIcwuz-w'
+    
+    //Setup mapbox-gl map
+    var map = new mapboxgl.Map({
+      container: 'map', // container id
+      style: 'mapbox://styles/yusang/ck2yv27590sfi1cpjhr9kfgwy',
+      // style: 'mapbox://styles/yusang/ck2ytb3mk0cl01dnwrl2ytkkb',
+      // style: "mapbox://styles/bibleviz/cjh46bcmp2udj2sq5ifg79zkh",
+      zoom: 8,
+      center: [35.1358749, 31.7812706], // 경도(longitude),위도(latitude)
+      minZoom: 3,
+      maxZoom: 20,
+      pitchWithRotate: false,
+      dragRotate: false
+    })
+    // map.scrollZoom.disable()
+    map.addControl(new mapboxgl.NavigationControl(), "top-right");
+
+    // Setup our svg layer that we can manipulate with d3
+    var container = map.getCanvasContainer()
+    var svg = d3.select(container).append("svg")
+
+    // we calculate the scale given mapbox state (derived from viewport-mercator-project's code)
+    // to define a d3 projection
+    function getD3() {
+      var bbox = document.body.getBoundingClientRect();
+      var center = map.getCenter();
+      var zoom = map.getZoom();
+      // 512 is hardcoded tile size, might need to be 256 or changed to suit your map config
+      var scale = (512) * 0.5 / Math.PI * Math.pow(2, zoom);
+
+      var d3projection = d3.geo.mercator()
+        .center([center.lng, center.lat]) // 경도(longitude),위도(latitude)
+        .translate([bbox.width/2, bbox.height/2])
+        .scale(scale);
+
+      return d3projection;
+    }
+    // calculate the original d3 projection
+    var d3Projection = getD3();
+    
+    var path = d3.geo.path()
+    // var url = "http://enjalot.github.io/wwsd/data/UK/london_stations.topojson";
+
+    // 위도(latitude), 경도(longitude) --- google map에서 복사하는 순서라서
+    var data = [
+      {
+        pos: [31.773281, 35.202318], 
+        text: '예루살렘 성전'
+      },
+      {
+        pos: [31.7767234,35.2323198], 
+        text: '통곡의 벽'
+      },
+      {
+        pos: [31.7053996,35.1936877],
+        text: '베들레헴'
+      },
+      {
+        pos: [32.7984312,35.5134836],
+        text: '갈릴리 호수'
+      },
+      {
+        pos: [31.777911, 35.246041],
+        text: '감람원(올리브 산)'
+      },
+      {
+        pos: [37.530560,126.984311],
+        text: '서울'
+      },
+      {
+        pos: [36.207588, 36.156616],
+        text: '안디옥'
+      },
+      {
+        pos: [36.126761, 35.916894],
+        text: '실루기아'
+      },
+      {
+        pos: [35.096921, 33.959160],
+        text: '살라미'
+      },
+      {
+        pos: [34.775758, 32.418899],
+        text: '바보'
+      },
+      {
+        pos: [36.956087, 30.842569],
+        text: '버가'
+      },
+    ]
+    //console.log(data[0], getLL(data[0]), project(data[0]))
+    var dots = svg.selectAll("g.dot")
+      .data(data)
+    
+    var ent = dots.enter()
+    .append("g").classed("dot", true);
+
+    ent
+    .append('circle')
+    .attr("r", 6)
+    .style({
+      fill: "orange",
+      "fill-opacity": 0.6,
+      stroke: "red",
+      "stroke-width": 1
+    })
+    ;
+    ent
+    .append('text')
+    .text(function(d) {
+      return d.text;
+    })
+    .attr("x", 10)
+    .attr("y", 5)
+    
+    function render() {
+      d3Projection = getD3();
+      path.projection(d3Projection)
+
+      dots.attr('transform', function(d) {
+        var projection = d3Projection([d.pos[1], d.pos[0]]); // 위도,경도 -> 경도,위도
+        var x = projection[0]; // 경도
+        var y = projection[1]; // 위도
+        return 'translate(' + x + ', ' + y + ')';
+      });
+    }
+
+    // re-render our visualization whenever the view changes
+    
+    map.on("viewreset", function() {
+      render()
+    })
+    map.on("move", function() {
+      render()
+    })
+
+    // render our initial visualization
+    render()
+
+    
+  </script>
+</body>
