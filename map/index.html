@@ -9,19 +9,24 @@
   나의 mapbox이용하기
   mapbox-gl 소스 링크 변경
   mapbox-gl 소스 버전업에 따른 명령어 수정
+
+  v5
+  지명을 따로 json으로 가져옴
 -->
 <!DOCTYPE html>
 <head>
   <meta charset="utf-8">
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-  <!-- <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.12.0/mapbox-gl.js'></script> -->
-  <!-- <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.12.0/mapbox-gl.css' rel='stylesheet' /> -->
 
   <link href="https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css" rel="stylesheet">
   <link href="https://api.mapbox.com/mapbox.js/v3.1.1/mapbox.css" rel="stylesheet">
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.45.0/mapbox-gl.js'></script>
 
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js'></script>
+  <script src='geotable.js'></script>
   <style>
     body { margin:0;position:fixed;top:0;right:0;bottom:0;left:0; }
     #map { 
@@ -34,23 +39,81 @@
       width: 100%;
       height: 100%;
     }
+    #table {
+      width: 100%;
+      background-color: white;
+    }
+    #table td {
+      background-color: white;
+    }
+    #control {
+      position:absolute; 
+      bottom: 0px;
+      right: 0px;
+      z-index: 1000;
+      width: 100%;
+    }
+    #control button {
+      height: 30px;
+    }
+    g.focus circle {
+      animation: animationScale 1s infinite alternate;
+    }
+    @keyframes animationScale {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(2);
+      }
+    }    
   </style>
 </head>
 
 <body>
   <div id="map"></div>
+  <div id="control">
+    <table id="table">
+      <tr>
+        <td style="text-align: left;"><button onclick="moveMapList(-1)">LEFT</button></td>
+        <td style="text-align: center;" id="desc"></td>
+        <td style="text-align: right;"><button onclick="moveMapList(1)">RIGHT</button></td>
+      </tr>
+    </table>
+  </div>
   <script>
-  
+    var sleep = (ms) => {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
+    var presentation = async ($elem, strArr) => {
+      $('tspan').remove();
+      for (let j = 0; j < strArr.length; j++) {
+        const str = strArr[j];
+        const $tspan = $elem.append('tspan')
+        .attr('x', '10')
+        .attr('dy', '20')
+
+        for (let i = 1; i <= str.length; i++) {
+          $tspan[0][0].innerHTML = str.slice(0, i);
+          await sleep(50);
+        }          
+      }
+    }
+    window._moveIndex = 0;
+
     mapboxgl.accessToken = 'pk.eyJ1IjoieXVzYW5nIiwiYSI6ImNrMnltaWZ1ZDA5cWgzY21kZnVwZTJkcm0ifQ.ommEg1Z0bzMZvbYIcwuz-w'
     
     //Setup mapbox-gl map
     var map = new mapboxgl.Map({
       container: 'map', // container id
       style: 'mapbox://styles/yusang/ck2yv27590sfi1cpjhr9kfgwy',
-      // style: 'mapbox://styles/yusang/ck2ytb3mk0cl01dnwrl2ytkkb',
-      // style: "mapbox://styles/bibleviz/cjh46bcmp2udj2sq5ifg79zkh",
-      zoom: 8,
-      center: [35.1358749, 31.7812706], // 경도(longitude),위도(latitude)
+      zoom: parseInt(window.localStorage.getItem('zoom')) || 6,
+      // 경도(longitude),위도(latitude)
+      center: window.localStorage.getItem('center').split(',') || [32.07266756990029, 39.095548644710334], 
       minZoom: 3,
       maxZoom: 20,
       pitchWithRotate: false,
@@ -59,17 +122,13 @@
     // map.scrollZoom.disable()
     map.addControl(new mapboxgl.NavigationControl(), "top-right");
 
-    // Setup our svg layer that we can manipulate with d3
     var container = map.getCanvasContainer()
     var svg = d3.select(container).append("svg")
 
-    // we calculate the scale given mapbox state (derived from viewport-mercator-project's code)
-    // to define a d3 projection
     function getD3() {
       var bbox = document.body.getBoundingClientRect();
       var center = map.getCenter();
       var zoom = map.getZoom();
-      // 512 is hardcoded tile size, might need to be 256 or changed to suit your map config
       var scale = (512) * 0.5 / Math.PI * Math.pow(2, zoom);
 
       var d3projection = d3.geo.mercator()
@@ -79,65 +138,21 @@
 
       return d3projection;
     }
-    // calculate the original d3 projection
     var d3Projection = getD3();
     
     var path = d3.geo.path()
-    // var url = "http://enjalot.github.io/wwsd/data/UK/london_stations.topojson";
 
     // 위도(latitude), 경도(longitude) --- google map에서 복사하는 순서라서
-    var data = [
-      {
-        pos: [31.773281, 35.202318], 
-        text: '예루살렘 성전'
-      },
-      {
-        pos: [31.7767234,35.2323198], 
-        text: '통곡의 벽'
-      },
-      {
-        pos: [31.7053996,35.1936877],
-        text: '베들레헴'
-      },
-      {
-        pos: [32.7984312,35.5134836],
-        text: '갈릴리 호수'
-      },
-      {
-        pos: [31.777911, 35.246041],
-        text: '감람원(올리브 산)'
-      },
-      {
-        pos: [37.530560,126.984311],
-        text: '서울'
-      },
-      {
-        pos: [36.207588, 36.156616],
-        text: '안디옥'
-      },
-      {
-        pos: [36.126761, 35.916894],
-        text: '실루기아'
-      },
-      {
-        pos: [35.096921, 33.959160],
-        text: '살라미'
-      },
-      {
-        pos: [34.775758, 32.418899],
-        text: '바보'
-      },
-      {
-        pos: [36.956087, 30.842569],
-        text: '버가'
-      },
-    ]
-    //console.log(data[0], getLL(data[0]), project(data[0]))
     var dots = svg.selectAll("g.dot")
-      .data(data)
+      .data(_pos_data)
     
     var ent = dots.enter()
-    .append("g").classed("dot", true);
+    .append("g")
+    .attr('class', 'dot')
+    .attr('data', function(d) {
+      return d.name;
+    })
+    ;
 
     ent
     .append('circle')
@@ -151,22 +166,29 @@
     ;
     ent
     .append('text')
-    .text(function(d) {
-      return d.text;
+    .text(function(d, idx) {
+      return d.name;
     })
     .attr("x", 10)
     .attr("y", 5)
+    ;
+    ent
+    .append('text')
+    .attr('class', 'sentence')
+    .attr("x", 10)
+    .attr("y", 15)
     
     function render() {
+      // console.log('zoom', map.getZoom())
       d3Projection = getD3();
       path.projection(d3Projection)
 
       dots.attr('transform', function(d) {
-        var projection = d3Projection([d.pos[1], d.pos[0]]); // 위도,경도 -> 경도,위도
+        var projection = d3Projection(d.pos.slice().reverse()); // 위도,경도 -> 경도,위도
         var x = projection[0]; // 경도
         var y = projection[1]; // 위도
         return 'translate(' + x + ', ' + y + ')';
-      });
+      })
     }
 
     // re-render our visualization whenever the view changes
@@ -174,13 +196,47 @@
     map.on("viewreset", function() {
       render()
     })
-    map.on("move", function() {
+    map.on("move", function(d) {
+      window.localStorage.setItem('center', [map.getCenter().lng, map.getCenter().lat]);
       render()
     })
+    map.on("zoom", function(d) {
+      window.localStorage.setItem('zoom', map.getZoom());
+      render()
+    })
+    map.on("dblclick", function(d) {
+      d._defaultPrevented = true;
+      const pos = JSON.parse(JSON.stringify(d.lngLat)) ;
+      console.log('d.lngLat', pos);
+      var name = prompt('지명이름은?');
+      if (name) {
+        $.post('http://localhost:8081/collect', {name, pos})
+      }
+    })
+    window.moveMapList = (num) => {
+      window._moveIndex = window._moveIndex + num;
+      window._moveIndex = window._moveIndex % (_targetList.length + 1);
+      window.console.log('window._moveIndex', window._moveIndex);
+      const name = _targetList[window._moveIndex].name;
+      let msg = _targetList[window._moveIndex].msg;
+      msg = _.chunk(msg.split(''), 20).map((arr) => arr.join(''));
+      console.log('msg', msg)
 
-    // render our initial visualization
-    render()
+      $(`g.dot`).removeClass('focus');
+      $(`g.dot[data=${name}]`).addClass('focus');
 
-    
+      $('#desc').html(name);
+      map.flyTo({
+        zoom: 6.8,
+        center: _.find(_pos_data, {name}).pos.slice().reverse()
+      });
+      render();
+
+      var $sentence = d3.select('g.dot.focus text.sentence');
+      presentation($sentence, msg);
+    }
+
+    render();
+    window.moveMapList(0);    
   </script>
 </body>
