@@ -111,9 +111,9 @@
     var map = new mapboxgl.Map({
       container: 'map', // container id
       style: 'mapbox://styles/yusang/ck2yv27590sfi1cpjhr9kfgwy',
-      zoom: parseInt(window.localStorage.getItem('zoom')) || 6,
+      zoom: parseInt(window.localStorage.getItem('zoom') || 6),
       // 경도(longitude),위도(latitude)
-      center: window.localStorage.getItem('center').split(',') || [32.07266756990029, 39.095548644710334], 
+      center: window.localStorage.getItem('center') ? window.localStorage.getItem('center').split(',') : [32.07266756990029, 39.095548644710334], 
       minZoom: 3,
       maxZoom: 20,
       pitchWithRotate: false,
