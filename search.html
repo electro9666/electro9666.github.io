@@ -36,7 +36,7 @@
       margin-top: 30px;
     }
     .btn {
-      margin: 0px 10px;
+      margin: 0px 5px;
       height: 50px;
     }
     .anchor{
@@ -61,8 +61,30 @@
 	function searchDaum(){
 		var query = document.getElementById("query").value;
 		query = encodeURIComponent(query);
-		location.href ="https://m.search.daum.net/search?w=tot&nil_mtopsearch=btn&DA=YZR&q=" + query;
+		location.href = "https://m.search.daum.net/search?w=tot&nil_mtopsearch=btn&DA=YZR&q=" + query;
 	}
+	function namu(){
+		var query = document.getElementById("query").value;
+		query = encodeURIComponent(query);
+		window.open(`https://www.google.com/search?source=hp&q=${query}+site%3Ahttps%3A%2F%2Fnamu.wiki`);
+	}
+	function zeta(){
+		var query = document.getElementById("query").value;
+		query = encodeURIComponent(query);
+		window.open(`https://zetawiki.com/w/index.php?search=` + query);
+	}
+	function wikipedia(){
+		var query = document.getElementById("query").value;
+		query = encodeURIComponent(query);
+		window.open(`https://ko.m.wikipedia.org/wiki/` + query);
+	}
+	// function allwiki(){
+	// 	var query = document.getElementById("query").value;
+	// 	query = encodeURIComponent(query);
+  //   window.open(`https://www.google.com/search?source=hp&q=${query}+site%3Ahttps%3A%2F%2Fnamu.wiki`);
+  //   window.open(`https://zetawiki.com/w/index.php?search=` + query);
+  //   window.open(`https://ko.m.wikipedia.org/wiki/` + query);
+	// }
 	function checkEnter(event){
 		if (event.which == 13 || event.keyCode == 13) {
 	    	search();
@@ -95,6 +117,13 @@
       <button class="btn" onclick="search();">네이버</button>
       <button class="btn" onclick="searchDaum();">다음</button>
       <button class="btn" onclick="deleteFn();">삭제</button>
+      <br/>
+    </div>
+    <div class="buttons">
+      <button class="btn" onclick="namu();">나무</button>
+      <button class="btn" onclick="zeta();">제타</button>
+      <button class="btn" onclick="wikipedia();">피디아</button>
+      <!-- <button class="btn" onclick="allwiki();">모두</button> -->
       <br/>
     </div>
     <div class="anchor" onclick="goto('https://m.search.naver.com/search.naver?where=m&query=%EC%A0%84%EA%B5%AD%EB%82%A0%EC%94%A8&ie=utf8&sm=tab_she&qdt=0')">날씨</div>
