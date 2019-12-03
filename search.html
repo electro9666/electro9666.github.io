@@ -47,7 +47,6 @@
       color: white;
     }
     .touchme {
-      margin-top: 100px;
       color: gray;
       font-size: 20px;
     }
@@ -112,26 +111,25 @@
 </head>
 <body id="bbb" onload="onloadFn();">
 	<div id="divId">
-    <div><input id="query" onkeypress="checkEnter(event);" placeholder="검색어" /></div>
-    <div class="buttons">
-      <button class="btn" onclick="search();">네이버</button>
-      <button class="btn" onclick="searchDaum();">다음</button>
-      <button class="btn" onclick="deleteFn();">삭제</button>
-      <br/>
-    </div>
+    <div class="anchor" onclick="goto('https://m.search.naver.com/search.naver?query=%EB%8B%AC%EB%A0%A5&sm=mtb_hty.top&where=m&oquery=%EC%83%89%EC%83%81%ED%91%9C&tqi=UN1yCsp0Jx0ssQEp79lssssstIZ-048162')">달력</div>
+    <div class="anchor" onclick="goto('https://m.search.naver.com/search.naver?query=%EC%83%89%EC%83%81%ED%91%9C&sm=mtb_hty.top&where=m&oquery=%EC%83%89%EC%83%81%ED%91%9C&tqi=UN1yBlp0JxCssE3SFa4ssssssud-125433')">색상표</div>
+    <div class="anchor" onclick="goto('http://m.yes24.com/')">yes24</div>
+    <div class="anchor" onclick="goto('http://news.naver.com')">뉴스</div>
+    <div class="anchor" onclick="goto('https://m.search.naver.com/search.naver?where=m&query=%EC%A0%84%EA%B5%AD%EB%82%A0%EC%94%A8&ie=utf8&sm=tab_she&qdt=0')">날씨</div>
+		<!-- <div class="touchme">Touch Me</div>		 -->
     <div class="buttons">
       <button class="btn" onclick="namu();">나무</button>
       <button class="btn" onclick="zeta();">제타</button>
       <button class="btn" onclick="wikipedia();">피디아</button>
       <!-- <button class="btn" onclick="allwiki();">모두</button> -->
-      <br/>
     </div>
-    <div class="anchor" onclick="goto('https://m.search.naver.com/search.naver?where=m&query=%EC%A0%84%EA%B5%AD%EB%82%A0%EC%94%A8&ie=utf8&sm=tab_she&qdt=0')">날씨</div>
-    <div class="anchor" onclick="goto('http://news.naver.com')">뉴스</div>
-    <div class="anchor" onclick="goto('http://m.yes24.com/')">yes24</div>
-    <div class="anchor" onclick="goto('https://m.search.naver.com/search.naver?query=%EB%8B%AC%EB%A0%A5&sm=mtb_hty.top&where=m&oquery=%EC%83%89%EC%83%81%ED%91%9C&tqi=UN1yCsp0Jx0ssQEp79lssssstIZ-048162')">달력</div>
-    <div class="anchor" onclick="goto('https://m.search.naver.com/search.naver?query=%EC%83%89%EC%83%81%ED%91%9C&sm=mtb_hty.top&where=m&oquery=%EC%83%89%EC%83%81%ED%91%9C&tqi=UN1yBlp0JxCssE3SFa4ssssssud-125433')">색상표</div>
-		<div class="touchme">Touch Me</div>		
+    <br>
+    <div><input id="query" onkeypress="checkEnter(event);" placeholder="검색어" /></div>
+    <div class="buttons">
+      <button class="btn" onclick="search();">네이버</button>
+      <button class="btn" onclick="searchDaum();">다음</button>
+      <button class="btn" onclick="deleteFn();">삭제</button>
+    </div>
 	</div>
 </body>
 </html>
