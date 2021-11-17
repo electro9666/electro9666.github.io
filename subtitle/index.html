@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    .parent {
+      height: 100%;
+    }
+
+    .container {
+      /* overflow-x: inherit; */
+      overflow-y: auto;
+      width: 100%;
+      height: 50%;
+    }
+
+    .enContainer {
+      background-color: skyblue;
+    }
+
+    .koContainer {
+      background-color: lightgreen;
+    }
+
+    .content {
+      padding: 10px;
+      position: relative;
+    }
+
+    .sentence {}
+
+    .sentence.selected {
+      background-color: lightgrey;
+    }
+
+    .sentence.highlight {
+      background-color: lightseagreen;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="ko.js"></script>
+  <script src="en.js"></script>
+  <div class="parent">
+    <div id="enDiv" class="container enContainer">
+      <div id="enContent" class="content"></div>
+    </div>
+    <div id="koDiv" class="container koContainer">
+      <div id="koContent" class="content"></div>
+    </div>
+  </div>
+
+  <script>
+    navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+
+    function vibrate(ms) {
+      if (navigator.vibrate) {
+        navigator.vibrate(ms); // 진동을 울리게 한다. 1000ms = 1초
+      }
+      else {
+        console.log("진동을 지원하지 않는 기종 입니다.");
+      }
+    }
+  </script>
+  <script>
+    var halfHeight = document.body.offsetHeight / 2;
+    var isSyncingLeftScroll = false;
+    var isSyncingRightScroll = false;
+    var koDiv = document.getElementById('koDiv');
+    var enDiv = document.getElementById('enDiv');
+
+    var koContent = document.getElementById('koContent');
+    var enContent = document.getElementById('enContent');
+
+    for (var i = 0; i < en.captions.length; i++) {
+      var obj = en.captions[i];
+      var nextObj = en.captions[i + 1];
+      var div = document.createElement('div');
+      div.classList.add('sentence', 'en');
+      div.setAttribute("start", obj.startTime);
+      div.setAttribute("end", nextObj ? nextObj.startTime : '');
+      div.innerHTML = obj.content;
+      enContent.append(div);
+    }
+    var enElements = document.querySelectorAll('.sentence.en');
+
+    for (var i = 0; i < ko.captions.length; i++) {
+      var obj = ko.captions[i];
+      var nextObj = ko.captions[i + 1];
+      var div = document.createElement('div');
+      div.classList.add('sentence', 'ko');
+      div.setAttribute("start", obj.startTime);
+      div.setAttribute("end", nextObj ? nextObj.startTime : '');
+      div.innerHTML = obj.content;
+      div.onclick = function () {
+        var currentHighlightElement = document.querySelector('.ko.highlight');
+        if (currentHighlightElement) {
+          currentHighlightElement.classList.remove('highlight');
+        }
+        this.classList.add('highlight');
+
+        var start = this.getAttribute('start');
+        // console.log('start', start);
+
+        // reset
+        for (let i = 0, len = enElements.length; i < len; i++) {
+          if (enElements[i].classList.remove('selected'));
+        }
+
+        var firstElement = null;
+        for (let i = 0, len = enElements.length; i < len; i++) {
+          if (enElements[i].getAttribute('start') <= start && start <= enElements[i].getAttribute('end')) {
+            enElements[i].classList.add('selected');
+            if (firstElement === null) {
+              firstElement = enElements[i];
+            }
+          }
+        }
+        // sync scroll
+        enDiv.scrollTo(0, firstElement.offsetTop - 40);
+      }
+      koContent.append(div);
+    }
+    var koElements = document.querySelectorAll('.sentence.ko');
+    // enDiv.onscroll = function () {
+    //   if (!isSyncingRightScroll) {
+    //     isSyncingLeftScroll = true;
+    //     koDiv.scrollTop = this.scrollTop;
+    //   }
+    //   isSyncingRightScroll = false;
+    // }
+    var currentCenterElement = null;
+    koDiv.onscroll = function () {
+      var scrollTop = koDiv.scrollTop;
+      // console.log('scrollTop', scrollTop);
+      var list = [];
+      for (let i = 0, len = koElements.length; i < len; i++) {
+        if (scrollTop <= koElements[i].offsetTop && koElements[i].offsetTop <= (scrollTop + halfHeight)) {
+          list.push(i);
+        }
+      }
+      var itemIndex = list[Math.floor(list.length / 2)];
+      var centerElement = koElements[itemIndex];
+      if (currentCenterElement !== centerElement) {
+        console.log('centerElement.click();');
+        centerElement.click();
+        currentCenterElement = centerElement;
+        vibrate(1);
+        window.localStorage.setItem('scrollTop', scrollTop);
+      }
+
+      // if (!isSyncingLeftScroll) {
+      //   isSyncingRightScroll = true;
+      //   enDiv.scrollTop = this.scrollTop;
+      // }
+      // isSyncingLeftScroll = false;
+    }
+
+    // init
+    var initScrollTop = window.localStorage.getItem('scrollTop');
+    console.log('initScrollTop', initScrollTop)
+    if (initScrollTop !== null) {
+      koDiv.scrollTo(0, initScrollTop);
+    }
+  </script>
+
+</html>
