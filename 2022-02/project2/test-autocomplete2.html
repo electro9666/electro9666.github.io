@@ -6,14 +6,30 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: white;
+    }
+    .city {
+      width: 100%;
+      height: 40px;
+      font-size: 20px;
+    }
+    .btn {
+        padding: 10px;
+        margin: 10px;
+      }
+  </style>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
 <body>
   <div class="ui-widget">
-    <input id="city">
-    <button onclick="resetFn()">리셋</button>
+    <input id="city" class="city">
+    <button class="btn" onclick="resetFn()">리셋</button>
   </div>
   <script src="../itwiki.js"></script>
   <script>
