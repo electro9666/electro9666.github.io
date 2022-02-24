@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    a {
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <div id="result"></div>
+  <script src="../itwiki.js"></script>
+  <script>
+    var originalText = `4. 운영체제에서 페이지 교체 알고리즘을 사용한다.<br/>가. 페이지 교체 알고리즘을 사용하는 이유에 대하여 설명하시오.<br/>나. 페이지 교체 알고리즘의 종류를 나열하고, 각 종류별 동작 과정에 대하여 설명하시오.`;
+    // var originalText = `kkk aaa`;
+
+    function changeTextSub(textObj, name, url) {
+      if (textObj.children) {
+        textObj.children.forEach(o => {
+          changeTextSub(o, name, url);
+        })
+      } else {
+        if (textObj.type !== 'text') return;
+        var text = textObj.data;
+        var index = text.indexOf(name);
+        if (index > -1) {
+          var atag = `<a class="itwiki" href="${url}" target="_blank">${name}</a>`;
+          if (!textObj.children) {
+            textObj.children = [];
+          }
+          if (index > 0) {
+            textObj.children.push({
+              type: 'text',
+              data: text.substring(0, index)
+            });
+          }
+          textObj.children.push({
+            type: 'atag',
+            data: atag
+          });
+          var lastText = text.substring(index + name.length);
+          if (lastText !== '') {
+            var lastObj = {
+              type: 'text',
+              data: text.substring(index + name.length)
+            };
+            textObj.children.push(lastObj);
+            // 나머지
+            changeTextSub(lastObj, name, url);
+          }
+        }
+      }
+    }
+    function changeTextMain(targetText) {
+      var textObj = {
+        type: 'text',
+        data: targetText
+      };
+      for (let i = 0, len = _itwiki.length; i < len; i++) {
+          var name = _itwiki[i].name;
+          var url = _itwiki[i].url;
+          // var name = 'IT 거버넌스';
+          // var url = 'https://itwiki.kr/w/IT_%EA%B1%B0%EB%B2%84%EB%84%8C%EC%8A%A4';
+  
+          // if (name !== '페이지 교체') continue;
+          // if (name !== '페이지 교체' && name !== '운영체제') continue;
+  
+          changeTextSub(textObj, name, url);
+      }
+
+      var finalList = [];
+      function visitTree(obj) {
+        if (obj.children) {
+          obj.children.forEach(o => {
+            visitTree(o);
+          });
+        } else { 
+          finalList.push(obj.data);
+        }
+      }
+      visitTree(textObj);
+
+      return finalList.join('');
+    }
+
+    // 결과
+    document.getElementById('result').innerHTML = changeTextMain(originalText);
+
+
+  </script>
+</body>
+</html>
