@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<body>
+  <div class="ui-widget">
+    <input id="city">
+    <button onclick="resetFn()">리셋</button>
+  </div>
+  <script src="../itwiki.js"></script>
+  <script>
+    _itwiki.forEach(obj => {
+      obj.label = obj.name;
+      obj.value = obj.name;
+    })
+  </script>
+  <script type="text/javascript">
+    var $city = document.getElementById('city');
+    $(function () {
+      $("#city").autocomplete({
+        source: _itwiki,
+        select: function (event, ui) {
+          console.log(ui.item);
+          window.open(ui.item.url);
+        },
+        focus: function (event, ui) {
+          return false;
+          //event.preventDefault();
+        }
+      });
+    });
+    function resetFn() {
+      $city.value = '';
+      $city.focus();
+    }
+  </script>
+</body>
+
+</html>
