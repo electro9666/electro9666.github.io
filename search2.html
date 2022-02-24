@@ -71,7 +71,7 @@
   <script>
     var $query = document.getElementById("query");
     function goto(url) {
-      location.href = url;
+      window.open(url);
     }
     function naver() {
       window.open("https://m.search.naver.com/search.naver?sm=mtb_hty.top&where=m&oquery=fd&tab=&query=" + encodeURIComponent($query.value));
