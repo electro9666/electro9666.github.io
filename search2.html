@@ -47,7 +47,7 @@
       }
     </style>
 </head>
-<body>
+<body id="body" onload="onloadFn();">
   <div class="container">
     <div class="item" onclick="goto('https://m.search.naver.com/search.naver?query=%EB%8B%AC%EB%A0%A5&sm=mtb_hty.top&where=m&oquery=%EC%83%89%EC%83%81%ED%91%9C&tqi=UN1yCsp0Jx0ssQEp79lssssstIZ-048162')">달력</div>
     <div class="item" onclick="goto('https://m.search.naver.com/search.naver?query=%EC%83%89%EC%83%81%ED%91%9C&sm=mtb_hty.top&where=m&oquery=%EC%83%89%EC%83%81%ED%91%9C&tqi=UN1yBlp0JxCssE3SFa4ssssssud-125433')">색상표</div>
@@ -71,6 +71,12 @@
 
   <script>
     var $query = document.getElementById("query");
+    function onloadFn() {
+      document.getElementById("body").addEventListener("click", function() {
+        $query.focus();
+        return false;
+      });
+    }
     function goto(url) {
       window.open(url);
     }
