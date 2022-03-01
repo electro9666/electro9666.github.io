@@ -52,6 +52,7 @@
     <div class="item" onclick="goto('https://m.search.naver.com/search.naver?query=%EB%8B%AC%EB%A0%A5&sm=mtb_hty.top&where=m&oquery=%EC%83%89%EC%83%81%ED%91%9C&tqi=UN1yCsp0Jx0ssQEp79lssssstIZ-048162')">달력</div>
     <div class="item" onclick="goto('https://m.search.naver.com/search.naver?query=%EC%83%89%EC%83%81%ED%91%9C&sm=mtb_hty.top&where=m&oquery=%EC%83%89%EC%83%81%ED%91%9C&tqi=UN1yBlp0JxCssE3SFa4ssssssud-125433')">색상표</div>
     <div class="item" onclick="goto('http://m.yes24.com/')">yes24</div>
+    <div class="item"></div>
     <div class="item" onclick="goto('http://news.naver.com')">뉴스</div>
     <div class="item" onclick="goto('https://m.search.naver.com/search.naver?where=m&query=%EC%A0%84%EA%B5%AD%EB%82%A0%EC%94%A8&ie=utf8&sm=tab_she&qdt=0')">날씨</div>
     <div class="item" onclick="goto('https://electro9666.github.io/2022-02/project0')">기술사검색</div>
@@ -66,6 +67,7 @@
     <button class="btn" onclick="naver();">네이버</button>
     <button class="btn" onclick="daum();">다음</button>
     <button class="btn" onclick="itwiki();">itwiki</button>
+    <button class="btn" onclick="addFn();">추가</button>
     <button class="btn" onclick="deleteFn();">삭제</button>
   </div>
 
@@ -78,16 +80,25 @@
       });
     }
     function goto(url) {
-      window.open(url);
+      location.href = url;
     }
     function naver() {
-      window.open("https://m.search.naver.com/search.naver?sm=mtb_hty.top&where=m&oquery=fd&tab=&query=" + encodeURIComponent($query.value));
+      location.href = "https://m.search.naver.com/search.naver?sm=mtb_hty.top&where=m&oquery=fd&tab=&query=" + encodeURIComponent($query.value);
     }
     function daum() {
-      window.open("https://m.search.daum.net/search?w=tot&nil_mtopsearch=btn&DA=YZR&q=" + encodeURIComponent($query.value));
+      location.href = "https://m.search.daum.net/search?w=tot&nil_mtopsearch=btn&DA=YZR&q=" + encodeURIComponent($query.value);
     }
     function itwiki() {
-      window.open("https://itwiki.kr/w/" + encodeURIComponent($query.value));
+      location.href = "https://itwiki.kr/w/" + encodeURIComponent($query.value);
+    }
+    function addFn() {
+      try {
+        var list = JSON.parse(localStorage.getItem('list'));
+        if (list) {
+          // TODO
+        }
+      } catch(e) {
+      }
     }
     function deleteFn() {
       $query.value = "";
