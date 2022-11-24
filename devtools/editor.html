@@ -14,15 +14,20 @@
     #tx1,
     #tx2 {
       width: 100%;
+      height: 100px;
     }
   </style>
 </head>
 
 <body>
+  <a href="https://regexr.com/" target="_blank">REGEXR</a>
+  <a href="https://astexplorer.net/" target="_blank">AST Explorer</a>
+  <a href="https://jsonformatter.curiousconcept.com/" target="_blank">json formattrer</a>
+  <a href="https://tools.knowledgewalls.com/remove-comments-from-any-program-online" target="_blank">remove js comment</a>
   <h1>역슬래시->슬래시</h1>
   <div class="item">
     <textarea id="tx1" onkeyup="onchange1();"></textarea>
-    <textarea id="tx2"></textarea>
+    <textarea id="tx2" onkeyup="onchange2();"></textarea>
   </div>
   <script>
     function onchange1() {
@@ -30,6 +35,12 @@
       var $tx2 = document.getElementById('tx2');
 
       $tx2.value = $tx1.value.replace(/\\/g, '/');
+    }
+    function onchange2() {
+      var $tx1 = document.getElementById('tx1');
+      var $tx2 = document.getElementById('tx2');
+
+      $tx1.value = $tx2.value.split('/').join('\\');
     }
   </script>
 </body>
