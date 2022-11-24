@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .item {
+      display: flex;
+    }
+
+    #tx1,
+    #tx2 {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>역슬래시->슬래시</h1>
+  <div class="item">
+    <textarea id="tx1" onkeyup="onchange1();"></textarea>
+    <textarea id="tx2"></textarea>
+  </div>
+  <script>
+    function onchange1() {
+      var $tx1 = document.getElementById('tx1');
+      var $tx2 = document.getElementById('tx2');
+
+      $tx2.value = $tx1.value.replace(/\\/g, '/');
+    }
+  </script>
+</body>
+
+</html>
