@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #regexId {
+      width: 100%;
+    }
+
+    #inputId {
+      width: 100%;
+      height: 400px;
+    }
+
+    #outputId {
+      width: 100%;
+      height: 400px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>검색조건(regex)</div>
+  <input id="regexId" />
+  <button onclick="run();">실행</button>
+  <div>input</div>
+  <textarea id="inputId">
+  </textarea>
+  <div>output</div>
+  <textarea id="outputId">
+
+  </textarea>
+  <script>
+    function run() {
+      var $regex = document.getElementById('regexId');
+      if ($regex.value === '') {
+        alert('정규식을 입력해주세요.')
+        return;
+      }
+
+      var $input = document.getElementById('inputId');
+      var $output = document.getElementById('outputId');
+      var lines = $input.value.split('\n');
+      lines = lines.filter(line => {
+        var result = line.match($regex.value);
+        // console.log('result', result);
+        return result !== null
+      });
+      $output.value = lines.join('\n');
+    }
+  </script>
+</body>
+
+</html>

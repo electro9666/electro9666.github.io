@@ -71,8 +71,9 @@
       $tx5.value = $tx3.value.replace(/[A-Z]/g, (c) => { return '-' + c.toLowerCase() });
     }
     function onchange4() {
-      $tx3.value = $tx4.value.replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
-      $tx5.value = $tx4.value.replace(/_/g, '-');
+      var list = $tx4.value.split('\n');
+      $tx3.value = list.map(str => str.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase())).join('\n');
+      $tx5.value = list.map(str => str.replace(/_/g, '-')).join('\n');
     }
     function onchange5() {
       $tx3.value = $tx5.value.replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
