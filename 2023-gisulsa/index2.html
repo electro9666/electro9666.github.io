@@ -47,7 +47,7 @@
   </div>
   <script src="index2.js"></script>
   <script>
-    var items = document.getElementById('items');
+    var $items = document.getElementById('items');
     function start() {
 
       // if (_items.length !== _summaries.length) {
@@ -55,9 +55,18 @@
       //   return;
       // }
 
+      var preId = null;
       _items.forEach((obj, i) => {
+        if (preId !== obj.id) {
+          preId = obj.id;
+          var titleItem = document.createElement('div');
+          titleItem.classList.add('titleItem');
+          titleItem.innerHTML = obj.id;
+          $items.append(titleItem);
+        }
+
         var item = document.createElement('div');
-        items.append(item);
+        $items.append(item);
         item.classList.add('item');
 
         var textItem = document.createElement('div');
@@ -66,6 +75,9 @@
         item.append(textItem);
 
         if (_summaries[i]) {
+          var tempItem = document.createElement('hr');
+          item.append(tempItem);
+
           var summaryItem = document.createElement('div');
           summaryItem.classList.add('summaryItem');
           summaryItem.innerHTML = _summaries[i].text;
