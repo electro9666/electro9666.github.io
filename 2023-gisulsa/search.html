@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    a {
+      margin: 2px;
+      /* background-color: lightgray; */
+    }
+  </style>
+</head>
+
+<body>
+  <div id="globalcontainer">
+
+  </div>
+  <script>
+    var items = [{
+      title: '관131',
+      text: `
+        관131
+        디지털 트랜스포메이션(Digital Transformation)
+        NFC(Near Field Communication)
+        폭포수 개발 방법론, 애자일 개발 방법론 > 특징, 장점, 단점, 비교
+        클라우드 컴퓨팅 > Service Model, Deployment Model > 비교
+        데이터 차원 축소(Data Dimensionality Reduction)
+        정보시스템 감리, PMO(Project Management Office) > 비교
+        머신러닝(Machine Learning), 딥러닝(Deep Learning) > 비교
+        오토 스케일링(Auto Scaling)
+        독립표본 t-검정(Independent t-test), 대응표본 t-검정(Paired t-test) > 비교
+        크리덴셜 스터핑(Credential stuffing)
+        데이터 표준화 > 필요성, 기대효과
+        객체지향 방법론 > 캡슐화(Encapsulation), 정보은닉(Information Hiding)
+        SBOM(Software Bill of Material)
+        ISP(Information Strategic Planning), BPR(Business Process Reengineering) > 개념, 수행절차, 기업활용방안
+        데이터 시각화(Data Visualization) > 개요, 원리, 절차, 유형, 효율화 방안
+        인공지능 개발, 적용 > 윤리, 관리, 규제 > 거버넌스 모형
+        제로 트러스트 보안(Zero Trust Security)모델, 트러스트 보안(Trust Security) 모델과 > 보안원리, 핵심원칙, 적용분야 > 비교
+        소켓(Socket) 통신, HTTP 통신 > 정의, 방식 개념도, 유형, TCP 소켓, Web 소켓 흐름
+        아키텍처 스타일, 디자인 패턴 > 비교, 유형
+        인공지능 학습용 데이터 허브 구축 > 학습용 데이터 셋의 품질확보의 주요활동, 데이터 생애 주기별 품질관리 수행절차
+        데이터 구조(Data Structure) > 선형 구조(Linear Structure), 비선형 구조(Non-Linear Structure) > 개념, 유형, 비교
+        통합 테스트(Integration Test) > 비점진적 통합 방식, 점진적 통합 방식, 하향식(Top Down) 통합 테스트, 상향식(Bottom Up) 통합 테스트, 테스트 드라이버(Test Driver), 테스트 스텁(Test Stub)
+        소프트웨어 안전성 분석 > 필요성, 분석기법 > FTA(Fault Tree Analysis), FMEA(Failure Mode and Effects Analysis), HAZOP(Hazard and Operability Analysis)
+        운영체제 메모리 관리 기법 > 페이징 기법, 세그멘테이션 기법 > 개념, 비교
+        정보보호 및 개인정보보호 인증제도(ISMS, Information Security Management System) > ISMS와 ISMS-P 차이점, ISMS 의무 대상 기준
+        전략적 기업경영(Strategic Enterprise Management) > 정의, 구성요소, 구축 방안, 구축 절차
+        개인정보보호를 위한 '개인정보의 안전성 확보조치 기준' 고시 내용 > 내부관리계획 수립·이행, 암호화 적용방안
+        데이터 품질관리 > 아키텍처, 성숙도, 전략, 정형 데이터 및 비정형 데이터 품질기준
+        인공지능 > 파운데이션(Foundation) 모델 > 개념, 특징, 기반기술, 구현시 법적·환경적·사회적 측면의 고려사항
+        소프트웨어 규모산정 > 필요성, 산정방법, 규모산정 방식의 종류별 특징
+        정렬 알고리즘 > 버블 정렬, 삽입 정렬, 퀵 정렬
+      `
+    }];
+
+    var globalcontainer = document.getElementById('globalcontainer');
+
+    for (let i = 0; i < items.length; i++) {
+      var item = items[i];
+      var title = item.title;
+      var text = item.text;
+
+      var container = document.createElement('div');
+
+      var list = text.split('\n').filter(str => str.trim() !== '').map(str => str.trim());
+      list.forEach(str => {
+        var result = str.split('>').map(str2 => {
+          return str2.split(',').map(str3 => {
+            var val = str3.trim();
+            // console.log('str3', str3);
+            var atag = document.createElement('a');
+            // atag.href = 'javascript:void(0);return false;';
+            atag.href = 'https://www.google.com/search?q=' + val;
+            atag.target = '_blank';
+            atag.textContent = val;
+            return atag;
+          });
+        });
+        result = result.flat();
+        console.log('result', result);
+
+        result.forEach(atag => {
+          container.append(atag);
+        });
+
+        container.append(document.createElement('br'));
+      });
+
+      globalcontainer.append(container);
+    }
+  </script>
+</body>
+
+</html>
