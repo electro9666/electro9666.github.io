@@ -14,6 +14,8 @@
 </head>
 
 <body>
+  <label><input type="radio" name="search" value="google" checked>google</label>
+  <label><input type="radio" name="search" value="youtube">youtube</label>
   <div id="globalcontainer">
 
   </div>
@@ -56,41 +58,58 @@
       `
     }];
 
-    var globalcontainer = document.getElementById('globalcontainer');
+    function start() {
+      console.log('start');
 
-    for (let i = 0; i < items.length; i++) {
-      var item = items[i];
-      var title = item.title;
-      var text = item.text;
+      var globalcontainer = document.getElementById('globalcontainer');
+      globalcontainer.innerHTML = '';
+      for (let i = 0; i < items.length; i++) {
+        var item = items[i];
+        var title = item.title;
+        var text = item.text;
 
-      var container = document.createElement('div');
+        var container = document.createElement('div');
 
-      var list = text.split('\n').filter(str => str.trim() !== '').map(str => str.trim());
-      list.forEach(str => {
-        var result = str.split('>').map(str2 => {
-          return str2.split(',').map(str3 => {
-            var val = str3.trim();
-            // console.log('str3', str3);
-            var atag = document.createElement('a');
-            // atag.href = 'javascript:void(0);return false;';
-            atag.href = 'https://www.google.com/search?q=' + val;
-            atag.target = '_blank';
-            atag.textContent = val;
-            return atag;
+        var list = text.split('\n').filter(str => str.trim() !== '').map(str => str.trim());
+        list.forEach(str => {
+          var result = str.split('>').map(str2 => {
+            return str2.split(',').map(str3 => {
+              var val = str3.trim();
+              // console.log('str3', str3);
+              var atag = document.createElement('a');
+              // atag.href = 'javascript:void(0);return false;';
+              var searchType = document.querySelector('input[type="radio"]:checked').value;
+              if (searchType === 'google') {
+                atag.href = 'https://www.google.com/search?q=' + val;
+              } else if (searchType === 'youtube') {
+                atag.href = 'https://m.youtube.com/results?search_query=' + val;
+              }
+              atag.target = '_blank';
+              atag.textContent = val;
+              return atag;
+            });
           });
+          result = result.flat();
+          // console.log('result', result);
+
+          result.forEach(atag => {
+            container.append(atag);
+          });
+
+          container.append(document.createElement('br'));
         });
-        result = result.flat();
-        console.log('result', result);
 
-        result.forEach(atag => {
-          container.append(atag);
-        });
-
-        container.append(document.createElement('br'));
-      });
-
-      globalcontainer.append(container);
+        globalcontainer.append(container);
+      }
     }
+
+    document.querySelectorAll('input[type="radio"]').forEach((elem) => {
+      elem.addEventListener('click', () => {
+        start();
+      });
+    })
+
+    start();
   </script>
 </body>
 
