@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    .items {
+      width: 100%;
+      height: 100%;
+    }
+
+    .item {
+      margin: 4px;
+      border: 1px solid lightgray;
+      padding: 4px;
+      min-height: 50px;
+    }
+
+    .summaryItem {
+      margin-top: 10px;
+    }
+
+    .tokenItem {
+      margin-top: 10px;
+    }
+
+    .token {
+      padding: 2px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container" class="container">
+    <div id="items" class="items">
+
+    </div>
+  </div>
+  <script src="index2.js"></script>
+  <script>
+    var items = document.getElementById('items');
+    function start() {
+
+      // if (_items.length !== _summaries.length) {
+      //   console.error('if (_items.length !== _summary.length) {')
+      //   return;
+      // }
+
+      _items.forEach((obj, i) => {
+        var item = document.createElement('div');
+        items.append(item);
+        item.classList.add('item');
+
+        var textItem = document.createElement('div');
+        textItem.classList.add('textItem');
+        textItem.innerHTML = obj.text;
+        item.append(textItem);
+
+        if (_summaries[i]) {
+          var summaryItem = document.createElement('div');
+          summaryItem.classList.add('summaryItem');
+          summaryItem.innerHTML = _summaries[i].text;
+          item.append(summaryItem);
+
+          var tokenItem = document.createElement('div');
+          tokenItem.classList.add('tokenItem');
+          item.append(tokenItem);
+
+          var tokens = getToken(_summaries[i].text);
+          tokens.forEach(str => {
+            var token = document.createElement('div');
+            token.classList.add('token');
+            var execResult = /\w*(\(.*\))/.exec(str);
+            if (execResult) {
+              str = str.replaceAll(execResult[1], '');
+            }
+            token.innerHTML = `<label><input type="checkbox" /> ${str}</labe>`;
+            tokenItem.append(token);
+
+            if (execResult) {
+              var token2 = document.createElement('div');
+              token2.classList.add('token');
+              token2.innerHTML = `<label><input type="checkbox" /> ${execResult[1].replaceAll('(', '').replaceAll(')', '')}</labe>`;
+              tokenItem.append(token2);
+            }
+          });
+
+          var buttonItem = document.createElement('button');
+          buttonItem.onclick = function () {
+            var checkedTokens = buttonItem.closest('.item').querySelectorAll('input[type="checkbox"]:checked');
+            console.log('checkedTokens', checkedTokens);
+            var vals = Array.prototype.map.call(checkedTokens, (input) => (input.closest('label').textContent.trim())).join(' ');
+            console.log('vals', vals);
+            window.open('https://www.google.com/search?q=' + vals, '_blank');
+          }
+          buttonItem.innerHTML = '이동';
+          item.append(buttonItem);
+        }
+      });
+    }
+
+    function getToken(str) {
+      var result = str.split('>').map(str2 => {
+        return str2.split(',').map(str3 => {
+          return str3.trim();
+        });
+      });
+      result = result.flat();
+      return result;
+    }
+
+    start();
+  </script>
+</body>
+
+</html>
