@@ -181,7 +181,7 @@ var _summaries = [{ text: `디지털 트랜스포메이션(Digital Transformatio
 { text: `전이학습(Transfer Learning)` },
 { text: `ATAM(Architecture Trade-off Analysis Method), CBAM(Cost Benefit AnalysisMethod)` },
 { text: `PNM(Processing Near Memory)` },
-{ text: `NoSQL의 CAP(Consistency, Availability, Partition Tolerance)` },
+{ text: `NoSQL > CAP > Consistency, Availability, Partition Tolerance` },
 { text: `RPA(Robotic Process Automation)` },
 { text: `알고리즘의 시간복잡도(Time Complexity), 공간복잡도(Space Complexity)` },
 { text: `지능정보화 기본법` },

@@ -11,6 +11,7 @@
     body {
       width: 100%;
       height: 100%;
+      margin: 0;
     }
 
     .items {
@@ -19,10 +20,24 @@
     }
 
     .item {
-      margin: 4px;
-      border: 1px solid lightgray;
+      margin: 8px 8px;
+      border-top: 1px solid lightgray;
       padding: 4px;
       min-height: 50px;
+    }
+
+    .titleItem {
+      margin: 4px 0;
+      text-align: center;
+    }
+    .imageItem {
+      display: flex;
+    }
+
+    .imageItem .img {
+      width: 100px;
+      height: 100px;
+      border: 1px solid lightgray;
     }
 
     .summaryItem {
@@ -50,6 +65,16 @@
     var $items = document.getElementById('items');
     function start() {
 
+      // var observer = new IntersectionObserver(entries => {
+      //   entries.forEach(entry => {
+      //     if (entry.isIntersecting) {
+      //       console.log('IntersectionObserver', entry.target);
+      //       // 1회 실행후 관찰 종료
+      //       observer.unobserve(entry.target);
+      //     }
+      //   });
+      // });
+
       // if (_items.length !== _summaries.length) {
       //   console.error('if (_items.length !== _summary.length) {')
       //   return;
@@ -57,6 +82,7 @@
 
       var preId = null;
       _items.forEach((obj, i) => {
+        window.itemCount = _items.length;
         if (preId !== obj.id) {
           preId = obj.id;
           var titleItem = document.createElement('div');
@@ -67,16 +93,23 @@
 
         var item = document.createElement('div');
         $items.append(item);
+        item.id = 'id' + i;
         item.classList.add('item');
+
+        // observer.observe(item);
 
         var textItem = document.createElement('div');
         textItem.classList.add('textItem');
         textItem.innerHTML = obj.text;
         item.append(textItem);
 
+        var imageItem = document.createElement('div');
+        imageItem.classList.add('imageItem');
+        item.append(imageItem);
+
         if (_summaries[i]) {
-          var tempItem = document.createElement('hr');
-          item.append(tempItem);
+          // var tempItem = document.createElement('hr');
+          // item.append(tempItem);
 
           var summaryItem = document.createElement('div');
           summaryItem.classList.add('summaryItem');

@@ -1,0 +1,147 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+    }
+
+    .search {
+      background-color: black;
+      color: white;
+    }
+    .container {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      overflow: auto;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .item {
+      margin: 4px;
+      width: 20%;
+      height: 40px;
+      border: 1px solid gray;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .query {
+      width: 100%;
+      height: 40px;
+      font-size: 20px;
+    }
+
+    .container3 {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .btn {
+      padding: 10px;
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body id="body" onload="onloadFn();">
+  <iframe id="ifr" src="/2023-gisulsa/index2.html" style="width:100%;height:70%;" onload="iframeOnload();"></iframe>
+  <div class="search" style="width:100%;height:30%;">
+    <div class="container2">
+      <input id="query" class="query" onkeypress="checkEnter(event);" placeholder="검색어" />
+    </div>
+    <div class="container3">
+      <button class="btn" onclick="naver();">네이버</button>
+      <button class="btn" onclick="daum();">다음</button>
+      <button class="btn" onclick="itwiki();">itwiki</button>
+      <button class="btn" onclick="addFn();">추가</button>
+      <button class="btn" onclick="deleteFn();">삭제</button>
+    </div>
+    <div class="container">
+      <!-- <div class="item" onclick="goto('https://m.search.naver.com/search.naver?query=%EC%83%89%EC%83%81%ED%91%9C&sm=mtb_hty.top&where=m&oquery=%EC%83%89%EC%83%81%ED%91%9C&tqi=UN1yBlp0JxCssE3SFa4ssssssud-125433')">색상표</div> -->
+      <div class="item" onclick="goto('http://m.yes24.com/')">yes24</div>
+      <!-- <div class="item" onclick="goto('https://m.search.naver.com/search.naver?query=%EC%BD%94%EB%A1%9C%EB%82%98')">코로나</div> -->
+      <div class="item" onclick="goto('https://m.youtube.com')">유튜브</div>
+      <div class="item" onclick="goto2('https://m.youtube.com/results?search_query=')">꿈미</div>
+      <div class="item" onclick="goto('http://news.naver.com')">뉴스</div>
+      <div class="item" onclick="goto('https://m.search.naver.com/search.naver?where=m&query=%EC%A0%84%EA%B5%AD%EB%82%A0%EC%94%A8&ie=utf8&sm=tab_she&qdt=0')">날씨</div>
+      <div class="item" onclick="goto('/2023-gisulsa/index2.html')">기술사</div>
+      <div class="item" onclick="goto('https://m.search.naver.com/search.naver?query=%EB%8B%AC%EB%A0%A5&sm=mtb_hty.top&where=m&oquery=%EC%83%89%EC%83%81%ED%91%9C&tqi=UN1yCsp0Jx0ssQEp79lssssstIZ-048162')">달력</div>
+      <!-- <div class="item" onclick="goto('https://electro9666.github.io/2022-02/project0')">기술사검색</div> -->
+      <!-- <div class="item" onclick="goto('https://electro9666.github.io/2022-02/project0/index2.html')">기술사카테고리</div> -->
+      <!-- <div class="item" onclick="goto('https://electro9666.github.io/2022-02/project2/test-autocomplete2.html')">itwiki검색</div> -->
+    </div>
+  </div>
+
+
+  <script>
+    var $query = document.getElementById("query");
+    function onloadFn() {
+      document.getElementById("body").addEventListener("click", function () {
+        $query.focus();
+        return false;
+      });
+    }
+    function goto(url) {
+      location.href = url;
+    }
+    function goto2(url) {
+      var d = new Date();
+      location.href = url + encodeURIComponent(`[한국교회와 함께 큐티를 보다]${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일`);
+    }
+    function naver() {
+      location.href = "https://m.search.naver.com/search.naver?sm=mtb_hty.top&where=m&oquery=fd&tab=&query=" + encodeURIComponent($query.value);
+    }
+    function daum() {
+      location.href = "https://m.search.daum.net/search?w=tot&nil_mtopsearch=btn&DA=YZR&q=" + encodeURIComponent($query.value);
+    }
+    function itwiki() {
+      location.href = "https://itwiki.kr/w/" + encodeURIComponent($query.value);
+    }
+    function addFn() {
+      try {
+        var list = JSON.parse(localStorage.getItem('list'));
+        if (list) {
+          // TODO
+        }
+      } catch (e) {
+      }
+    }
+    function deleteFn() {
+      $query.value = "";
+      $query.focus();
+      return false;
+    }
+    function checkEnter(event) {
+      if (event.which == 13 || event.keyCode == 13) {
+        naver();
+        return false;
+      }
+    }
+
+    function iframeOnload() {
+      var ifr = document.getElementById('ifr');
+      var itemCount = ifr.contentWindow.itemCount;
+      console.log('itemCount', itemCount);
+      var idx = Math.floor(Math.random() * itemCount);
+      ifr.contentDocument.getElementById('id' + idx).scrollIntoView();
+    }
+  </script>
+</body>
+
+</html>
