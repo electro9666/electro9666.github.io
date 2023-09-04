@@ -33,6 +33,7 @@
 
     .textItem {
       margin: 5px 8px;
+      font-weight: bold;
     }
 
     .imageItem {
@@ -41,8 +42,7 @@
       overflow-x: scroll;
     }
 
-    .imageItem .imgWrap {
-    }
+    .imageItem .imgWrap {}
 
     /* .imageItem .img {
       width: 100px;
@@ -197,21 +197,20 @@
     }
 
     async function getImages(tokens, $target) {
-      console.log('getImages', tokens);
+      console.log('tokens[0]', tokens[0]);
       var imageList = [];
 
       if (!window.imageObj) {
         // 1. images json 파일에 있는지 확인
         var res = await fetch('images.json');
         window.imageObj = await res.json();
-
-        if (window.imageObj[tokens[0]]) {
-          imageList = window.imageObj[tokens[0]];
-        } else {
-          // 2. 없으면 server에 요청
-          var res = await fetch('http://localhost:9000/getImages?q=' + tokens[0]);
-          imageList = await res.json();
-        }
+      }
+      if (window.imageObj[tokens[0]]) {
+        imageList = window.imageObj[tokens[0]];
+      } else {
+        // 2. 없으면 server에 요청
+        var res = await fetch('http://localhost:9000/getImages?q=' + tokens[0]);
+        imageList = await res.json();
       }
 
       imageList.forEach((d, index) => {
