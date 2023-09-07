@@ -83,13 +83,18 @@
   <script src="index2.js"></script>
   <script>
     var $items = document.getElementById('items');
+    var observer;
     function start() {
 
-      var observer = new IntersectionObserver(entries => {
+      observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             console.log('IntersectionObserver', entry.target);
-            entry.target.getImages();
+            if (entry.target.getImages) {
+              entry.target.getImages();
+            } else if (entry.target.showImage) {
+              entry.target.showImage();
+            }
             // 1회 실행후 관찰 종료
             observer.unobserve(entry.target);
           }
@@ -116,8 +121,6 @@
         $items.append(item);
         item.id = 'id' + i;
         item.classList.add('item');
-
-        observer.observe(item);
 
         var textItem = document.createElement('div');
         textItem.classList.add('textItem');
@@ -183,6 +186,7 @@
           btn.innerHTML = '이미지';
           buttonItem.append(btn);
 
+          observer.observe(item);
           item.getImages = function () {
             return getImages(tokens, imageItem);
           }
@@ -235,11 +239,16 @@
 
         var img = document.createElement('img');
         div.append(img);
-        img.src = d;
-        // img.style.width = window.outerWidth + 'px';
+        // img.src = d;
+        img.setAttribute('data-src', d);
+        img.style.minWidth = window.outerWidth + 'px';
         img.onerror = () => {
           console.error('img error');
           img.style.display = 'none';
+        };
+        observer.observe(img);
+        img.showImage = function() {
+          img.src = img.getAttribute('data-src');
         }
       });
     }
