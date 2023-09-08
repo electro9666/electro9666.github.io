@@ -50,6 +50,6 @@ async function start() {
   console.log('imageList', imageList);
 }
 
-start();
+// start();
 
 module.exports.getImages = getImages;

@@ -151,14 +151,12 @@
 
           imageList.forEach((d, index) => {
             if (index > 10) return;
-            var a = document.createElement('a');
-            a.classList.add('imgWrap');
-            a.href = d.link;
-            a.target = '_blank';
-            elem.append(a);
+            var wrap = document.createElement('div');
+            wrap.classList.add('imgWrap');
+            elem.append(wrap);
 
             var img = document.createElement('img');
-            a.append(img);
+            wrap.append(img);
             // img.src = d;
             img.setAttribute('data-src', d.imgsrc); // d.link
             img.style.width = window.outerWidth + 'px';
@@ -170,9 +168,11 @@
               img.src = img.getAttribute('data-src');
             }
 
-            var alt = document.createElement('div');
-            alt.innerHTML = d.alt;
-            a.append(alt);
+            var altAtag = document.createElement('a');
+            altAtag.innerHTML = d.alt;
+            altAtag.href = d.link;
+            altAtag.target = '_blank';
+            wrap.append(altAtag);
           });
         }
         observer.observe(elem);

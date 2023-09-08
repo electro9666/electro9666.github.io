@@ -1,7 +1,8 @@
 const express = require('express');
-var cors = require('cors');
+var cors = require('cors'); 
 
-var imageModule = require('./imageModuleV2.js');
+// var imageModule = require('./imageModuleV2.js');
+var imageModule = require('./imageModule.js');
 var filestore = require('./filestoreV2.js');
 
 const app = express();
@@ -19,7 +20,8 @@ app.use(express.urlencoded({
 
 // app.use(express.static('../../templateDesigner'));
 
-// app.use(express.static('./public'));
+app.use(express.static('./public'));
+app.use(express.static('./markdown'));
 
 function getCurrentDateTime() {
   const now = new Date();
@@ -62,6 +64,10 @@ app.get('/getImages', async (req, res) => {
     date: currentDate,
     list: resultList
   });
+});
+
+app.get('/imagesV2.json', async (req, res) => {
+  res.json(filestore.getAll());
 });
 
 // test

@@ -30,8 +30,8 @@ var getImages = (key, url) => {
         var href = await page.evaluate(elem => elem.getAttribute('href'), searchResults[i]);
         // console.log('href', href);
         var searchParams = (new URL('http://localhost' + href)).searchParams;
-        var src = searchParams.get('imgurl');
-        var imgrefurl = searchParams.get('imgrefurl');
+        var imgsrc = searchParams.get('imgurl');
+        var link = searchParams.get('imgrefurl');
 
         var alt = await page.evaluate(elem => elem.querySelector('img').getAttribute('alt'), searchResults[i]);
         // console.log('alt', alt);
@@ -39,10 +39,10 @@ var getImages = (key, url) => {
         // var src = await page.evaluate(elem => elem.getAttribute('src'), searchResults[i]);
 
         // var atags = await page.evaluate(elem => elem.querySelectorAll('a'), searchResults[i]);
-        if (src !== null && resultList.length < 10) {
+        if (imgsrc !== null && resultList.length < 10) {
           resultList.push({
-            src: src,
-            imgrefurl: imgrefurl,
+            imgsrc: imgsrc,
+            link: link,
             alt: alt
           });
         }

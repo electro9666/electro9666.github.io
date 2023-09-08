@@ -4,6 +4,9 @@ const { clearInterval } = require('timers');
 var isLock = false;
 var filepath = './public/imagesV2.json';
 
+module.exports.getAll = function () {
+  return JSON.parse(fs.readFileSync(filepath, 'utf-8'));
+}
 module.exports.get = async function (key) {
   if (isLock) {
     await new Promise(resolve => {
