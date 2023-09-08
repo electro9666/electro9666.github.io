@@ -1,5 +1,5 @@
 var fs = require('fs');
-var lines = fs.readFileSync('./markdown-keyword.md', 'utf-8');
+var lines = fs.readFileSync('./markdown/markdown-keyword.md', 'utf-8');
 if (lines.indexOf('\r\n') !== -1) {
   lines = lines.split('\r\n');
 } else if (lines.indexOf('\n') !== -1) {
@@ -12,7 +12,7 @@ var lastCursor = null;
 for (let i = 0, len = lines.length; i < len; i++) {
   var line = lines[i].trim();
   if (line === '') continue;
-  console.log('line', line);
+  // console.log('line', line);
 
   if (line.startsWith('##')) {
     var cursor = [];
@@ -38,9 +38,9 @@ for (let i = 0, len = lines.length; i < len; i++) {
     itemList.push(item);
     lastCursor = cursor;
   } else {
-    console.log('itemList', itemList, lastCursor);
+    // console.log('itemList', itemList, lastCursor);
     lastCursor.push(line);
   }
 }
 
-fs.writeFileSync('./markdown-keyword-result.js', 'var _jsonData = ' + JSON.stringify(itemList, null, 2));
+fs.writeFileSync('./markdown/markdown-keyword-result.js', 'var _jsonData = ' + JSON.stringify(itemList, null, 2));

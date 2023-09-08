@@ -5,6 +5,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+
+    .items {
+      width: 100%;
+      height: 100%;
+    }
+
+    .item {
+      margin: 8px 0px;
+      border-top: 1px solid lightgray;
+      padding: 4px 0;
+      min-height: 50px;
+    }
+
+    .titleItem {
+      margin: 4px 0;
+      text-align: center;
+    }
+
+    .textItem {
+      margin: 5px 8px;
+      font-weight: bold;
+    }
+
+    .imageItem {
+      /* display: flex; */
+      /* height: 400px; */
+      /* overflow-x: scroll; */
+    }
+
+    .imageItem .imgList {
+      display: flex;
+      /* height: 400px; */
+      overflow-x: scroll;
+    }
+
+    .imageItem .imgWrap {
+      border: 1px solid gray;
+      padding: 4px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .imageItem .imgWrap img {
+      max-height: 300px;
+    }
+
+    .summaryItem {
+      margin: 5px 8px;
+    }
+
+    .tokenItem {
+      margin: 5px 8px;
+    }
+
+    .token {
+      padding: 2px;
+    }
+
+    .buttonItem {
+      margin-left: 10px;
+    }
+  </style>
 </head>
 
 <body>
@@ -13,15 +82,18 @@
   </div>
   <script src="markdown-keyword-result.js"></script>
   <script>
-    var imgseq = 0;
-
+    var itemCount = 0;
     var observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          console.log('IntersectionObserver', entry.target);
-          if (entry.target.showImage) {
+          // console.log('IntersectionObserver', entry.target);
+          if (entry.target.getImages) {
+            entry.target.getImages();
+          } else if (entry.target.showImage) {
             entry.target.showImage();
           }
+          // 1회 실행후 관찰 종료
+          observer.unobserve(entry.target);
         }
       });
     });
@@ -35,69 +107,91 @@
         var jsonObj = _jsonData[index];
 
         var keywordList = jsonObj.h2List.filter(obj => obj.h2title === 'keyword')[0]?.content || [];
+        if (keywordList.length === 0) continue;
         console.log('keywordList', keywordList);
 
-        var keywordImageHtml = keywordList.map(keyword => `<img class="img" id="id-img-${imgseq++}" data-keyword="${keyword}"/>`).join('');
+        var html2 = '';
+        for (let i = 0; i < keywordList.length; i++) {
+          html2 += `<div class="tokenItem">${keywordList[i]}
+            <button onclick="window.open('https://www.google.com/search?q=${keywordList[i]}')">goo</button>
+            <button onclick="window.open('https://www.google.com/search?tbm=isch&q=${keywordList[i]}')">img</button>
+            </div>`
+          html2 += `<div class="imageItem"><div class="imgList" data-keyword="${keywordList[i]}"></div></div>`;
+        }
 
         var html = `
-        <div class="item">
+        <div class="item" id="id${itemCount++}">
           <div class="textItem">${jsonObj.h1title}</div>
-          <div class="imageItem">
-            ${keywordImageHtml}
-          </div>
-          <div class="tokenItem">${keywordList.join('<br/>')}</div>
+          ${html2}
         </div>
         `;
 
-        imgseq++;
         totalHtml += html;
       }
       container.innerHTML = totalHtml;
 
-      document.querySelectorAll('.img').forEach(elem => {
+      document.querySelectorAll('.imgList').forEach(elem => {
         elem.showImage = async () => {
 
-          if (entry.target.classList.contains('img')) {
-            var keyword = entry.target.getAttribute('data-keyword');
-            if (!keyword) return;
+          var keyword = elem.getAttribute('data-keyword');
+          if (!keyword) return;
 
-            if (!window.imageObj) {
-              // 1. images json 파일에 있는지 확인
-              var res = await fetch('../public/images.json');
-              window.imageObj = await res.json();
-            }
-            if (window.imageObj[keyword]) {
-              imageList = window.imageObj[keyword];
-            } else {
-              // 2. 없으면 server에 요청
-              var res = await fetch('http://localhost:9000/getImages?q=' + tokens[0]);
-              imageList = await res.json();
-            }
-
-            imageList.forEach((d, index) => {
-              if (index > 10) return;
-              var div = document.createElement('div');
-              div.classList.add('imgWrap')
-              entry.target.append(div);
-
-              var img = document.createElement('img');
-              div.append(img);
-              img.src = d;
-              img.style.width = window.outerWidth + 'px';
-              img.onerror = () => {
-                console.error('img error');
-              }
-            });
-
-            // 1회 실행후 관찰 종료
-            observer.unobserve(entry.target);
+          if (!window.imageObj) {
+            // 1. images json 파일에 있는지 확인
+            var res = await fetch('../public/imagesV2.json');
+            window.imageObj = await res.json();
           }
+          if (window.imageObj[keyword]) {
+            imageList = window.imageObj[keyword].list;
+          } else {
+            // 2. 없으면 server에 요청
+            var res = await fetch('http://localhost:9000/getImages?q=' + keyword);
+            imageList = await res.json().list;
+          }
+
+          imageList.forEach((d, index) => {
+            if (index > 10) return;
+            var a = document.createElement('a');
+            a.classList.add('imgWrap');
+            a.href = d.link;
+            a.target = '_blank';
+            elem.append(a);
+
+            var img = document.createElement('img');
+            a.append(img);
+            // img.src = d;
+            img.setAttribute('data-src', d.imgsrc); // d.link
+            img.style.width = window.outerWidth + 'px';
+            img.onerror = () => {
+              console.error('img error');
+            };
+            observer.observe(img);
+            img.showImage = function () {
+              img.src = img.getAttribute('data-src');
+            }
+
+            var alt = document.createElement('div');
+            alt.innerHTML = d.alt;
+            a.append(alt);
+          });
         }
         observer.observe(elem);
-      })
+
+        window.lastImageList = elem.closest('.item');
+      });
+
+
+      setTimeout(() => {
+        window.lastImageList.scrollIntoView();
+      }, 500);
     }
 
     start();
+
+    window.scrollRandom = () => {
+      var idx = Math.floor(Math.random() * itemCount);
+      document.getElementById('id' + idx).scrollIntoView();
+    }
   </script>
 </body>
 

@@ -1,8 +1,8 @@
 const express = require('express');
 var cors = require('cors');
 
-var imageModule = require('./imageModule.js');
-var filestore = require('./filestore.js');
+var imageModule = require('./imageModuleV2.js');
+var filestore = require('./filestoreV2.js');
 
 const app = express();
 // const port = process.env.PORT || 8080;
@@ -13,14 +13,28 @@ app.use(express.json({
   limit: "50mb"
 }));
 app.use(express.urlencoded({
-  limit: "50mb", 
+  limit: "50mb",
   extended: false
 }));
 
 // app.use(express.static('../../templateDesigner'));
 
-app.use(express.static('./public'));
+// app.use(express.static('./public'));
 
+function getCurrentDateTime() {
+  const now = new Date();
+
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 +1 해줍니다.
+  const day = String(now.getDate()).padStart(2, '0');
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+
+  const formattedDateTime = `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;
+
+  return formattedDateTime;
+}
 
 app.get('/getImages', async (req, res) => {
   console.log('req.query.q', req.query.q);
@@ -32,9 +46,22 @@ app.get('/getImages', async (req, res) => {
   //   return;
   // }
 
-  var resultList = await imageModule.getImages('https://www.google.com/search?tbm=isch&q=' + key);
-  await filestore.put(key, resultList);
-  res.json(resultList);
+  var resultList = [];
+  try {
+    resultList = await imageModule.getImages(key, 'https://www.google.com/search?tbm=isch&q=' + key);
+  } catch (e) {
+    console.error('resultList e', e);
+  }
+
+  var currentDate = getCurrentDateTime();
+  await filestore.put(key, {
+    date: currentDate,
+    list: resultList
+  });
+  res.json({
+    date: currentDate,
+    list: resultList
+  });
 });
 
 // test
