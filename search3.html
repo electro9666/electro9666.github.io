@@ -56,14 +56,14 @@
 
     .btn {
       padding: 10px;
-      margin: 10px;
+      margin: 2px;
     }
   </style>
 </head>
 
 <body id="body" onload="onloadFn();">
-  <iframe id="ifr" src="/2023-gisulsa/markdown/markdown-view.html" style="width:100%;height:70%;" onload="iframeOnload();"></iframe>
-  <div class="search" style="width:100%;height:30%;">
+  <iframe id="ifr" src="/2023-gisulsa/markdown/markdown-view.html" style="width:100%;height:80%;" onload="iframeOnload();"></iframe>
+  <div class="search" style="width:100%;height:20%;">
     <div class="container">
       <!-- <div class="item" onclick="goto('https://m.search.naver.com/search.naver?query=%EC%83%89%EC%83%81%ED%91%9C&sm=mtb_hty.top&where=m&oquery=%EC%83%89%EC%83%81%ED%91%9C&tqi=UN1yBlp0JxCssE3SFa4ssssssud-125433')">색상표</div> -->
       <div class="item" onclick="goto('http://m.yes24.com/')">yes24</div>
@@ -81,13 +81,14 @@
     </div>
     <div class="container2">
       <input id="query" class="query" onkeypress="checkEnter(event);" placeholder="검색어" />
-    </div>
-    <div class="container3">
-      <button class="btn" onclick="deleteFn();">삭제</button>
-      <button class="btn" onclick="daum();">다음</button>
-      <button class="btn" onclick="itwiki();">itwiki</button>
-      <!-- <button class="btn" onclick="addFn();">추가</button> -->
-      <button class="btn" onclick="naver();">네이버</button>
+      <div class="container3">
+        <!-- <button class="btn" onclick="deleteFn();">Del</button> -->
+        <!-- <button class="btn" onclick="daum();">D</button> -->
+        <!-- <button class="btn" onclick="itwiki();">itwiki</button> -->
+        <!-- <button class="btn" onclick="addFn();">추가</button> -->
+        <button class="btn" onclick="google();">Google</button>
+        <button class="btn" onclick="naver();">Naver</button>
+      </div>
     </div>
   </div>
 
@@ -95,10 +96,10 @@
   <script>
     var $query = document.getElementById("query");
     function onloadFn() {
-      document.getElementById("body").addEventListener("click", function () {
-        $query.focus();
-        return false;
-      });
+      // document.getElementById("body").addEventListener("click", function () {
+      //   $query.focus();
+      //   return false;
+      // });
     }
     function goto(url) {
       location.href = url;
@@ -106,6 +107,9 @@
     function goto2(url) {
       var d = new Date();
       location.href = url + encodeURIComponent(`[한국교회와 함께 큐티를 보다]${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일`);
+    }
+    function google() {
+      location.href = "https://www.google.com/search?q=" + encodeURIComponent($query.value);
     }
     function naver() {
       location.href = "https://m.search.naver.com/search.naver?sm=mtb_hty.top&where=m&oquery=fd&tab=&query=" + encodeURIComponent($query.value);
