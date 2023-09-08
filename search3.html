@@ -16,6 +16,7 @@
       background-color: black;
       color: white;
     }
+
     .container {
       width: 100%;
       display: flex;
@@ -49,7 +50,8 @@
 
     .container3 {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
+      justify-content: center;
     }
 
     .btn {
@@ -62,16 +64,6 @@
 <body id="body" onload="onloadFn();">
   <iframe id="ifr" src="/2023-gisulsa/public/index2.html" style="width:100%;height:70%;" onload="iframeOnload();"></iframe>
   <div class="search" style="width:100%;height:30%;">
-    <div class="container2">
-      <input id="query" class="query" onkeypress="checkEnter(event);" placeholder="검색어" />
-    </div>
-    <div class="container3">
-      <button class="btn" onclick="naver();">네이버</button>
-      <button class="btn" onclick="daum();">다음</button>
-      <button class="btn" onclick="itwiki();">itwiki</button>
-      <button class="btn" onclick="addFn();">추가</button>
-      <button class="btn" onclick="deleteFn();">삭제</button>
-    </div>
     <div class="container">
       <!-- <div class="item" onclick="goto('https://m.search.naver.com/search.naver?query=%EC%83%89%EC%83%81%ED%91%9C&sm=mtb_hty.top&where=m&oquery=%EC%83%89%EC%83%81%ED%91%9C&tqi=UN1yBlp0JxCssE3SFa4ssssssud-125433')">색상표</div> -->
       <div class="item" onclick="goto('http://m.yes24.com/')">yes24</div>
@@ -86,6 +78,16 @@
       <!-- <div class="item" onclick="goto('https://electro9666.github.io/2022-02/project0')">기술사검색</div> -->
       <!-- <div class="item" onclick="goto('https://electro9666.github.io/2022-02/project0/index2.html')">기술사카테고리</div> -->
       <!-- <div class="item" onclick="goto('https://electro9666.github.io/2022-02/project2/test-autocomplete2.html')">itwiki검색</div> -->
+    </div>
+    <div class="container2">
+      <input id="query" class="query" onkeypress="checkEnter(event);" placeholder="검색어" />
+    </div>
+    <div class="container3">
+      <button class="btn" onclick="deleteFn();">삭제</button>
+      <button class="btn" onclick="daum();">다음</button>
+      <button class="btn" onclick="itwiki();">itwiki</button>
+      <!-- <button class="btn" onclick="addFn();">추가</button> -->
+      <button class="btn" onclick="naver();">네이버</button>
     </div>
   </div>
 

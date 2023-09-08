@@ -42,7 +42,13 @@
       overflow-x: scroll;
     }
 
-    .imageItem .imgWrap {}
+    .imageItem .imgWrap {
+      border: 1px solid gray;
+      padding: 4px;
+    }
+    .imageItem .imgWrap img {
+      max-height: 300px;
+    }
 
     /* .imageItem .img {
       width: 100px;
@@ -61,6 +67,10 @@
     .token {
       padding: 2px;
     }
+
+    .buttonItem {
+      margin-left: 10px;
+    }
   </style>
 </head>
 
@@ -73,13 +83,18 @@
   <script src="index2.js"></script>
   <script>
     var $items = document.getElementById('items');
+    var observer;
     function start() {
 
-      var observer = new IntersectionObserver(entries => {
+      observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             console.log('IntersectionObserver', entry.target);
-            entry.target.getImages();
+            if (entry.target.getImages) {
+              entry.target.getImages();
+            } else if (entry.target.showImage) {
+              entry.target.showImage();
+            }
             // 1회 실행후 관찰 종료
             observer.unobserve(entry.target);
           }
@@ -106,8 +121,6 @@
         $items.append(item);
         item.id = 'id' + i;
         item.classList.add('item');
-
-        observer.observe(item);
 
         var textItem = document.createElement('div');
         textItem.classList.add('textItem');
@@ -144,31 +157,36 @@
             return Array.prototype.map.call(checkedTokens, (input) => (input.closest('label').textContent.trim()));
           }
 
+          var buttonItem = document.createElement('div');
+          buttonItem.classList.add('buttonItem');
+          item.append(buttonItem);
+
           // 구글 검색 버튼
-          var buttonItem = document.createElement('button');
-          buttonItem.onclick = function () {
-            var tokens = getCheckedTokens(buttonItem);
+          var btn = document.createElement('button');
+          btn.onclick = function () {
+            var tokens = getCheckedTokens(btn);
             if (tokens.length === 0) return;
             var vals = tokens.join(' ');
             console.log('vals', vals);
             window.open('https://www.google.com/search?q=' + vals, '_blank');
           }
-          buttonItem.innerHTML = '구글';
-          item.append(buttonItem);
+          btn.innerHTML = '구글';
+          buttonItem.append(btn);
 
           // 이미지 검색 버튼
-          var buttonItem = document.createElement('button');
-          buttonItem.style.marginLeft = '10px';
-          buttonItem.onclick = function () {
-            var tokens = getCheckedTokens(buttonItem);
+          var btn = document.createElement('button');
+          btn.style.marginLeft = '10px';
+          btn.onclick = function () {
+            var tokens = getCheckedTokens(btn);
             if (tokens.length === 0) return;
             var vals = tokens.join(' ');
             console.log('vals', vals);
             window.open('https://www.google.com/search?tbm=isch&q=' + vals, '_blank');
           }
-          buttonItem.innerHTML = '이미지';
-          item.append(buttonItem);
+          btn.innerHTML = '이미지';
+          buttonItem.append(btn);
 
+          observer.observe(item);
           item.getImages = function () {
             return getImages(tokens, imageItem);
           }
@@ -221,10 +239,16 @@
 
         var img = document.createElement('img');
         div.append(img);
-        img.src = d;
-        img.style.width = window.outerWidth + 'px';
+        // img.src = d;
+        img.setAttribute('data-src', d);
+        img.style.minWidth = window.outerWidth + 'px';
         img.onerror = () => {
           console.error('img error');
+          img.style.display = 'none';
+        };
+        observer.observe(img);
+        img.showImage = function() {
+          img.src = img.getAttribute('data-src');
         }
       });
     }
