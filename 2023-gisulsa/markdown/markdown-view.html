@@ -82,7 +82,7 @@
   </div>
   <script src="markdown-keyword-result.js"></script>
   <script>
-    var itemCount = 0;
+    var itemCount = -1;
     var observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -120,7 +120,7 @@
         }
 
         var html = `
-        <div class="item" id="id${itemCount++}">
+        <div class="item" id="id${++itemCount}">
           <div class="textItem">${jsonObj.h1title}</div>
           ${html2}
         </div>
@@ -176,18 +176,22 @@
           });
         }
         observer.observe(elem);
-
-        window.lastImageList = elem.closest('.item');
       });
 
 
       setTimeout(() => {
-        window.lastImageList.scrollIntoView();
+        scrollLast();
+        setTimeout(() => {
+          scrollLast();
+        }, 500);
       }, 500);
     }
 
     start();
 
+    window.scrollLast = () => {
+      document.getElementById('id' + itemCount).scrollIntoView();
+    }
     window.scrollRandom = () => {
       var idx = Math.floor(Math.random() * itemCount);
       document.getElementById('id' + idx).scrollIntoView();

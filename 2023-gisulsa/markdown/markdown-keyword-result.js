@@ -431,7 +431,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "소프트웨어 규모산정"
+        ]
       }
     ]
   },
@@ -445,7 +447,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "정렬 알고리즘 버블 삽입 퀵"
+        ]
       }
     ]
   },
@@ -455,7 +459,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "몬테 카를로 방법"
+        ]
       }
     ]
   },
@@ -465,7 +471,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "NaaS"
+        ]
       }
     ]
   },
@@ -475,7 +483,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "오토인코더"
+        ]
       }
     ]
   },
@@ -485,7 +495,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "전이학습"
+        ]
       }
     ]
   },
@@ -495,7 +507,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "ATAM CBAM"
+        ]
       }
     ]
   },
@@ -505,7 +519,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "PNM"
+        ]
       }
     ]
   },
@@ -515,7 +531,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "NoSQl CAP"
+        ]
       }
     ]
   },
@@ -525,7 +543,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "RPA"
+        ]
       }
     ]
   },
@@ -535,7 +555,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "시간복잡도 공간복잡도"
+        ]
       }
     ]
   },
@@ -545,7 +567,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "지능정보화 기본법"
+        ]
       }
     ]
   },
@@ -555,7 +579,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "xAPI"
+        ]
       }
     ]
   },
@@ -565,7 +591,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "CBPR"
+        ]
       }
     ]
   },
@@ -575,17 +603,25 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "CSRF"
+        ]
       }
     ]
   },
   {
-    "h1title": "1. 마르코프 특성(Markov Property)은 미래 상태의 조건부 확률분포가 과거상태와는독립적으로 현재 상태에 의해서만 결정된다는 것을 뜻한다. 이와 관련하여다음을설명하시오.가. 마르코프 결정 프로세스(Markov Decision Process)와 전이확률(Transition Probability)나. 상태가치함수(State Value Function)와 액션가치함수(State-Action Value Function)다. 벨만기대방정식(Bellman Expectation Equation)과 벨만최적방정식(Bellman Optimality Equation)",
-    "content": [],
+    "h1title": "1. 마르코프 특성(Markov Property)은 미래 상태의 조건부 확률분포가 과거상태와는독립적으로 현재 상태에 의해서만 결정된다는 것을 뜻한다. 이와 관련하여다음을설명하시오.",
+    "content": [
+      "가. 마르코프 결정 프로세스(Markov Decision Process)와 전이확률(Transition Probability)",
+      "나. 상태가치함수(State Value Function)와 액션가치함수(State-Action Value Function)",
+      "다. 벨만기대방정식(Bellman Expectation Equation)과 벨만최적방정식(Bellman Optimality Equation)"
+    ],
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "마르코프 특성"
+        ]
       }
     ]
   },
@@ -595,7 +631,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "스레싱"
+        ]
       }
     ]
   },
@@ -608,17 +646,24 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "데이터베이스 용량산정 방법"
+        ]
       }
     ]
   },
   {
-    "h1title": "4. 네트워크 자원을 보다 효율적으로 관리하고 최적화하기 위해, 네트워크 인프라에 머신러닝 기법을 적용하고 있다. 이와 관련하여 다음을 설명하시오.가. 네트워크 인프라에 SDN(Software Defined Networking)을 이용하여 머신러닝기법을적용하는 이유나. SDN에서 강화학습 적용방안",
-    "content": [],
+    "h1title": "4. 네트워크 자원을 보다 효율적으로 관리하고 최적화하기 위해, 네트워크 인프라에 머신러닝 기법을 적용하고 있다. 이와 관련하여 다음을 설명하시오.",
+    "content": [
+      "가. 네트워크 인프라에 SDN(Software Defined Networking)을 이용하여 머신러닝기법을적용하는 이유",
+      "나. SDN에서 강화학습 적용방안"
+    ],
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "네트워크 인프라 SDN"
+        ]
       }
     ]
   },
@@ -632,7 +677,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "칩렛"
+        ]
       }
     ]
   },
@@ -646,7 +693,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "클라우드 서비스 IT자원 유형 서비스 개방 MSP"
+        ]
       }
     ]
   },
@@ -672,17 +721,21 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "개인정보 비식별 처리"
+        ]
       }
     ]
   },
   {
-    "h1title": "3. 디스크 여러 개를 활용하여 속도를 높이고 안정성을 향상시키는기술인RAID(Redundant Array of Inexpensive Disk) 기술 중 RAID5와 RAID6에대하여설명하고, 최소 디스크 수량 및 고장 허용 측면에서 비교하여 설명하시오.",
+    "h1title": "3. 디스크 여러 개를 활용하여 속도를 높이고 안정성을 향상시키는기술인 RAID(Redundant Array of Inexpensive Disk) 기술 중 RAID5와 RAID6에대하여설명하고, 최소 디스크 수량 및 고장 허용 측면에서 비교하여 설명하시오.",
     "content": [],
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "RAID"
+        ]
       }
     ]
   },
@@ -692,7 +745,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "데이터베시으 트랜잭션 ACID"
+        ]
       }
     ]
   },
@@ -702,7 +757,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "공공기관 정보화 사업 국가정보원 보안성 검토 절차"
+        ]
       }
     ]
   },
@@ -712,7 +769,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "데이터옵스 데브옵스"
+        ]
       }
     ]
   },
@@ -725,7 +784,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "가치기반 정책기반 액터 크리틱 정책경사"
+        ]
       }
     ]
   },
@@ -738,17 +799,26 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "추천시스템 컨텐츠 기반 필터링 협업적 필터링",
+          "행렬분해 기반 협업적 필터링"
+        ]
       }
     ]
   },
   {
-    "h1title": "3. 캐쉬 메모리(Cache Memory)에 대하여 다음을 설명하시오.가. 캐쉬 메모리의 개념과 구조나. 지역성(Locality)의 개념과 유형다. 캐쉬 일관성(Coherence) 문제의 원인과 해결 방법",
-    "content": [],
+    "h1title": "3. 캐쉬 메모리(Cache Memory)에 대하여 다음을 설명하시오.",
+    "content": [
+      "가. 캐쉬 메모리의 개념과 구조",
+      "나. 지역성(Locality)의 개념과 유형",
+      "다. 캐쉬 일관성(Coherence) 문제의 원인과 해결 방법"
+    ],
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "캐쉬 메모리 지역성 일관성"
+        ]
       }
     ]
   },
@@ -762,17 +832,24 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "스마트홈 연결 표준 매터"
+        ]
       }
     ]
   },
   {
-    "h1title": "5. 시스템 성능 테스트 수행 시 성능 지표 관련하여 다음 물음에 답하시오.가. 응답시간(Response Time), 대기시간(Think Time), 동시사용자(Concurrent User), 활성사용자(Active User), TPS(Transaction Per Second)를 설명하시오.나. 동시사용자(Concurrent User)가 100명이고, 응답시간(Response Time)이5초이내이며, 대기시간(Think Time)이 15초인 시스템의 경우, TPS를 구하시오",
-    "content": [],
+    "h1title": "5. 시스템 성능 테스트 수행 시 성능 지표 관련하여 다음 물음에 답하시오.",
+    "content": [
+      "가. 응답시간(Response Time), 대기시간(Think Time), 동시사용자(Concurrent User), 활성사용자(Active User), TPS(Transaction Per Second)를 설명하시오.",
+      "나. 동시사용자(Concurrent User)가 100명이고, 응답시간(Response Time)이5초이내이며, 대기시간(Think Time)이 15초인 시스템의 경우, TPS를 구하시오"
+    ],
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "성능 지표 응답시간 대기시간 동시사용자 활성사용자 TPS"
+        ]
       }
     ]
   },
@@ -786,7 +863,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "상용SW 직접구매"
+        ]
       }
     ]
   },
@@ -796,7 +875,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "노코드"
+        ]
       }
     ]
   },
@@ -806,7 +887,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "데이터베이스 병행 제어"
+        ]
       }
     ]
   },
@@ -816,7 +899,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "요구사항명세서"
+        ]
       }
     ]
   },
@@ -826,7 +911,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "데이터 거버넌스"
+        ]
       }
     ]
   },
@@ -836,7 +923,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "드론 보안"
+        ]
       }
     ]
   },
@@ -846,7 +935,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "블록 암호화 알고리즘"
+        ]
       }
     ]
   },
@@ -856,7 +947,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "6G"
+        ]
       }
     ]
   },
@@ -866,7 +959,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "VXLAN"
+        ]
       }
     ]
   },
@@ -876,7 +971,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "머신러닝 최적화 알고리즘"
+        ]
       }
     ]
   },
@@ -886,7 +983,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "정보시스템마스터플랜 ISMP"
+        ]
       }
     ]
   },
@@ -896,7 +995,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "AHP"
+        ]
       }
     ]
   },
@@ -906,7 +1007,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "베르누이 분포 기하 분포"
+        ]
       }
     ]
   },
@@ -916,37 +1019,59 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "ISO 21500"
+        ]
       }
     ]
   },
   {
-    "h1title": "1. 데이터 마이닝의 기법 중 아래 기법에 대하여 설명하시오.1) K-means Clustering2) DBSCAN(Density Based Spatial Clustering of Applications with Noise)3) SVM(Support Vector Machine)",
-    "content": [],
+    "h1title": "1. 데이터 마이닝의 기법 중 아래 기법에 대하여 설명하시오.",
+    "content": [
+      "1) K-means Clustering",
+      "2) DBSCAN(Density Based Spatial Clustering of Applications with Noise)",
+      "3) SVM(Support Vector Machine)"
+    ],
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "데이터 마이닝",
+          "K-means Clustering",
+          "DBSCAN",
+          "SVM"
+        ]
       }
     ]
   },
   {
-    "h1title": "2. 최근 데이터사이언스와 기계학습이 융합된 DSML(Data Science & MachineLearning) 프로젝트가 확산되고 있다. 성공적인 DSML프로젝트를 수행하기위해아래 항목을 설명하시오.1) DSML 프로젝트 수명주기2) 기계학습 운영화(Machine Learning Operationalizations/Operations : MLops",
-    "content": [],
+    "h1title": "2. 최근 데이터사이언스와 기계학습이 융합된 DSML(Data Science & MachineLearning) 프로젝트가 확산되고 있다. 성공적인 DSML프로젝트를 수행하기위해아래 항목을 설명하시오.",
+    "content": [
+      "1) DSML 프로젝트 수명주기",
+      "2) 기계학습 운영화(Machine Learning Operationalizations/Operations : MLops"
+    ],
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "DSML",
+          "MLops"
+        ]
       }
     ]
   },
   {
-    "h1title": "3. 네트워크 서브네팅(subnetting)과 관련하여 아래 사항들을 설명하시오.1) 수퍼네팅(supernetting)과 서브네팅(subnetting) 개념을 설명하시오.2) 192.168.100.0/24 네트워크 대역을 동일한 IP 개수를 가진 4개의 서브넷(Subnet)으로분할하고자 한다. 해당 절차에 대해서 상세히 설명하고, 서브넷 마스크 값을구하시오.그리고 하나의 서브넷에서 할당 가능한 IP 수량을 제시하시오",
-    "content": [],
+    "h1title": "3. 네트워크 서브네팅(subnetting)과 관련하여 아래 사항들을 설명하시오.",
+    "content": [
+      "1) 수퍼네팅(supernetting)과 서브네팅(subnetting) 개념을 설명하시오.",
+      "2) 192.168.100.0/24 네트워크 대역을 동일한 IP 개수를 가진 4개의 서브넷(Subnet)으로분할하고자 한다. 해당 절차에 대해서 상세히 설명하고, 서브넷 마스크 값을구하시오.그리고 하나의 서브넷에서 할당 가능한 IP 수량을 제시하시오"
+    ],
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "수퍼네팅 서브네팅"
+        ]
       }
     ]
   },
@@ -960,7 +1085,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "개인정보보호법 개정안"
+        ]
       }
     ]
   },
@@ -973,7 +1100,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "메타버스 윤리원칙"
+        ]
       }
     ]
   },
@@ -987,7 +1116,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "디지털 역기능"
+        ]
       }
     ]
   },
@@ -997,7 +1128,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "의사결정나무"
+        ]
       }
     ]
   },
@@ -1007,7 +1140,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "파일 데이터베이스 블록체인"
+        ]
       }
     ]
   },
@@ -1023,7 +1158,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "TCP 혼잡제어"
+        ]
       }
     ]
   },
@@ -1036,7 +1173,10 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "머신러닝 적대적 공격",
+          "생성형 언어모델 보안"
+        ]
       }
     ]
   },
@@ -1046,17 +1186,25 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "지능정보기술감리실무 가이드"
+        ]
       }
     ]
   },
   {
-    "h1title": "6. 금융 클라우드 서비스를 받는 금융회사의 데이터는 가장 중요한 자산이며 민감정보를다룬다. 금융 클라우드 SLA(Service Level Agreement)에 대하여 설명하시오.1) SLA의 개념2) 클라우드 SLA 가이드3) 금융 클라우드 SLA 가이드",
-    "content": [],
+    "h1title": "6. 금융 클라우드 서비스를 받는 금융회사의 데이터는 가장 중요한 자산이며 민감정보를다룬다. 금융 클라우드 SLA(Service Level Agreement)에 대하여 설명하시오.",
+    "content": [
+      "1) SLA의 개념",
+      "2) 클라우드 SLA 가이드",
+      "3) 금융 클라우드 SLA 가이드"
+    ],
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "금융 클라우드 SLA"
+        ]
       }
     ]
   },
@@ -1066,7 +1214,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "음성데이터 마이닝"
+        ]
       }
     ]
   },
@@ -1081,7 +1231,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "디지털 포렌식"
+        ]
       }
     ]
   },
@@ -1093,7 +1245,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "클라우드 서비스 보안"
+        ]
       }
     ]
   },
@@ -1107,7 +1261,9 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "소프트웨어 요구사항"
+        ]
       }
     ]
   },
@@ -1121,17 +1277,24 @@ var _jsonData = [
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "웹3.0"
+        ]
       }
     ]
   },
   {
-    "h1title": "6. 데이터옵스(DataOps)와 데브옵스(DevOps)에 대하여 다음을 설명하시오.1) 데이터옵스와 데브옵스의 비교2) 데이터옵스 아키텍처 및 주요 기술",
-    "content": [],
+    "h1title": "6. 데이터옵스(DataOps)와 데브옵스(DevOps)에 대하여 다음을 설명하시오.",
+    "content": [
+      "1) 데이터옵스와 데브옵스의 비교",
+      "2) 데이터옵스 아키텍처 및 주요 기술"
+    ],
     "h2List": [
       {
         "h2title": "keyword",
-        "content": []
+        "content": [
+          "데이터옵스 데브옵스"
+        ]
       }
     ]
   }

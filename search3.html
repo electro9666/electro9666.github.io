@@ -73,7 +73,6 @@
       <div class="item" onclick="goto('http://news.naver.com')">뉴스</div>
       <div class="item" onclick="goto('https://m.search.naver.com/search.naver?query=%EB%8B%AC%EB%A0%A5&sm=mtb_hty.top&where=m&oquery=%EC%83%89%EC%83%81%ED%91%9C&tqi=UN1yCsp0Jx0ssQEp79lssssstIZ-048162')">달력</div>
       <div class="item" onclick="goto('/2023-gisulsa/markdown/markdown-view.html')">기술사</div>
-      <div class="item" onclick="goto('/2023-gisulsa/markdown/markdown-keyword.md')">md</div>
       <div class="item" onclick="iframeOnload()">재실행</div>
       <div class="item" onclick="goto('https://m.search.naver.com/search.naver?where=m&query=%EC%A0%84%EA%B5%AD%EB%82%A0%EC%94%A8&ie=utf8&sm=tab_she&qdt=0')">날씨</div>
       <!-- <div class="item" onclick="goto('https://electro9666.github.io/2022-02/project0')">기술사검색</div> -->
@@ -140,6 +139,7 @@
 
     function iframeOnload() {
       var ifr = document.getElementById('ifr');
+      ifr.contentWindow.scrollLast = () => {}; // 무시
       var itemCount = ifr.contentWindow.scrollRandom();
     }
   </script>
