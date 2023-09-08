@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="container">
+
+  </div>
+  <script src="markdown-keyword-result.js"></script>
+  <script>
+    var imgseq = 0;
+
+    var observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          console.log('IntersectionObserver', entry.target);
+          if (entry.target.showImage) {
+            entry.target.showImage();
+          }
+        }
+      });
+    });
+
+    var container = document.getElementById('container');
+    function start() {
+
+      var totalHtml = '';
+
+      for (let index = 0; index < _jsonData.length; index++) {
+        var jsonObj = _jsonData[index];
+
+        var keywordList = jsonObj.h2List.filter(obj => obj.h2title === 'keyword')[0]?.content || [];
+        console.log('keywordList', keywordList);
+
+        var keywordImageHtml = keywordList.map(keyword => `<img class="img" id="id-img-${imgseq++}" data-keyword="${keyword}"/>`).join('');
+
+        var html = `
+        <div class="item">
+          <div class="textItem">${jsonObj.h1title}</div>
+          <div class="imageItem">
+            ${keywordImageHtml}
+          </div>
+          <div class="tokenItem">${keywordList.join('<br/>')}</div>
+        </div>
+        `;
+
+        imgseq++;
+        totalHtml += html;
+      }
+      container.innerHTML = totalHtml;
+
+      document.querySelectorAll('.img').forEach(elem => {
+        elem.showImage = async () => {
+
+          if (entry.target.classList.contains('img')) {
+            var keyword = entry.target.getAttribute('data-keyword');
+            if (!keyword) return;
+
+            if (!window.imageObj) {
+              // 1. images json 파일에 있는지 확인
+              var res = await fetch('../public/images.json');
+              window.imageObj = await res.json();
+            }
+            if (window.imageObj[keyword]) {
+              imageList = window.imageObj[keyword];
+            } else {
+              // 2. 없으면 server에 요청
+              var res = await fetch('http://localhost:9000/getImages?q=' + tokens[0]);
+              imageList = await res.json();
+            }
+
+            imageList.forEach((d, index) => {
+              if (index > 10) return;
+              var div = document.createElement('div');
+              div.classList.add('imgWrap')
+              entry.target.append(div);
+
+              var img = document.createElement('img');
+              div.append(img);
+              img.src = d;
+              img.style.width = window.outerWidth + 'px';
+              img.onerror = () => {
+                console.error('img error');
+              }
+            });
+
+            // 1회 실행후 관찰 종료
+            observer.unobserve(entry.target);
+          }
+        }
+        observer.observe(elem);
+      })
+    }
+
+    start();
+  </script>
+</body>
+
+</html>
