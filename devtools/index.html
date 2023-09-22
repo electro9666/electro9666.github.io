@@ -33,6 +33,10 @@
       width: 100%;
       height: 100px;
     }
+
+    input {
+      margin: 2px;
+    }
   </style>
 </head>
 
@@ -78,11 +82,22 @@
           <span>></span>
           <input id="tx6_replace2" oninput="oninputResult()" style="margin-left:10px;width:100%;height:20px"></input>
         </div>
+        <div style="display:flex;">
+          replace2:
+          <input id="tx6_replace11" oninput="oninputResult()" style="margin-left:10px;width:100%;height:20px"></input>
+          <span>></span>
+          <input id="tx6_replace12" oninput="oninputResult()" style="margin-left:10px;width:100%;height:20px"></input>
+        </div>
       </div>
     </div>
   </div>
 
-  <div style="margin:10px 0;color:green;">결과</div>
+  <div style="margin:10px 0;color:green;">filtered</div>
+  <div class="item-box">
+    <textarea class="tx" id="tx6"></textarea>
+  </div>
+
+  <div style="margin:10px 0;color:green;">그외 결과</div>
   <div class="item-box">
     <div class="item">
       <span class="label">역슬래시(\\)</span>
@@ -111,8 +126,32 @@
   </div>
   <div class="item-box">
     <div class="item">
-      <span class="label">filtered</span>
-      <textarea class="tx" id="tx6"></textarea>
+      <span class="label">대문자</span>
+      <textarea class="tx" id="tx_uppercase"></textarea>
+    </div>
+    <div class="item">
+      <span class="label">소문자</span>
+      <textarea class="tx" id="tx_lowercase"></textarea>
+    </div>
+  </div>
+  <div class="item-box">
+    <div class="item">
+      <span class="label">인코딩(encodeURI)</span>
+      <textarea class="tx" id="tx_encodeURI"></textarea>
+    </div>
+    <div class="item">
+      <span class="label">인코딩(encodeURIComponent)</span>
+      <textarea class="tx" id="tx_encodeURIComponent"></textarea>
+    </div>
+  </div>
+  <div class="item-box">
+    <div class="item">
+      <span class="label">디코딩(dncodeURI)</span>
+      <textarea class="tx" id="tx_decodeURI"></textarea>
+    </div>
+    <div class="item">
+      <span class="label">디코딩(dncodeURIComponent)</span>
+      <textarea class="tx" id="tx_decodeURIComponent"></textarea>
     </div>
   </div>
   <script>
@@ -131,8 +170,73 @@
     var $tx6_regex = document.getElementById('tx6_regex');
     var $tx6_replace1 = document.getElementById('tx6_replace1');
     var $tx6_replace2 = document.getElementById('tx6_replace2');
+    var $tx6_replace11 = document.getElementById('tx6_replace11');
+    var $tx6_replace12 = document.getElementById('tx6_replace12');
 
     var $tx7_trim = document.getElementById('tx7_trim');
+
+    function oninputResult() {
+      console.log('oninputResult')
+      var target = $userInput;
+      var lines = target.value.split('\n');
+
+      if ($tx7_trim.checked) {
+        lines = lines.map(str => str.trim());
+      }
+      $tx7.value = lines.join('\n');
+
+      var filteredLine = lines;
+      if ($tx6_startsWith.value !== '') {
+        filteredLine = filteredLine.filter(str => str.startsWith($tx6_startsWith.value));
+      }
+      if ($tx6_endsWith.value !== '') {
+        filteredLine = filteredLine.filter(str => str.endsWith($tx6_endsWith.value));
+      }
+      if ($tx6_regex.value !== '') {
+        filteredLine = filteredLine.filter(line => {
+          var result = line.match($tx6_regex.value);
+          return result !== null;
+        });
+      }
+      if ($tx6_replace1.value !== '') {
+        filteredLine = filteredLine.map(line => {
+          var result = line.split($tx6_replace1.value).join($tx6_replace2.value);
+          return result;
+        });
+      }
+      if ($tx6_replace11.value !== '') {
+        filteredLine = filteredLine.map(line => {
+          var result = line.split($tx6_replace11.value).join($tx6_replace12.value);
+          return result;
+        });
+      }
+      $tx6.value = filteredLine.join('\n');
+
+      lines = filteredLine;
+
+      // 역슬래시
+      $tx1.value = lines.map(str => str.split('/').join('\\')).join('\n');
+      // 슬래시
+      $tx2.value = lines.map(str => str.split('\\').join('/')).join('\n');
+
+      // camel
+      $tx3.value = lines.map(str => str.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase())).join('\n');
+      // snake
+      var tx4Value = lines.map(str => str.replace(/-/g, '_'));
+      $tx4.value = tx4Value.map(str => str.replace(/[A-Z]/g, (c) => { return '_' + c.toLowerCase() })).join('\n');
+      // kebab
+      $tx5.value = $tx4.value.split('\n').map(str => str.replace(/_/g, '-')).join('\n');
+
+      // 대소문자
+      document.getElementById('tx_uppercase').value = lines.map(str => str.toUpperCase()).join('\n');
+      document.getElementById('tx_lowercase').value = lines.map(str => str.toLowerCase()).join('\n');
+      // 인코딩
+      document.getElementById('tx_encodeURI').value = lines.map(str => encodeURI(str)).join('\n');
+      document.getElementById('tx_encodeURIComponent').value = lines.map(str => encodeURIComponent(str)).join('\n');
+      // 디코딩
+      document.getElementById('tx_decodeURI').value = lines.map(str => decodeURI(str)).join('\n');
+      document.getElementById('tx_decodeURIComponent').value = lines.map(str => decodeURIComponent(str)).join('\n');
+    }
 
     // function onchange1() {
     //   $tx2.value = $tx1.value.replace(/\\/g, '/');
@@ -170,53 +274,7 @@
     //       console.error('clipboard error', e);
     //     }
     //   );
-    // }
-
-    function oninputResult() {
-      console.log('oninputResult')
-      var target = $userInput;
-      var lines = target.value.split('\n');
-
-      if ($tx7_trim.checked) {
-        lines = lines.map(str => str.trim());
-      }
-      $tx7.value = lines.join('\n');
-
-      // 역슬래시
-      $tx1.value = lines.map(str => str.split('/').join('\\')).join('\n');
-      // 슬래시
-      $tx2.value = lines.map(str => str.split('\\').join('/')).join('\n');
-
-      // camel
-      $tx3.value = lines.map(str => str.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase())).join('\n');
-      // snake
-      var tx4Value = lines.map(str => str.replace(/-/g, '_'));
-      $tx4.value = tx4Value.map(str => str.replace(/[A-Z]/g, (c) => { return '_' + c.toLowerCase() })).join('\n');
-      // kebab
-      $tx5.value = $tx4.value.split('\n').map(str => str.replace(/_/g, '-')).join('\n');
-
-      var filteredLine = lines;
-      if ($tx6_startsWith.value !== '') {
-        filteredLine = filteredLine.filter(str => str.startsWith($tx6_startsWith.value));
-      }
-      if ($tx6_endsWith.value !== '') {
-        filteredLine = filteredLine.filter(str => str.endsWith($tx6_endsWith.value));
-      }
-      if ($tx6_regex.value !== '') {
-        filteredLine = filteredLine.filter(line => {
-          var result = line.match($tx6_regex.value);
-          return result !== null;
-        });
-      }
-      if ($tx6_replace1.value !== '') {
-        filteredLine = filteredLine.map(line => {
-          var result = line.split($tx6_replace1.value).join($tx6_replace2.value);
-          return result;
-        });
-      }
-
-      $tx6.value = filteredLine.join('\n');
-    }
+    // }    
   </script>
 </body>
 
@@ -227,6 +285,4 @@
   대문자
   소문자
   인코딩, 디코딩
-  JSON 정렬
-  TEXT 비교?
  -->
