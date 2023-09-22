@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,
+    body,
+    input,
+    textarea {
+      background-color: black;
+      color: white;
+    }
+
+    .item-box {
+      display: flex;
+    }
+
+    .item {
+      width: 100%;
+      display: flex;
+
+    }
+
+    .label {
+      width: 150px;
+    }
+
+    .tx {
+      width: 100%;
+      height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="https://tools.knowledgewalls.com/convert-double-quotes-to-single-quotes-online" target="_blank">double quotes to singles quote</a>
+  <a href="https://regexr.com/" target="_blank">REGEXR</a>
+  <a href="https://astexplorer.net/" target="_blank">AST Explorer</a>
+  <a href="https://jsonformatter.curiousconcept.com/" target="_blank">json formattrer</a>
+  <a href="https://tools.knowledgewalls.com/remove-comments-from-any-program-online" target="_blank">remove js comment</a>
+
+  <div style="margin:10px 0;color:green;">입력</div>
+  <div class="item-box">
+    <div class="item">
+      <span class="label">input</span>
+      <textarea id="userInput" style="width:100%;height:200px;" oninput="oninputResult()"></textarea>
+    </div>
+  </div>
+
+  <div style="margin:10px 0;color:green;">입력 후 처리</div>
+  <div class="item-box">
+    <div class="item">
+      <span class="label"><label><input id="tx7_trim" type="checkbox" onchange="oninputResult()">trim</label></span>
+      <textarea class="tx" id="tx7"></textarea>
+    </div>
+  </div>
+
+  <div style="margin:10px 0;color:green;">입력 필터</div>
+  <div class="item-box">
+    <div class="item">
+      <div style="width:100%;">
+        <div style="display:flex;">
+          startsWith: <input id="tx6_startsWith" oninput="oninputResult()" style="margin-left:10px;width:100%;height:20px"></input>
+        </div>
+        <div style="display:flex;">
+          endsWith: <input id="tx6_endsWith" oninput="oninputResult()" style="margin-left:10px;width:100%;height:20px"></input>
+        </div>
+        <div style="display:flex;">
+          regex: <input id="tx6_regex" oninput="oninputResult()" style="margin-left:10px;width:100%;height:20px"></input>
+        </div>
+        <div style="display:flex;">
+          replace:
+          <input id="tx6_replace1" oninput="oninputResult()" style="margin-left:10px;width:100%;height:20px"></input>
+          <span>></span>
+          <input id="tx6_replace2" oninput="oninputResult()" style="margin-left:10px;width:100%;height:20px"></input>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin:10px 0;color:green;">결과</div>
+  <div class="item-box">
+    <div class="item">
+      <span class="label">역슬래시(\\)</span>
+      <textarea class="tx" id="tx1"></textarea>
+    </div>
+    <div class="item">
+      <span class="label">슬래시(/)</span>
+      <textarea class="tx" id="tx2"></textarea>
+    </div>
+  </div>
+  <div class="item-box">
+    <div class="item">
+      <span class="label">camelCase</span>
+      <textarea class="tx" id="tx3"></textarea>
+    </div>
+    <div class="item">
+      <span class="label">snake_case</span>
+      <textarea class="tx" id="tx4"></textarea>
+    </div>
+  </div>
+  <div class="item-box">
+    <div class="item">
+      <span class="label">kebab-case</span>
+      <textarea class="tx" id="tx5"></textarea>
+    </div>
+  </div>
+  <div class="item-box">
+    <div class="item">
+      <span class="label">filtered</span>
+      <textarea class="tx" id="tx6"></textarea>
+    </div>
+  </div>
+  <script>
+    var $userInput = document.getElementById('userInput');
+
+    var $tx1 = document.getElementById('tx1');
+    var $tx2 = document.getElementById('tx2');
+    var $tx3 = document.getElementById('tx3');
+    var $tx4 = document.getElementById('tx4');
+    var $tx5 = document.getElementById('tx5');
+    var $tx6 = document.getElementById('tx6');
+    var $tx7 = document.getElementById('tx7');
+
+    var $tx6_startsWith = document.getElementById('tx6_startsWith');
+    var $tx6_endsWith = document.getElementById('tx6_endsWith');
+    var $tx6_regex = document.getElementById('tx6_regex');
+    var $tx6_replace1 = document.getElementById('tx6_replace1');
+    var $tx6_replace2 = document.getElementById('tx6_replace2');
+
+    var $tx7_trim = document.getElementById('tx7_trim');
+
+    // function onchange1() {
+    //   $tx2.value = $tx1.value.replace(/\\/g, '/');
+    // }
+    // function onchange2() {
+    //   $tx1.value = $tx2.value.split('/').join('\\');
+    // }
+    // function onchange3() {
+    //   // https://javascriptf1.com/snippet/convert-snake-case-to-camel-case-in-javascript
+    //   $tx4.value = $tx3.value.replace(/[A-Z]/g, (c) => { return '_' + c.toLowerCase() });
+    //   $tx5.value = $tx3.value.replace(/[A-Z]/g, (c) => { return '-' + c.toLowerCase() });
+    // }
+    // function onchange4() {
+    //   var list = $tx4.value.split('\n');
+    //   $tx3.value = list.map(str => str.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase())).join('\n');
+    //   $tx5.value = list.map(str => str.replace(/_/g, '-')).join('\n');
+    // }
+    // function onchange5() {
+    //   $tx3.value = $tx5.value.replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
+    //   $tx4.value = $tx5.value.replace(/-/g, '_');
+    // }
+    // document.querySelectorAll('textarea').forEach(obj => {
+    //   obj.addEventListener('focus', () => {
+    //     obj.select();
+    //     // clipboard(obj.value);
+    //   })
+    // })
+    // function clipboard(data) {
+    //   navigator.clipboard.writeText(data).then(
+    //     () => {
+    //       /* success */
+    //     },
+    //     (e) => {
+    //       /* failure */
+    //       console.error('clipboard error', e);
+    //     }
+    //   );
+    // }
+
+    function oninputResult() {
+      console.log('oninputResult')
+      var target = $userInput;
+      var lines = target.value.split('\n');
+
+      if ($tx7_trim.checked) {
+        lines = lines.map(str => str.trim());
+      }
+      $tx7.value = lines.join('\n');
+
+      // 역슬래시
+      $tx1.value = lines.map(str => str.split('/').join('\\')).join('\n');
+      // 슬래시
+      $tx2.value = lines.map(str => str.split('\\').join('/')).join('\n');
+
+      // camel
+      $tx3.value = lines.map(str => str.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase())).join('\n');
+      // snake
+      var tx4Value = lines.map(str => str.replace(/-/g, '_'));
+      $tx4.value = tx4Value.map(str => str.replace(/[A-Z]/g, (c) => { return '_' + c.toLowerCase() })).join('\n');
+      // kebab
+      $tx5.value = $tx4.value.split('\n').map(str => str.replace(/_/g, '-')).join('\n');
+
+      var filteredLine = lines;
+      if ($tx6_startsWith.value !== '') {
+        filteredLine = filteredLine.filter(str => str.startsWith($tx6_startsWith.value));
+      }
+      if ($tx6_endsWith.value !== '') {
+        filteredLine = filteredLine.filter(str => str.endsWith($tx6_endsWith.value));
+      }
+      if ($tx6_regex.value !== '') {
+        filteredLine = filteredLine.filter(line => {
+          var result = line.match($tx6_regex.value);
+          return result !== null;
+        });
+      }
+      if ($tx6_replace1.value !== '') {
+        filteredLine = filteredLine.map(line => {
+          var result = line.split($tx6_replace1.value).join($tx6_replace2.value);
+          return result;
+        });
+      }
+
+      $tx6.value = filteredLine.join('\n');
+    }
+  </script>
+</body>
+
+</html>
+
+<!-- 
+추가로 할 것
+  대문자
+  소문자
+  인코딩, 디코딩
+  JSON 정렬
+  TEXT 비교?
+ -->
