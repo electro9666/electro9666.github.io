@@ -56,12 +56,6 @@
       word-break: keep-all;
     }
 
-    .blur,
-    .global-blur .item-answer {
-      filter: blur(5px);
-      -webkit-filter: blur(5px);
-    }
-
     .item-title {
       text-align: center;
       padding: 20px;
@@ -78,6 +72,16 @@
       z-index: 10;
       background-color: yellow;
       opacity: 1;
+    }
+
+    .jcrop-widget.answer-no {
+      background-color: #dc3545;
+      opacity: 0.5;
+    }
+
+    .jcrop-widget.answer-yes {
+      background-color: #28a745;
+      opacity: 0.5;
     }
 
     .jcrop-widget:hover {
@@ -149,6 +153,7 @@
       width: 100px;
       height: 100px;
     }
+
     .swiper-pagination {
       bottom: 10px;
     }
@@ -172,7 +177,7 @@
       </div>
     </div>
     <div v-show="isHome == false" class="app2 swiper-container">
-      <div class="swiper-wrapper" :class="{'swiper-wrapper': true, 'global-blur': options.globalBlur}">
+      <div class="swiper-wrapper" class="swiper-wrapper">
         <div class="swiper-slide" v-for="obj in cropsList">
           <div class="item">
             <div class="item-title">{{obj.name}}</div>
@@ -184,7 +189,7 @@
             </div>
           </div>
           <div class="btn-box mb80">
-            <div class="btn btn-danger" @click="clickNo(obj)">NO</div>
+            <div class="btn btn-danger" @click="clickNo(obj, this)">NO</div>
             <div class="btn btn-success" @click="clickYes(obj)">YES</div>
           </div>
         </div>
@@ -231,7 +236,7 @@
           }
         },
         mounted() {
-          var swiper = new Swiper(document.querySelector(".swiper-container"), {
+          this.swiper = new Swiper(document.querySelector(".swiper-container"), {
             loop: true,
             pagination: {
               el: ".swiper-pagination",
@@ -249,7 +254,7 @@
             document.querySelectorAll('.crop-box').forEach(elem => {
               elem.style.transform = `scale(${elem.offsetWidth / elem.querySelector('.img').offsetWidth})`;
             });
-          }, 100);
+          }, 200);
         },
         methods: {
           calcStyle(pos) {
@@ -257,10 +262,16 @@
           },
           clickNo(obj) {
             console.log('clickNo obj.active');
+            var q = this.swiper.slides[this.swiper.activeIndex].querySelector('.jcrop-widget');
+            q.classList.remove('answer-yes');
+            q.classList.add('answer-no');
             updateScore(this.cropsList, obj, false);
           },
           clickYes(obj) {
             console.log('clickYes obj.active');
+            var q = this.swiper.slides[this.swiper.activeIndex].querySelector('.jcrop-widget');
+            q.classList.remove('answer-no');
+            q.classList.add('answer-yes');
             updateScore(this.cropsList, obj, true);
           },
           showHome() {
