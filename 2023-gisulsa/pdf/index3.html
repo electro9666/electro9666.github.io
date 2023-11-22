@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <a>1.sw</a>
+    <a>2.IT경영</a>
+    <a>3.서비스</a>
+    <a>4.CA</a>
+    <a>5.DB</a>
+    <a>6.NW</a>
+    <a>7.AI</a>
+    <a>8.보안</a>
+    <a>9.자료구조</a>
+  </div>
+  <div id="txResult"></div>
+
+  <script>
+    async function start() {
+      document.querySelectorAll('a').forEach(elem => {
+        elem.addEventListener('click', async () => {
+          var name = elem.innerHTML;
+          console.log('name', name);
+
+          // var result = await fetch(`md/${name}.md`);
+          // result = await result.text();
+          // console.log('result', result);
+
+          var result = await new Promise((resolve) => {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", 'md/' + name + '.md', true);
+            xhr.onreadystatechange = function () {
+              if (xhr.readyState === 4 && xhr.status === 200) {
+                resolve(xhr.responseText);
+              }
+            };
+            xhr.send();
+          })
+
+          const txResult = document.getElementById('txResult');
+          txResult.innerHTML = '';
+          var list = result.split('\n');
+          list.forEach((searchValue, i) => {
+            searchValue = searchValue.trim();
+            if (searchValue === '') return;
+            var qname = searchValue.substring(0, 4);
+            var startIndex = qname + searchValue.substring(5, 9).trim();
+
+            var d = document.createElement('div');
+            d.innerHTML = i + '. ' + searchValue;
+            d.addEventListener('click', () => {
+              // window.open(`https://text-number.github.io/pdf-all.html#filename=${qname}.pdf&index=${startIndex}`)
+              location.href = `file:///android_asset/pdf-all.html#filename=pdf/${qname}.pdf&index=${startIndex}`;
+            });
+            txResult.appendChild(d);
+          });
+        })
+      })
+    }
+    start();
+  </script>
+  <script>
+    // window.history.pushState(null, null, location.href);
+    // window.onpopstate = function (event) {
+    //   window.history.pushState(null, null, location.href);
+    // };
+  </script>
+</body>
+
+</html>

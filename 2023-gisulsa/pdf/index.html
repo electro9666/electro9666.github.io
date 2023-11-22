@@ -6,60 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    html,
-    body {
+    html, body {
       width: 100%;
       height: 100%;
-      margin: 0;
-      padding: 0;
+    }
+    a {
+      font-size: 30px;
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <a href="#name=1.sw" target="_blank">1.sw</a>
-    <a href="#name=2.IT경영" target="_blank">2.IT경영</a>
-    <a href="#name=3.서비스" target="_blank">3.서비스</a>
-    <a href="#name=4.CA" target="_blank">4.CA</a>
-    <a href="#name=5.DB" target="_blank">5.DB</a>
-    <a href="#name=6.NW" target="_blank">6.NW</a>
-    <a href="#name=7.AI" target="_blank">7.AI</a>
-    <a href="#name=8.보안" target="_blank">8.보안</a>
-    <a href="#name=9.자료구조" target="_blank">9.자료구조</a>
+  <div style="width:100%;height:100%;display:flex;align-items: center;justify-content: center;flex-direction: column;">
+    <div>
+      <a href="index2.html">index</a>
+      <br/><br/>
+      <a href="index3.html">category</a>
+    </div>
   </div>
-  <div id="txResult"></div>
-
-  <script>
-    async function start() {
-      var searchParams = new URL(location.href.replace('#', '?')).searchParams;
-      var name = searchParams.get('name');
-      if (!name) {
-        return;
-      }
-      console.log('name', name);
-      var result = await fetch(`md/${name}.md`);
-      result = await result.text();
-      console.log('result', result);
-
-      const txResult = document.getElementById('txResult');
-      var list = result.split('\n');
-      list.forEach((searchValue, i) => {
-        searchValue = searchValue.trim();
-        if (searchValue === '') return;
-        var qname = searchValue.substring(0, 4);
-        var startIndex = qname + searchValue.substring(5, 9).trim();
-
-        var d = document.createElement('div');
-        d.innerHTML = i + '. ' + searchValue;
-        d.addEventListener('click', () => {
-          window.open(`https://text-number.github.io/pdf-all.html#filename=${qname}.pdf&index=${startIndex}`)
-        });
-        txResult.appendChild(d);
-      });
-    }
-    start();
-  </script>
 </body>
 
 </html>

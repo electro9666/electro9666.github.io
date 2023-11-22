@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <!-- <link rel="stylesheet" href="https://unpkg.com/jcrop/dist/jcrop.css"> -->
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .app {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .app2 {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .swiper-slide {
+      /* text-align: center; */
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .swiper-slide.item {
+      display: flex
+    }
+
+    .item {
+      width: 100%;
+      word-break: keep-all;
+    }
+
+    .blur,
+    .global-blur .item-answer {
+      filter: blur(5px);
+      -webkit-filter: blur(5px);
+    }
+
+    .item-title {
+      text-align: center;
+      padding: 20px;
+      height: 50px;
+    }
+
+    .crop-box {
+      position: relative;
+      transform-origin: top left;
+    }
+
+    .jcrop-widget {
+      position: absolute;
+      z-index: 10;
+      background-color: yellow;
+      opacity: 1;
+    }
+
+    .jcrop-widget:hover {
+      opacity: 0.5;
+    }
+
+    .btn-box {
+      position: absolute;
+      bottom: 30px;
+      display: flex;
+    }
+
+    .mb80 {
+      margin-bottom: 80px;
+    }
+
+    .btn {
+      display: inline-block;
+      font-weight: 400;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      user-select: none;
+      border: 1px solid transparent;
+      padding: 0.375rem 0.75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      border-radius: 0.25rem;
+      transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+      margin: 10px;
+    }
+
+    .btn-primary {
+      color: #fff;
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .btn-secondary {
+      color: #fff;
+      background-color: #6c757d;
+      border-color: #6c757d;
+    }
+
+    .btn-warning {
+      color: #212529;
+      background-color: #ffc107;
+      border-color: #ffc107;
+    }
+
+    .btn-success {
+      color: #fff;
+      background-color: #28a745;
+      border-color: #28a745;
+    }
+
+    .btn-danger {
+      color: #fff;
+      background-color: #dc3545;
+      border-color: #dc3545;
+    }
+
+    .home-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .thumbnail {
+      width: 100px;
+      height: 100px;
+    }
+    .swiper-pagination {
+      bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app" class="app">
+    <div class="btn-box1">
+      <div class="btn btn-primary" @click="showHome">HOME</div>
+      <div class="btn btn-secondary" @click="reload">RELOAD</div>
+      <div class="btn btn-warning" @click="resetScoreRepository">RESET</div>
+    </div>
+    <div v-show="isHome == true">
+      <div class="home-item" v-for="obj in cropsList">
+        <img class="thumbnail" :src="'images/' + obj.name" />
+        <div>
+          <div class="">{{obj.name}}</div>
+          <div class="">{{obj.summary}}</div>
+        </div>
+      </div>
+    </div>
+    <div v-show="isHome == false" class="app2 swiper-container">
+      <div class="swiper-wrapper" :class="{'swiper-wrapper': true, 'global-blur': options.globalBlur}">
+        <div class="swiper-slide" v-for="obj in cropsList">
+          <div class="item">
+            <div class="item-title">{{obj.name}}</div>
+            <div class="crop-box" style="width:100%;" :id="'q-' + obj.name">
+              <img class="img" :src="'images/' + obj.name" />
+              <template v-for="pos in obj.list">
+                <div v-if="pos.active === true" class="jcrop-widget" :style="calcStyle(pos)">{{pos.score}} {{pos.used == false ? '/ 처음' : ''}}</div>
+              </template>
+            </div>
+          </div>
+          <div class="btn-box mb80">
+            <div class="btn btn-danger" @click="clickNo(obj)">NO</div>
+            <div class="btn btn-success" @click="clickYes(obj)">YES</div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/vue@3"></script>
+
+  <!-- <script src="https://unpkg.com/jcrop"></script> -->
+
+  <script src="crops.js"></script>
+  <script src="util2.js"></script>
+  <script>
+    async function start() {
+      loadScoreRepository();
+
+      var cropsMap = _crops;
+      console.log('cropsMap', cropsMap);
+
+      var cropsList = Object.keys(cropsMap).map(key => {
+        return {
+          name: key,
+          list: cropsMap[key]
+        }
+      });
+      cropsList = cropsList.filter(obj => {
+        return obj.list.length > 0;
+      })
+      console.log('cropsList', cropsList);
+
+      cropsList = initTestScore(cropsList);
+
+      window.a = Vue.createApp({
+        data() {
+          return {
+            isHome: false,
+            cropsList: cropsList,
+            options: {
+              globalBlur: true
+            },
+          }
+        },
+        mounted() {
+          var swiper = new Swiper(document.querySelector(".swiper-container"), {
+            loop: true,
+            pagination: {
+              el: ".swiper-pagination",
+              type: 'fraction'
+            },
+            on: {
+              slideChange: function (s) {
+              },
+              click: function () {
+              }
+            }
+          });
+
+          setTimeout(() => {
+            document.querySelectorAll('.crop-box').forEach(elem => {
+              elem.style.transform = `scale(${elem.offsetWidth / elem.querySelector('.img').offsetWidth})`;
+            });
+          }, 100);
+        },
+        methods: {
+          calcStyle(pos) {
+            return `top: ${pos.y}px;left: ${pos.x}px; width: ${pos.w}px; height: ${pos.h}px;`;
+          },
+          clickNo(obj) {
+            console.log('clickNo obj.active');
+            updateScore(this.cropsList, obj, false);
+          },
+          clickYes(obj) {
+            console.log('clickYes obj.active');
+            updateScore(this.cropsList, obj, true);
+          },
+          showHome() {
+            this.isHome = !this.isHome;
+          },
+          reload() {
+            location.href = location.href;
+          },
+          resetScoreRepository() {
+            resetScoreRepository();
+          }
+        },
+      }).mount('#app');
+    }
+
+    start();
+  </script>
+
+</body>
+
+</html>
