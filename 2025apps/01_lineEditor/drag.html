@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draggable Divs</title>
+    <style>
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: flex-start;
+            position: relative;
+            overflow: hidden;
+            padding: 10px;
+        }
+        .draggable {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            margin: 10px;
+            cursor: pointer;
+            border: 1px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="draggable" id="item1" draggable="true">Item 1</div>
+    <div class="draggable" id="item2" draggable="true">Item 2</div>
+    <div class="draggable" id="item3" draggable="true">Item 3</div>
+    <div class="draggable" id="item4" draggable="true">Item 4</div>
+    <div class="draggable" id="item5" draggable="true">Item 5</div>
+    <div class="draggable" id="item6" draggable="true">Item 6</div>
+    <div class="draggable" id="item7" draggable="true">Item 7</div>
+    <div class="draggable" id="item8" draggable="true">Item 8</div>
+    <div class="draggable" id="item9" draggable="true">Item 9</div>
+    <div class="draggable" id="item10" draggable="true">Item 10</div>
+</div>
+
+<script>
+    const draggables = document.querySelectorAll('.draggable');
+    let draggedItem = null;
+
+    draggables.forEach(item => {
+        item.addEventListener('dragstart', (e) => {
+            draggedItem = item;
+            // 추가적으로 드래그 아이템 스타일을 변경하여 시각적으로 구별
+            item.style.opacity = '0.5';
+        });
+
+        item.addEventListener('dragend', () => {
+            draggedItem.style.opacity = '1'; // 원래 상태로 복원
+            draggedItem = null;
+        });
+
+        item.addEventListener('dragover', (e) => {
+            e.preventDefault(); // 기본 동작을 막고, 드롭을 허용
+        });
+
+        item.addEventListener('drop', (e) => {
+            if (draggedItem !== item) {
+                // 드래그된 아이템과 드롭된 아이템의 위치를 서로 교환
+                let draggedIndex = [...draggables].indexOf(draggedItem);
+                let droppedIndex = [...draggables].indexOf(item);
+
+                // 배치 순서를 교환
+                let allItems = [...draggables];
+                allItems.splice(draggedIndex, 1);
+                allItems.splice(droppedIndex, 0, draggedItem);
+                
+                // DOM에서 순서를 변경
+                const container = document.querySelector('.container');
+                allItems.forEach(i => container.appendChild(i));
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
