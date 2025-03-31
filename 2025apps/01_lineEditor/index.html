@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
-  123
+  <textarea id="myTextarea" rows="10" cols="30" onInput="highlightText()"></textarea>
+  <div id="highlightedText"></div>
+  <script>
+
+    function highlightText() {
+      const textarea = document.getElementById('myTextarea');
+      const text = textarea.value;
+      const regex = /([^\r\n.!?]+[.!?])\s*(?:\r?\n|$)/g; // 줄바꿈 또는 마침표로 끝나는 문장
+
+      let highlightedText = text.split('\n').map(t => `<div style="background-color: yellow;">${t}</div>`).join('\n')
+
+      document.getElementById('highlightedText').innerHTML = highlightedText;
+    }
+
+  </script>
 </body>
+
 </html>

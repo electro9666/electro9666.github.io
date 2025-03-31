@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeMirror Sortable Dragging</title>
+  
+  <!-- CodeMirror 스타일 및 스크립트 추가 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.0/codemirror.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.0/codemirror.min.js"></script>
+  
+  <!-- Sortable.js 추가 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
+
+  <style>
+    .green {
+      background-color: lightgreen;
+    }
+    .yellow {
+      background-color: lightyellow;
+    }
+    .CodeMirror {
+      border: 1px solid #ddd;
+      font-family: 'Courier New', Courier, monospace;
+      height: auto;
+    }
+    .sortable-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      padding: 5px;
+      border: 1px dashed #aaa;
+    }
+    .sortable-item {
+      display: inline-block;
+      cursor: grab;
+      padding: 5px;
+      margin: 2px;
+      border-radius: 4px;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>CodeMirror Text Editor with Drag & Drop</h2>
+  
+  <textarea id="myTextarea" rows="10" cols="50"></textarea>
+  <button onclick="updateEditor()">Apply Changes</button>
+
+  <script>
+    const editor = CodeMirror.fromTextArea(document.getElementById("myTextarea"), {
+      lineNumbers: true,
+      mode: "javascript",
+      matchBrackets: true,
+      lineWrapping: true // 자동 줄바꿈 활성화
+    });
+
+    function highlightText() {
+      const text = editor.getValue();
+      const regex = /([^.!?\r\n]+[.!?])|([^\r\n]+)/g;
+
+      // 기존 문장 정리
+      editor.getAllMarks().forEach(mark => mark.clear());
+
+      let match;
+      let counter = 0;
+      let elements = [];
+
+      // 문장을 추출하고 span 요소로 변환
+      while ((match = regex.exec(text)) !== null) {
+        let sentence = match[0].trim();
+        if (sentence === "") continue;
+
+        const startPos = editor.posFromIndex(match.index);
+        const endPos = editor.posFromIndex(match.index + match[0].length);
+        const highlightClass = counter % 2 === 0 ? "green" : "yellow";
+
+        // 문장 Span 요소 생성
+        const span = document.createElement("span");
+        span.textContent = sentence;
+        span.classList.add("sortable-item", highlightClass);
+        span.draggable = true;
+
+        elements.push({ span, startPos, endPos, text: sentence });
+
+        counter++;
+      }
+
+      // Sortable 컨테이너 생성
+      const container = document.createElement("div");
+      container.classList.add("sortable-container");
+      elements.forEach(({ span }) => container.appendChild(span));
+
+      // Sortable 적용 (드래그 앤 드롭 기능 활성화)
+      new Sortable(container, {
+        animation: 150,
+        ghostClass: "sortable-ghost",
+        onEnd: function () {
+          const newText = Array.from(container.children).map(el => el.textContent).join(" ");
+          editor.setValue(newText);
+          highlightText();
+        }
+      });
+
+      // CodeMirror 내부에서 문장 렌더링
+      elements.forEach(({ startPos, endPos, span }) => {
+        editor.markText(startPos, endPos, { replacedWith: span });
+      });
+    }
+
+    function updateEditor() {
+      const text = editor.getValue();
+      editor.setValue(text);
+      highlightText();
+    }
+
+    editor.on("change", () => {
+      highlightText();
+    });
+
+  </script>
+
+</body>
+</html>
