@@ -107,6 +107,9 @@
       elements.forEach(({ startPos, endPos, span }) => {
         editor.markText(startPos, endPos, { replacedWith: span });
       });
+
+      // Sortable 컨테이너를 페이지에 추가
+      document.body.appendChild(container);
     }
 
     function updateEditor() {
@@ -118,6 +121,9 @@
     editor.on("change", () => {
       highlightText();
     });
+
+    // 초기 하이라이트 텍스트 적용
+    highlightText();
 
   </script>
 
