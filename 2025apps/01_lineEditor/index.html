@@ -55,7 +55,8 @@
 <body>
   <h1>Line Editor</h1>
   <div class="btnGroup">
-    <button onClick="removeEmptyLine();">공백 제거</button>
+    <button onClick="reset();">리셋</button>
+    <button onClick="removeEmptyLine();">라인 공백 제거</button>
     <button onClick="copyAll();">복사</button>
     <button onClick="pasteAll();">붙여넣기</button>
   </div>
@@ -63,6 +64,7 @@
   <div id="mySortable" class="list-group text" style="border: none;"></div>
 
   <script>
+    var _editorLock = false;
     // CodeMirror 에디터 초기화
     var editor = CodeMirror.fromTextArea(myTextarea, {
       lineNumbers: true,
@@ -74,7 +76,10 @@
 
     // 실시간 하이라이트 적용 (변경 시마다 하이라이트 업데이트)
     editor.on('change', () => {
-      // highlightText();
+      if (_editorLock) {
+        _editorLock = false;
+        return;
+      }
       updateSortable();
     });
 
@@ -110,6 +115,7 @@
           fallbackOnBody: true,
           swapThreshold: 0.65,
           onEnd: function () {
+            _editorLock = true;
             var list = [];
             document.querySelectorAll('.text').forEach(text => {
               if (text.dataset.text) {
@@ -120,6 +126,10 @@
           }
         });
       }
+    }
+    function reset() {
+      editor.setValue('');
+      editor.focus();
     }
     function removeEmptyLine() {
       var list = [];
@@ -139,7 +149,9 @@
     }
     async function pasteAll() {
       var text = await navigator.clipboard.readText();
-      editor.replaceSelection(text);
+      if (confirm('[붙여넣기]\n' + text)) {
+        editor.replaceSelection(text);
+      }
     }
   </script>
 
