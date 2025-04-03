@@ -59,6 +59,7 @@
     <button onClick="removeEmptyLine();">라인 공백 제거</button>
     <button onClick="copyAll();">복사</button>
     <button onClick="pasteAll();">붙여넣기</button>
+    <button onClick="addChar('#');">#</button>
   </div>
   <textarea id="myTextarea" rows="10" cols="50"></textarea>
   <div id="mySortable" class="list-group text" style="border: none;"></div>
@@ -152,6 +153,9 @@
       if (confirm('[붙여넣기]\n' + text)) {
         editor.replaceSelection(text);
       }
+    }
+    function addChar(char) {
+      editor.replaceSelection(char);
     }
   </script>
 
