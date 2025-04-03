@@ -1,38 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CodeMirror Sentence Highlighting</title>
-  
+
   <!-- CodeMirror 스타일 및 스크립트 추가 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.0/codemirror.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.0/codemirror.min.js"></script>
-  
+
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
   <style>
-    .green {
-      background-color: lightgreen;
+    body {
+      padding: 0;
+      margin: 0;
     }
-    .yellow {
-      background-color: lightyellow;
+
+    .row0 {
+      background-color: lightgray;
     }
+
+    .row1 {
+      /* background-color: lightseagreen; */
+    }
+
     .CodeMirror {
       border: 1px solid #ddd;
       font-family: 'Courier New', Courier, monospace;
       height: auto;
     }
+
+    .ul-sortable {
+      list-style: none;
+      padding: 0;
+      width: 100%;
+    }
+
+    .li-sortable {
+      padding: 10px;
+      margin: 5px;
+      background-color: #f4f4f4;
+      border: 1px solid #ccc;
+      cursor: grab;
+    }
   </style>
 </head>
-<body>
 
-  <h2>CodeMirror Text Editor with Sentence Highlighting</h2>
-  
+<body>
   <textarea id="myTextarea" rows="10" cols="50"></textarea>
-  <button onclick="highlightText()">Highlight</button>
+  <div id="mySortable"></div>
 
   <script>
     // CodeMirror 에디터 초기화
-    const editor = CodeMirror.fromTextArea(document.getElementById("myTextarea"), {
+    var editor = CodeMirror.fromTextArea(myTextarea, {
       lineNumbers: true,
       mode: "javascript",
       matchBrackets: true,
@@ -42,10 +63,10 @@
     // 문장을 하이라이트하는 함수
     function highlightText() {
       const text = editor.getValue();
-      
+
       // 줄바꿈과 문장 구분 기호(마침표, 느낌표, 물음표)로 문장을 구분하는 정규식
       const regex = /([^.!?\r\n]+[.!?]+)|([^\r\n]+)/g;
-      
+
       // 이전 하이라이트 지우기
       editor.getAllMarks().forEach(mark => mark.clear());
 
@@ -61,7 +82,7 @@
         const endPos = editor.posFromIndex(match.index + match[0].length);
 
         // 문장 번호에 따라 하이라이트 색상 결정
-        const highlightClass = counter % 2 === 0 ? "green" : "yellow"; 
+        const highlightClass = counter % 2 === 0 ? "row0" : "row1";
         editor.markText(startPos, endPos, { className: highlightClass });
 
         counter++;
@@ -70,9 +91,38 @@
 
     // 실시간 하이라이트 적용 (변경 시마다 하이라이트 업데이트)
     editor.on('change', () => {
-      highlightText();  
+      highlightText();
+      updateSortable();
     });
+
+    function updateSortable() {
+      mySortable.innerHTML = '';
+      const ul = document.createElement('ul');
+      ul.classList.add('ul-sortable');
+      mySortable.append(ul);
+
+      editor.getValue().split('\n').forEach(text => {
+        const li = document.createElement('li');
+        li.classList.add('li-sortable');
+        li.innerHTML = text;
+        ul.appendChild(li);
+      });
+
+      // Sortable 적용 (드래그 앤 드롭 기능 활성화)
+      new Sortable(ul, {
+        animation: 150,
+        ghostClass: "sortable-ghost",
+        onEnd: function () {
+          var list = [];
+          document.querySelectorAll('.li-sortable').forEach(text => {
+            list.push(text.innerHTML);
+          });
+          editor.setValue(list.join('\n'));
+        }
+      });
+    }
   </script>
 
 </body>
+
 </html>
