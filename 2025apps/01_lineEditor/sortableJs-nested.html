@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sortable.js 예제</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
+  <style>
+    .list-group {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      padding-left: 0;
+      margin-bottom: 0;
+      margin-top: 10px;
+    }
+
+    .list-group-item {
+      position: relative;
+      display: block;
+      padding: .75rem 1.25rem;
+      margin-bottom: -1px;
+      background-color: #fff;
+      border: 1px solid rgba(0, 0, 0, .125);
+    }
+  </style>
+</head>
+
+<body>
+  <div id="nestedDemo" class="list-group col nested-sortable">
+    <div class="list-group-item nested-1">Item 1.1
+      <div class="list-group nested-sortable">
+        <div class="list-group-item nested-2" style="">Item 2.1</div>
+        <div class="list-group-item nested-2" style="">Item 2.2
+          <div class="list-group nested-sortable">
+
+            <div class="list-group-item nested-3" draggable="false" style="">Item 3.1</div>
+            <div class="list-group-item nested-3" style="">Item 3.2</div>
+            <div class="list-group-item nested-3" style="">Item 3.3</div>
+            <div class="list-group-item nested-3" style="">Item 3.4</div>
+          </div>
+        </div>
+        <div class="list-group-item nested-2">Item 2.3</div>
+        <div class="list-group-item nested-2">Item 2.4</div>
+      </div>
+    </div>
+    <div class="list-group-item nested-1">Item 1.2</div>
+    <div class="list-group-item nested-1">Item 1.3</div>
+    <div class="list-group-item nested-1">Item 1.4
+      <div class="list-group nested-sortable">
+        <div class="list-group-item nested-2">Item 2.1</div>
+        <div class="list-group-item nested-2">Item 2.2</div>
+        <div class="list-group-item nested-2">Item 2.3</div>
+        <div class="list-group-item nested-2">Item 2.4</div>
+      </div>
+    </div>
+    <div class="list-group-item nested-1">Item 1.5</div>
+  </div>
+
+  <script>
+    // Loop through each nested sortable element
+    var nestedSortables = document.querySelectorAll('.nested-sortable');
+    for (var i = 0; i < nestedSortables.length; i++) {
+      new Sortable(nestedSortables[i], {
+        group: 'nested',
+        animation: 150,
+        fallbackOnBody: true,
+        swapThreshold: 0.65
+      });
+    }
+  </script>
+
+</body>
+
+</html>

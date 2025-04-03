@@ -27,15 +27,23 @@
       height: auto;
     }
 
-    .ul-sortable {
-      list-style: none;
-      padding: 0;
-      width: 80%;
+    .list-group {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      padding-left: 0;
+      margin-bottom: 0;
+      margin-top: 10px;
+      padding: 4px;
+      border: 1px solid gray;
     }
 
-    .li-sortable {
-      padding: 10px;
-      margin: 5px;
+    .list-group-item {
+      position: relative;
+      display: block;
+      padding: .75rem 1.25rem;
+      margin-bottom: -1px;
       background-color: #f4f4f4;
       border: 1px solid #ccc;
       cursor: grab;
@@ -48,9 +56,11 @@
   <h1>Line Editor</h1>
   <div class="btnGroup">
     <button onClick="removeEmptyLine();">공백 제거</button>
+    <button onClick="copyAll();">복사</button>
+    <button onClick="pasteAll();">붙여넣기</button>
   </div>
   <textarea id="myTextarea" rows="10" cols="50"></textarea>
-  <div id="mySortable"></div>
+  <div id="mySortable" class="list-group text" style="border: none;"></div>
 
   <script>
     // CodeMirror 에디터 초기화
@@ -60,6 +70,7 @@
       matchBrackets: true,
       lineWrapping: true   // 자동 줄바꿈 활성화
     });
+    editor.focus();
 
     // 실시간 하이라이트 적용 (변경 시마다 하이라이트 업데이트)
     editor.on('change', () => {
@@ -69,29 +80,46 @@
 
     function updateSortable() {
       mySortable.innerHTML = '';
-      const ul = document.createElement('ul');
-      ul.classList.add('ul-sortable');
-      mySortable.append(ul);
 
+      var currentDiv = mySortable;
       editor.getValue().split('\n').forEach(text => {
-        const li = document.createElement('li');
-        li.classList.add('li-sortable');
-        li.innerHTML = text;
-        ul.appendChild(li);
-      });
-
-      // Sortable 적용 (드래그 앤 드롭 기능 활성화)
-      new Sortable(ul, {
-        animation: 150,
-        ghostClass: "sortable-ghost",
-        onEnd: function () {
-          var list = [];
-          document.querySelectorAll('.li-sortable').forEach(text => {
-            list.push(text.innerHTML);
-          });
-          editor.setValue(list.join('\n'));
+        text = text.trim();
+        if (text.startsWith('#')) {
+          currentDiv = mySortable;
+          // group
+          const div = document.createElement('div');
+          div.classList.add('list-group', 'text');
+          div.innerHTML = text;
+          div.dataset.text = text;
+          currentDiv.append(div);
+          currentDiv = div;
+        } else {
+          const div = document.createElement('div');
+          div.classList.add('list-group-item', 'text');
+          div.innerHTML = text;
+          div.dataset.text = text;
+          currentDiv.appendChild(div);
         }
       });
+
+      var nestedSortables = document.querySelectorAll('.list-group');
+      for (var i = 0; i < nestedSortables.length; i++) {
+        new Sortable(nestedSortables[i], {
+          group: 'nested',
+          animation: 150,
+          fallbackOnBody: true,
+          swapThreshold: 0.65,
+          onEnd: function () {
+            var list = [];
+            document.querySelectorAll('.text').forEach(text => {
+              if (text.dataset.text) {
+                list.push(text.dataset.text);
+              }
+            });
+            editor.setValue(list.join('\n'));
+          }
+        });
+      }
     }
     function removeEmptyLine() {
       var list = [];
@@ -102,8 +130,21 @@
       });
       editor.setValue(list.join('\n'));
     }
+    function copyAll() {
+      navigator.clipboard.writeText(editor.getValue()).then(() => {
+        console.log("클립보드에 복사되었습니다.");
+      }).catch(err => {
+        console.error("복사 실패:", err);
+      });
+    }
+    async function pasteAll() {
+      var text = await navigator.clipboard.readText();
+      editor.replaceSelection(text);
+    }
   </script>
 
 </body>
 
 </html>
+
+<!-- TODO #, ##을 div 구조로 만들어야 한다. -->
