@@ -34,7 +34,7 @@
     .ul-sortable {
       list-style: none;
       padding: 0;
-      width: 100%;
+      width: 80%;
     }
 
     .li-sortable {
@@ -43,6 +43,7 @@
       background-color: #f4f4f4;
       border: 1px solid #ccc;
       cursor: grab;
+      line-break: anywhere;
     }
   </style>
 </head>
@@ -60,38 +61,9 @@
       lineWrapping: true   // 자동 줄바꿈 활성화
     });
 
-    // 문장을 하이라이트하는 함수
-    function highlightText() {
-      const text = editor.getValue();
-
-      // 줄바꿈과 문장 구분 기호(마침표, 느낌표, 물음표)로 문장을 구분하는 정규식
-      const regex = /([^.!?\r\n]+[.!?]+)|([^\r\n]+)/g;
-
-      // 이전 하이라이트 지우기
-      editor.getAllMarks().forEach(mark => mark.clear());
-
-      let match;
-      let counter = 0;  // 문장 번호 카운트
-
-      // 새로운 하이라이트 적용
-      while ((match = regex.exec(text)) !== null) {
-        let sentence = match[0].trim();
-        if (sentence === "") continue; // 빈 문장 무시
-
-        const startPos = editor.posFromIndex(match.index);
-        const endPos = editor.posFromIndex(match.index + match[0].length);
-
-        // 문장 번호에 따라 하이라이트 색상 결정
-        const highlightClass = counter % 2 === 0 ? "row0" : "row1";
-        editor.markText(startPos, endPos, { className: highlightClass });
-
-        counter++;
-      }
-    }
-
     // 실시간 하이라이트 적용 (변경 시마다 하이라이트 업데이트)
     editor.on('change', () => {
-      highlightText();
+      // highlightText();
       updateSortable();
     });
 
