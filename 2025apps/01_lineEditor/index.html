@@ -17,12 +17,8 @@
       /* margin: 0; */
     }
 
-    .row0 {
-      background-color: lightgray;
-    }
-
-    .row1 {
-      /* background-color: lightseagreen; */
+    .btnGroup {
+      margin-bottom: 4px;
     }
 
     .CodeMirror {
@@ -50,6 +46,9 @@
 
 <body>
   <h1>Line Editor</h1>
+  <div class="btnGroup">
+    <button onClick="removeEmptyLine();">빈줄제거</button>
+  </div>
   <textarea id="myTextarea" rows="10" cols="50"></textarea>
   <div id="mySortable"></div>
 
@@ -93,6 +92,15 @@
           editor.setValue(list.join('\n'));
         }
       });
+    }
+    function removeEmptyLine() {
+      var list = [];
+      editor.getValue().split('\n').forEach(text => {
+        if (text.trim() !== '') {
+          list.push(text);
+        }
+      });
+      editor.setValue(list.join('\n'));
     }
   </script>
 
