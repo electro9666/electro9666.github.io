@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .ml1 {
+      margin-left: 10px;
+    }
+    li {
+      list-style: decimal;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="ddd"></div>
+  <script>
+    var data = {
+      "RAID": {
+        "텍스트": "fdsfsd",
+        "객체": {
+          "name": 1,
+          "age": 2
+        },
+        "배열": [
+          "A",
+          "VB",
+          {
+            a: 1
+          }, {
+            b: 2
+          }
+        ]
+      }
+    };
+
+    function convertJson2html(key, value) {
+      var html = '';
+      if (value instanceof Array) {
+        html += `<div class="">`;
+        html += `<div>${key}</div>`;
+        html += `<ul>`;
+        value.forEach((v, index) => {
+          html += `<li>`;
+          html += convertJson2html('', v);
+          html += `</li>`;
+        });
+        html += `</ul>`;
+        html += `</div>`;
+      } else if (value instanceof Object) {
+        html += `<div>`;
+        if (key) {
+          html += `<div>${key}</div>`;
+        }
+        html += `<div class="ml1">`;
+        html += convertObj2html(value);
+        html += '</div>';
+        html += '</div>';
+      } else {
+        if (key) {
+          html += `<div class="">${key}: ${value}</div>`;
+        } else {
+          html += `<div class="">${value}</div>`;
+        }
+      }
+      return html;
+    }
+    function convertObj2html(obj) {
+      var keys = Object.keys(obj);
+      var html = '';
+      keys.forEach(key => {
+        html += convertJson2html(key, obj[key]);
+      })
+      return html;
+    }
+
+    var result = convertObj2html(data);
+    console.log('result', result);
+
+    document.getElementById('ddd').innerHTML = result;
+  </script>
+</body>
+
+</html>

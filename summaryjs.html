@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">    
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="scrollspy/scrollspy.css">        
+    <link rel="stylesheet" href="highlight/styles/vs2015.css">    
+    <style>
+    body, pre, tt, code, kbd, samp {
+        font-style: consolas;
+        font-size: 16px;
+    }
+    h2, h3, h4, h5 {
+        font-style: consolas;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="row">
+            <div class="col-sm-2" id="scrollspy">
+            </div>               
+<div class="col-sm-10">
+    <h2>Array</h2>
+    <h3>length</h3>
+    <pre><code class="javascript">
+        var fruits = ['Apple', 'Banana'];
+
+        console.log(fruits.length);
+        // 2
+    </code></pre>
+    <h3>access</h3>
+    <pre><code class="javascript">
+        var fruits = ['Apple', 'Banana', 'kiwi'];
+        first = fruits[0];
+        // Apple
+        
+        var last = fruits[fruits.length - 1];
+        // Kiwi                    
+    </code></pre>
+    <h3>forEach</h3>
+    <pre><code class="javascript">
+        var fruits = ['Apple', 'Banana', 'kiwi'];
+        fruits.forEach(function(item, index, array) {
+            console.log(item, index);
+        });
+        // Apple 0
+        // Banana 1                    
+    </code></pre>
+    <h3>push</h3>
+    <pre><code class="javascript">
+        var fruits = ['Apple', 'Banana', 'kiwi'];
+        var newLength = fruits.push('Orange');  // 4
+        // fruits : ["Apple", "Banana", "kiwi", "Orange"]   
+    </code></pre>
+    <h3>pop</h3>
+    <pre><code class="javascript">
+        var fruits = ["Apple", "Banana", "kiwi", "Orange"];
+        var last = fruits.pop(); // Orange (마지막 제거)
+        // fruits : ["Apple", "Banana", "kiwi"]   
+    </code></pre>
+    <h3>shift</h3>
+    <pre><code class="javascript">
+        var fruits = ["Apple", "Banana", "kiwi", "Orange"];
+        var first = fruits.shift(); // Apple  (처음 제거)
+        // fruits : ["Banana", "kiwi", "Orange"]
+    </code></pre>
+    <h3>unshift</h3>
+    <pre><code class="javascript">
+        var fruits = ["Apple", "Banana", "kiwi", "Orange"];
+        var newLength = fruits.unshift('Strawberry') // 5,  처음에 추가 
+        // fruits : ["Strawberry", "Apple", "Banana", "kiwi", "Orange"]
+    </code></pre>
+    <h3>indexOf</h3>
+    <pre><code class="javascript">
+        var fruits = ["Apple", "Banana", "kiwi", "Orange"];
+        var pos = fruits.indexOf('Banana');
+        // 1
+    </code></pre>
+    <h3>splice</h3>
+    <pre><code class="javascript">
+        var fruits = ["Apple", "Banana", "kiwi", "Orange"];
+        var removedItem = fruits.splice(2, 1);  // ["kiwi"]  (2번째부터 1개) - 출력은 배열로!!
+        // fruits : ["Apple", "Banana", "Orange"]
+        var fruits = ["Apple", "Banana", "kiwi", "Orange"];
+        var removedItem = fruits.splice(1, 2);  // ["Banana", "kiwi"]  (1번째부터 2개)
+        // fruits : ["Apple", "Orange"]
+    </code></pre>
+    <h3>slice</h3>
+    <pre><code class="javascript">
+        var fruits = ["Apple", "Banana", "kiwi", "Orange"];
+        var shallowCopy = fruits.slice(); // 얕은 복사
+        // ["Apple", "Banana", "kiwi", "Orange"]
+        // 현재는 기본자료형이므로 deepCopy인것 같지만, 배열의 자료형이 객체인경우 주소값만 복사됨.
+    </code></pre>
+    <h3>Object.keys</h3>
+    <pre><code class="javascript">
+        var fruits = ["Apple", "Banana", "kiwi", "Orange"];
+        fruits[10] = 'mango';
+        console.log(Object.keys(fruits));
+        // ["0", "1", "2", "3", "10"]
+        console.log(fruits.length);
+        // 11
+        console.log(fruits[9]);
+        // undefined
+        console.log(fruits[11]);
+        // error!!!
+        
+        fruits.length = 3;  // 뒤에 있는 나머지는 삭제됨
+        console.log(Object.keys(fruits)); // ["0", "1", "2"]
+        console.log(fruits.length); // 3        
+    </code></pre>
+    <h3>join</h3>
+    <pre><code class="javascript">
+        var fruits = ["Apple", "Banana", "kiwi", "Orange"];
+        console.log(fruits.join(","));
+        // "Apple,Banana,kiwi,Orange"
+    </code></pre>
+    <h3>concat</h3>
+    <pre><code class="javascript">
+        var fruits = ["Apple", "Banana", "kiwi", "Orange"];
+        var newArr = fruits.concat(["A", "B"]);
+        // fruits : ["Apple", "Banana", "kiwi", "Orange"] 그대로
+        // newArr : ["Apple", "Banana", "kiwi", "Orange", "A", "B"]
+    </code></pre>
+    <h3>reverse</h3>
+    <pre><code class="javascript">
+        // 반대로
+        var fruits1 = ["A", "C", "D", "B"];
+        var fruits2 = fruits1.reverse();    // return this
+        // fruits1 : ["B", "D", "C", "A"]
+        // fruits2 : ["B", "D", "C", "A"]
+    </code></pre>
+    <h3>sort</h3>
+    <pre><code class="javascript">
+        // 오름차순 정렬
+        var fruits1 = ["A", "C", "D", "B"];
+        var fruits2 = fruits1.sort();       // return this
+        // fruits1 : ["A", "B", "C", "D"]
+        // fruits2 : ["A", "B", "C", "D"]
+    </code></pre>
+    <h3>sort - desc</h3>
+    <pre><code class="javascript">
+        // 내림차순 정렬
+        var fruits = ["A", "C", "D", "B"];
+        fruits.sort();
+        fruits.reverse()
+        // fruits : ["D", "C", "B", "A"]
+    </code></pre>
+    <h3>sort(fn)</h3>
+    <pre><code class="javascript">
+        var nums = [34,6,43,5,7,8,3];
+        nums.sort(function(a, b){
+            return b - a;   // 내림차순 (문자는 안됨)
+        });
+        nums
+        // [43, 34, 8, 7, 6, 5, 3]
+
+        nums.sort(function(a, b){
+            return 0.5 - Math.random();   // 무작위
+        });
+        nums        
+    </code></pre>
+    <h2>String</h2>
+    <h3>substr</h3>
+    <pre><code class="javascript">
+        var str1 = "01234567890";
+        var str2 = str1.substr(2, 5);   // 2번째부터 5개
+        // str1 : "01234567890" 그대로
+        // str2 : "23456"
+        var str3 = str1.substr(2);      // 2번째부터 끝까지
+        // str3 : "234567890"        
+    </code></pre>
+    <h3>substring</h3>
+    <pre><code class="javascript">
+        var str1 = "01234567890";
+        var str2 = str1.substring(2, 5);   // 2번째부터 5번째까지
+        // str1 : "01234567890" 그대로
+        // str2 : "234"
+        var str3 = str1.substring(2);      // 2번째부터 끝까지
+        // str3 : "234567890"
+    </code></pre>
+    <h3>charAt</h3>
+    <pre><code class="javascript">
+        var str = "Orange";
+        str.charAt(1);  // "r"
+        str[1]; // "r"
+    </code></pre>
+    <h3>compare</h3>
+    <pre><code class="javascript">
+        var a = 'a';
+        var b = 'b';
+        console.log(a < b); // true
+    </code></pre>
+    <h3>typeof</h3>
+    <pre><code class="javascript">
+        var str1 = "Orange";
+        var str2 = new String("Kiwi");
+        
+        console.log(typeof str1); // "string"
+        console.log(typeof str2);  // "object"        
+    </code></pre>
+    <h3>replace</h3>
+    <pre><code class="javascript">
+        var str = "OrangeOrange";
+        str.replace(/r/g, "A"); // OAangeOAange
+    </code></pre>
+    <h3>indexOf</h3>
+        var str = "OrangeOrange";
+        str.indexOf("ge");  // 4
+        str.indexOf("AA");  // -1
+    <pre><code class="javascript">
+    </code></pre>
+    <h3>lastIndexOf</h3>
+    <pre><code class="javascript">
+        var str = "OrangeOrange";
+        str.lastIndexOf("ge");  // 10
+    </code></pre>
+    <h3>lastIndexOf 2</h3>
+    <pre><code class="javascript">
+        var str = "http://www.naver.com/address";
+        var idx = str.lastIndexOf("/");
+        var str1 = str.substring(0, idx);
+        var str2 = str.substring(idx + 1);
+        // str1 : "http://www.naver.com"
+        // str2 : "address"
+    </code></pre>
+    <h3>startsWith</h3>
+    <pre><code class="javascript">
+        var str = "OrangeOrange";
+        str.startsWith("Or");  // true
+    </code></pre>
+    <h3>endsWith</h3>
+    <pre><code class="javascript">
+        var str = "OrangeOrange";
+        str.endsWith("Or");  // false      
+    </code></pre>
+    <h3>split</h3>
+    <pre><code class="javascript">
+        var str = "1,2,3,4,5,6";
+        var arr = str.split(",");
+        // ["1", "2", "3", "4", "5", "6"]
+    </code></pre>
+    <h3>trim</h3>
+    <pre><code class="javascript">
+        var str1 = " Orange Orange ";
+        var str2 = str1.trim();
+        // str1 : " Orange Orange " 그대로
+        // str2 : "Orange Orange"
+    </code></pre>
+    <h2>Number</h2>
+    <h3>parseInt</h3>
+    <pre><code class="javascript">
+        var num1 = parseInt("12px");
+        // 12
+    </code></pre>
+    <h3>반대</h3>
+    <pre><code class="javascript">
+        !0          // true
+        !1          // false
+        Number(!0); // 1
+        Number(!1); // 0
+    </code></pre>    
+    <h3>Math</h3>
+    <pre><code class="javascript">
+        Math.pow(3,2);      // 9
+        Math.round(10.6);   // 11
+        Math.ceil(10.2);    // 11
+        Math.floor(10.6);   // 10
+        Math.sqrt(9);       // 3
+        Math.random();      // [0, 1) 0을 포함하면서 1보다는 작은 부동소수점
+    </code></pre>    
+    <h2>Closure</h2>
+    <h3>private 변수</h3>
+    <pre><code class="javascript">
+        // 함수 내의 private 지역변수 역할을 한다.(외부에서는 접근 못함)
+        function factory_movie(title){
+            return {
+                get_title : function (){
+                    return title;
+                },
+                set_title : function(_title){
+                    title = _title
+                }
+            }
+        }
+        var obj1 = factory_movie('STR1');
+        var obj2 = factory_movie('STR2');
+            
+        obj1.get_title();   // "STR1"
+        obj2.get_title();   // "STR2"
+            
+        obj1.set_title('NEWNEW');
+            
+        obj1.get_title();   // "NEWNEW"
+        obj2.get_title();   // "STR2"
+    </code></pre>
+    <h3>클로저방지</h3>
+    <pre><code class="javascript">
+        var arr = [];
+        for(var i = 0; i < 5; i++){
+            arr[i] = function(id) {
+                return function(){
+                    return id;
+                }
+            }(i);
+        }
+        for(var index in arr) {
+            console.log(arr[index]());
+        }        
+        // 0, 1, 2, 3, 4
+    </code></pre>
+    <h2>jQuery vs VanillaJS</h2>
+    <h3>event</h3>
+    <pre><code class="javascript">
+        // jQuery
+        $(document).ready(function() {
+            // code
+        })
+
+        // Vanilla
+        document.addEventListener('DOMContentLoaded', function() {
+            // code
+        })        
+    </code></pre>
+    <h3>selector</h3>
+    <pre><code class="javascript">
+        // jQuery
+        var divs = $('div')
+        // jQuery.fn.init(4)
+
+        // Vanilla
+        var divs = document.querySelectorAll('div')   
+        // NodeList(4)     
+
+        // jQuery
+        var c = $("#comments .comment");
+        // Vanilla
+        var c = document.querySelectorAll("#comments .comment");
+    </code></pre>
+    <h3>create</h3>
+    <pre><code class="javascript">
+        // jQuery
+        var newDiv = $('&lt;div/&gt;')
+        
+        // Vanilla
+        var newDiv = document.createElement('div')        
+    </code></pre>
+    <h3>attribute</h3>
+    <pre><code class="javascript">
+        // jQuery
+        $('img').filter(':first').attr('alt', 'My image')
+        
+        // Vanilla
+        document.querySelector('img').setAttribute('alt', 'My image')        
+    </code></pre>
+    <h3>class</h3>
+    <pre><code class="javascript">
+        // jQuery
+        newDiv.addClass('foo')
+        
+        // Vanilla
+        newDiv.classList.add('foo')      
+        
+        // jQuery
+        newDiv.toggleClass('foo')
+        
+        // Vanilla
+        newDiv.classList.toggle('foo')        
+    </code></pre>
+    <h3>append</h3>
+    <pre><code class="javascript">
+        // jQuery
+        $('body').append($('&lt;p/&gt;'))
+        
+        // Vanilla
+        document.body.appendChild(document.createElement('p'))        
+
+        // jQuery
+        $("#container").append("&lt;p&gt;more content&lt;/p&gt;");
+
+        // Vanilla
+        document.getElementById("container").innerHTML += "&lt;p&gt;more content&lt;/p&gt;";
+
+        // Vanilla
+        var p = document.createElement("p");
+        p.appendChild(document.createTextNode("more content");
+        document.getElementById("container").appendChild(p);        
+    </code></pre>
+    <h3>empty</h3>
+    <pre><code class="javascript">
+        // jQeury
+        $("#container").empty();
+        
+        // Vanilla
+        document.getElementById("container").innerHTML = null;
+        // or
+        var c = document.getElementById("container");
+        while (c.lastChild) c.removeChild(c.lastChild);        
+    </code></pre>
+    <h3>remove</h3>
+    <pre><code class="javascript">
+        // jQuery
+        $("#container").remove();        
+
+        // Vanilla
+        var c = document.getElementById("container");
+        c.parentNode.removeChild(c);        
+    </code></pre>    
+    <h3>clone</h3>
+    <pre><code class="javascript">
+        // jQuery
+        var clonedElement = $('#about').clone()
+        
+        // Vanilla
+        var clonedElement = document.getElementById('about').cloneNode(true)
+    </code></pre>
+    <h3>parent</h3>
+    <pre><code class="javascript">
+        // jQuery
+        var parent = $('#about').parent()
+        
+        // Vanilla
+        var parent = document.getElementById('about').parentNode        
+    </code></pre>
+    <h3>next</h3>
+    <pre><code class="javascript">
+        // jQuery
+        var nextElement = $('#wrap').next()
+        
+        // Vanilla
+        var nextElement = document.getElementById('wrap').nextSibling        
+    </code></pre>
+    <h3>ajax get</h3>
+    <pre><code class="javascript">
+        // jQuery
+        $.get('//example.com', function (data) {
+            // code
+        })
+        
+        // Vanilla
+        var httpRequest = new XMLHttpRequest()
+        httpRequest.onreadystatechange = function (data) {
+            // code
+        }
+        httpRequest.open('GET', url)
+        httpRequest.send()        
+    </code></pre>
+    <h3>ajax post</h3>
+    <pre><code class="javascript">
+        // jQuery
+        $.post('//example.com', { username: username }, function (data) {
+            // code
+        })
+        
+        // Vanilla
+        var httpRequest = new XMLHttpRequest()
+        httpRequest.onreadystatechange = function (data) {
+            // code
+        }
+        httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+        httpRequest.open('POST', url)
+        httpRequest.send('username=' + encodeURIComponent(username))        
+    </code></pre>
+    <h3>jsonp</h3>
+    <pre><code class="javascript">
+        // jQuery
+        $.getJSON('//openexchangerates.org/latest.json?callback=?', function (data) {
+            // code
+        })
+        
+        // Vanilla
+        function success(data) {
+            // code
+        }
+        var scr = document.createElement('script')
+        scr.src = '//openexchangerates.org/latest.json?callback=formatCurrency'
+        document.body.appendChild(scr)        
+    </code></pre>
+    <h3>fadeOut</h3>
+    <pre><code class="javascript">
+        // jQuery
+        $('#thing').fadeOut();
+
+        // Vanilla
+        var s = document.getElementById('thing').style;
+        s.opacity = 1;
+        (function fade(){
+            (s.opacity-=.1) < 0 ? s.display="none" : setTimeout(fade,40)
+        })();
+    </code></pre>
+    <h3></h3>
+    <pre><code class="javascript">
+    </code></pre>
+
+</div>
+        </div>
+    </div>
+    <p>출처: 
+        <br>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+        <br>https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+        <br>https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+        <br>https://opentutorials.org/course/743/6544
+        <br>https://gist.github.com/joyrexus/7307312
+        <br>https://www.sitepoint.com/jquery-vs-raw-javascript-1-dom-forms/
+        <br>http://vanilla-js.com/
+    </p>
+    
+    <!-- highlight.js -->
+    <script src="highlight/highlight.pack.js"></script>
+
+    <!-- scrollspy & bootstrap -->
+    <script src="jquery/jquery-1.12.3.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>    
+    <script src="scrollspy/dynamicscrollspy.js"></script>
+
+    <script>
+        hljs.initHighlightingOnLoad();
+
+        $(function() {
+            $('#scrollspy').DynamicScrollspy({
+                genIDs: true
+            });
+            // 버그(간헐적)
+            // $("#scrollspy ul").css("position", "fixed");
+        });
+    </script>
+
+
+</body>
+
+</html>

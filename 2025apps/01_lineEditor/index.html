@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeMirror Sentence Highlighting</title>
+
+  <!-- CodeMirror 스타일 및 스크립트 추가 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.0/codemirror.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.0/codemirror.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.6/Sortable.min.js"></script>
+  <style>
+    body {
+      /* padding: 0; */
+      /* margin: 0; */
+    }
+
+    .btnGroup {
+      margin-bottom: 4px;
+    }
+
+    .CodeMirror {
+      border: 1px solid #ddd;
+      font-family: 'Courier New', Courier, monospace;
+      height: auto;
+    }
+
+    .list-group {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      padding-left: 0;
+      margin-bottom: 0;
+      margin-top: 10px;
+      padding: 4px;
+      border: 1px solid #ccc;
+    }
+
+    .list-group-item {
+      position: relative;
+      display: block;
+      padding: .75rem 1.25rem;
+      margin-bottom: -1px;
+      background-color: #f4f4f4;
+      border: 1px solid #ccc;
+      cursor: grab;
+      line-break: anywhere;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Line Editor</h1>
+  <div class="btnGroup">
+    <button onClick="reset();">리셋</button>
+    <button onClick="removeEmptyLine();">라인 공백 제거</button>
+    <button onClick="copyAll();">복사</button>
+    <button onClick="pasteAll();">붙여넣기</button>
+    <button onClick="addChar('#');">#</button>
+  </div>
+  <textarea id="myTextarea" rows="10" cols="50"></textarea>
+  <div id="mySortable" class="list-group text" style="border: none;"></div>
+
+  <script>
+    var _editorLock = false;
+    // CodeMirror 에디터 초기화
+    var editor = CodeMirror.fromTextArea(myTextarea, {
+      lineNumbers: true,
+      mode: "javascript",
+      matchBrackets: true,
+      lineWrapping: true   // 자동 줄바꿈 활성화
+    });
+    editor.focus();
+
+    // 실시간 하이라이트 적용 (변경 시마다 하이라이트 업데이트)
+    editor.on('change', () => {
+      if (_editorLock) {
+        _editorLock = false;
+        return;
+      }
+      updateSortable();
+    });
+
+    function updateSortable() {
+      mySortable.innerHTML = '';
+
+      var currentDiv = mySortable;
+      editor.getValue().split('\n').forEach(text => {
+        text = text.trim();
+        if (text.startsWith('#')) {
+          currentDiv = mySortable;
+          // group
+          const div = document.createElement('div');
+          div.classList.add('list-group', 'text');
+          div.innerHTML = text;
+          div.dataset.text = text;
+          currentDiv.append(div);
+          currentDiv = div;
+        } else {
+          const div = document.createElement('div');
+          div.classList.add('list-group-item', 'text');
+          div.innerHTML = text;
+          div.dataset.text = text;
+          currentDiv.appendChild(div);
+        }
+      });
+
+      var nestedSortables = document.querySelectorAll('.list-group');
+      for (var i = 0; i < nestedSortables.length; i++) {
+        new Sortable(nestedSortables[i], {
+          group: 'nested',
+          animation: 150,
+          fallbackOnBody: true,
+          swapThreshold: 0.65,
+          onEnd: function () {
+            _editorLock = true;
+            var list = [];
+            document.querySelectorAll('.text').forEach(text => {
+              if (text.dataset.text) {
+                list.push(text.dataset.text);
+              }
+            });
+            editor.setValue(list.join('\n'));
+          }
+        });
+      }
+    }
+    function reset() {
+      editor.setValue('');
+      editor.focus();
+    }
+    function removeEmptyLine() {
+      var list = [];
+      editor.getValue().split('\n').forEach(text => {
+        if (text.trim() !== '') {
+          list.push(text.trim());
+        }
+      });
+      editor.setValue(list.join('\n'));
+    }
+    function copyAll() {
+      navigator.clipboard.writeText(editor.getValue()).then(() => {
+        console.log("클립보드에 복사되었습니다.");
+      }).catch(err => {
+        console.error("복사 실패:", err);
+      });
+    }
+    async function pasteAll() {
+      var text = await navigator.clipboard.readText();
+      if (confirm('[붙여넣기]\n' + text)) {
+        editor.replaceSelection(text);
+      }
+    }
+    function addChar(char) {
+      editor.replaceSelection(char);
+    }
+  </script>
+
+</body>
+
+</html>
+
+<!-- TODO #, ##을 div 구조로 만들어야 한다. -->

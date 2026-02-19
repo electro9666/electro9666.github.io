@@ -1,0 +1,50 @@
+@Configuration
+@EnableAspectJAutoProxy
+public class ContextAspect {
+
+	@Bean
+	public AopExceptionTransfer aopExceptionTransfer(ExceptionTransfer exceptionTransfer) {
+		AopExceptionTransfer aopExceptionTransfer = new AopExceptionTransfer();
+		aopExceptionTransfer.setExceptionTransfer(exceptionTransfer);
+		return aopExceptionTransfer;
+	}
+
+	@Bean
+	public ExceptionTransfer exceptionTransfer(
+			@Qualifier("defaultExceptionHandleManager") DefaultExceptionHandleManager defaultExceptionHandleManager,
+			@Qualifier("otherExceptionHandleManager") DefaultExceptionHandleManager otherExceptionHandleManager) {
+		ExceptionTransfer exceptionTransfer = new ExceptionTransfer();
+		exceptionTransfer.setExceptionHandlerService(
+				new DefaultExceptionHandleManager[] { defaultExceptionHandleManager, otherExceptionHandleManager });
+		return exceptionTransfer;
+	}
+
+	@Bean
+	public DefaultExceptionHandleManager defaultExceptionHandleManager(AntPathMatcher pm,
+			EgovSampleExcepHndlr egovHandler) {
+		DefaultExceptionHandleManager defaultExceptionHandleManager = new DefaultExceptionHandleManager();
+		defaultExceptionHandleManager.setReqExpMatcher(pm);
+		defaultExceptionHandleManager.setPatterns(new String[] { "**service.impl.*" });
+		defaultExceptionHandleManager.setHandlers(new EgovSampleExcepHndlr[] { egovHandler });
+		return defaultExceptionHandleManager;
+	}
+
+	@Bean
+	public DefaultExceptionHandleManager otherExceptionHandleManager(AntPathMatcher pm,
+			EgovSampleOthersExcepHndlr otherHandler) {
+		DefaultExceptionHandleManager defaultExceptionHandleManager = new DefaultExceptionHandleManager();
+		defaultExceptionHandleManager.setReqExpMatcher(pm);
+		defaultExceptionHandleManager.setPatterns(new String[] { "**service.impl.*" });
+		defaultExceptionHandleManager.setHandlers(new EgovSampleOthersExcepHndlr[] { otherHandler });
+		return defaultExceptionHandleManager;
+	}
+
+	@Bean
+	public EgovSampleOthersExcepHndlr otherHandler() {
+		return new EgovSampleOthersExcepHndlr();
+	}
+
+	@Bean
+	public EgovSampleExcepHndlr egovHandler() {
+		return new EgovSampleExcepHndlr();
+	}

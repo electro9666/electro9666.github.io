@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #inputId {
+      width: 100%;
+      height: 400px;
+    }
+
+    #outputId {
+      width: 100%;
+      height: 400px;
+    }
+
+    .searchBox {
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="display:flex;">
+    <div class="searchBox">
+      <div>필터(regex)</div>
+      <input id="searchId" />
+      <button onclick="searchFn();">실행</button>
+    </div>
+    <div class="searchBox">
+      <div>바꾸기(regex)</div>
+      <input id="fromId" />
+      <input id="toId" />
+      <button onclick="replaceFn();">실행</button>
+    </div>
+  </div>
+
+  <div>input <span id="inputCount"></span></div>
+  <textarea id="inputId" onInput="onChangeInput();"></textarea>
+
+  <button onclick="switchTextarea();">switchTextarea</button>
+
+  <div>output <span id="outputCount"></span></div>
+  <textarea id="outputId" onInput="onChangeOutput();"></textarea>
+
+  <script>
+    var $searchId = document.getElementById('searchId');
+    var $input = document.getElementById('inputId');
+    var $output = document.getElementById('outputId');
+    var $inputCount = document.getElementById('inputCount');
+    var $outputCount = document.getElementById('outputCount');
+    var $fromId = document.getElementById('fromId');
+    var $toId = document.getElementById('toId');
+
+    function onChangeInput() {
+      $inputCount.innerHTML = $input.value.split('\n').length;
+    }
+    function onChangeOutput() {
+      $outputCount.innerHTML = $output.value.split('\n').length;
+    }
+    function switchTextarea() {
+      var temp = $input.value;
+      $input.value = $output.value;
+      $output.value = temp;
+
+      onChangeInput();
+      onChangeOutput();
+    }
+
+    // 버튼
+    function searchFn() {
+      if ($searchId.value === '') {
+        alert('정규식을 입력해주세요.')
+        return;
+      }
+
+      var lines = $input.value.split('\n');
+      lines = lines.filter(line => {
+        var result = line.match($searchId.value);
+        // console.log('result', result);
+        return result !== null
+      });
+      $output.value = lines.join('\n');
+
+      onChangeInput();
+      onChangeOutput();
+    }
+
+    function replaceFn() {
+      var lines = $input.value.split('\n');
+      lines = lines.map(line => {
+        var result = line.split($fromId.value).join($toId.value);
+        return result;
+      });
+      $output.value = lines.join('\n');
+
+      onChangeInput();
+      onChangeOutput();
+    }
+  </script>
+</body>
+
+</html>

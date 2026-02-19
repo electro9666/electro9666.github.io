@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sortable.js 예제</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.2/Sortable.min.js"></script>
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+            width: 200px;
+        }
+        li {
+            padding: 10px;
+            margin: 5px;
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+            cursor: grab;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>드래그해서 순서 변경</h2>
+    <ul id="sortable-list">
+        <li>항목 1</li>
+        <li>항목 2</li>
+        <li>항목 3</li>
+        <li>항목 4</li>
+    </ul>
+
+    <script>
+        new Sortable(document.getElementById("sortable-list"), {
+            animation: 150,
+            ghostClass: "sortable-ghost", // 드래그 중인 항목에 적용되는 CSS 클래스
+            onEnd: function (evt) {
+                console.log("이전 위치:", evt.oldIndex, "새 위치:", evt.newIndex);
+            }
+        });
+    </script>
+
+</body>
+</html>

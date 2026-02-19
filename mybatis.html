@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Mybatis 편하게</title>
+<style>
+body, div, input, textarea {
+	font-family : Consolas;
+/* 	background-color:black; */
+/* 	color:white; */
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script>
+var table = ''
+var column = '';
+var columnList = [];
+
+function updateSQL(){
+	// 초기화
+	columnList = [];
+	
+	table = $("#table").val().trim();
+	
+	column = $("#column").val();
+	var columnArr = column.split("\n");
+	for(var i = 0 ; i<columnArr.length; i++){
+		var name = columnArr[i].trim();
+		if(name != ""){
+			columnList.push(name);
+		}
+	}
+	if(columnList.length > 0){
+		var obj = {"table":table, "columnList":columnList, "isSearch":isSearch()};
+		
+		// VO
+		var template, compiled_template, rendered;
+		
+		// Controller
+		template = $("#templateController").html();
+		compiled_template = Handlebars.compile(template);
+		rendered = compiled_template(obj);
+		$("#targetController").html(rendered);
+		
+		// Service
+		template = $("#templateService").html();
+		compiled_template = Handlebars.compile(template);
+		rendered = compiled_template(obj);
+		$("#targetService").html(rendered);
+		
+		// ServiceImpl
+		template = $("#templateServiceImpl").html();
+		compiled_template = Handlebars.compile(template);
+		rendered = compiled_template(obj);
+		$("#targetServiceImpl").html(rendered);
+		
+		// DAO
+		template = $("#templateDAO").html();
+		compiled_template = Handlebars.compile(template);
+		rendered = compiled_template(obj);
+		$("#targetDAO").html(rendered);
+
+		// VO
+		template = $("#templateVO").html();
+		compiled_template = Handlebars.compile(template);
+		rendered = compiled_template(obj);
+		$("#targetVO").html(rendered);
+		
+		// SQL
+		template = $("#templateSql").html();
+		compiled_template = Handlebars.compile(template);
+		rendered = compiled_template(obj);
+		$("#targetSql").html(rendered);			
+	}
+}
+
+$(document).ready(function(){
+	Handlebars.registerHelper('comma1', function(value) {
+		if(isSuffixComma()){
+			if(value == 0){
+				return "";
+			}else{
+				return ",";
+			}
+		}else{
+			return "";	
+		}
+	});
+	Handlebars.registerHelper('comma2', function(value, last) {
+		if(!isSuffixComma()){
+			if(last){
+				return "";
+			}else{
+				return ",";
+			}
+		}else{
+			return "";
+		}
+	});
+	Handlebars.registerHelper('value', function(str) {
+		return new Handlebars.SafeString("\#\{" + str.toLowerCase() + "\}");
+	});
+	Handlebars.registerHelper('isColumn', function(str) {
+		if(isUpperCase()){
+			str = str.toUpperCase();
+		}else{
+			str = str;
+		}
+		
+		if($("#tableAlias").val() != ""){
+			str = $("#tableAlias").val() + "." + str;
+		}
+		return str;
+	});
+	Handlebars.registerHelper('isTable', function(str) {
+		if(isUpperCase()){
+			return str.toUpperCase();
+		}else{
+			return str;
+		}
+	});
+	Handlebars.registerHelper('upper1', function(str) {
+		return str.charAt(0).toUpperCase() + str.slice(1);
+	});
+	Handlebars.registerHelper('isComment', function(str) {
+		if(isComment()){
+			return str;
+		}else{
+			return '';
+		}
+	});
+	Handlebars.registerHelper('if', function(conditional, options) {
+		if(conditional) {
+		  return options.fn(this);
+		}
+	});
+	
+	updateSQL();
+});
+function isUpperCase(){
+	return $("#chk1").is(":checked");
+}
+function isSuffixComma(){
+	return $("#chk2").is(":checked");
+}
+function isComment(){
+	return $("#chk3").is(":checked");
+}
+function isSearch(){
+	return $("#chk4").is(":checked");
+}
+</script>
+</head>
+<body>
+<div style="width:120px;border:orange;float:left;">
+	<b style="font-size:20px;">입력 :</b><br>
+	Table Name
+	<br><input id="table" style="width:100px;" onchange="updateSQL();" value="user"/>
+	Column Names
+	<br><div style="width:50px;border:orange;float:left;">
+</div>
+<textarea id="column" style="width:100px;height:400px;" onchange="updateSQL();">
+name
+id
+phone
+address
+</textarea>
+</div>
+
+<div style="width:420px;border:orange;float:left;">
+	<b style="font-size:20px;">출력 Controller :</b>
+	<br><textarea id="targetController" style="width:400px;height:800px;" wrap="off">
+	
+	</textarea>
+</div>
+
+<div style="width:420px;border:orange;float:left;">
+	<b style="font-size:20px;">출력 Service :</b>
+	<br><textarea id="targetService" style="width:400px;height:200px;" wrap="off">
+	
+	</textarea>
+	<br>
+	<b style="font-size:20px;">출력 ServiceImpl :</b>
+	<br><textarea id="targetServiceImpl" style="width:400px;height:600px;" wrap="off">
+	
+	</textarea>
+</div>
+
+<div style="width:420px;border:orange;float:left;">
+	<b style="font-size:20px;">출력 DAO :</b>
+	<br><textarea id="targetDAO" style="width:400px;height:600px;" wrap="off">
+	
+	</textarea>
+</div>
+
+<div style="width:420px;border:orange;float:left;">
+	<b style="font-size:20px;">출력 VO :</b>
+	<br><textarea id="targetVO" style="width:400px;height:200px;" wrap="off">
+	</textarea><br>
+	<b style="font-size:20px;">출력 SQL :</b>
+	Table Alias <input id="tableAlias" style="width:100px;" onchange="updateSQL();" value="a"/><br>
+	<input type="checkbox" id="chk1" value="" onchange="updateSQL();" checked/><label for="chk1">컬럼대문자</label>
+	<input type="checkbox" id="chk2" value="" onchange="updateSQL();" checked/><label for="chk2">콤마위치(앞)</label>
+	<input type="checkbox" id="chk3" value="" onchange="updateSQL();"/><label for="chk3">주석</label>
+	<input type="checkbox" id="chk4" value="" onchange="updateSQL();"/><label for="chk4">SEARCH</label>
+	<br><textarea id="targetSql" style="width:400px;height:600px;" wrap="off">
+	
+	</textarea>
+</div>
+
+<script id="templateController" type="text/x-handlebars-template">
+@Controller
+public class {{upper1 table}}Controller {
+	@Autowired
+	private {{upper1 table}}Service {{table}}Service;
+
+	@RequestMapping("/get{{upper1 table}}.do")
+	public String get{{upper1 table}}({{upper1 table}}VO vo) {
+		{{table}}Service.get{{upper1 table}}(vo);
+		return "get{{upper1 table}}.jsp";
+	}
+
+	@RequestMapping("/get{{upper1 table}}List.do")
+	public String get{{upper1 table}}List({{upper1 table}}VO vo) {
+		{{table}}Service.get{{upper1 table}}List(vo);
+		return "get{{upper1 table}}List.jsp";
+	}
+
+	@RequestMapping("/insert{{upper1 table}}.do")
+	public String insert{{upper1 table}}({{upper1 table}}VO vo) {
+		{{table}}Service.insert{{upper1 table}}(vo);
+		return "get{{upper1 table}}List.jsp";
+	}
+
+	@RequestMapping("/update{{upper1 table}}.do")
+	public String update{{upper1 table}}({{upper1 table}}VO vo) {
+		{{table}}Service.update{{upper1 table}}(vo);
+		return "get{{upper1 table}}List.jsp";
+	}
+
+	@RequestMapping("/delete{{upper1 table}}.do")
+	public String delete{{upper1 table}}({{upper1 table}}VO vo) {
+		{{table}}Service.delete{{upper1 table}}(vo);
+		return "get{{upper1 table}}List.jsp";
+	}
+}
+</script>
+
+<script id="templateService" type="text/x-handlebars-template">
+public interface {{upper1 table}}Service {
+	{{upper1 table}}VO get{{upper1 table}}({{upper1 table}}VO vo);
+	List<{{upper1 table}}VO> get{{upper1 table}}List({{upper1 table}}VO vo);
+	void insert{{upper1 table}}({{upper1 table}}VO vo);
+	void update{{upper1 table}}({{upper1 table}}VO vo);
+	void delete{{upper1 table}}({{upper1 table}}VO vo);
+}
+</script>
+<script id="templateServiceImpl" type="text/x-handlebars-template">
+@Service("{{table}}Service")
+public class {{upper1 table}}ServiceImpl implements {{upper1 table}}Service {
+	@Autowired
+	private {{upper1 table}}DAO {{table}}DAO;
+
+	public {{upper1 table}}VO get{{upper1 table}}({{upper1 table}}VO vo) {
+		return {{table}}DAO.get{{upper1 table}}(vo);
+	}
+
+	public List<{{upper1 table}}VO> get{{upper1 table}}List({{upper1 table}}VO vo) {
+		return {{table}}DAO.get{{upper1 table}}List(vo);
+	}
+	
+	public void insert{{upper1 table}}({{upper1 table}}VO vo) {
+		{{table}}DAO.insert{{upper1 table}}(vo);
+	}
+
+	public void update{{upper1 table}}({{upper1 table}}VO vo) {
+		{{table}}DAO.update{{upper1 table}}(vo);
+	}
+
+	public void delete{{upper1 table}}({{upper1 table}}VO vo) {
+		{{table}}DAO.delete{{upper1 table}}(vo);
+	}
+}
+</script>
+
+<script id="templateDAO" type="text/x-handlebars-template">
+public class {{upper1 table}}DAO {
+	@Autowired
+	private SqlSession sqlSession;
+
+	public {{upper1 table}}VO get{{upper1 table}}({{upper1 table}}VO vo) {
+		return ({{upper1 table}}VO) sqlSession.selectOne("{{upper1 table}}DAO.get{{upper1 table}}", vo);
+	}
+
+	public List<{{upper1 table}}VO> get{{upper1 table}}List({{upper1 table}}VO vo) {
+		return sqlSession.selectList("{{upper1 table}}DAO.get{{upper1 table}}List", vo);
+	}
+
+	public void insert{{upper1 table}}({{upper1 table}}VO vo) {
+		sqlSession.insert("{{upper1 table}}DAO.insert{{upper1 table}}", vo);
+	}
+
+	public void update{{upper1 table}}({{upper1 table}}VO vo) {
+		sqlSession.update("{{upper1 table}}DAO.update{{upper1 table}}", vo);
+	}
+
+	public void delete{{upper1 table}}({{upper1 table}}VO vo) {
+		sqlSession.delete("{{upper1 table}}DAO.delete{{upper1 table}}", vo);
+	}
+}
+</script>
+
+<script id="templateVO" type="text/x-handlebars-template">
+public class {{upper1 table}}VO {
+{{#each columnList}}
+	private String {{this}};
+{{/each}}
+}
+</script>
+
+<script id="templateSql" type="text/x-handlebars-template">
+<mapper namespace="{{upper1 table}}DAO">
+
+<select id="get{{upper1 table}}" resultType="{{table}}">
+SELECT
+{{#each columnList}}
+	{{comma1 @index}}{{isColumn this}}{{comma2 @index @last}}
+{{/each}}	 
+FROM {{isTable table}}
+WHERE 1=1
+AND {{isColumn columnList.[0]}} = {{value columnList.[0]}} {{isComment '--첫번째 컬럼'}}
+ORDER BY {{isColumn columnList.[0]}}
+</select>
+
+<select id="get{{upper1 table}}List" resultType="{{table}}">
+SELECT
+{{#each columnList}}
+	{{comma1 @index}}{{isColumn this}}{{comma2 @index @last}}
+{{/each}}	 
+FROM {{isTable table}}
+WHERE 1=1
+{{#if isSearch}}
+{{#each columnList}}
+<if test="{{this}} != ''">
+and {{isColumn this}} like '%'||{{value this}}||'%'
+</if>
+{{/each}}
+{{/if}}
+ORDER BY {{isColumn columnList.[0]}}
+</select>
+
+<insert id="insert{{upper1 table}}">
+INSERT INTO {{isTable table}} (
+{{#each columnList}}
+	{{comma1 @index}}{{isColumn this}}
+{{/each}}
+)
+VALUES(
+{{#each columnList}}
+	{{comma1 @index}}{{value this}}
+{{/each}}
+)
+</insert>
+
+<update id="update{{upper1 table}}">
+UPDATE {{isTable table}}
+SET
+{{#each columnList}}
+	{{comma1 @index}}{{isColumn this}} = {{value this}}{{comma2 @index @last}}
+{{/each}}
+WHERE 1=1
+AND {{isColumn columnList.[0]}} = {{value columnList.[0]}} {{isComment '--첫번째 컬럼'}}
+</update>
+
+<delete id="delete{{upper1 table}}">
+DELETE FROM {{isTable table}} 
+WHERE 1=1 
+AND {{isColumn columnList.[0]}} = {{value columnList.[0]}} {{isComment '--첫번째 컬럼'}}
+</delete>
+
+</mapper>
+</script>
+</body>
+</html>

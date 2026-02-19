@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문장 하이라이트 예시</title>
+  <style>
+    /* 편집 가능한 div 스타일 */
+    #editable {
+      width: 80%;
+      height: 300px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      font-size: 16px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+
+    /* 하이라이트 스타일 */
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>편집 가능한 영역</h2>
+  <div id="editable" contenteditable="true">
+    이곳에 문장을 입력하세요. 줄바꿈 후에도 하이라이트가 적용됩니다.
+  </div>
+
+  <script>
+    const editableDiv = document.getElementById('editable');
+
+    // 내용이 변경될 때마다 하이라이트를 적용
+    editableDiv.addEventListener('input', function() {
+      // 기존의 텍스트를 지우고 다시 하이라이트 적용
+      highlightSentences(editableDiv);
+    });
+
+    // 마침표와 줄바꿈 기준으로 문장 하이라이트
+    function highlightSentences(element) {
+      // 편집 영역의 텍스트를 가져옵니다.
+      const text = element.innerText;
+
+      // 기존의 내용 지우기
+      element.innerHTML = '';
+
+      // 텍스트를 문장 단위로 구분
+      const sentences = text.split(/([.?\n])/).filter(Boolean); // 문장과 마침표/줄바꿈 분리
+
+      // 구분된 문장을 하나씩 추가하면서 하이라이트
+      sentences.forEach(sentence => {
+        const span = document.createElement('span');
+        span.textContent = sentence;
+
+        // 문장 끝에 마침표가 있거나 줄바꿈이 있으면 하이라이트
+        if (sentence.match(/[.?\n]$/)) {
+          span.classList.add('highlight');
+        }
+
+        // 새로운 span을 편집 영역에 추가
+        element.appendChild(span);
+      });
+    }
+  </script>
+
+</body>
+</html>

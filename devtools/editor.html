@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .item-box {
+      display: flex;
+    }
+
+    .item {
+      width: 100%;
+    }
+
+    .tx {
+      width: 100%;
+      height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="https://tools.knowledgewalls.com/convert-double-quotes-to-single-quotes-online" target="_blank">double quotes to singles quote</a>
+  <a href="https://regexr.com/" target="_blank">REGEXR</a>
+  <a href="https://astexplorer.net/" target="_blank">AST Explorer</a>
+  <a href="https://jsonformatter.curiousconcept.com/" target="_blank">json formattrer</a>
+  <a href="https://tools.knowledgewalls.com/remove-comments-from-any-program-online" target="_blank">remove js comment</a>
+  <div class="item-box">
+    <div class="item">
+      <h1>역슬래시</h1>
+      <textarea class="tx" id="tx1" onkeyup="onchange1();"></textarea>
+    </div>
+    <div class="item">
+      <h1>슬래시</h1>
+      <textarea class="tx" id="tx2" onkeyup="onchange2();"></textarea>
+    </div>
+  </div>
+  <div class="item-box">
+    <div class="item">
+      <h1>camelCase</h1>
+      <textarea class="tx" id="tx3" onkeyup="onchange3();"></textarea>
+    </div>
+    <div class="item">
+      <h1>snake_case</h1>
+      <textarea class="tx" id="tx4" onkeyup="onchange4();"></textarea>
+    </div>
+    <div class="item">
+      <h1>kebab-case</h1>
+      <textarea class="tx" id="tx5" onkeyup="onchange5();"></textarea>
+    </div>
+  </div>
+  <script>
+    var $tx1 = document.getElementById('tx1');
+    var $tx2 = document.getElementById('tx2');
+    var $tx3 = document.getElementById('tx3');
+    var $tx4 = document.getElementById('tx4');
+    var $tx5 = document.getElementById('tx5');
+
+    function onchange1() {
+      $tx2.value = $tx1.value.replace(/\\/g, '/');
+    }
+    function onchange2() {
+      $tx1.value = $tx2.value.split('/').join('\\');
+    }
+    function onchange3() {
+      // https://javascriptf1.com/snippet/convert-snake-case-to-camel-case-in-javascript
+      $tx4.value = $tx3.value.replace(/[A-Z]/g, (c) => { return '_' + c.toLowerCase() });
+      $tx5.value = $tx3.value.replace(/[A-Z]/g, (c) => { return '-' + c.toLowerCase() });
+    }
+    function onchange4() {
+      var list = $tx4.value.split('\n');
+      $tx3.value = list.map(str => str.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase())).join('\n');
+      $tx5.value = list.map(str => str.replace(/_/g, '-')).join('\n');
+    }
+    function onchange5() {
+      $tx3.value = $tx5.value.replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
+      $tx4.value = $tx5.value.replace(/-/g, '_');
+    }
+
+    document.querySelectorAll('textarea').forEach(obj => {
+      obj.addEventListener('focus', () => {
+        obj.select();
+        // clipboard(obj.value);
+      })
+    })
+
+    function clipboard(data) {
+      navigator.clipboard.writeText(data).then(
+        () => {
+          /* success */
+        },
+        (e) => {
+          /* failure */
+          console.error('clipboard error', e);
+        }
+      );
+    }
+  </script>
+</body>
+
+</html>

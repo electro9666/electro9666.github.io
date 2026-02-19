@@ -1,0 +1,62 @@
+<!--중단-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    td, th {
+      border: 1px solid gray;
+      padding: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div id="pivot"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script src="../data.js"></script>
+  <script>
+    // var source = $("#template1").html(); 
+    // var template = Handlebars.compile(source);
+    // var html = template({
+    //   store2: store2
+    // });
+    // $("#contents").append(html);   
+
+    var html = `<table><tr>`;
+    html += `<th>분류1</th>`;
+    html += `<th>분류2</th>`;
+    for (let i = 0, len = _seq.length; i <len; i++) {
+      html += `<th>${_seq[i].seq}</th>`;
+    }
+    html += `</tr>`;
+    html += `</table>`;
+
+    document.getElementById('pivot').innerHTML = html;
+
+  </script>
+
+  <!-- <script id="template1" type="text/x-handlebars-template">
+    {{#each store2}}
+      <h2>{{name}}</h2>
+      {{#each data}}
+        <h3>{{name}} ({{data.length}})</h3>
+        <div>
+          {{#each data}}
+          <div class="item">
+            <div>{{type0}},{{year}},{{seq}},{{class}}-{{q}}</div>
+            <div>{{{text}}}</div>
+          </div>
+          {{/each}}
+        </div>
+      {{/each}}
+    {{/each}}
+  </script> -->
+</body>
+</html>

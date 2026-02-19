@@ -1,0 +1,40 @@
+.pianoSet {
+  position: relative;
+  width: 63px;
+  height: 35px;
+  float: left;
+  overflow: hidden;
+  opacity: 0.4;
+}
+.pianoSet .major {
+  position: absolute;
+  width: 10px;
+  height: 35px;
+  background-color: white;
+  /* padding-top: 55px; */
+  z-index: 1;
+  text-align: center;
+  border: 1px solid gray;
+}
+.pianoSet .major .desc {
+  position: absolute;
+  top: -2px;
+  left: 0px;
+  /* font-family: 'consolas, Courier New', Courier, monospace; */
+  font-size: 1px;
+  transform: rotate(-90deg);
+}
+.pianoSet .major.selected {
+  background-color: pink;
+}
+.pianoSet .minor {
+  position: absolute;
+  width: 6px;
+  height: 23px;
+  background-color: black;
+  border: 1px solid gray;
+  z-index: 2;
+}
+.pianoSet .minor.selected {
+  background-color: pink;
+}

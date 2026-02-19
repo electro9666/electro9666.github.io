@@ -1,0 +1,242 @@
+<!--
+  검색시 소문자로 검색
+  
+  TODO
+  모두 소문자로 비교하기 때문에 나중에 highlight할 때, 소문자를 하이라이트 할 수 없다.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+    .search-box {
+
+    }
+    input {
+      width: 20%;
+    }
+    input {
+      height: 20px;
+    }
+    select {
+      height: 30px;
+    }
+    button {
+      height: 30px;
+    }
+    .item {
+      border-top: 1px solid gray;
+      padding: 4px;
+    }
+    .info {
+      font-size: 12px;
+    }
+    /* .no {
+      font-size: 20px;
+    } */    
+    .type_2 {
+      /* font-weight: bold; */
+    }
+    .highlight1 {
+      background-color: lightpink;
+    }
+    .highlight2 {
+      background-color: lightskyblue;
+    }
+    .highlight3 {
+      background-color: lightgray;
+    }
+  </style>
+</head>
+<body>
+  <div class="search-box">
+    <select id="select-type1" onchange="onchangeType1(this)">
+      <option value="">전체</option>
+      <option value="IT경영">IT경영</option>
+      <option value="SW공학">SW공학</option>
+      <option value="데이터베이스">데이터베이스</option>
+      <option value="보안">보안</option>
+      <option value="알고리즘및전산수학">알고리즘및전산수학</option>
+      <option value="융합IT">융합IT</option>
+      <option value="컴퓨터구조">컴퓨터구조</option>
+      <option value="통신및네트워크">통신및네트워크</option>
+      <option value="프로젝트관리">프로젝트관리</option>
+    </select>
+    <select id="select-type2" multiple onchange="onkeyupFn(true)" style="height:200px;">
+      <option value="">전체</option>
+    </select>
+    <br/>
+    <input id="input0_1" onkeyup="onkeyupFn(true)" /> OR
+    <input id="input0_2" onkeyup="onkeyupFn(true)" /> OR
+    <input id="input0_3" onkeyup="onkeyupFn(true)" />
+    <button onclick="onkeyupFn(true)">검색</button>
+    <br/>
+    <input id="input1" onkeyup="onkeyupFn()" /> AND <input id="input2" onkeyup="onkeyupFn()" /> OR <input id="input3" onkeyup="onkeyupFn()" />
+    <button onclick="resetFn()">리셋</button>
+  </div>
+  <div id="result-box">
+
+  </div>
+  <script>
+  </script>
+  <script src="../data.js"></script>
+  <script>
+    var $type1 = document.getElementById('select-type1');
+    var $type2 = document.getElementById('select-type2');
+    var $input01 = document.getElementById('input0_1');
+    var $input02 = document.getElementById('input0_2');
+    var $input03 = document.getElementById('input0_3');
+
+    function onchangeType1(target) {
+      console.log('target', target.value);
+      if (target.value) {
+        var type2List = _type2[target.value];
+        var html = '';
+        for (let i = 0, len = type2List.length; i < len; i++) {
+          html += `<option value="${type2List[i]}">${type2List[i]}</option>`;
+        }
+        // console.log('html', html);
+        $type2.innerHTML = html;
+      }
+
+      onkeyupFn(true);
+    }
+
+    var $input1 = document.getElementById('input1');
+    var $input2 = document.getElementById('input2');
+    var $input3 = document.getElementById('input3');
+    var $resultBox = document.getElementById('result-box');
+
+    var _len = _data.length;
+    function resetFn() {
+      $input1.value = '';
+      $input2.value = '';
+      $input3.value = '';
+    }
+
+    /**
+     * 검색
+     */
+    function onkeyupFn(isType) {
+      // console.log('keydownFn');
+      var v1 = $input1.value.trim();
+      var v2 = $input2.value.trim();
+      var v3 = $input3.value.trim();
+
+      var h1 = v1;
+      var h2 = v2;
+      var h3 = v3;
+      // console.log('v1, v2, v3', v1, v2, v3);
+
+      var result = [];
+
+      if (isType) {
+        h1 = $input01.value.trim();
+        h2 = $input02.value.trim();
+        h3 = $input03.value.trim();
+
+        var type1 = $type1.value;
+        var selectedType2List = Array.from(document.getElementById('select-type2').options).filter(function (option) {
+          return option.selected;
+        }).map(function (option) {
+          return option.value;
+        });
+        // console.log('selectedType2List', selectedType2List);
+        
+        for (let i = 0; i < _len; i++) {
+          if (type1 && selectedType2List.length > 0) {
+            if (_data[i].type1 === type1 && selectedType2List.indexOf(_data[i].type2) > -1) {
+              if (result.indexOf(i) === -1) {
+                result.push(i);
+              }
+            }
+          } else if (type1) {
+            if (_data[i].type1 === type1) {
+              if (result.indexOf(i) === -1) {
+                result.push(i);
+              }
+            }
+          }
+        }
+      } else {
+        if (v1 && v2) {
+          // AND
+          for (let i = 0; i < _len; i++) {
+            if (_data[i].text2.includes(v1.toLowerCase()) && _data[i].text2.includes(v2.toLowerCase())) {
+              if (result.indexOf(i) === -1) {
+                result.push(i); // 중복 방지
+              }
+            }
+          }
+        } else if (v1) {
+          for (let i = 0; i < _len; i++) {
+            if (_data[i].text2.includes(v1.toLowerCase())) {
+              if (result.indexOf(i) === -1) {
+                result.push(i);
+              }
+            }
+          }
+        } else if (v2) {
+          for (let i = 0; i < _len; i++) {
+            if (_data[i].text2.includes(v2.toLowerCase())) {
+              if (result.indexOf(i) === -1) {
+                result.push(i);
+              }
+            }
+          }
+        }
+        // OR
+        if (v3) {
+          for (let i = 0; i < _len; i++) {
+            if (_data[i].text2.includes(v3.toLowerCase())) {
+              if (result.indexOf(i) === -1) {
+                result.push(i);
+              }
+            }
+          }
+        }
+      }
+
+      // console.log('result', result);
+
+      var html = '<div>';
+      for (let i = 0, len = result.length; i < len; i++) {
+        // highlight
+        var text = _data[result[i]].text;
+        if (h1) {
+          text = text.replace(new RegExp(h1, "g"), `<span class="highlight1">${h1}</span>`);
+          text = text.replace(new RegExp(h1.toUpperCase(), "g"), `<span class="highlight1">${h1.toUpperCase()}</span>`);
+        }
+        if (h2) {
+          text = text.replace(new RegExp(h2, "g"), `<span class="highlight2">${h2}</span>`);
+          text = text.replace(new RegExp(h2.toUpperCase(), "g"), `<span class="highlight2">${h2.toUpperCase()}</span>`);
+        }
+        if (h3) {
+          text = text.replace(new RegExp(h3, "g"), `<span class="highlight3">${h3}</span>`);
+          text = text.replace(new RegExp(h3.toUpperCase(), "g"), `<span class="highlight3">${h3.toUpperCase()}</span>`);
+        }
+
+        html += `
+          <div class="item">
+            <div class="info">
+              <span class="no">${i+1}/${result.length}</span>
+              <span class="type_2">${_data[result[i]].type1},${_data[result[i]].type2} /</span>
+              ${_data[result[i]].type0},${_data[result[i]].year},${_data[result[i]].seq},${_data[result[i]].class}-${_data[result[i]].q}
+            </div>
+            <div class="text">${text}</div>
+          </div>
+        `;
+      }
+      html += '</div>'
+      $resultBox.innerHTML = html;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카테고리별 리스트</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 10px;
+    }
+
+    .container {
+      max-width: 100%;
+      margin: 0 auto;
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px 15px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 1.5em;
+      font-weight: 600;
+    }
+
+    .header p {
+      margin-top: 5px;
+      opacity: 0.9;
+      font-size: 0.9em;
+    }
+
+    .search-container {
+      margin: 15px 0 10px 0;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 12px 20px 12px 45px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1em;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      color: white;
+      outline: none;
+      transition: all 0.3s;
+    }
+
+    .search-input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .search-input:focus {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.02);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.1em;
+    }
+
+    .clear-search {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.8);
+      cursor: pointer;
+      font-size: 1.2em;
+      padding: 5px;
+      border-radius: 50%;
+      transition: all 0.2s;
+      display: none;
+    }
+
+    .clear-search:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+
+    .search-results {
+      background: rgba(255, 255, 255, 0.1);
+      margin-top: 10px;
+      padding: 8px 15px;
+      border-radius: 15px;
+      font-size: 0.85em;
+      opacity: 0.9;
+      display: none;
+    }
+
+    .category-section {
+      margin-bottom: 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .category-section:last-child {
+      border-bottom: none;
+    }
+
+    .category-header {
+      background: #f8f9fa;
+      padding: 15px;
+      cursor: pointer;
+      border: none;
+      width: 100%;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.1em;
+      font-weight: 600;
+      color: #333;
+      transition: background 0.2s;
+    }
+
+    .category-header:hover {
+      background: #e9ecef;
+    }
+
+    .category-header:active {
+      background: #dee2e6;
+    }
+
+    .category-icon {
+      font-size: 1.5em;
+      margin-right: 10px;
+    }
+
+    .toggle-icon {
+      transition: transform 0.3s;
+      font-size: 1.2em;
+    }
+
+    .category-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: white;
+    }
+
+    .category-content.active {
+      max-height: 1000px;
+    }
+
+    .item-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      padding: 15px;
+    }
+
+    .list-item {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      color: white;
+      padding: 15px 10px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 500;
+      transition: all 0.3s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid transparent;
+    }
+
+    .list-item.checked {
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%) !important;
+      border: 2px solid #155724;
+      transform: scale(0.98);
+    }
+
+    .list-item.checked::after {
+      content: '✓';
+      position: absolute;
+      top: 5px;
+      right: 8px;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: white;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .list-item.highlighted {
+      animation: highlight 1s ease-in-out;
+      box-shadow: 0 0 20px rgba(255, 255, 0, 0.5) !important;
+    }
+
+    .category-section.filtered-out {
+      display: none;
+    }
+
+    .list-item.filtered-out {
+      display: none;
+    }
+
+    @keyframes highlight {
+
+      0%,
+      100% {
+        background-size: 100% 100%;
+      }
+
+      50% {
+        background-size: 110% 110%;
+      }
+    }
+
+    .list-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .list-item:active {
+      transform: translateY(-1px);
+    }
+
+    .item-number {
+      font-size: 0.75em;
+      opacity: 0.8;
+      margin-bottom: 5px;
+    }
+
+    .item-text {
+      font-size: 0.9em;
+      line-height: 1.2;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      word-break: break-word;
+      hyphens: auto;
+    }
+
+    .item-text.long-text {
+      cursor: help;
+    }
+
+    /* 모달 팝업 스타일 */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 20px;
+      max-width: 90%;
+      max-height: 80%;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      transform: scale(0.8) translateY(50px);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 20px 20px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-title {
+      font-size: 1.1em;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .modal-close {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.1);
+    }
+
+    .modal-body {
+      padding: 25px;
+    }
+
+    .modal-item-info {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 12px;
+      border-left: 4px solid #667eea;
+    }
+
+    .modal-item-number {
+      font-size: 0.85em;
+      color: #666;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    .modal-item-category {
+      font-size: 0.9em;
+      color: #667eea;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .modal-item-text {
+      font-size: 1.1em;
+      line-height: 1.5;
+      color: #333;
+      word-break: break-word;
+      white-space: pre-wrap;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .modal-btn {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 25px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.9em;
+    }
+
+    .modal-btn.check-btn {
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+      color: white;
+    }
+
+    .modal-btn.uncheck-btn {
+      background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%);
+      color: white;
+    }
+
+    .modal-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .stats {
+      background: #f8f9fa;
+      padding: 15px;
+      text-align: center;
+      color: #666;
+      font-size: 0.9em;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stat-number {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* 카테고리별 색상 */
+    .category-0 .list-item {
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    }
+
+    .category-1 .list-item {
+      background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+    }
+
+    .category-2 .list-item {
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    }
+
+    .category-3 .list-item {
+      background: linear-gradient(135deg, #ff8a80 0%, #ea6100 100%);
+    }
+
+    .category-4 .list-item {
+      background: linear-gradient(135deg, #8fd3f4 0%, #84fab0 100%);
+    }
+
+    .category-5 .list-item {
+      background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
+    }
+
+    .category-6 .list-item {
+      background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+    }
+
+    .category-7 .list-item {
+      background: linear-gradient(135deg, #fdbb2d 0%, #22c1c3 100%);
+    }
+
+    .category-8 .list-item {
+      background: linear-gradient(135deg, #e0c3fc 0%, #9bb5ff 100%);
+    }
+
+    .category-9 .list-item {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    /* 모바일 최적화 */
+    @media (max-width: 480px) {
+      .item-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 10px;
+      }
+
+      .list-item {
+        padding: 12px 8px;
+        font-size: 0.85em;
+      }
+
+      .header {
+        padding: 15px 10px;
+      }
+
+      .header h1 {
+        font-size: 1.3em;
+      }
+
+      .category-header {
+        padding: 12px 15px;
+        font-size: 1em;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .item-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+        padding: 8px;
+      }
+
+      .list-item {
+        padding: 10px 6px;
+        font-size: 0.8em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📋 카테고리별 리스트
+        <span class="text" onClick="onNewFunction()">NEW</span>
+      </h1>
+      <p>10개 카테고리 × 최대 1000개 항목 = 총 최대 10,000개</p>
+
+      <div class="search-container">
+        <div class="search-icon">🔍</div>
+        <input type="text" class="search-input" id="searchInput" placeholder="항목 검색... (예: 사과, 토마토)" autocomplete="off">
+        <button class="clear-search" id="clearSearch">×</button>
+      </div>
+
+      <div class="search-results" id="searchResults">
+        검색 결과: 0개 항목 발견
+      </div>
+    </div>
+
+    <div id="categoriesContainer">
+      <!-- JavaScript로 동적 생성 -->
+    </div>
+
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-number" id="totalCount">100</div>
+        <div>총 항목</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" id="checkedCount">0</div>
+        <div>완료</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" id="openCategories">0</div>
+        <div>열린 카테고리</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" id="progressPercent">0%</div>
+        <div>진행률</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 모달 팝업 -->
+  <div class="modal-overlay" id="textModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">항목 상세보기</h3>
+        <button class="modal-close" id="modalClose">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-item-info">
+          <div class="modal-item-number" id="modalItemNumber">#1</div>
+          <div class="modal-item-category" id="modalItemCategory">카테고리</div>
+          <div class="modal-item-text" id="modalItemText">항목 텍스트</div>
+        </div>
+        <div class="modal-actions">
+          <button class="modal-btn check-btn" id="modalCheckBtn">✓ 체크하기</button>
+          <button class="modal-btn uncheck-btn" id="modalUncheckBtn">✗ 체크해제</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function main(categories) {
+      const categoriesContainer = document.getElementById('categoriesContainer');
+      const openCategoriesElement = document.getElementById('openCategories');
+      const checkedCountElement = document.getElementById('checkedCount');
+      const progressPercentElement = document.getElementById('progressPercent');
+      const searchInput = document.getElementById('searchInput');
+      const clearSearch = document.getElementById('clearSearch');
+      const searchResults = document.getElementById('searchResults');
+      const textModal = document.getElementById('textModal');
+      const modalClose = document.getElementById('modalClose');
+      const modalItemNumber = document.getElementById('modalItemNumber');
+      const modalItemCategory = document.getElementById('modalItemCategory');
+      const modalItemText = document.getElementById('modalItemText');
+      const modalCheckBtn = document.getElementById('modalCheckBtn');
+      const modalUncheckBtn = document.getElementById('modalUncheckBtn');
+      let openCount = 0;
+      let checkedItems = new Set();
+      let allItems = []; // 모든 항목 정보 저장
+      let currentModalItem = null; // 현재 모달에 표시된 항목
+      let totalItemCount = 0; // 실제 총 항목 수
+
+      // 카테고리별 인덱스 범위 계산 함수
+      function getCategoryIndexRange(categoryIndex) {
+        const startIndex = categoryIndex * 1000 + 1;  // 1, 1001, 2001, ...
+        const endIndex = (categoryIndex + 1) * 1000;  // 1000, 2000, 3000, ...
+        return { startIndex, endIndex };
+      }
+
+      // 글로벌 인덱스를 표시용 번호로 변환
+      function getDisplayNumber(categoryIndex, itemIndex) {
+        return categoryIndex * 1000 + itemIndex + 1;
+      }
+
+      // 표시용 번호를 글로벌 인덱스로 변환
+      function getGlobalIndex(categoryIndex, itemIndex) {
+        return categoryIndex * 1000 + itemIndex;
+      }
+
+      // localStorage에서 체크된 항목 로드
+      function loadCheckedItems() {
+        const saved = localStorage.getItem('checkedItems');
+        if (saved) {
+          checkedItems = new Set(JSON.parse(saved));
+        }
+      }
+
+      // localStorage에 체크된 항목 저장
+      function saveCheckedItems() {
+        localStorage.setItem('checkedItems', JSON.stringify([...checkedItems]));
+      }
+
+      // 통계 업데이트
+      function updateStats() {
+        const checkedCount = checkedItems.size;
+        const progressPercent = totalItemCount > 0 ? Math.round((checkedCount / totalItemCount) * 100) : 0;
+
+        document.getElementById('totalCount').textContent = totalItemCount;
+        checkedCountElement.textContent = checkedCount;
+        progressPercentElement.textContent = progressPercent + '%';
+      }
+
+      // 항목 체크/언체크 토글
+      function toggleItemCheck(itemIndex, itemElement) {
+        if (checkedItems.has(itemIndex)) {
+          checkedItems.delete(itemIndex);
+          itemElement.classList.remove('checked');
+        } else {
+          checkedItems.add(itemIndex);
+          itemElement.classList.add('checked');
+        }
+
+        saveCheckedItems();
+        updateStats();
+
+        // 체크 애니메이션
+        itemElement.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          itemElement.style.transform = '';
+        }, 150);
+      }
+
+      // 실시간 검색 기능
+      function performSearch(searchTerm) {
+        const normalizedTerm = searchTerm.toLowerCase().trim();
+        let matchCount = 0;
+        let visibleCategories = 0;
+
+        if (normalizedTerm === '') {
+          // 검색어가 없으면 모든 항목 표시
+          document.querySelectorAll('.category-section').forEach(section => {
+            section.classList.remove('filtered-out');
+            section.querySelectorAll('.list-item').forEach(item => {
+              item.classList.remove('filtered-out', 'highlighted');
+            });
+          });
+          clearSearch.style.display = 'none';
+          searchResults.style.display = 'none';
+          return;
+        }
+
+        // 검색 실행
+        document.querySelectorAll('.category-section').forEach((section, categoryIndex) => {
+          let categoryHasMatches = false;
+          const items = section.querySelectorAll('.list-item');
+
+          items.forEach((item, itemIndex) => {
+            const itemText = item.querySelector('.item-text').textContent.toLowerCase();
+            const categoryName = categories[categoryIndex].name.toLowerCase();
+
+            const matches = itemText.includes(normalizedTerm) ||
+              categoryName.includes(normalizedTerm);
+
+            if (matches) {
+              item.classList.remove('filtered-out');
+              item.classList.add('highlighted');
+              categoryHasMatches = true;
+              matchCount++;
+            } else {
+              item.classList.add('filtered-out');
+              item.classList.remove('highlighted');
+            }
+          });
+
+          if (categoryHasMatches) {
+            section.classList.remove('filtered-out');
+            // 검색 중에는 해당 카테고리 자동으로 열기
+            const content = section.querySelector('.category-content');
+            const toggleIcon = section.querySelector('.toggle-icon');
+            if (!content.classList.contains('active')) {
+              content.classList.add('active');
+              toggleIcon.style.transform = 'rotate(180deg)';
+              toggleIcon.textContent = '▲';
+            }
+            visibleCategories++;
+          } else {
+            section.classList.add('filtered-out');
+          }
+        });
+
+        // 검색 결과 표시
+        clearSearch.style.display = 'block';
+        searchResults.style.display = 'block';
+        searchResults.textContent = `검색 결과: ${matchCount}개 항목, ${visibleCategories}개 카테고리`;
+      }
+
+      // 검색 이벤트 리스너
+      searchInput.addEventListener('input', (e) => {
+        performSearch(e.target.value);
+      });
+
+      // 검색 초기화
+      clearSearch.addEventListener('click', () => {
+        searchInput.value = '';
+        performSearch('');
+        searchInput.focus();
+      });
+
+      // 엔터키로 첫 번째 결과 선택
+      searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          const firstVisible = document.querySelector('.list-item:not(.filtered-out)');
+          if (firstVisible) {
+            firstVisible.click();
+            firstVisible.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }
+      });
+
+      // 텍스트가 긴지 확인하는 함수
+      function isLongText(text) {
+        return text.length > 15; // 15자 이상이면 긴 텍스트로 간주
+      }
+
+      // 모달 열기
+      function openModal(itemData) {
+        currentModalItem = itemData;
+        modalItemNumber.textContent = `#${itemData.displayIndex}`;
+        modalItemCategory.textContent = itemData.category;
+        modalItemText.textContent = itemData.text;
+
+        // 체크 상태에 따라 버튼 표시
+        updateModalButtons();
+
+        textModal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // 배경 스크롤 방지
+      }
+
+      // 모달 닫기
+      function closeModal() {
+        textModal.classList.remove('active');
+        document.body.style.overflow = '';
+        currentModalItem = null;
+      }
+
+      // 모달 버튼 상태 업데이트
+      function updateModalButtons() {
+        if (!currentModalItem) return;
+
+        if (checkedItems.has(currentModalItem.index)) {
+          modalCheckBtn.style.display = 'none';
+          modalUncheckBtn.style.display = 'inline-block';
+        } else {
+          modalCheckBtn.style.display = 'inline-block';
+          modalUncheckBtn.style.display = 'none';
+        }
+      }
+
+      // 모달에서 체크 토글
+      function toggleModalItemCheck() {
+        if (!currentModalItem) return;
+
+        toggleItemCheck(currentModalItem.index, currentModalItem.element);
+        updateModalButtons();
+      }
+
+      // 카테고리 생성
+      categories.forEach((category, categoryIndex) => {
+        const categorySection = document.createElement('div');
+        categorySection.className = `category-section category-${categoryIndex}`;
+
+        const { startIndex, endIndex } = getCategoryIndexRange(categoryIndex);
+
+        const categoryHeader = document.createElement('button');
+        categoryHeader.className = 'category-header';
+        categoryHeader.innerHTML = `
+                <div>
+                    <span class="category-icon">${category.name.split(' ')[0]}</span>
+                    ${category.name} <span style="opacity: 0.7; font-size: 0.8em;">(#${startIndex}~#${endIndex})</span>
+                </div>
+                <span class="toggle-icon">▼</span>
+            `;
+
+        const categoryContent = document.createElement('div');
+        categoryContent.className = 'category-content';
+
+        const itemGrid = document.createElement('div');
+        itemGrid.className = 'item-grid';
+
+        // 카테고리 내 항목들 생성
+        category.items.forEach((item, itemIndex) => {
+          const globalIndex = getGlobalIndex(categoryIndex, itemIndex);
+          const displayIndex = getDisplayNumber(categoryIndex, itemIndex);
+
+          const listItem = document.createElement('div');
+          listItem.className = 'list-item';
+
+          const itemTextElement = document.createElement('div');
+          itemTextElement.className = 'item-text';
+          itemTextElement.textContent = item;
+
+          // 긴 텍스트인 경우 표시
+          if (isLongText(item)) {
+            itemTextElement.classList.add('long-text');
+          }
+
+          listItem.innerHTML = `
+                    <div class="item-number">#${displayIndex}</div>
+                `;
+          listItem.appendChild(itemTextElement);
+
+          // 전역 항목 정보 저장
+          const itemData = {
+            index: globalIndex,
+            displayIndex: displayIndex,
+            text: item,
+            category: category.name,
+            element: listItem
+          };
+          allItems.push(itemData);
+          totalItemCount++; // 실제 항목 수 증가
+
+          // 저장된 체크 상태 복원
+          if (checkedItems.has(globalIndex)) {
+            listItem.classList.add('checked');
+          }
+
+          listItem.addEventListener('click', (e) => {
+            // 긴 텍스트인 경우 모달 열기
+            if (isLongText(item)) {
+              openModal(itemData);
+            } else {
+              // 짧은 텍스트는 바로 체크 토글
+              toggleItemCheck(globalIndex, listItem);
+            }
+          });
+
+          itemGrid.appendChild(listItem);
+        });
+
+        categoryContent.appendChild(itemGrid);
+
+        // 카테고리 토글 기능
+        categoryHeader.addEventListener('click', () => {
+          const isActive = categoryContent.classList.contains('active');
+          const toggleIcon = categoryHeader.querySelector('.toggle-icon');
+
+          if (isActive) {
+            categoryContent.classList.remove('active');
+            toggleIcon.style.transform = 'rotate(0deg)';
+            toggleIcon.textContent = '▼';
+            openCount--;
+          } else {
+            categoryContent.classList.add('active');
+            toggleIcon.style.transform = 'rotate(180deg)';
+            toggleIcon.textContent = '▲';
+            openCount++;
+          }
+
+          openCategoriesElement.textContent = openCount;
+        });
+
+        categorySection.appendChild(categoryHeader);
+        categorySection.appendChild(categoryContent);
+        categoriesContainer.appendChild(categorySection);
+      });
+
+      // 첫 번째 카테고리만 기본으로 열어두기
+      const firstCategory = categoriesContainer.querySelector('.category-content');
+      const firstToggleIcon = categoriesContainer.querySelector('.toggle-icon');
+      if (firstCategory && firstToggleIcon) {
+        firstCategory.classList.add('active');
+        firstToggleIcon.style.transform = 'rotate(180deg)';
+        firstToggleIcon.textContent = '▲';
+        openCount = 1;
+        openCategoriesElement.textContent = openCount;
+      }
+
+      // 초기 통계 업데이트
+      updateStats();
+
+      // 모달 이벤트 리스너
+      modalClose.addEventListener('click', closeModal);
+      modalCheckBtn.addEventListener('click', toggleModalItemCheck);
+      modalUncheckBtn.addEventListener('click', toggleModalItemCheck);
+
+      // 모달 배경 클릭시 닫기
+      textModal.addEventListener('click', (e) => {
+        if (e.target === textModal) {
+          closeModal();
+        }
+      });
+
+      // ESC 키로 모달 닫기
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && textModal.classList.contains('active')) {
+          closeModal();
+        }
+      });
+
+      // 페이지 로드 시 저장된 상태 복원
+      loadCheckedItems();
+
+      // 전체 체크/해제 기능 (더블탭으로 활성화)
+      let lastTapTime = 0;
+      document.addEventListener('touchend', (e) => {
+        const currentTime = new Date().getTime();
+        const tapLength = currentTime - lastTapTime;
+
+        if (tapLength < 500 && tapLength > 0) {
+          if (e.target.classList.contains('header')) {
+            const shouldCheckAll = checkedItems.size < Math.floor(totalItemCount / 2); // 50% 미만이면 전체 체크
+
+            if (shouldCheckAll) {
+              // 전체 체크
+              allItems.forEach(item => {
+                checkedItems.add(item.index);
+              });
+            } else {
+              // 전체 해제
+              checkedItems.clear();
+            }
+
+            // UI 업데이트
+            document.querySelectorAll('.list-item').forEach(item => {
+              const itemData = allItems.find(data => data.element === item);
+              if (itemData && checkedItems.has(itemData.index)) {
+                item.classList.add('checked');
+              } else {
+                item.classList.remove('checked');
+              }
+            });
+
+            saveCheckedItems();
+            updateStats();
+          }
+        }
+        lastTapTime = currentTime;
+      });
+    }
+
+    //
+    function onNewFunction() {
+      start(true);
+    }
+
+    function convertSheetToObj(rows) {
+      console.log('rows', rows);
+      var resultList = [];
+      var items = [];
+      rows.forEach(row => {
+        if (row.c[0]?.v) {
+          resultList.push({
+            name: row.c[0]?.v,
+            items: []
+          });
+        }
+
+        resultList[resultList.length - 1].items.push(row.c[1]?.v);
+      });
+      return resultList;
+    }
+    async function api(url, key) {
+      console.log('url', url);
+      return new Promise((resolve, reject) => {
+        fetch(url)
+          .then(response => response.text())
+          .then(text => {
+            const json = JSON.parse(text.substring(47, text.length - 2)); // JSONP 형식 제거
+            console.log('json', json);
+
+            var resultList = convertSheetToObj(json.table.rows);
+            console.log('resultList', resultList);
+
+            window.localStorage.setItem(key, JSON.stringify(resultList));
+            resolve(resultList);
+          })
+          .catch(error => {
+            console.error("Error:", error);
+            reject(error);
+          });
+      });
+    }
+    async function start(isNew) {
+      var list = await getList(isNew);
+      
+      main(list);
+    }
+    async function getList(isNew) {
+      var sheetId = new URL(location.href).searchParams.get('sheetId');
+      var sheetNm = new URL(location.href).searchParams.get('sheetNm');
+      var key = `${sheetId}-${sheetNm}`;
+
+      if (isNew) {
+
+      } else {
+        var cached = window.localStorage.getItem(key);
+        if (cached !== null && cached !== undefined) {
+          console.log('cached', cached);
+          return JSON.parse(cached);
+        }
+      }
+
+      var googleSheetJson = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=${sheetNm}`;
+      var resultList = await api(googleSheetJson, key);
+      return resultList;
+    }
+
+    start(false);
+
+  </script>
+</body>
+
+</html>

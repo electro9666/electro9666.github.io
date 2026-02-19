@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    #div1{
+        margin:100px;
+        overflow:hidden;
+/*        max-width:100%;*/
+        width:900px;
+        height:230px;     
+        position:relative;
+        border:3px solid red;
+    }
+    .normal {
+        background-color:white;
+        z-index:1;
+        border:1px solid blue;
+        position:absolute;
+        width:200px;
+        height:200px;
+    }	
+    .focus {
+        background-color:yellow;
+        width:220px;
+        height:220px;
+        z-index:10;
+        
+    }
+</style>
+<script>
+var data = {
+	'size':15
+	, videos:[
+	          {'title':'동영상0'}
+	          , {'title':'동영상1'}
+	          , {'title':'동영상2'}
+	          , {'title':'동영상3'}
+	          , {'title':'동영상4'}
+	          , {'title':'동영상5'}
+	          , {'title':'동영상6'}
+	          , {'title':'동영상7'}
+	          , {'title':'동영상8'}
+	          , {'title':'동영상9'}
+	          , {'title':'동영상10'}
+	          , {'title':'동영상11'}
+	          , {'title':'동영상12'}
+	          , {'title':'동영상13'}
+	          , {'title':'동영상14'}
+	          ]
+}
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script>
+	var idxNum = 0;
+	var position = 0;
+	$(document).ready(function(){
+		document.addEventListener('keydown', myKeydown);
+		
+		Handlebars.registerHelper("calc", function(value) {
+			return value*200;
+		});
+		
+		var source = $("#template1").html(); 
+		var template = Handlebars.compile(source);
+		var html = template(data.videos);
+		$("#div1").html(html);
+		
+		myFocus(0);
+	});
+	
+	function myFocus(idx){
+		$(".item").removeClass("focus");
+		$(".item").addClass("normal");
+		$(".item[idx="+idx+"]").addClass("focus");
+	}
+	function myKeydown(e){
+		var consoleDiv = $("#console");
+		// left:37, right:39
+		// console.log(e.keyCode);
+        // 스크롤 이동 유효?
+        
+        var curr = idxNum;
+		if(e.keyCode == 39){
+			idxNum++;
+			if(idxNum > data.videos.length - 1){
+				idxNum = data.videos.length - 1;
+				return;
+			}
+			
+			position++;
+			consoleDiv.html(position);
+
+            // 스크롤 우측 이동
+            // if(Number($(".item[idx="+curr+"]").attr("left")) - $("#div1").scrollLeft() >= 600){
+			if(position == 4){
+                if(idxNum >= 4){
+                    $("#div1").scrollLeft($("#div1").scrollLeft() + 200);
+                }
+				position = 3;
+            }
+			
+		}else if(e.keyCode == 37){
+			idxNum--;
+			if(idxNum < 0){
+				idxNum = 0;
+				return;
+			}
+			
+			position--;
+			consoleDiv.html(position);
+
+            // 스크롤 좌측 이동
+            // if(Number($(".item[idx="+curr+"]").attr("left")) - $("#div1").scrollLeft() <= 102){
+			if(position == -1){
+                if(idxNum <= data.videos.length - 5){
+                    $("#div1").scrollLeft($("#div1").scrollLeft() - 200);
+                }
+				position = 0;
+            }
+		}
+		myFocus(idxNum);
+	}	
+</script>  
+</head>
+<body>
+
+<div id="div1">
+	
+</div>
+<div id="console" style="clear:both;">
+</div>
+
+<script id="template1" type="text/x-handlebars-template">
+	{{#each this}}
+	<div class="item normal" style="left:{{calc @index}}px;" idx={{@index}} left="{{calc @index}}">
+		{{title}}
+	</div>
+	{{/each}}
+</script>
+</body>
+</html>

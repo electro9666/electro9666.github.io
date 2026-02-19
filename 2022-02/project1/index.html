@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <style>
+    /* 	http://www.jqueryscript.net/menu/Dynamic-jQuery-Scrollspy-Plugin-For-Bootstrap-Dynamicscrollspy-js.html */
+    body {
+      background-color: #fafafa;
+    }
+
+    /* nav */
+    .nav {
+      padding-left: 0px;
+    }
+
+    /* all anchors */
+    .nav>li>a {
+      padding: 3px;
+      border-left: 0px rgba(0, 0, 0, 0);
+    }
+
+    /* first level */
+    .nav li>a {
+      padding-left: 10px;
+    }
+
+    /* second */
+    .nav .nav li>a {
+      padding-left: 20px;
+      font-size: .9em;
+    }
+
+    /* third */
+    .nav .nav .nav li>a {
+      padding-left: 30px;
+      font-size: .8em;
+    }
+
+    /* fourth */
+    .nav .nav .nav .nav li>a {
+      padding-left: 40px;
+    }
+
+    /* fifth */
+    .nav .nav .nav .nav .nav li>a {
+      padding-left: 50px;
+    }
+
+    /* active link */
+    li.active>a {
+      font-weight: bold;
+      border-left: 2px solid gray;
+    }
+
+    /* hide second level lists */
+    .nav .nav {
+      display: none;
+    }
+
+    /* show second-level when active */
+    .nav>.active>.nav {
+      display: block;
+    }
+
+    /* headings on the page (easier to see h5, h6) */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-style: italic;
+    }
+
+    /**/
+    #scrollspy>ul.nav>li>a {
+      color: black;
+      font-weight: bold;
+    }
+
+    .item {
+      border-top: 1px solid gray;
+      padding: 4px;
+    }
+
+    li.active>a {
+      color: red;
+    }
+
+    .itwiki {
+      background-color: pink;
+    }
+
+    @media(min-width: 1px) {
+      .row {
+        width: 130%;
+      }
+
+      .col-sm-10 {
+        margin-left: 130px;
+      }
+    }
+
+    @media(min-width: 500px) {
+      .row {
+        width: 100%;
+      }
+
+      .col-sm-10 {
+        margin-left: none;
+      }
+    }
+
+    h2 {
+      border-bottom: 1px solid gray;
+    }
+    .ml1 {
+      margin-left: 10px;
+    }
+    li {
+      list-style: decimal;
+    }
+    pre {
+      white-space: break-spaces;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="" id="container">
+    <div class="row">
+      <div class="col-sm-2" id="scrollspy">
+      </div>
+      <div class="col-sm-10" id="contents">
+        <!-- <h2>챕터1</h2>
+        <h3>test</h3>
+        <div>
+          fsdf123<br />123<br />123<br />123<br />
+        </div>
+
+        <h2>챕터2</h2>
+        <h3>test1</h3>
+        <div>
+          123<br />123<br />123<br />123<br />
+        </div>
+        <h3>test2</h3>
+        <div>
+          123<br />123<br />123<br />123<br />
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script src="./dynamicscrollspy.js"></script>
+
+  <script src="../data2-itwiki.js"></script>
+  <!-- <script src="../itwiki.js"></script> -->
+  <script src="./original-result2-yaml2json.js"></script>
+  <script>
+    // from test-json2html.html
+
+    function convertJson2html(key, value) {
+      var html = '';
+      if (value instanceof Array) {
+        html += `<div class="">`;
+        html += `<div>${key}</div>`;
+        html += `<ul>`;
+        value.forEach((v, index) => {
+          html += `<li>`;
+          html += convertJson2html('', v);
+          html += `</li>`;
+        });
+        html += `</ul>`;
+        html += `</div>`;
+      } else if (value instanceof Object) {
+        html += `<div>`;
+        if (key) {
+          html += `<div>${key}</div>`;
+        }
+        html += `<div class="ml1">`;
+        html += convertObj2html(value);
+        html += '</div>';
+        html += '</div>';
+      } else {
+        if (key) {
+          html += `<div class="">${key}: ${value}</div>`;
+        } else {
+          html += `<div class="">${value}</div>`;
+        }
+      }
+      return html;
+    }
+
+    function convertObj2html(obj) {
+      var keys = Object.keys(obj);
+      var html = '';
+      keys.forEach(key => {
+        html += convertJson2html(key, obj[key]);
+      })
+      return html;
+    }
+  </script>
+  <script>
+    Handlebars.registerHelper('toJson', function (value) {
+      // return JSON.stringify(value, null, 2).split('\n').join('<br/>');
+      var topic = Object.keys(value)[0];
+      var indexList = []; // 기출문제
+      topic.split(',').forEach(keyword => {
+        _data.forEach((o, index) => {
+          if (o.text2.includes(keyword.trim().toLocaleLowerCase())) {
+            if (indexList.indexOf(index) === -1) {
+              indexList.push(index); // 중복방지
+            }
+          }
+        });
+      });
+      indexList.sort((a, b) => {
+        return b < a ? 1 : -1;
+      });
+      var recentList = [];
+      indexList.forEach(idx => {
+        recentList.push(_data[idx].address.padEnd(16, ' ') + '  ' + _data[idx].text3);
+      })
+      value['기출문제(' + recentList.length + ')'] = recentList;
+      return convertObj2html(value);
+    });
+
+    // 유효한 데이터가 있는 경우만
+    _yaml_json = _yaml_json.filter(o => {
+      return o.children.filter(o2 => {
+        return o2.children.length > 0
+      }).length > 0
+    });
+    // console.log('_yaml_json1', JSON.stringify(_yaml_json, null, 2));
+    _yaml_json.forEach(o => {
+      o.children = o.children.filter(o2 => {
+        return o2.children.length > 0
+      });
+    });
+    // console.log('_yaml_json2', JSON.stringify(_yaml_json, null, 2));
+    // 유효한 데이터가 있는 경우만
+
+    $(document).ready(function () {
+      var source = $("#template1").html();
+      var template = Handlebars.compile(source);
+      var html = template({
+        store2: _yaml_json
+      });
+      $("#contents").append(html);
+
+      $(function () {
+        $('#scrollspy').DynamicScrollspy({
+          genIDs: true,
+          tH: 2 // h2부터 시작
+        });
+      });
+    });
+  </script>
+  <script id="template1" type="text/x-handlebars-template">
+    {{#each store2}}
+      <h2>{{name}}</h2>
+      {{#each children}}
+        <h3>{{name}} ({{children.length}})</h3>
+        <div>
+          {{#each children}}
+          <div class="item">
+            <pre>{{{toJson this}}}</pre>
+          </div>
+          {{/each}}
+        </div>
+      {{/each}}
+    {{/each}}
+  </script>
+</body>
+
+</html>

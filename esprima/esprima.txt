@@ -1,0 +1,65 @@
+변수로 함수 정의
+"type": "VariableDeclaration",
+"declarations": []
+
+일반 표현식
+"type": "VariableDeclarator",
+"init": {}
+
+일반표현식2
+"type": "ExpressionStatement",
+"expression": {}
+
+함수
+"type": "FunctionExpression",
+"body": {
+
+"type": "CallExpression",
+"callee": {
+
+"type": "BlockStatement",
+"body": [{}]
+
+    {
+    "type": "Program",
+    "body": [
+        {
+            "type": "ExpressionStatement",
+            "expression": {
+                "type": "CallExpression",
+                "callee": {
+                    "type": "FunctionExpression",
+                    "id": null,
+                    "params": [],
+                    "body": {
+                        "type": "BlockStatement",
+                        "body": [
+                            {
+                                "type": "ExpressionStatement",
+                                "expression": {
+                                    "type": "CallExpression",
+                                    "callee": {
+                                        "type": "Identifier",
+                                        "name": "init"
+                                    },
+                                    "arguments": [
+                                        {
+                                            "type": "Literal",
+                                            "value": 12,
+                                            "raw": "12"
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "generator": false,
+                    "expression": false,
+                    "async": false
+                },
+                "arguments": []
+            }
+        }
+    ],
+    "sourceType": "script"
+}

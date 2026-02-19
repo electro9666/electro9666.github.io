@@ -1,0 +1,46 @@
+svg{
+	border:1px solid gray;
+}
+
+.node {
+  cursor: pointer;
+}
+
+.node circle {
+/*   fill: #fff; */
+/*   stroke: steelblue; */
+/*   stroke-width: 1.5px; */
+}
+.node circle.circle_p {
+  fill: #fff;
+  stroke: red;
+  stroke-width: 1.5px;
+}
+.node circle.circle_c {
+  fill: #fff;
+  stroke: green;
+  stroke-width: 1.5px;
+}
+.node circle.circle_m {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.node text.text1 {
+  font-size: 11px;
+}
+.node text.text2 {
+  font-size: 21px;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 0.5px;
+}
+.link2 {
+  fill: none;
+/*   stroke: #1DDB16; */
+  stroke-width: 1.1px;
+}

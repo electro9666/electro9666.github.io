@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <style>
+    /* 	http://www.jqueryscript.net/menu/Dynamic-jQuery-Scrollspy-Plugin-For-Bootstrap-Dynamicscrollspy-js.html */
+    body {
+      background-color: #fafafa;
+    }
+
+    /* nav */
+    .nav {
+      padding-left: 0px;
+    }
+
+    /* all anchors */
+    .nav>li>a {
+      padding: 3px;
+      border-left: 0px rgba(0, 0, 0, 0);
+    }
+
+    /* first level */
+    .nav li>a {
+      padding-left: 10px;
+    }
+
+    /* second */
+    .nav .nav li>a {
+      padding-left: 20px;
+      font-size: .9em;
+    }
+
+    /* third */
+    .nav .nav .nav li>a {
+      padding-left: 30px;
+      font-size: .8em;
+    }
+
+    /* fourth */
+    .nav .nav .nav .nav li>a {
+      padding-left: 40px;
+    }
+
+    /* fifth */
+    .nav .nav .nav .nav .nav li>a {
+      padding-left: 50px;
+    }
+
+    /* active link */
+    li.active>a {
+      font-weight: bold;
+      border-left: 2px solid gray;
+    }
+
+    /* hide second level lists */
+    .nav .nav {
+      display: none;
+    }
+
+    /* show second-level when active */
+    .nav>.active>.nav {
+      display: block;
+    }
+
+    /* headings on the page (easier to see h5, h6) */
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-style: italic;
+    }
+
+    /**/
+    #scrollspy > ul.nav > li > a {
+      color: black;
+      font-weight: bold;
+    }
+    .item {
+      border-top: 1px solid gray;
+      padding: 4px;
+    }
+    li.active > a {
+      color: red;
+    }
+
+    .itwiki {
+      background-color: pink;
+    }
+    @media(min-width: 1px) {
+      .row {
+        width: 130%;
+      }
+      .col-sm-10 {
+        margin-left: 130px;
+      }
+    }
+    @media(min-width: 500px) {
+      .row {
+        width: 100%;
+      }
+      .col-sm-10 {
+        margin-left: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="" id="container">
+    <div class="row">
+      <div class="col-sm-2" id="scrollspy">
+      </div>
+      <div class="col-sm-10" id="contents">
+        <!-- <h2>챕터1</h2>
+        <h3>test</h3>
+        <div>
+          fsdf123<br />123<br />123<br />123<br />
+        </div>
+
+        <h2>챕터2</h2>
+        <h3>test1</h3>
+        <div>
+          123<br />123<br />123<br />123<br />
+        </div>
+        <h3>test2</h3>
+        <div>
+          123<br />123<br />123<br />123<br />
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script src="./dynamicscrollspy.js"></script>
+
+  <!-- <script src="../data.js"></script> -->
+  <!-- <script src="../itwiki.js"></script> -->
+  <script src="../data2-itwiki.js"></script>
+  <script>
+    var store = {};
+    _type1.forEach(type1 => {
+      store[type1] = {};
+
+      _type2[type1].forEach(type2 => {
+        store[type1][type2] = [];
+      });
+    });
+    console.log('store', store);
+
+    for (let i = 0, len = _data.length; i < len; i++) {
+      if (_data[i].type1 && _data[i].type2) {
+        if (store[_data[i].type1] && store[_data[i].type1][_data[i].type2]) {
+          store[_data[i].type1][_data[i].type2].push(_data[i]);
+        } else {
+          console.error('invalid type1, type2', _data[i]);
+        }
+      }
+    }
+    
+    var store2 = [];
+    // 가공
+    var keys = Object.keys(store);
+    for (let i = 0, len = keys.length; i < len; i++) {
+
+      var data2 = [];
+      var keys2 = Object.keys(store[keys[i]]);
+      for (let j = 0, len2 = keys2.length; j < len2; j++) {
+        data2.push({
+          name: keys2[j],
+          data: store[keys[i]][keys2[j]]
+        })
+      }
+
+      store2.push({
+        name: keys[i],
+        data: data2
+      });
+    }
+    console.log('store2', store2)
+
+    // // itwiki적용
+    // function changeTextSub(textObj, name, url) {
+    //   if (textObj.children) {
+    //     textObj.children.forEach(o => {
+    //       changeTextSub(o, name, url);
+    //     })
+    //   } else {
+    //     if (textObj.type !== 'text') return;
+    //     var text = textObj.data;
+    //     var index = text.indexOf(name);
+    //     if (index > -1) {
+    //       var atag = `<a class="itwiki" href="${url}" target="_blank">${name}</a>`;
+    //       if (!textObj.children) {
+    //         textObj.children = [];
+    //       }
+    //       if (index > 0) {
+    //         textObj.children.push({
+    //           type: 'text',
+    //           data: text.substring(0, index)
+    //         });
+    //       }
+    //       textObj.children.push({
+    //         type: 'atag',
+    //         data: atag
+    //       });
+    //       var lastText = text.substring(index + name.length);
+    //       if (lastText !== '') {
+    //         var lastObj = {
+    //           type: 'text',
+    //           data: text.substring(index + name.length)
+    //         };
+    //         textObj.children.push(lastObj);
+    //         // 나머지
+    //         changeTextSub(lastObj, name, url);
+    //       }
+    //     }
+    //   }
+    // }
+    // function changeTextMain(targetText) {
+    //   var textObj = {
+    //     type: 'text',
+    //     data: targetText
+    //   };
+    //   for (let i = 0, len = _itwiki.length; i < len; i++) {
+    //       var name = _itwiki[i].name;
+    //       var url = _itwiki[i].url;
+    //       // var name = 'IT 거버넌스';
+    //       // var url = 'https://itwiki.kr/w/IT_%EA%B1%B0%EB%B2%84%EB%84%8C%EC%8A%A4';
+  
+    //       // if (name !== '페이지 교체') continue;
+    //       // if (name !== '페이지 교체' && name !== '운영체제') continue;
+  
+    //       changeTextSub(textObj, name, url);
+    //   }
+
+    //   var finalList = [];
+    //   function visitTree(obj) {
+    //     if (obj.children) {
+    //       obj.children.forEach(o => {
+    //         visitTree(o);
+    //       });
+    //     } else { 
+    //       finalList.push(obj.data);
+    //     }
+    //   }
+    //   visitTree(textObj);
+
+    //   return finalList.join('');
+    // }
+    // // itwiki적용
+
+    // // itwiki 링크 추가하기
+    // console.time('a');
+    // for (let i = 0, len = store2.length; i < len; i++) {
+    //   for (let j = 0, len2 = store2[i].data.length; j < len2; j++) {
+    //     for (let k = 0, len3 = store2[i].data[j].data.length; k < len3; k++) {
+    //       store2[i].data[j].data[k].text = changeTextMain(store2[i].data[j].data[k].text);
+    //     }
+    //   }
+    // }
+    // console.timeEnd('a');
+
+    $(document).ready(function () {
+      var source = $("#template1").html(); 
+      var template = Handlebars.compile(source);
+      var html = template({
+        store2: store2
+      });
+      $("#contents").append(html);   
+
+      $(function () {
+        $('#scrollspy').DynamicScrollspy({
+          genIDs: true
+        });
+      });
+    });
+  </script>
+  <script id="template1" type="text/x-handlebars-template">
+    {{#each store2}}
+      <h2>{{name}}</h2>
+      {{#each data}}
+        <h3>{{name}} ({{data.length}})</h3>
+        <div>
+          {{#each data}}
+          <div class="item">
+            <div>{{type0}},{{year}},{{seq}},{{class}}-{{q}}</div>
+            <div>{{{text3}}}</div>
+          </div>
+          {{/each}}
+        </div>
+      {{/each}}
+    {{/each}}
+  </script>
+</body>
+
+</html>
