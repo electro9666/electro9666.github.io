@@ -1,0 +1,960 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-tutorial-subject/network" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">네트워크/통신 | gisulsa</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://electro9666.github.io/gisulsa/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://electro9666.github.io/gisulsa/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://electro9666.github.io/gisulsa/docs/tutorial-subject/network"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="네트워크/통신 | gisulsa"><meta data-rh="true" name="description" content="정보관리기술사 기출문제 중 네트워크/통신 관련 문제를 정리한 페이지입니다."><meta data-rh="true" property="og:description" content="정보관리기술사 기출문제 중 네트워크/통신 관련 문제를 정리한 페이지입니다."><link data-rh="true" rel="icon" href="/gisulsa/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://electro9666.github.io/gisulsa/docs/tutorial-subject/network"><link data-rh="true" rel="alternate" href="https://electro9666.github.io/gisulsa/docs/tutorial-subject/network" hreflang="en"><link data-rh="true" rel="alternate" href="https://electro9666.github.io/gisulsa/docs/tutorial-subject/network" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"과목별 분류","item":"https://electro9666.github.io/gisulsa/docs/category/과목별-분류"},{"@type":"ListItem","position":2,"name":"네트워크/통신","item":"https://electro9666.github.io/gisulsa/docs/tutorial-subject/network"}]}</script><link rel="alternate" type="application/rss+xml" href="/gisulsa/blog/rss.xml" title="gisulsa RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/gisulsa/blog/atom.xml" title="gisulsa Atom Feed"><link rel="stylesheet" href="/gisulsa/assets/css/styles.22e794b5.css">
+<script src="/gisulsa/assets/js/runtime~main.6efafe56.js" defer="defer"></script>
+<script src="/gisulsa/assets/js/main.69df7fd7.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/gisulsa/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_WWLT" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/gisulsa/"><div class="navbar__logo"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_LsmM themedComponent--light_kzyx"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_LsmM themedComponent--dark_xYsB"></div><b class="navbar__title text--truncate">gisulsa</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/gisulsa/docs/intro">Tutorial</a><a class="navbar__item navbar__link" href="/gisulsa/blog">Blog</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_dv6w"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_QAtP colorModeToggle_VHNg"><button class="clean-btn toggleButton_rINJ toggleButtonDisabled_v4UZ" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_FT9J lightToggleIcon_aOGA"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_FT9J darkToggleIcon_xqRO"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_FT9J systemToggleIcon_O5Jc"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_MDM0"><div class="navbar__search searchBarContainer_fx2U" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_CPtH" value=""><div class="loadingRing_rEdF searchBarLoadingRing_J01f"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_SQvo"><div class="docsWrapper_HjTU"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_91RE" type="button"></button><div class="docRoot_SzOB"><aside class="theme-doc-sidebar-container docSidebarContainer_Q0cb"><div class="sidebarViewport_TEb6"><div class="sidebar_LiQ3"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_iDgU"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/gisulsa/docs/intro"><span title="Tutorial Intro" class="linkLabel_REp1">Tutorial Intro</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/tutorial---example"><span title="Tutorial - Example" class="categoryLinkLabel_ezQx">Tutorial - Example</span></a><button aria-label="Expand sidebar category &#x27;Tutorial - Example&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist menu__link--active" href="/gisulsa/docs/category/과목별-분류"><span title="과목별 분류" class="categoryLinkLabel_ezQx">과목별 분류</span></a><button aria-label="Collapse sidebar category &#x27;과목별 분류&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/tutorial-subject/trend-analysis"><span title="출제 트렌드 분석 및 139회 예측" class="linkLabel_REp1">출제 트렌드 분석 및 139회 예측</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/tutorial-subject/security"><span title="보안/정보보호" class="linkLabel_REp1">보안/정보보호</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/tutorial-subject/software-engineering"><span title="소프트웨어공학" class="linkLabel_REp1">소프트웨어공학</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/tutorial-subject/ai-ml"><span title="인공지능/머신러닝" class="linkLabel_REp1">인공지능/머신러닝</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/tutorial-subject/database"><span title="데이터베이스" class="linkLabel_REp1">데이터베이스</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/tutorial-subject/project-management"><span title="프로젝트관리/감리" class="linkLabel_REp1">프로젝트관리/감리</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/gisulsa/docs/tutorial-subject/network"><span title="네트워크/통신" class="linkLabel_REp1">네트워크/통신</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/tutorial-subject/law-policy"><span title="법/제도/정책" class="linkLabel_REp1">법/제도/정책</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/tutorial-subject/bigdata"><span title="빅데이터/데이터분석" class="linkLabel_REp1">빅데이터/데이터분석</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/tutorial-subject/cloud-infra"><span title="클라우드/인프라" class="linkLabel_REp1">클라우드/인프라</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/tutorial-subject/algorithm"><span title="알고리즘/자료구조" class="linkLabel_REp1">알고리즘/자료구조</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/tutorial-subject/os-architecture"><span title="컴퓨터구조/운영체제" class="linkLabel_REp1">컴퓨터구조/운영체제</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/tutorial-subject/business-strategy"><span title="경영/전략/IT거버넌스" class="linkLabel_REp1">경영/전략/IT거버넌스</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/tutorial-subject/blockchain"><span title="블록체인" class="linkLabel_REp1">블록체인</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/tutorial-subject/statistics"><span title="통계/수학" class="linkLabel_REp1">통계/수학</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/tutorial-subject/iot-emerging"><span title="IoT/신기술/융합" class="linkLabel_REp1">IoT/신기술/융합</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/과목별-교재"><span title="과목별 교재" class="categoryLinkLabel_ezQx">과목별 교재</span></a><button aria-label="Expand sidebar category &#x27;과목별 교재&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_C0wL"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_txwF"><div class="docItemContainer_FUEM"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_DlgT" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/gisulsa/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_BMIH"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/gisulsa/docs/category/과목별-분류"><span>과목별 분류</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">네트워크/통신</span></li></ul></nav><div class="tocCollapsible_LBsY theme-doc-toc-mobile tocMobile_eMWB"><button type="button" class="clean-btn tocCollapsibleButton_fVBn">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>네트워크/통신</h1></header>
+<p>정보관리기술사 기출문제 중 네트워크/통신 관련 문제를 정리한 페이지입니다.</p>
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="110회">110회<a href="#110회" class="hash-link" aria-label="Direct link to 110회" title="Direct link to 110회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1교시">1교시<a href="#1교시" class="hash-link" aria-label="Direct link to 1교시" title="Direct link to 1교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="2">
+<li class="">LPWA(Low Power Wide Area)에 대해 설명하시오.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>LPWA는 저전력으로 넓은 지역을 커버하는 무선통신 기술로, IoT 기기에 적합하다. LoRa, NB-IoT, Sigfox 등이 대표적인 기술이며, 배터리 수명을 수년간 유지하면서 수 km 이상의 통신 거리를 지원한다. 스마트 미터링, 농업 센서 등 저속·저전력이 요구되는 분야에 활용된다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">
+<ol start="6">
+<li class="">XMPP, CoAP, MQTT 특징을 비교하시오.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>XMPP는 XML 기반의 실시간 메시지 프로토콜로 채팅·존재정보에 특화되어 있다. CoAP은 REST 기반의 경량 프로토콜로 UDP를 사용하여 제한된 IoT 기기에 적합하다. MQTT는 발행-구독 모델을 사용하는 경량 메시지 프로토콜로 불안정한 네트워크 환경에서도 신뢰성 있는 메시지 전달을 지원한다.</p>
+</blockquote>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="2교시">2교시<a href="#2교시" class="hash-link" aria-label="Direct link to 2교시" title="Direct link to 2교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="4">
+<li class="">무선센서네트워크(WSN)와 이동 가능한 무선단말로 구축되는 애드혹(Ad-hoc) 네트워크의 차이점을 비교하고, 애드혹 네트워크의 경로제어 방법인 리액티브(Reactive)형 방법과 프로액티브(Proactive)방법에 대하여 비교 설명하시오.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>WSN은 고정된 센서 노드들이 환경 데이터를 수집하는 네트워크이고, Ad-hoc 네트워크는 이동 가능한 단말들이 인프라 없이 자율적으로 구성하는 네트워크이다. 리액티브 방식은 필요할 때만 경로를 탐색하여 오버헤드를 줄이고, 프로액티브 방식은 미리 라우팅 테이블을 유지하여 빠른 전송이 가능하다. 두 방식의 장단점을 결합한 하이브리드 방식도 사용된다.</p>
+</blockquote>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="3교시">3교시<a href="#3교시" class="hash-link" aria-label="Direct link to 3교시" title="Direct link to 3교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="3">
+<li class="">CRC(Cyclic Redundancy Check)의 원리를 기술하고, CRC-8 = x8 + x2 + x + 1이고 데이터워드가 01101011일때 코드워드를 계산하는 과정을 설명하고, 그 결과가 옳음을 검증하시오.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>CRC는 데이터 전송 시 오류를 검출하기 위해 다항식 나눗셈을 이용하는 방법이다. 송신 측은 데이터워드를 생성 다항식으로 나눈 나머지를 FCS로 첨부하여 전송하고, 수신 측은 동일한 방법으로 나머지를 계산해 0이면 오류가 없는 것으로 판단한다. CRC-8은 8비트 나머지를 생성하며 단순 패리티 비트보다 강력한 오류 검출 능력을 갖는다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="111회">111회<a href="#111회" class="hash-link" aria-label="Direct link to 111회" title="Direct link to 111회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1교시-1">1교시<a href="#1교시-1" class="hash-link" aria-label="Direct link to 1교시" title="Direct link to 1교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="7">
+<li class="">무선 센서 네트워크 구성방법 중 Itinerary Routing</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>Itinerary Routing은 이동 에이전트가 미리 정해진 경로(Itinerary)를 따라 센서 노드를 순회하며 데이터를 수집하는 방식이다. 에이전트가 직접 노드를 방문하기 때문에 네트워크 트래픽을 줄이고 데이터 집계 효율을 높일 수 있다. 경로 설계에 따라 에너지 소비와 지연 시간이 크게 달라진다.</p>
+</blockquote>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="2교시-1">2교시<a href="#2교시-1" class="hash-link" aria-label="Direct link to 2교시" title="Direct link to 2교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="6">
+<li class="">사물인터넷(IoT) 네트워크는 초연결성을 가지고 있어 장치 간 신뢰성 확보가 필수적으로 요구된다. 사물인터넷(IoT) 네트워크 보안 기술의 개념, 특성, CoAP / MQTT / LwM2M 프로토콜 구조, 보안 이슈에 대하여 설명하시오.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>IoT 네트워크는 수많은 이기종 기기들이 연결되어 있어 인증, 암호화, 접근제어 등 다층적 보안이 요구된다. CoAP은 DTLS, MQTT는 TLS를 통해 전송 보안을 제공하며, LwM2M은 기기 관리와 보안을 통합한 경량 프로토콜이다. 자원 제약적인 IoT 기기 특성상 경량 암호화 알고리즘 적용과 취약한 기본 설정 변경이 주요 보안 이슈이다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="113회">113회<a href="#113회" class="hash-link" aria-label="Direct link to 113회" title="Direct link to 113회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1교시-2">1교시<a href="#1교시-2" class="hash-link" aria-label="Direct link to 1교시" title="Direct link to 1교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="11">
+<li class="">네트워크에서의 Non-blocking I/O</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>Non-blocking I/O는 I/O 작업이 완료될 때까지 스레드가 대기하지 않고 즉시 반환하는 방식이다. 이를 통해 단일 스레드로 다수의 연결을 동시에 처리할 수 있어 서버 자원 효율이 높아진다. Node.js의 이벤트 루프나 Java NIO가 대표적인 Non-blocking I/O 구현 사례이다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">
+<ol start="13">
+<li class="">망중립성(Network Neutrality)</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>망중립성은 인터넷 서비스 제공자(ISP)가 모든 인터넷 트래픽을 콘텐츠·출처·서비스 유형에 관계없이 동등하게 처리해야 한다는 원칙이다. 특정 서비스나 사업자의 트래픽을 차별하거나 차단하지 못하도록 하여 인터넷의 개방성과 공정한 경쟁을 보장한다. ISP와 콘텐츠 사업자 간의 비용 분담 문제와 함께 지속적인 정책 논쟁의 대상이다.</p>
+</blockquote>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="2교시-2">2교시<a href="#2교시-2" class="hash-link" aria-label="Direct link to 2교시" title="Direct link to 2교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="5">
+<li class="">월드와이드웹(WWW) 프로토콜인 HTTP의 취약점을 설명하고, 그 대안으로 사용하는 HTTPS의 특징에 대하여 설명하시오.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>HTTP는 평문 전송 방식으로 도청, 위변조, 중간자 공격에 취약하다. HTTPS는 TLS/SSL을 적용하여 암호화·무결성·인증을 제공함으로써 이러한 취약점을 해소한다. 인증서 기반의 서버 신원 확인과 대칭키 교환을 통해 안전한 통신 채널을 수립한다.</p>
+</blockquote>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="3교시-1">3교시<a href="#3교시-1" class="hash-link" aria-label="Direct link to 3교시" title="Direct link to 3교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="6">
+<li class="">Socket 통신방식의 개념, TCP Socket 및 Web Socket 기술을 비교하여 설명하시오.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>소켓은 네트워크 통신을 위한 엔드포인트 추상화로, 프로세스 간 데이터 송수신을 가능하게 한다. TCP 소켓은 연결 지향형 신뢰성 전송을 제공하는 전통적 방식이고, Web Socket은 HTTP 업그레이드를 통해 브라우저와 서버 간 전이중 실시간 통신을 지원한다. Web Socket은 웹 환경의 실시간 채팅·게임 등에 적합하고, TCP 소켓은 범용 네트워크 프로그래밍에 사용된다.</p>
+</blockquote>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="4교시">4교시<a href="#4교시" class="hash-link" aria-label="Direct link to 4교시" title="Direct link to 4교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="2">
+<li class="">디도스 공격(DDoS, Distributed Denial of Service Attack)에 대응하기 위한 클라우드기반 보안서비스 구축 방식 모델인 스크러빙 센터(Scrubbing Center) 및 콘텐츠 전송 네트워크(Content Delivery Network)의 대응방법, 대응규모, 대응시점, 암호와 트래픽방어 여부, 기존 시스템 활용 관점에서 비교하여 설명하시오.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>스크러빙 센터는 공격 트래픽을 우회시켜 정제한 후 원본 서버로 전달하는 방식으로, 대규모 DDoS에도 대응 가능하다. CDN은 전 세계 분산 서버를 통해 트래픽을 분산 처리하여 DDoS 공격을 자연스럽게 흡수하는 방식이다. 두 방식 모두 클라우드 기반으로 기존 인프라 변경 없이 적용 가능하지만, 암호화 트래픽 처리 방식과 대응 시점에서 차이가 있다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="114회">114회<a href="#114회" class="hash-link" aria-label="Direct link to 114회" title="Direct link to 114회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1교시-3">1교시<a href="#1교시-3" class="hash-link" aria-label="Direct link to 1교시" title="Direct link to 1교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="6">
+<li class="">제로 레이팅(Zero Rating)</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>제로 레이팅은 ISP가 특정 콘텐츠나 서비스 이용 시 데이터 요금을 부과하지 않는 관행이다. 이용자에게 편의를 제공하지만, 특정 서비스를 우대하여 망중립성 원칙에 위배될 수 있다는 논란이 있다. 국가별로 허용 여부와 규제 방식이 다르며, OTT 서비스 확산과 함께 정책 논의가 활발하다.</p>
+</blockquote>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="4교시-1">4교시<a href="#4교시-1" class="hash-link" aria-label="Direct link to 4교시" title="Direct link to 4교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol>
+<li class="">4차 산업혁명시대의 망 중립성 정책 내용, 쟁점 및 정책 이슈에 대하여 설명하시오.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>4차 산업혁명 시대에는 자율주행차, 원격의료 등 고신뢰·저지연 서비스가 증가하면서 망 중립성 원칙의 유연한 적용에 대한 논의가 커지고 있다. ISP는 네트워크 투자 비용 회수를 위해 콘텐츠 사업자에게 비용 분담을 요구하고 있으나, 이는 망중립성 훼손으로 이어질 수 있다. 각국은 혁신 장려와 공정한 인터넷 환경 유지라는 두 가지 목표 사이에서 정책 균형을 모색하고 있다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">
+<ol start="6">
+<li class="">초연결 시대의 5G 네트워크의 기술적 특징, 국내외 추진 동향 및 시사점에 대하여 설명하시오.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>5G는 초고속(20Gbps), 초저지연(1ms), 초연결(1km² 당 100만 기기) 세 가지를 핵심 특징으로 한다. 네트워크 슬라이싱, 대규모 MIMO, mmWave 등의 기술을 통해 다양한 산업 서비스를 지원한다. 국내외에서 스마트 팩토리, 자율주행, AR/VR 등 킬러 애플리케이션 발굴을 중심으로 상용화가 진행되고 있다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="116회">116회<a href="#116회" class="hash-link" aria-label="Direct link to 116회" title="Direct link to 116회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1교시-4">1교시<a href="#1교시-4" class="hash-link" aria-label="Direct link to 1교시" title="Direct link to 1교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="11">
+<li class="">OSI 7 Layer</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>OSI 7 계층 모델은 네트워크 통신을 물리·데이터링크·네트워크·전송·세션·표현·응용 계층으로 구분한 국제 표준이다. 각 계층은 독립적인 기능을 수행하며, 하위 계층의 서비스를 이용해 상위 계층에 서비스를 제공하는 계층적 구조를 갖는다. 이 모델은 서로 다른 벤더 장비 간의 상호 운용성을 보장하기 위한 표준 참조 모델로 활용된다.</p>
+</blockquote>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="4교시-2">4교시<a href="#4교시-2" class="hash-link" aria-label="Direct link to 4교시" title="Direct link to 4교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="6">
+<li class="">정보통신 용어 및 교환방식에 대하여 다음을 설명하시오.</li>
+</ol>
+<ul>
+<li class="">가. 두 사람이 대화를 할 때 나타나는 문제점이다. 각 경우에 대해서 보기와 같이 문제점을 해결하는 방향으로서 통신 용어로 설명하시오.</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>두 사람의 대화에서 동시에 말할 때 충돌이 발생하는 문제는 네트워크의 충돌(Collision) 및 매체 접근 제어(MAC)와 유사하다. 말이 끊기는 현상은 패킷 손실, 말의 순서가 바뀌는 현상은 패킷 순서 역전(Out-of-order)에 해당한다. 이러한 문제들은 통신 프로토콜의 오류 제어, 흐름 제어, 순서 제어 기능으로 해결한다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">나. 회선교환(Circuit Switching) 방식과 패킷교환(Packet Switching) 방식의 차이점</li>
+</ul>
+<blockquote>
+<p>회선교환은 통신 전 전용 경로를 설정하여 일정한 대역폭을 보장하지만 자원 낭비가 발생할 수 있다. 패킷교환은 데이터를 패킷 단위로 분할하여 공유 네트워크로 전송하므로 자원 효율이 높지만 지연 변동이 발생할 수 있다. 전화망은 회선교환, 인터넷은 패킷교환 방식을 대표적으로 사용한다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="117회">117회<a href="#117회" class="hash-link" aria-label="Direct link to 117회" title="Direct link to 117회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1교시-5">1교시<a href="#1교시-5" class="hash-link" aria-label="Direct link to 1교시" title="Direct link to 1교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="10">
+<li class="">5G 네트워크 슬라이싱(5G Network Slicing)</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>네트워크 슬라이싱은 하나의 물리적 5G 인프라 위에 여러 개의 논리적 네트워크를 독립적으로 구성하는 기술이다. 각 슬라이스는 eMBB(초고속), URLLC(초저지연), mMTC(대규모 연결) 등 서비스 요구사항에 맞게 맞춤형 자원을 할당받는다. SDN과 NFV를 기반으로 구현되며, 다양한 산업 서비스를 하나의 망에서 지원할 수 있게 한다.</p>
+</blockquote>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="3교시-2">3교시<a href="#3교시-2" class="hash-link" aria-label="Direct link to 3교시" title="Direct link to 3교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="4">
+<li class="">블록체인의 핵심기술 중 하나인 P2P 통신 중 하이브리드 P2P(Hybrid P2P) 방식과 퓨어 P2P(Pure P2P) 방식을 비교하여 설명하시오.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>퓨어 P2P는 중앙 서버 없이 모든 노드가 동등한 역할을 수행하며 완전한 탈중앙화를 실현한다. 하이브리드 P2P는 인덱스 서버나 슈퍼노드를 두어 검색과 연결 효율을 높이면서 P2P 전송의 장점을 유지한다. 블록체인은 퓨어 P2P에 가깝지만, 실제 서비스에서는 성능을 위해 하이브리드 방식이 함께 사용되기도 한다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="118회">118회<a href="#118회" class="hash-link" aria-label="Direct link to 118회" title="Direct link to 118회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1교시-6">1교시<a href="#1교시-6" class="hash-link" aria-label="Direct link to 1교시" title="Direct link to 1교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="5">
+<li class="">OTT(Over-The-Top) 서비스의 제로 레이팅(zero-rating) 문제점</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>OTT 서비스의 제로 레이팅은 특정 스트리밍 플랫폼의 데이터를 무과금 처리하여 이용자 유인을 강화하는 방식이다. 이는 동일한 서비스를 제공하는 소규모 OTT 사업자를 시장에서 불리하게 만들어 공정 경쟁을 저해한다. 망중립성 원칙 위반 여부, 소비자 선택권 제한, ISP-대형 CP 간 불공정 계약 가능성이 주요 문제점으로 지적된다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="120회">120회<a href="#120회" class="hash-link" aria-label="Direct link to 120회" title="Direct link to 120회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="3교시-3">3교시<a href="#3교시-3" class="hash-link" aria-label="Direct link to 3교시" title="Direct link to 3교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="4">
+<li class="">네트워크 가상화 기술인 VLAN(Virtual LAN), VPN(Virtual Private Network), NFV(Network Function Virtualization)를 비교하여 설명하시오.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>VLAN은 물리적 네트워크를 논리적으로 분리하여 브로드캐스트 도메인을 제어하는 기술이다. VPN은 공용 네트워크 위에 암호화된 가상 전용망을 구성하여 안전한 원격 접속을 지원한다. NFV는 라우터·방화벽 등 네트워크 기능을 소프트웨어로 구현하여 범용 하드웨어에서 실행할 수 있게 하는 기술이다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="121회">121회<a href="#121회" class="hash-link" aria-label="Direct link to 121회" title="Direct link to 121회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1교시-7">1교시<a href="#1교시-7" class="hash-link" aria-label="Direct link to 1교시" title="Direct link to 1교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="8">
+<li class="">모바일 FSO(Free Space Optics) 통신</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>FSO는 대기 중 레이저 빔을 이용하여 무선으로 광신호를 전송하는 기술로, 높은 대역폭과 보안성을 제공한다. 모바일 FSO는 드론이나 이동 플랫폼에 FSO 장치를 탑재하여 동적 환경에서도 고속 통신을 가능하게 한다. 안개·강우 등 기상 조건의 영향을 받는 것이 주요 한계이며, 빔 정렬 기술이 핵심 과제이다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">
+<ol start="9">
+<li class="">차량·사물 셀룰러 통신(Cellular Vehicle to Everything)</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>C-V2X는 LTE/5G 셀룰러 네트워크를 기반으로 차량과 차량(V2V), 차량과 인프라(V2I), 차량과 보행자(V2P), 차량과 네트워크(V2N) 간 통신을 지원하는 기술이다. 기존 DSRC 방식 대비 더 넓은 커버리지와 높은 신뢰성을 제공하며, 5G와 결합하여 자율주행의 핵심 통신 기술로 주목받고 있다. 저지연 직접 통신(PC5)과 네트워크 기반 통신(Uu)을 모두 지원하는 것이 특징이다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="122회">122회<a href="#122회" class="hash-link" aria-label="Direct link to 122회" title="Direct link to 122회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1교시-8">1교시<a href="#1교시-8" class="hash-link" aria-label="Direct link to 1교시" title="Direct link to 1교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="10">
+<li class="">프레임릴레이(Frame Relay)</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>프레임릴레이는 패킷교환 방식의 WAN 기술로, 오류 복구 기능을 상위 계층에 위임하여 전송 속도를 높인 프로토콜이다. 가상 회선(PVC/SVC)을 통해 다수의 논리 연결을 하나의 물리 회선에서 공유하며, 56Kbps~45Mbps의 속도를 지원한다. 현재는 MPLS, 이더넷 WAN 등 더 발전된 기술로 대체되고 있다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">
+<ol start="11">
+<li class="">거리벡터 라우팅(Distance Vector Routing)</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>거리벡터 라우팅은 각 라우터가 목적지까지의 거리(홉 수)와 방향(벡터)을 이웃 라우터와 주기적으로 교환하여 라우팅 테이블을 갱신하는 방식이다. RIP가 대표적이며, 구현이 단순하지만 느린 수렴 속도와 루핑 문제가 단점이다. 스플릿 호라이즌, 포이즌 리버스 등의 기법으로 루핑 문제를 완화한다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">
+<ol start="13">
+<li class="">NAC(Network Access Control)</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>NAC는 네트워크에 접속하는 단말의 보안 상태(백신·패치 여부 등)를 검사하여 정책에 따라 접속을 허용·격리·차단하는 보안 기술이다. 에이전트 기반 또는 에이전트리스 방식으로 단말 상태를 수집하고, 802.1X 인증을 통해 네트워크 접근을 제어한다. 내부망 보안 강화와 비인가 단말 차단에 효과적이다.</p>
+</blockquote>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="3교시-4">3교시<a href="#3교시-4" class="hash-link" aria-label="Direct link to 3교시" title="Direct link to 3교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="5">
+<li class="">OSI 7 Layer의 각 계층과 특징을 설명하시오.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>OSI 7 계층은 네트워크 통신을 표준화하기 위해 ISO가 정의한 참조 모델로, 물리 계층부터 응용 계층까지 7개로 구성된다. 각 계층은 PDU(프로토콜 데이터 단위)를 달리하며, 하위 계층은 상위 계층에 투명한 서비스를 제공한다. 계층별 독립성 덕분에 특정 계층의 프로토콜 변경이 다른 계층에 영향을 주지 않는다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="123회">123회<a href="#123회" class="hash-link" aria-label="Direct link to 123회" title="Direct link to 123회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1교시-9">1교시<a href="#1교시-9" class="hash-link" aria-label="Direct link to 1교시" title="Direct link to 1교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="10">
+<li class="">WFQ(Weighted Fair Queuing)</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>WFQ는 네트워크 트래픽을 여러 흐름으로 분류하고 각 흐름에 가중치를 부여하여 대역폭을 공정하게 배분하는 큐잉 기법이다. 단순 FIFO 방식과 달리 대용량 플로우가 소용량 플로우의 대역폭을 독점하지 못하도록 제어한다. QoS 구현의 핵심 기법으로 VoIP·영상 등 지연 민감 트래픽 우선 처리에 효과적이다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">
+<ol start="11">
+<li class="">5G 특화망(지역 5G)</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>5G 특화망은 특정 기업·기관이 자체적으로 구축·운영하는 사설 5G 네트워크로, 산업 현장에 맞춤화된 통신 환경을 제공한다. 제조·물류·의료 등 특수 환경에서 높은 보안성, 낮은 지연, 안정적인 연결을 보장한다. 기간통신사 망 없이 독립적으로 운영 가능하며, 국내에서는 28GHz 대역 주파수를 활용한다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">
+<ol start="12">
+<li class="">SDR(Software Defined Radio)</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>SDR은 하드웨어로 고정된 무선 통신 기능을 소프트웨어로 정의하여 다양한 주파수와 통신 방식을 유연하게 지원하는 기술이다. ADC/DAC 및 FPGA를 활용하여 신호 처리 알고리즘을 소프트웨어로 구현하므로, 펌웨어 업데이트만으로 통신 표준을 변경할 수 있다. 군용 통신, 인지 무선(Cognitive Radio), 기지국 가상화 등에 폭넓게 활용된다.</p>
+</blockquote>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="3교시-5">3교시<a href="#3교시-5" class="hash-link" aria-label="Direct link to 3교시" title="Direct link to 3교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="3">
+<li class="">QoS(Quality of Service) 방식인 DiffServ와 IntServ를 설명하시오.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>IntServ는 RSVP 프로토콜을 통해 흐름별로 자원을 예약하는 방식으로 강력한 QoS를 보장하지만 확장성이 낮다. DiffServ는 트래픽을 클래스로 구분하고 DSCP 필드를 이용해 홉별로 처리 정책을 적용하는 방식으로 확장성이 뛰어나다. 현재 인터넷에서는 구현 복잡도와 확장성 측면에서 DiffServ가 더 널리 사용된다.</p>
+</blockquote>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="4교시-3">4교시<a href="#4교시-3" class="hash-link" aria-label="Direct link to 4교시" title="Direct link to 4교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="2">
+<li class="">정보통신분야 정보이론(Information Theory)과 샤논(Shannon)의 정리에 대하여 다음을 설명하시오.</li>
+</ol>
+<ul>
+<li class="">가. 정보이론의 개념</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>정보이론은 정보의 양을 수학적으로 측정하고 효율적으로 저장·전송하는 방법을 연구하는 학문으로 섀넌이 창시하였다. 정보의 양은 엔트로피(H)로 측정하며, 발생 확률이 낮을수록 더 많은 정보량을 가진다고 본다. 압축, 채널 코딩, 암호화 등 현대 통신 기술의 이론적 기반을 제공한다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">나. 샤논의 제1정리 및 제2정리</li>
+</ul>
+<blockquote>
+<p>샤논의 제1정리(소스 코딩 정리)는 무잡음 채널에서 정보를 엔트로피 이상의 평균 코드 길이 없이는 압축할 수 없다는 한계를 제시한다. 제2정리(채널 코딩 정리)는 채널 용량 이하의 전송 속도에서는 오류율을 임의로 작게 만드는 코드가 존재한다는 것을 증명한다. 두 정리는 데이터 압축과 신뢰성 있는 통신의 이론적 한계를 정의한다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">다. 샤논-하틀리(Shannon-Hartley)의 정리</li>
+</ul>
+<blockquote>
+<p>샤논-하틀리 정리는 채널 용량 C = B × log₂(1 + S/N)으로 표현되며, 대역폭(B)과 신호 대 잡음비(SNR)가 채널 용량을 결정한다는 것을 나타낸다. 잡음이 있는 채널에서 오류 없이 전송할 수 있는 이론적 최대 속도를 정의한다. 이 정리는 5G, 광통신 등 현대 고속 통신 시스템 설계의 핵심 이론적 근거가 된다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="125회">125회<a href="#125회" class="hash-link" aria-label="Direct link to 125회" title="Direct link to 125회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="3교시-6">3교시<a href="#3교시-6" class="hash-link" aria-label="Direct link to 3교시" title="Direct link to 3교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="5">
+<li class="">소프트웨어 정의 네트워크(SDN)에 대한 아래의 사항을 설명하시오.</li>
+</ol>
+<ul>
+<li class="">가. SDN 제어 평면의 개요 및 구조의 특징</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>SDN은 네트워크의 제어 평면(Control Plane)과 데이터 평면(Data Plane)을 분리하여 소프트웨어 컨트롤러가 네트워크 전체를 중앙에서 제어하는 아키텍처이다. 컨트롤러는 네트워크 전역 뷰를 기반으로 최적의 경로와 정책을 결정하고 스위치에 흐름 규칙을 배포한다. 네트워크 자동화, 프로그래머빌리티, 신속한 정책 변경이 가능해진다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">나. 오픈플로우(OpenFlow) 프로토콜</li>
+</ul>
+<blockquote>
+<p>OpenFlow는 SDN 컨트롤러와 네트워크 스위치 간의 표준 통신 프로토콜로, 사우스바운드 인터페이스의 대표 구현체이다. 컨트롤러는 OpenFlow를 통해 스위치의 플로우 테이블에 규칙을 설치하고, 스위치는 이 규칙에 따라 패킷을 처리한다. 매치 필드(Match), 우선순위(Priority), 액션(Action)으로 구성된 플로우 엔트리가 핵심 요소이다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="126회">126회<a href="#126회" class="hash-link" aria-label="Direct link to 126회" title="Direct link to 126회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="4교시-4">4교시<a href="#4교시-4" class="hash-link" aria-label="Direct link to 4교시" title="Direct link to 4교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol>
+<li class="">최근 Netflix 등 CP(Contents Provider)들의 망관리 비용을 요구하는 법제화 움직임이 일자 그들의 불만이 표시되고 있다. 4차 산업혁명시대의 망중립성 이슈에 대하여 설명하시오.</li>
+</ol>
+<ul>
+<li class="">가. 쟁점 사항 및 정책 이슈</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>대형 CP들이 막대한 트래픽을 유발하면서 ISP의 망 투자 비용이 급증하고, ISP는 CP에게 망 이용 대가를 요구하는 법제화를 추진하고 있다. CP 측은 이것이 망중립성 원칙에 위배되며 인터넷 생태계의 혁신을 저해한다고 반발한다. 정책 이슈는 비용 분담의 합리적 기준 마련, 계약 공정성 확보, 소비자 요금 전가 방지 등이다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">나. 시사점 및 대응 방안</li>
+</ul>
+<blockquote>
+<p>망 이용 대가 이슈는 CP-ISP 간 계약 투명성 확보와 정부의 중재 역할이 핵심이다. 소비자 요금 인상을 방지하고 스타트업의 시장 진입 장벽이 높아지지 않도록 제도적 안전장치가 필요하다. 국제적 규제 동향을 참고하여 국내 인터넷 생태계의 균형 발전을 위한 합리적 정책 수립이 요구된다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="127회">127회<a href="#127회" class="hash-link" aria-label="Direct link to 127회" title="Direct link to 127회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="4교시-5">4교시<a href="#4교시-5" class="hash-link" aria-label="Direct link to 4교시" title="Direct link to 4교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="3">
+<li class="">6G 이동통신을 위한 위성-상공-지상 통합형 무선 네트워크(Satellite-Aerial-Terrestrial Integrated Network, SATIN)에 대하여 다음을 설명하시오.</li>
+</ol>
+<ul>
+<li class="">가. SATIN의 개념 및 네트워크 특징</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>SATIN은 위성(LEO/MEO/GEO), 상공(드론/HAPs), 지상(기지국) 인프라를 통합한 3차원 무선 네트워크 구조이다. 어느 한 계층의 장애에도 다른 계층이 서비스를 지속할 수 있어 고가용성과 광역 커버리지를 동시에 달성한다. 6G의 연결 요구사항인 전 지구적 서비스 연속성 실현의 핵심 구조이다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">나. SATIN의 재난대비, UAV(Unmanned Aerial Vehicle) 활용, 낙후지역 네트워크 서비스에 활용방법</li>
+</ul>
+<blockquote>
+<p>재난 상황에서 지상 인프라가 손상되면 UAV와 위성이 임시 통신망을 신속하게 구축하여 구조 활동을 지원한다. UAV는 기동성을 활용해 피해 지역 상공에서 이동 기지국 역할을 수행하며 실시간 상황 파악을 돕는다. 도서·산간 등 낙후 지역에는 위성과 HAPs를 통해 기존 지상망 구축 비용 없이 광대역 서비스를 제공할 수 있다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="128회">128회<a href="#128회" class="hash-link" aria-label="Direct link to 128회" title="Direct link to 128회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="2교시-3">2교시<a href="#2교시-3" class="hash-link" aria-label="Direct link to 2교시" title="Direct link to 2교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="5">
+<li class="">소켓(Socket) 통신과 관련하여 다음을 설명하시오.</li>
+</ol>
+<ul>
+<li class="">가. 소켓 통신 정의</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>소켓은 네트워크 상에서 두 프로세스가 데이터를 주고받기 위한 통신 엔드포인트로, IP 주소와 포트 번호의 조합으로 식별된다. 운영체제가 제공하는 소켓 API를 통해 응용 프로그램은 하위 네트워크 계층을 추상화하여 편리하게 통신할 수 있다. TCP 소켓과 UDP 소켓 두 가지 유형이 주로 사용된다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">나. 소켓 통신 방식 개념도 및 유형</li>
+</ul>
+<blockquote>
+<p>소켓 통신은 연결 지향형(TCP)과 비연결형(UDP) 두 가지 유형으로 나뉜다. TCP 소켓은 3-way handshake로 연결을 수립하고 신뢰성 있는 데이터 전송을 보장한다. UDP 소켓은 연결 설정 없이 빠른 전송이 필요한 스트리밍, 게임 등에 활용된다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">다. TCP 소켓 및 Web 소켓 흐름 설명</li>
+</ul>
+<blockquote>
+<p>TCP 소켓은 서버가 bind→listen→accept 과정으로 연결을 수신하고, 클라이언트는 connect 호출로 연결을 요청한다. Web 소켓은 HTTP Upgrade 헤더를 통해 HTTP 연결을 WebSocket 연결로 전환한다. 연결 수립 후 Web 소켓은 양방향 전이중 통신이 가능하며, 서버가 클라이언트에게 능동적으로 데이터를 푸시할 수 있다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">라. 소켓 통신 방식과 HTTP 통신 방식 비교</li>
+</ul>
+<blockquote>
+<p>HTTP 통신은 요청-응답 패턴으로 클라이언트가 항상 먼저 요청해야 하며, 연결이 매 요청마다 새로 수립(HTTP/1.x) 되거나 재사용(Keep-Alive)된다. 소켓 통신은 한번 연결이 수립되면 양방향으로 자유롭게 데이터를 송수신할 수 있어 실시간 응용에 적합하다. HTTP는 상태가 없는 비연결성, 소켓은 지속 연결과 양방향성이 핵심 차이이다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="129회">129회<a href="#129회" class="hash-link" aria-label="Direct link to 129회" title="Direct link to 129회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="2교시-4">2교시<a href="#2교시-4" class="hash-link" aria-label="Direct link to 2교시" title="Direct link to 2교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="3">
+<li class="">네트워크 서브네팅(subnetting)과 관련하여 아래 사항들을 설명하시오.</li>
+</ol>
+<ul>
+<li class="">
+<ol>
+<li class="">수퍼네팅(supernetting)과 서브네팅(subnetting) 개념을 설명하시오.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>서브네팅은 하나의 큰 IP 네트워크를 여러 개의 작은 서브넷으로 분할하여 IP 주소를 효율적으로 사용하는 기법이다. 수퍼네팅(CIDR)은 반대로 여러 개의 작은 네트워크를 하나의 큰 블록으로 묶어 라우팅 테이블 항목을 줄이는 기법이다. 두 기법 모두 IPv4 주소 고갈 문제 해결과 라우팅 효율화를 위해 사용된다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">
+<ol start="2">
+<li class="">192.168.100.0/24 네트워크 대역을 동일한 IP 개수를 가진 4개의 서브넷(Subnet)으로 분할하고자 한다. 해당 절차에 대해서 상세히 설명하고, 서브넷 마스크 값을 구하시오. 그리고 하나의 서브넷에서 할당 가능한 IP 수량을 제시하시오.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>/24 네트워크를 4등분하려면 호스트 비트에서 2비트를 빌려 서브넷 비트로 사용하므로 서브넷 마스크는 /26(255.255.255.192)이 된다. 각 서브넷은 64개의 IP 주소를 가지며, 네트워크 주소와 브로드캐스트 주소를 제외한 62개가 실제 할당 가능하다. 4개의 서브넷은 각각 .0/26, .64/26, .128/26, .192/26이 된다.</p>
+</blockquote>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="3교시-7">3교시<a href="#3교시-7" class="hash-link" aria-label="Direct link to 3교시" title="Direct link to 3교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="3">
+<li class="">TCP(Transmission Control Protocol)는 네트워크에 혼잡(Congestion)이 발생한 경우, 이를 해소하기 위한 다양한 메커니즘을 사용한다. 이와 관련하여 아래 사항들에 대해서 설명하시오.</li>
+</ol>
+<ul>
+<li class="">
+<ol>
+<li class="">TCP 혼잡제어 메커니즘의 구성요소</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>TCP 혼잡제어는 슬로우 스타트, 혼잡 회피, 빠른 재전송, 빠른 복구의 4가지 구성요소로 이루어진다. 혼잡 윈도우(cwnd)를 조절하여 전송 속도를 동적으로 제어하며, 임계값(ssthresh)을 기준으로 동작 단계가 전환된다. AIMD(Additive Increase Multiplicative Decrease) 원칙에 따라 혼잡 발생 시 전송률을 급격히 줄이고 정상 상태에서 서서히 늘린다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">
+<ol start="2">
+<li class="">혼잡상황 감지</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>TCP는 두 가지 방법으로 혼잡을 감지한다: 타임아웃(패킷 손실로 인한 응답 없음)과 3개의 중복 ACK 수신이다. 타임아웃은 심각한 혼잡을 의미하여 ssthresh를 절반으로 줄이고 cwnd를 1로 초기화한다. 3중복 ACK는 경미한 혼잡을 의미하여 빠른 재전송과 빠른 복구를 통해 대응한다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">
+<ol start="3">
+<li class="">혼잡상황 제어</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>혼잡 발생 시 TCP는 전송 속도를 낮추어 네트워크 부하를 줄이는 방향으로 대응한다. 타임아웃 시 ssthresh를 현재 cwnd의 절반으로 설정하고 cwnd를 1 MSS로 초기화하여 슬로우 스타트를 재시작한다. 3중복 ACK 시에는 ssthresh와 cwnd를 현재 cwnd의 절반으로 줄이고 혼잡 회피 단계로 진입한다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">
+<ol start="4">
+<li class="">혼잡 윈도우 크기</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>혼잡 윈도우(cwnd)는 수신측 윈도우(rwnd)와 함께 실제 전송 가능한 데이터 양을 결정하는 변수이다. 슬로우 스타트 단계에서는 cwnd가 RTT마다 두 배씩 지수적으로 증가하고, ssthresh 도달 후 혼잡 회피 단계에서는 RTT마다 1 MSS씩 선형 증가한다. 실제 전송 윈도우 크기는 min(cwnd, rwnd)로 결정된다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="130회">130회<a href="#130회" class="hash-link" aria-label="Direct link to 130회" title="Direct link to 130회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1교시-10">1교시<a href="#1교시-10" class="hash-link" aria-label="Direct link to 1교시" title="Direct link to 1교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="7">
+<li class="">6G 이동통신</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>6G는 2030년대 상용화를 목표로 하는 차세대 이동통신으로, 1Tbps 이상의 최대 전송 속도와 0.1ms 이하의 초저지연을 목표로 한다. 테라헤르츠(THz) 주파수 대역 활용, AI 네이티브 네트워크, 위성-지상 통합망(SATIN)이 핵심 기술이다. 홀로그래픽 통신, 확장현실(XR), 디지털 트윈 등 새로운 서비스 패러다임을 지원할 것으로 기대된다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">
+<ol start="8">
+<li class="">VXLAN(Virtual eXtensible LAN)</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>VXLAN은 기존 VLAN의 4096개 한계를 극복하기 위해 UDP 기반으로 L2 프레임을 L3 네트워크 위에 캡슐화하여 전송하는 기술이다. 24비트 VNI(VXLAN Network Identifier)를 사용하여 최대 약 1600만 개의 논리 세그먼트를 지원한다. 대규모 클라우드 데이터센터에서 테넌트 간 네트워크 격리와 유연한 가상 네트워크 구성에 널리 활용된다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="131회">131회<a href="#131회" class="hash-link" aria-label="Direct link to 131회" title="Direct link to 131회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1교시-11">1교시<a href="#1교시-11" class="hash-link" aria-label="Direct link to 1교시" title="Direct link to 1교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="2">
+<li class="">NFC(Near Field Communication)</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>NFC는 13.56MHz 주파수를 사용하여 10cm 이내의 근거리에서 데이터를 교환하는 무선 통신 기술이다. ISO/IEC 18092 표준을 기반으로 하며, 카드 에뮬레이션·리더/라이터·P2P 세 가지 동작 모드를 지원한다. 교통카드, 모바일 결제, 스마트 태그 등 다양한 분야에서 활용되며, 별도의 페어링 없이 즉각적인 연결이 가능하다.</p>
+</blockquote>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="2교시-5">2교시<a href="#2교시-5" class="hash-link" aria-label="Direct link to 2교시" title="Direct link to 2교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="5">
+<li class="">소켓(Socket) 통신과 관련하여 다음을 설명하시오.</li>
+</ol>
+<ul>
+<li class="">가. 소켓 통신 정의</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>소켓은 네트워크 상에서 두 프로세스가 데이터를 주고받기 위한 통신 엔드포인트로, IP 주소와 포트 번호의 조합으로 식별된다. 운영체제가 제공하는 소켓 API를 통해 응용 프로그램은 하위 네트워크 계층을 추상화하여 편리하게 통신할 수 있다. TCP 소켓과 UDP 소켓 두 가지 유형이 주로 사용된다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">나. 소켓 통신 방식 개념도 및 유형</li>
+</ul>
+<blockquote>
+<p>소켓 통신은 연결 지향형(TCP)과 비연결형(UDP) 두 가지 유형으로 나뉜다. TCP 소켓은 3-way handshake로 연결을 수립하고 신뢰성 있는 데이터 전송을 보장한다. UDP 소켓은 연결 설정 없이 빠른 전송이 필요한 스트리밍, 게임 등에 활용된다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">다. TCP 소켓 및 Web 소켓 흐름 설명</li>
+</ul>
+<blockquote>
+<p>TCP 소켓은 서버가 bind→listen→accept 과정으로 연결을 수신하고, 클라이언트는 connect 호출로 연결을 요청한다. Web 소켓은 HTTP Upgrade 헤더를 통해 HTTP 연결을 WebSocket 연결로 전환한다. 연결 수립 후 Web 소켓은 양방향 전이중 통신이 가능하며, 서버가 클라이언트에게 능동적으로 데이터를 푸시할 수 있다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">라. 소켓 통신 방식과 HTTP 통신 방식 비교</li>
+</ul>
+<blockquote>
+<p>HTTP 통신은 요청-응답 패턴으로 클라이언트가 항상 먼저 요청해야 하며, 연결이 매 요청마다 새로 수립(HTTP/1.x) 되거나 재사용(Keep-Alive)된다. 소켓 통신은 한번 연결이 수립되면 양방향으로 자유롭게 데이터를 송수신할 수 있어 실시간 응용에 적합하다. HTTP는 상태가 없는 비연결성, 소켓은 지속 연결과 양방향성이 핵심 차이이다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="133회">133회<a href="#133회" class="hash-link" aria-label="Direct link to 133회" title="Direct link to 133회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1교시-12">1교시<a href="#1교시-12" class="hash-link" aria-label="Direct link to 1교시" title="Direct link to 1교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="13">
+<li class="">TCP(Transmission Control Protocol) 프로토콜의 3-way handshake와 4-way handshake를 설명하시오.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>3-way handshake는 TCP 연결 수립 시 SYN→SYN-ACK→ACK 순서로 이루어지는 절차이다. 4-way handshake는 연결 종료 시 FIN→ACK→FIN→ACK 순서로 양방향 종료를 순차적으로 처리한다. 3-way는 연결의 신뢰성을 확보하고, 4-way는 양측 모두 데이터 전송이 완료되었음을 확인한 후 종료하기 위해 4단계가 필요하다.</p>
+</blockquote>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="4교시-6">4교시<a href="#4교시-6" class="hash-link" aria-label="Direct link to 4교시" title="Direct link to 4교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="5">
+<li class="">5G 특화망을 위한 네트워크를 구축할 때 고려되어야 할 사항에 대하여 다음을 설명하시오.</li>
+</ol>
+<ul>
+<li class="">가. 안정성·신뢰성 확보 방안</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>5G 특화망의 안정성 확보를 위해 이중화(Redundancy) 구성, 무중단 소프트웨어 업그레이드, 장애 자동 감지 및 복구 체계가 필요하다. 미션 크리티컬 산업 환경에서는 URLLC 슬라이스를 적용하여 고신뢰·저지연 통신을 보장한다. 정기적인 보안 점검과 취약점 패치, 물리적 인프라 보호도 신뢰성의 핵심 요소이다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">나. 간섭회피 방안</li>
+</ul>
+<blockquote>
+<p>5G 특화망은 인접 기지국 또는 외부 무선 기기와의 전파 간섭을 최소화하는 설계가 필요하다. 주파수 계획, 빔포밍 기술을 통한 지향성 송수신, 간섭 조정 프로토콜(ICIC) 적용이 대표적인 간섭회피 방안이다. 28GHz 대역은 직진성이 강해 간섭 범위가 제한적이므로 특화망에 유리하다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">
+<ol start="6">
+<li class="">VPN(Virtual Private Network)에 대하여 다음을 설명하시오.</li>
+</ol>
+<ul>
+<li class="">가. VPN의 개념 및 특징</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>VPN은 공용 인터넷 위에 암호화된 터널을 구성하여 사설망처럼 안전하게 통신할 수 있는 가상 사설 네트워크이다. 원격 근무자가 사내 네트워크에 안전하게 접속하거나 지사 간 네트워크를 연결하는 데 활용된다. 터널링, 암호화, 인증, 접근제어가 VPN의 핵심 기술 요소이다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">나. IPSec(Internet Protocol Security) VPN과 SSL(Secure Socket Layer) VPN</li>
+</ul>
+<blockquote>
+<p>IPSec VPN은 네트워크 계층(L3)에서 동작하며 AH와 ESP 프로토콜을 통해 전체 IP 패킷을 보호한다. SSL VPN은 전송 계층(L4)에서 동작하며 웹 브라우저만으로 접속이 가능하여 별도 클라이언트 소프트웨어가 불필요하다. IPSec은 사이트 간 연결에, SSL VPN은 개인 원격 접속에 주로 활용된다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">다. VPN의 기술요소</li>
+</ul>
+<blockquote>
+<p>VPN의 핵심 기술 요소는 터널링(데이터 캡슐화 전송), 암호화(기밀성 보장), 인증(신원 확인), 접근제어(권한 관리)이다. 터널링 프로토콜로는 PPTP, L2TP, IPSec, SSL/TLS 등이 사용된다. 키 교환을 위해 IKE(Internet Key Exchange) 프로토콜이 사용되며 디피-헬만 키 교환 방식이 적용된다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="134회">134회<a href="#134회" class="hash-link" aria-label="Direct link to 134회" title="Direct link to 134회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1교시-13">1교시<a href="#1교시-13" class="hash-link" aria-label="Direct link to 1교시" title="Direct link to 1교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="8">
+<li class="">RIP(Routing Information Protocol)와 OSPF(Open Shortest Path First) 비교</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>RIP는 거리벡터 기반으로 홉 수를 메트릭으로 사용하며 최대 15홉 제한이 있는 소규모 망에 적합한 라우팅 프로토콜이다. OSPF는 링크상태 기반으로 다익스트라 알고리즘을 통해 최단 경로를 계산하며, 대규모 망에서도 빠른 수렴과 정확한 경로 선택이 가능하다. RIP는 구현이 단순하고, OSPF는 확장성과 성능이 뛰어나다는 것이 핵심 차이이다.</p>
+</blockquote>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="2교시-6">2교시<a href="#2교시-6" class="hash-link" aria-label="Direct link to 2교시" title="Direct link to 2교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="4">
+<li class="">대규모 AI 서비스를 위한 데이터센터 구축 기술에 대하여 설명하시오.</li>
+</ol>
+<ul>
+<li class="">나. DCI(Data Center Interconnect) 기술</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>DCI는 지리적으로 분산된 데이터센터 간을 고속·저지연으로 연결하는 네트워크 기술이다. 광전송 기술(DWDM), MPLS, VXLAN 기반의 오버레이 네트워크를 활용하여 데이터센터 간 투명한 L2/L3 연결을 제공한다. AI 분산 학습, 재해 복구, 부하 분산을 위해 데이터센터 간 초고속 연결이 필수적이다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="135회">135회<a href="#135회" class="hash-link" aria-label="Direct link to 135회" title="Direct link to 135회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1교시-14">1교시<a href="#1교시-14" class="hash-link" aria-label="Direct link to 1교시" title="Direct link to 1교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="4">
+<li class="">IBN(Intent-Based Networking)</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>IBN은 네트워크 관리자가 의도(Intent)를 선언적으로 명시하면 AI/ML 기반 시스템이 자동으로 네트워크를 구성·검증·최적화하는 지능형 네트워크 관리 방식이다. SDN과 네트워크 자동화를 발전시킨 개념으로, 비즈니스 목표를 네트워크 정책으로 자동 변환한다. 지속적인 상태 검증과 자가 치유 기능을 통해 의도한 상태를 유지한다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">
+<ol start="10">
+<li class="">IEEE 802.11bn</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>IEEE 802.11bn은 Wi-Fi 8로 불리는 차세대 무선 LAN 표준으로, 멀티링크 운용(MLO)을 고도화하여 복수의 주파수 대역을 동시에 활용한다. 기존 Wi-Fi 7(802.11be) 대비 더 높은 신뢰성, 공평성, 저지연을 목표로 하며 2028년경 표준화 완료가 예상된다. 스마트홈, XR, 산업 IoT 등 밀집 환경에서의 성능 향상이 주요 목표이다.</p>
+</blockquote>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="2교시-7">2교시<a href="#2교시-7" class="hash-link" aria-label="Direct link to 2교시" title="Direct link to 2교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="4">
+<li class="">6G 이동통신기술에 대하여 다음을 설명하시오.</li>
+</ol>
+<ul>
+<li class="">가. 서비스 특징</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>6G는 홀로그래픽 통신, 촉각 인터넷, 초실감 XR 등 5G에서 지원하지 못하는 초고화질·초저지연 서비스를 목표로 한다. AI 네이티브 기술로 네트워크가 스스로 최적화되고, 디지털 트윈과 결합하여 물리 세계의 실시간 디지털 복제가 가능해진다. 전 지구적 커버리지를 통해 어디서나 일관된 품질의 서비스를 제공하는 것이 핵심 서비스 특징이다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">나. 성능 요구사항</li>
+</ul>
+<blockquote>
+<p>6G의 주요 성능 목표는 최대 전송 속도 1Tbps, 체감 속도 1Gbps, 지연 시간 0.1ms 이하, 신뢰성 99.99999%(7 nines)이다. 위치 정확도 10cm 이내, 에너지 효율 5G 대비 100배 향상도 핵심 요구사항이다. 스펙트럼 효율, 연결 밀도, 이동성 지원도 5G 대비 대폭 향상을 목표로 한다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">다. 주파수 동향</li>
+</ul>
+<blockquote>
+<p>6G는 Sub-6GHz, mmWave(밀리미터파)에 더해 테라헤르츠(0.1~10THz) 대역을 새롭게 활용하는 방향으로 연구가 진행되고 있다. THz 대역은 광대한 대역폭을 제공하지만 전파 감쇠가 크고 투과율이 낮아 실내·근거리 환경 적용이 현실적이다. ITU-R WP5D를 중심으로 국제 주파수 표준화 논의가 진행 중이며, 위성 주파수 통합도 주요 이슈이다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="136회">136회<a href="#136회" class="hash-link" aria-label="Direct link to 136회" title="Direct link to 136회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="2교시-8">2교시<a href="#2교시-8" class="hash-link" aria-label="Direct link to 2교시" title="Direct link to 2교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="6">
+<li class="">인터넷 통신에서 보안성 강화를 위해 활용되는 TLS(Transport Layer Security) 1.2에 대한 취약점이 발견되어 TLS 1.3 사용을 권고하고 있다. 이와 관련하여 다음을 설명하시오.</li>
+</ol>
+<ul>
+<li class="">가. TLS 프로토콜 구조와 핸드셰이크(Handshake) 과정</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>TLS는 레코드 프로토콜을 기반으로 핸드셰이크, 경보, 변경 암호 사양 프로토콜로 구성된다. 핸드셰이크 과정에서 클라이언트와 서버는 버전 협상, 인증서 교환, 키 교환을 수행하여 세션 키를 생성한다. 이후 레코드 프로토콜이 세션 키로 데이터를 암호화하여 전송한다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">나. TLS 1.2 보안 취약점과 TLS 1.3 개선 사항</li>
+</ul>
+<blockquote>
+<p>TLS 1.2는 RC4, 3DES 등 취약 암호 알고리즘 지원, BEAST·POODLE 공격 취약점, 느린 2-RTT 핸드셰이크가 주요 문제이다. TLS 1.3은 취약 알고리즘을 제거하고 안전한 암호 스위트만 허용하며, 0-RTT 및 1-RTT 핸드셰이크로 연결 속도를 개선하였다. 완전 순방향 비밀성(PFS)을 기본으로 적용하여 과거 세션 키 노출 시에도 이전 통신이 보호된다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="137회">137회<a href="#137회" class="hash-link" aria-label="Direct link to 137회" title="Direct link to 137회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1교시-15">1교시<a href="#1교시-15" class="hash-link" aria-label="Direct link to 1교시" title="Direct link to 1교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol>
+<li class="">동적 라우팅 프로토콜인 IGP(Interior Gateway Protocol)와 EGP(Exterior Gateway Protocol)를 설명하시오.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>IGP는 하나의 자율 시스템(AS) 내부에서 사용하는 라우팅 프로토콜로 RIP, OSPF, EIGRP 등이 해당된다. EGP는 서로 다른 AS 간의 경로 정보를 교환하는 프로토콜로, 현재는 BGP-4가 인터넷의 사실상 표준으로 사용된다. IGP는 속도와 효율에, EGP는 정책과 확장성에 초점을 맞춘다는 점이 핵심 차이이다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">
+<ol start="3">
+<li class="">MODBUS 프로토콜을 설명하시오.</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>MODBUS는 1979년 Modicon이 개발한 산업용 직렬 통신 프로토콜로, PLC 등 산업 제어 장치 간 통신에 널리 사용된다. 마스터-슬레이브 구조로 동작하며 RTU, ASCII, TCP/IP 세 가지 전송 모드를 지원한다. 구조가 단순하고 공개 표준이어서 산업 자동화 분야에서 40년 이상 사실상 표준으로 사용되고 있다.</p>
+</blockquote>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="3교시-8">3교시<a href="#3교시-8" class="hash-link" aria-label="Direct link to 3교시" title="Direct link to 3교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="5">
+<li class="">통신 프로토콜에 대하여 각 항목을 설명하시오.</li>
+</ol>
+<ul>
+<li class="">가. 오류 제어, 혼잡 제어</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>오류 제어는 전송 중 발생한 비트 오류를 검출하고 정정하는 기능으로, ARQ(자동 재전송 요구) 방식이 대표적이다. 혼잡 제어는 네트워크의 과부하를 방지하기 위해 송신 속도를 조절하는 기능으로, TCP의 슬로우 스타트와 혼잡 회피가 대표 메커니즘이다. 두 기능은 신뢰성 있는 데이터 전송을 위해 협력하여 동작한다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">나. 슬라이딩 윈도우(Sliding Window) 기법</li>
+</ul>
+<blockquote>
+<p>슬라이딩 윈도우는 송신 측이 ACK를 기다리지 않고 윈도우 크기만큼 여러 프레임을 연속으로 전송하여 전송 효율을 높이는 기법이다. 수신 측의 ACK를 받으면 윈도우가 앞으로 이동(slide)하여 다음 프레임 전송이 가능해진다. Go-Back-N과 Selective Repeat ARQ의 기반이 되는 핵심 기법이다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">다. 프로토콜 설계 시 고려 사항</li>
+</ul>
+<blockquote>
+<p>프로토콜 설계 시 신뢰성(오류 제어, 재전송), 효율성(흐름 제어, 혼잡 제어), 주소 지정(식별자 할당), 순서 제어(패킷 재조합)를 고려해야 한다. 보안성(암호화, 인증), 확장성(미래 트래픽 증가 대응), 상호 운용성(표준 준수)도 중요한 설계 요소이다. 계층 독립성을 유지하여 하위 계층 변경이 상위 계층에 영향을 주지 않도록 설계해야 한다.</p>
+</blockquote>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="138회">138회<a href="#138회" class="hash-link" aria-label="Direct link to 138회" title="Direct link to 138회" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="4교시-7">4교시<a href="#4교시-7" class="hash-link" aria-label="Direct link to 4교시" title="Direct link to 4교시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<ol start="3">
+<li class="">6G 이동통신기술 핵심 개념인 AI-Native Network에 대하여 다음 내용을 설명하시오.</li>
+</ol>
+<ul>
+<li class="">가. 자율 최적화</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>AI-Native Network의 자율 최적화는 AI/ML이 네트워크 상태를 실시간으로 분석하여 자원 할당, 경로 선택, 파라미터 조정을 자동으로 수행하는 기능이다. 전통적인 규칙 기반 관리와 달리, 패턴 학습을 통해 예측적 최적화와 이상 상황에 대한 자가 치유가 가능하다. 이를 통해 운영 비용 절감과 네트워크 성능의 지속적 개선이 이루어진다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">나. AI-RAN</li>
+</ul>
+<blockquote>
+<p>AI-RAN은 기지국(RAN) 운용에 AI를 통합하여 무선 자원 관리, 빔 관리, 간섭 제어를 지능화하는 개념이다. 실시간 채널 상태 예측과 트래픽 패턴 학습을 통해 스펙트럼 효율을 극대화하고 에너지 소비를 줄인다. O-RAN 아키텍처와 결합하여 개방형 인터페이스 기반의 AI 기능 배포가 가능해진다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">다. 디지털트윈 기반 네트워크 관리</li>
+</ul>
+<blockquote>
+<p>디지털 트윈 기반 네트워크 관리는 물리 네트워크의 완전한 가상 복제본을 실시간으로 유지하여 시뮬레이션 기반의 의사결정을 지원한다. 새로운 구성이나 정책 변경을 디지털 트윈에서 먼저 검증하고 실제 망에 적용함으로써 장애 위험을 줄인다. AI와 결합하여 예측적 유지보수와 용량 계획의 정확도를 높인다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">
+<ol start="4">
+<li class="">데이터 통신에서 신뢰성 있는 전송을 보장하기 위한 오류 제어(Error Control) 기술에 대하여 다음 내용을 설명하시오.</li>
+</ol>
+<ul>
+<li class="">가. 오류 검출(Error Detection)과 오류 정정(Error Correction)의 개념</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>오류 검출은 전송된 데이터에 오류가 발생했는지 여부를 파악하는 기술로, 패리티 비트, CRC, 체크섬 등이 대표적이다. 오류 정정은 오류를 검출하는 것을 넘어 원래 데이터를 복원하는 기술로, 해밍 코드와 리드-솔로몬 코드 등의 FEC(전진 오류 정정) 방식이 사용된다. 검출만 하는 방식은 재전송(ARQ)에 의존하고, 정정 방식은 재전송 없이 수신 측에서 직접 복구한다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">나. &#x27;정지-대기(Stop-and-Wait) ARQ&#x27;와 &#x27;Go-Back-N ARQ&#x27;의 개념 및 수행절차</li>
+</ul>
+<blockquote>
+<p>정지-대기 ARQ는 하나의 프레임을 전송하고 ACK를 받은 후에 다음 프레임을 전송하는 단순한 방식이다. Go-Back-N ARQ는 슬라이딩 윈도우를 사용하여 여러 프레임을 연속 전송하고, 오류 발생 시 오류 프레임부터 윈도우 내 모든 프레임을 재전송한다. Go-Back-N은 전송 효율이 높지만 불필요한 재전송이 발생할 수 있다.</p>
+</blockquote>
+<!-- -->
+<ul>
+<li class="">다. &#x27;정지-대기(Stop-and-Wait) ARQ&#x27;와 &#x27;Go-Back-N ARQ&#x27; 비교</li>
+</ul>
+<blockquote>
+<p>정지-대기 방식은 구현이 단순하고 버퍼가 거의 필요 없지만, 매 프레임마다 ACK를 기다려야 하므로 링크 이용률이 낮다. Go-Back-N은 윈도우 크기만큼 연속 전송으로 높은 링크 이용률을 달성하지만, 오류 프레임 이후 모든 프레임을 재전송해야 한다. 채널 오류율이 낮을 때는 Go-Back-N이 효율적이고, 오류율이 높을 때는 Selective Repeat ARQ가 더 유리하다.</p>
+</blockquote>
+</div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_YM8j"><a href="https://github.com/electro9666/gisulsa/tree/main/docs/tutorial-subject/06-network.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_hRvp" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_LNbR"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/gisulsa/docs/tutorial-subject/project-management"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">프로젝트관리/감리</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/gisulsa/docs/tutorial-subject/law-policy"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">법/제도/정책</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_VU0O thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#110회" class="table-of-contents__link toc-highlight">110회</a><ul><li><a href="#1교시" class="table-of-contents__link toc-highlight">1교시</a></li><li><a href="#2교시" class="table-of-contents__link toc-highlight">2교시</a></li><li><a href="#3교시" class="table-of-contents__link toc-highlight">3교시</a></li></ul></li><li><a href="#111회" class="table-of-contents__link toc-highlight">111회</a><ul><li><a href="#1교시-1" class="table-of-contents__link toc-highlight">1교시</a></li><li><a href="#2교시-1" class="table-of-contents__link toc-highlight">2교시</a></li></ul></li><li><a href="#113회" class="table-of-contents__link toc-highlight">113회</a><ul><li><a href="#1교시-2" class="table-of-contents__link toc-highlight">1교시</a></li><li><a href="#2교시-2" class="table-of-contents__link toc-highlight">2교시</a></li><li><a href="#3교시-1" class="table-of-contents__link toc-highlight">3교시</a></li><li><a href="#4교시" class="table-of-contents__link toc-highlight">4교시</a></li></ul></li><li><a href="#114회" class="table-of-contents__link toc-highlight">114회</a><ul><li><a href="#1교시-3" class="table-of-contents__link toc-highlight">1교시</a></li><li><a href="#4교시-1" class="table-of-contents__link toc-highlight">4교시</a></li></ul></li><li><a href="#116회" class="table-of-contents__link toc-highlight">116회</a><ul><li><a href="#1교시-4" class="table-of-contents__link toc-highlight">1교시</a></li><li><a href="#4교시-2" class="table-of-contents__link toc-highlight">4교시</a></li></ul></li><li><a href="#117회" class="table-of-contents__link toc-highlight">117회</a><ul><li><a href="#1교시-5" class="table-of-contents__link toc-highlight">1교시</a></li><li><a href="#3교시-2" class="table-of-contents__link toc-highlight">3교시</a></li></ul></li><li><a href="#118회" class="table-of-contents__link toc-highlight">118회</a><ul><li><a href="#1교시-6" class="table-of-contents__link toc-highlight">1교시</a></li></ul></li><li><a href="#120회" class="table-of-contents__link toc-highlight">120회</a><ul><li><a href="#3교시-3" class="table-of-contents__link toc-highlight">3교시</a></li></ul></li><li><a href="#121회" class="table-of-contents__link toc-highlight">121회</a><ul><li><a href="#1교시-7" class="table-of-contents__link toc-highlight">1교시</a></li></ul></li><li><a href="#122회" class="table-of-contents__link toc-highlight">122회</a><ul><li><a href="#1교시-8" class="table-of-contents__link toc-highlight">1교시</a></li><li><a href="#3교시-4" class="table-of-contents__link toc-highlight">3교시</a></li></ul></li><li><a href="#123회" class="table-of-contents__link toc-highlight">123회</a><ul><li><a href="#1교시-9" class="table-of-contents__link toc-highlight">1교시</a></li><li><a href="#3교시-5" class="table-of-contents__link toc-highlight">3교시</a></li><li><a href="#4교시-3" class="table-of-contents__link toc-highlight">4교시</a></li></ul></li><li><a href="#125회" class="table-of-contents__link toc-highlight">125회</a><ul><li><a href="#3교시-6" class="table-of-contents__link toc-highlight">3교시</a></li></ul></li><li><a href="#126회" class="table-of-contents__link toc-highlight">126회</a><ul><li><a href="#4교시-4" class="table-of-contents__link toc-highlight">4교시</a></li></ul></li><li><a href="#127회" class="table-of-contents__link toc-highlight">127회</a><ul><li><a href="#4교시-5" class="table-of-contents__link toc-highlight">4교시</a></li></ul></li><li><a href="#128회" class="table-of-contents__link toc-highlight">128회</a><ul><li><a href="#2교시-3" class="table-of-contents__link toc-highlight">2교시</a></li></ul></li><li><a href="#129회" class="table-of-contents__link toc-highlight">129회</a><ul><li><a href="#2교시-4" class="table-of-contents__link toc-highlight">2교시</a></li><li><a href="#3교시-7" class="table-of-contents__link toc-highlight">3교시</a></li></ul></li><li><a href="#130회" class="table-of-contents__link toc-highlight">130회</a><ul><li><a href="#1교시-10" class="table-of-contents__link toc-highlight">1교시</a></li></ul></li><li><a href="#131회" class="table-of-contents__link toc-highlight">131회</a><ul><li><a href="#1교시-11" class="table-of-contents__link toc-highlight">1교시</a></li><li><a href="#2교시-5" class="table-of-contents__link toc-highlight">2교시</a></li></ul></li><li><a href="#133회" class="table-of-contents__link toc-highlight">133회</a><ul><li><a href="#1교시-12" class="table-of-contents__link toc-highlight">1교시</a></li><li><a href="#4교시-6" class="table-of-contents__link toc-highlight">4교시</a></li></ul></li><li><a href="#134회" class="table-of-contents__link toc-highlight">134회</a><ul><li><a href="#1교시-13" class="table-of-contents__link toc-highlight">1교시</a></li><li><a href="#2교시-6" class="table-of-contents__link toc-highlight">2교시</a></li></ul></li><li><a href="#135회" class="table-of-contents__link toc-highlight">135회</a><ul><li><a href="#1교시-14" class="table-of-contents__link toc-highlight">1교시</a></li><li><a href="#2교시-7" class="table-of-contents__link toc-highlight">2교시</a></li></ul></li><li><a href="#136회" class="table-of-contents__link toc-highlight">136회</a><ul><li><a href="#2교시-8" class="table-of-contents__link toc-highlight">2교시</a></li></ul></li><li><a href="#137회" class="table-of-contents__link toc-highlight">137회</a><ul><li><a href="#1교시-15" class="table-of-contents__link toc-highlight">1교시</a></li><li><a href="#3교시-8" class="table-of-contents__link toc-highlight">3교시</a></li></ul></li><li><a href="#138회" class="table-of-contents__link toc-highlight">138회</a><ul><li><a href="#4교시-7" class="table-of-contents__link toc-highlight">4교시</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/gisulsa/docs/intro">Tutorial</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_dv6w"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_dv6w"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://x.com/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">X<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_dv6w"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/gisulsa/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_dv6w"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 gisulsa. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
