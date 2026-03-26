@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkgisulsa=globalThis.webpackChunkgisulsa||[]).push([[1903],{1912(s){s.exports=JSON.parse('{"blogBasePath":"/gisulsa/blog","blogTitle":"Blog","authorsListPath":"/gisulsa/blog/authors"}')}}]);

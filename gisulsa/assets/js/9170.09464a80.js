@@ -1,0 +1,1 @@
+(globalThis.webpackChunkgisulsa=globalThis.webpackChunkgisulsa||[]).push([[9170],{7291(s,a,l){"use strict";l.d(a,{A:()=>h});var u=l(6430);const h=u},9056(){}}]);
