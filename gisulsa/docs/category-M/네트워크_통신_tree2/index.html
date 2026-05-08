@@ -1,0 +1,852 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-category-M/네트워크_통신_tree2" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">네트워크/통신 지식 트리 v2 (전체 개념 통합 온톨로지) | gisulsa</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://electro9666.github.io/gisulsa/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://electro9666.github.io/gisulsa/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://electro9666.github.io/gisulsa/docs/category-M/네트워크_통신_tree2"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="네트워크/통신 지식 트리 v2 (전체 개념 통합 온톨로지) | gisulsa"><meta data-rh="true" name="description" content="정보관리기술사 110~138회 기출 키워드 기반"><meta data-rh="true" property="og:description" content="정보관리기술사 110~138회 기출 키워드 기반"><link data-rh="true" rel="icon" href="/gisulsa/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://electro9666.github.io/gisulsa/docs/category-M/네트워크_통신_tree2"><link data-rh="true" rel="alternate" href="https://electro9666.github.io/gisulsa/docs/category-M/네트워크_통신_tree2" hreflang="en"><link data-rh="true" rel="alternate" href="https://electro9666.github.io/gisulsa/docs/category-M/네트워크_통신_tree2" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"category-M","item":"https://electro9666.github.io/gisulsa/docs/category/category-m"},{"@type":"ListItem","position":2,"name":"네트워크/통신 지식 트리 v2 (전체 개념 통합 온톨로지)","item":"https://electro9666.github.io/gisulsa/docs/category-M/네트워크_통신_tree2"}]}</script><link rel="alternate" type="application/rss+xml" href="/gisulsa/blog/rss.xml" title="gisulsa RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/gisulsa/blog/atom.xml" title="gisulsa Atom Feed">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/gisulsa/assets/css/styles.a1f5d752.css">
+<script src="/gisulsa/assets/js/runtime~main.2ecd64a0.js" defer="defer"></script>
+<script src="/gisulsa/assets/js/main.2608c409.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/gisulsa/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_WWLT" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/gisulsa/"><div class="navbar__logo"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_LsmM themedComponent--light_kzyx"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_LsmM themedComponent--dark_xYsB"></div><b class="navbar__title text--truncate">gisulsa</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/gisulsa/docs/category/analysis">Tutorial</a><a class="navbar__item navbar__link" href="/gisulsa/blog">Blog</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_dv6w"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_QAtP colorModeToggle_VHNg"><button class="clean-btn toggleButton_rINJ toggleButtonDisabled_v4UZ" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_FT9J lightToggleIcon_aOGA"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_FT9J darkToggleIcon_xqRO"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_FT9J systemToggleIcon_O5Jc"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_MDM0"><div class="navbar__search searchBarContainer_fx2U" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_CPtH" value=""><div class="loadingRing_rEdF searchBarLoadingRing_J01f"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_SQvo"><div class="docsWrapper_HjTU"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_91RE" type="button"></button><div class="docRoot_SzOB"><aside class="theme-doc-sidebar-container docSidebarContainer_Q0cb"><div class="sidebarViewport_TEb6"><div class="sidebar_LiQ3"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_iDgU"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/analysis"><span title="Analysis" class="categoryLinkLabel_ezQx">Analysis</span></a><button aria-label="Expand sidebar category &#x27;Analysis&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist menu__link--active" href="/gisulsa/docs/category/category-m"><span title="category-M" class="categoryLinkLabel_ezQx">category-M</span></a><button aria-label="Collapse sidebar category &#x27;category-M&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/전체개요"><span title="정보관리기술사 기출 키워드 분석 전체개요" class="linkLabel_REp1">정보관리기술사 기출 키워드 분석 전체개요</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/소프트웨어공학"><span title="소프트웨어공학 기출 키워드 분석" class="linkLabel_REp1">소프트웨어공학 기출 키워드 분석</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/소프트웨어공학_tree"><span title="소프트웨어공학 지식 트리 (형제 개념 통합판) - GPT" class="linkLabel_REp1">소프트웨어공학 지식 트리 (형제 개념 통합판) - GPT</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/소프트웨어공학_tree2"><span title="소프트웨어공학 지식 트리 v2 (전체 개념 통합 온톨로지) - Claude" class="linkLabel_REp1">소프트웨어공학 지식 트리 v2 (전체 개념 통합 온톨로지) - Claude</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/소프트웨어공학_지식그래프"><span title="소프트웨어공학 지식 그래프" class="linkLabel_REp1">소프트웨어공학 지식 그래프</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/데이터베이스"><span title="데이터베이스 기출 키워드 분석" class="linkLabel_REp1">데이터베이스 기출 키워드 분석</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/데이터베이스_tree2"><span title="데이터베이스 지식 트리 v2 (전체 개념 통합 온톨로지)" class="linkLabel_REp1">데이터베이스 지식 트리 v2 (전체 개념 통합 온톨로지)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/보안_정보보호"><span title="보안/정보보호 기출 키워드 분석" class="linkLabel_REp1">보안/정보보호 기출 키워드 분석</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/보안_정보보호_tree2"><span title="보안/정보보호 지식 트리 v2 (전체 개념 통합 온톨로지)" class="linkLabel_REp1">보안/정보보호 지식 트리 v2 (전체 개념 통합 온톨로지)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/네트워크_통신"><span title="네트워크/통신 기출 키워드 분석" class="linkLabel_REp1">네트워크/통신 기출 키워드 분석</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/gisulsa/docs/category-M/네트워크_통신_tree2"><span title="네트워크/통신 지식 트리 v2 (전체 개념 통합 온톨로지)" class="linkLabel_REp1">네트워크/통신 지식 트리 v2 (전체 개념 통합 온톨로지)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/인공지능_데이터분석"><span title="인공지능/데이터분석 기출 키워드 분석" class="linkLabel_REp1">인공지능/데이터분석 기출 키워드 분석</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/인공지능_데이터분석_tree2"><span title="인공지능/데이터분석 지식 트리 v2 (전체 개념 통합 온톨로지)" class="linkLabel_REp1">인공지능/데이터분석 지식 트리 v2 (전체 개념 통합 온톨로지)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/프로젝트관리_IT경영"><span title="프로젝트관리/IT경영 기출 키워드 분석" class="linkLabel_REp1">프로젝트관리/IT경영 기출 키워드 분석</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/프로젝트관리_IT경영_tree2"><span title="프로젝트관리/IT경영 지식 트리 v2 (전체 개념 통합 온톨로지)" class="linkLabel_REp1">프로젝트관리/IT경영 지식 트리 v2 (전체 개념 통합 온톨로지)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/컴퓨터구조_운영체제"><span title="컴퓨터구조/운영체제 기출 키워드 분석" class="linkLabel_REp1">컴퓨터구조/운영체제 기출 키워드 분석</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/컴퓨터구조_운영체제_tree2"><span title="컴퓨터구조/운영체제 지식 트리 v2 (전체 개념 통합 온톨로지)" class="linkLabel_REp1">컴퓨터구조/운영체제 지식 트리 v2 (전체 개념 통합 온톨로지)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/클라우드_인프라"><span title="클라우드/인프라 기출 키워드 분석" class="linkLabel_REp1">클라우드/인프라 기출 키워드 분석</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/클라우드_인프라_tree2"><span title="클라우드/인프라 지식 트리 v2 (전체 개념 통합 온톨로지)" class="linkLabel_REp1">클라우드/인프라 지식 트리 v2 (전체 개념 통합 온톨로지)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/블록체인"><span title="블록체인 기출 키워드 분석" class="linkLabel_REp1">블록체인 기출 키워드 분석</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/블록체인_tree2"><span title="블록체인 지식 트리 v2 (전체 개념 통합 온톨로지)" class="linkLabel_REp1">블록체인 지식 트리 v2 (전체 개념 통합 온톨로지)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/법제도_정책_윤리"><span title="법제도/정책/윤리 기출 키워드 분석" class="linkLabel_REp1">법제도/정책/윤리 기출 키워드 분석</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/법제도_정책_윤리_tree2"><span title="법제도/정책/윤리 지식 트리 v2 (전체 개념 통합 온톨로지)" class="linkLabel_REp1">법제도/정책/윤리 지식 트리 v2 (전체 개념 통합 온톨로지)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/자료구조_알고리즘"><span title="자료구조/알고리즘 기출 키워드 분석" class="linkLabel_REp1">자료구조/알고리즘 기출 키워드 분석</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/자료구조_알고리즘_tree2"><span title="자료구조/알고리즘 지식 트리 v2 (전체 개념 통합 온톨로지)" class="linkLabel_REp1">자료구조/알고리즘 지식 트리 v2 (전체 개념 통합 온톨로지)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/신기술_융합"><span title="신기술/융합 기출 키워드 분석" class="linkLabel_REp1">신기술/융합 기출 키워드 분석</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/신기술_융합_tree2"><span title="신기술/융합 지식 트리 v2 (전체 개념 통합 온톨로지)" class="linkLabel_REp1">신기술/융합 지식 트리 v2 (전체 개념 통합 온톨로지)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/category-M/tree_readme"><span title="현재까지 정의된 작업 규칙 정리" class="linkLabel_REp1">현재까지 정의된 작업 규칙 정리</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m-summary"><span title="category-M-summary" class="categoryLinkLabel_ezQx">category-M-summary</span></a><button aria-label="Expand sidebar category &#x27;category-M-summary&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/category-mc"><span title="category-MC" class="categoryLinkLabel_ezQx">category-MC</span></a><button aria-label="Expand sidebar category &#x27;category-MC&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/gisulsa/docs/intro"><span title="Tutorial Intro" class="linkLabel_REp1">Tutorial Intro</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-m"><span title="기출-과목-M" class="categoryLinkLabel_ezQx">기출-과목-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-교재-m"><span title="기출-과목-교재-M" class="categoryLinkLabel_ezQx">기출-과목-교재-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-교재-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/etc"><span title="Etc" class="categoryLinkLabel_ezQx">Etc</span></a><button aria-label="Expand sidebar category &#x27;Etc&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/answer"><span title="Answer" class="categoryLinkLabel_ezQx">Answer</span></a><button aria-label="Expand sidebar category &#x27;Answer&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/dap"><span title="DAP" class="categoryLinkLabel_ezQx">DAP</span></a><button aria-label="Expand sidebar category &#x27;DAP&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/gisulsa/docs/keyword/IT서비스_통합/ISMP"><span title="keyword" class="categoryLinkLabel_ezQx">keyword</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_C0wL"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_txwF"><div class="docItemContainer_FUEM"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_DlgT" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/gisulsa/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_BMIH"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/gisulsa/docs/category/category-m"><span>category-M</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">네트워크/통신 지식 트리 v2 (전체 개념 통합 온톨로지)</span></li></ul></nav><div class="tocCollapsible_LBsY theme-doc-toc-mobile tocMobile_eMWB"><button type="button" class="clean-btn tocCollapsibleButton_fVBn">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>네트워크/통신 지식 트리 v2 (전체 개념 통합 온톨로지)</h1></header>
+<blockquote>
+<p>정보관리기술사 110~138회 기출 키워드 기반
+tree_readme.md 규칙 적용: 개념 중심 / 계층화 / 정규화 / 복합키워드 분해 / 비교문제 귀속 / 형제 개념 보완 / OSI 계층·통신 도메인 흐름 우선</p>
+</blockquote>
+<ul>
+<li class="">네트워크/통신</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="1-통신-및-네트워크-기초">1. 통신 및 네트워크 기초<a href="#1-통신-및-네트워크-기초" class="hash-link" aria-label="Direct link to 1. 통신 및 네트워크 기초" title="Direct link to 1. 통신 및 네트워크 기초" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="11-정보이론-및-통신-기초">1.1 정보이론 및 통신 기초<a href="#11-정보이론-및-통신-기초" class="hash-link" aria-label="Direct link to 1.1 정보이론 및 통신 기초" title="Direct link to 1.1 정보이론 및 통신 기초" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>정보이론(Information Theory)</p>
+<ul>
+<li class="">정보이론과 샤논(Shannon)의 정리 (125, 4교시-2)</li>
+</ul>
+</li>
+<li class="">
+<p>샤논의 제1정리(소스 코딩)</p>
+<ul>
+<li class="">정보이론과 샤논(Shannon)의 정리 (125, 4교시-2)</li>
+</ul>
+</li>
+<li class="">
+<p>샤논의 제2정리(채널 용량)</p>
+<ul>
+<li class="">정보이론과 샤논(Shannon)의 정리 (125, 4교시-2)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="12-교환방식">1.2 교환방식<a href="#12-교환방식" class="hash-link" aria-label="Direct link to 1.2 교환방식" title="Direct link to 1.2 교환방식" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>정보통신 용어</p>
+<ul>
+<li class="">정보통신 용어 및 교환방식(회선교환/패킷교환) (118, 4교시-6)</li>
+</ul>
+</li>
+<li class="">
+<p>회선교환(Circuit Switching)</p>
+<ul>
+<li class="">정보통신 용어 및 교환방식(회선교환/패킷교환) (118, 4교시-6)</li>
+</ul>
+</li>
+<li class="">
+<p>패킷교환(Packet Switching)</p>
+<ul>
+<li class="">정보통신 용어 및 교환방식(회선교환/패킷교환) (118, 4교시-6)</li>
+</ul>
+</li>
+<li class="">
+<p>메시지 교환(Message Switching)</p>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="13-osi-참조-모델">1.3 OSI 참조 모델<a href="#13-osi-참조-모델" class="hash-link" aria-label="Direct link to 1.3 OSI 참조 모델" title="Direct link to 1.3 OSI 참조 모델" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>OSI 7 Layer</p>
+<ul>
+<li class="">OSI 7 Layer (117, 1교시-11)</li>
+<li class="">OSI 7 Layer 각 계층과 특징 (124, 3교시-5)</li>
+</ul>
+</li>
+<li class="">
+<p>1계층 - 물리</p>
+</li>
+<li class="">
+<p>2계층 - 데이터링크</p>
+</li>
+<li class="">
+<p>3계층 - 네트워크</p>
+</li>
+<li class="">
+<p>4계층 - 전송</p>
+</li>
+<li class="">
+<p>5계층 - 세션</p>
+</li>
+<li class="">
+<p>6계층 - 표현</p>
+</li>
+<li class="">
+<p>7계층 - 응용</p>
+</li>
+<li class="">
+<p>TCP/IP 4계층 모델</p>
+</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="2-네트워크-프로토콜-및-통신">2. 네트워크 프로토콜 및 통신<a href="#2-네트워크-프로토콜-및-통신" class="hash-link" aria-label="Direct link to 2. 네트워크 프로토콜 및 통신" title="Direct link to 2. 네트워크 프로토콜 및 통신" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="21-프로토콜-설계-원리">2.1 프로토콜 설계 원리<a href="#21-프로토콜-설계-원리" class="hash-link" aria-label="Direct link to 2.1 프로토콜 설계 원리" title="Direct link to 2.1 프로토콜 설계 원리" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>프로토콜 설계 고려사항</p>
+<ul>
+<li class="">통신 프로토콜(오류제어, 혼잡제어, 슬라이딩윈도우) (137, 3교시-5)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="22-오류-제어-및-검출">2.2 오류 제어 및 검출<a href="#22-오류-제어-및-검출" class="hash-link" aria-label="Direct link to 2.2 오류 제어 및 검출" title="Direct link to 2.2 오류 제어 및 검출" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>오류 검출(Error Detection)</p>
+<ul>
+<li class="">오류 검출/정정, Stop-and-Wait ARQ, Go-Back-N ARQ (138, 4교시-4)</li>
+</ul>
+</li>
+<li class="">
+<p>오류 정정(Error Correction)</p>
+<ul>
+<li class="">오류 검출/정정, Stop-and-Wait ARQ, Go-Back-N ARQ (138, 4교시-4)</li>
+</ul>
+</li>
+<li class="">
+<p>CRC(Cyclic Redundancy Check)</p>
+<ul>
+<li class="">CRC(Cyclic Redundancy Check) (110, 3교시-3)</li>
+</ul>
+</li>
+<li class="">
+<p>Parity Check</p>
+</li>
+<li class="">
+<p>Hamming Code</p>
+</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_yIpS" id="221-arq-기법">2.2.1 ARQ 기법<a href="#221-arq-기법" class="hash-link" aria-label="Direct link to 2.2.1 ARQ 기법" title="Direct link to 2.2.1 ARQ 기법" translate="no">​</a></h4>
+<ul>
+<li class="">
+<p>Stop-and-Wait ARQ</p>
+<ul>
+<li class="">오류 검출/정정, Stop-and-Wait ARQ, Go-Back-N ARQ (138, 4교시-4)</li>
+</ul>
+</li>
+<li class="">
+<p>Go-Back-N ARQ</p>
+<ul>
+<li class="">오류 검출/정정, Stop-and-Wait ARQ, Go-Back-N ARQ (138, 4교시-4)</li>
+</ul>
+</li>
+<li class="">
+<p>Selective Repeat ARQ</p>
+</li>
+<li class="">
+<p>Adaptive ARQ</p>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="23-흐름-제어-및-혼잡-제어">2.3 흐름 제어 및 혼잡 제어<a href="#23-흐름-제어-및-혼잡-제어" class="hash-link" aria-label="Direct link to 2.3 흐름 제어 및 혼잡 제어" title="Direct link to 2.3 흐름 제어 및 혼잡 제어" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>흐름 제어(Flow Control)</p>
+</li>
+<li class="">
+<p>슬라이딩 윈도우(Sliding Window)</p>
+<ul>
+<li class="">오류 제어, 혼잡 제어, 슬라이딩 윈도우 (137, 3교시-5)</li>
+</ul>
+</li>
+<li class="">
+<p>TCP 혼잡제어</p>
+<ul>
+<li class="">TCP 혼잡제어 메커니즘 (130, 3교시-3)</li>
+</ul>
+</li>
+<li class="">
+<p>Slow Start / Congestion Avoidance / Fast Retransmit / Fast Recovery</p>
+<ul>
+<li class="">TCP 혼잡제어 메커니즘 (130, 3교시-3)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="24-전송-계층-프로토콜">2.4 전송 계층 프로토콜<a href="#24-전송-계층-프로토콜" class="hash-link" aria-label="Direct link to 2.4 전송 계층 프로토콜" title="Direct link to 2.4 전송 계층 프로토콜" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>TCP(Transmission Control Protocol)</p>
+<ul>
+<li class="">TCP 3-way handshake와 4-way handshake (133, 1교시-13)</li>
+</ul>
+</li>
+<li class="">
+<p>TCP 3-way handshake</p>
+<ul>
+<li class="">TCP 3-way handshake와 4-way handshake (133, 1교시-13)</li>
+</ul>
+</li>
+<li class="">
+<p>TCP 4-way handshake</p>
+<ul>
+<li class="">TCP 3-way handshake와 4-way handshake (133, 1교시-13)</li>
+</ul>
+</li>
+<li class="">
+<p>UDP(User Datagram Protocol)</p>
+</li>
+<li class="">
+<p>SCTP(Stream Control Transmission Protocol)</p>
+<ul>
+<li class="">SCTP(Stream Control Transmission Protocol) (132, 3교시-4)</li>
+</ul>
+</li>
+<li class="">
+<p>QUIC</p>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="25-응용-계층-프로토콜">2.5 응용 계층 프로토콜<a href="#25-응용-계층-프로토콜" class="hash-link" aria-label="Direct link to 2.5 응용 계층 프로토콜" title="Direct link to 2.5 응용 계층 프로토콜" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>HTTP</p>
+<ul>
+<li class="">HTTP 취약점과 HTTPS (113, 2교시-5)</li>
+</ul>
+</li>
+<li class="">
+<p>HTTPS</p>
+<ul>
+<li class="">HTTP 취약점과 HTTPS (113, 2교시-5)</li>
+</ul>
+</li>
+<li class="">
+<p>HTTP/2 / HTTP/3</p>
+</li>
+<li class="">
+<p>FTP / FTPS / SFTP</p>
+<ul>
+<li class="">FTP, FTPS, SFTP 비교 (116, 2교시-2)</li>
+</ul>
+</li>
+<li class="">
+<p>SMTP / IMAP / POP3</p>
+</li>
+<li class="">
+<p>DNS</p>
+</li>
+<li class="">
+<p>DHCP</p>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="26-iotm2m-메시지-프로토콜">2.6 IoT/M2M 메시지 프로토콜<a href="#26-iotm2m-메시지-프로토콜" class="hash-link" aria-label="Direct link to 2.6 IoT/M2M 메시지 프로토콜" title="Direct link to 2.6 IoT/M2M 메시지 프로토콜" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>MQTT(Message Queuing Telemetry Transport)</p>
+<ul>
+<li class="">XMPP, CoAP, MQTT 비교 (110, 1교시-6)</li>
+<li class="">IoT 네트워크 보안(CoAP/MQTT/LwM2M) (111, 2교시-6)</li>
+</ul>
+</li>
+<li class="">
+<p>CoAP(Constrained Application Protocol)</p>
+<ul>
+<li class="">XMPP, CoAP, MQTT 비교 (110, 1교시-6)</li>
+<li class="">IoT 네트워크 보안(CoAP/MQTT/LwM2M) (111, 2교시-6)</li>
+</ul>
+</li>
+<li class="">
+<p>XMPP(eXtensible Messaging and Presence Protocol)</p>
+<ul>
+<li class="">XMPP, CoAP, MQTT 비교 (110, 1교시-6)</li>
+</ul>
+</li>
+<li class="">
+<p>LwM2M(Lightweight M2M)</p>
+<ul>
+<li class="">IoT 네트워크 보안(CoAP/MQTT/LwM2M) (111, 2교시-6)</li>
+</ul>
+</li>
+<li class="">
+<p>AMQP</p>
+</li>
+<li class="">
+<p>MODBUS 프로토콜</p>
+<ul>
+<li class="">MODBUS 프로토콜 (137, 1교시-3)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="27-소켓-및-실시간-통신">2.7 소켓 및 실시간 통신<a href="#27-소켓-및-실시간-통신" class="hash-link" aria-label="Direct link to 2.7 소켓 및 실시간 통신" title="Direct link to 2.7 소켓 및 실시간 통신" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>Socket 통신</p>
+<ul>
+<li class="">Socket 통신(TCP Socket, Web Socket) (116, 3교시-6)</li>
+<li class="">소켓 통신과 TCP/Web 소켓 (131, 2교시-5)</li>
+</ul>
+</li>
+<li class="">
+<p>TCP Socket</p>
+<ul>
+<li class="">Socket 통신(TCP Socket, Web Socket) (116, 3교시-6)</li>
+</ul>
+</li>
+<li class="">
+<p>WebSocket</p>
+<ul>
+<li class="">Socket 통신(TCP Socket, Web Socket) (116, 3교시-6)</li>
+<li class="">소켓 통신과 TCP/Web 소켓 (131, 2교시-5)</li>
+</ul>
+</li>
+<li class="">
+<p>WebRTC(Web Real-Time Communication)</p>
+<ul>
+<li class="">WebRTC (123, 1교시-9)</li>
+</ul>
+</li>
+<li class="">
+<p>Non-blocking I/O</p>
+<ul>
+<li class="">Non-blocking I/O (113, 1교시-11)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="3-라우팅-및-ip-네트워크">3. 라우팅 및 IP 네트워크<a href="#3-라우팅-및-ip-네트워크" class="hash-link" aria-label="Direct link to 3. 라우팅 및 IP 네트워크" title="Direct link to 3. 라우팅 및 IP 네트워크" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="31-라우팅-알고리즘">3.1 라우팅 알고리즘<a href="#31-라우팅-알고리즘" class="hash-link" aria-label="Direct link to 3.1 라우팅 알고리즘" title="Direct link to 3.1 라우팅 알고리즘" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>거리벡터 라우팅(Distance Vector Routing)</p>
+<ul>
+<li class="">거리벡터 라우팅(Distance Vector Routing) (124, 1교시-11)</li>
+</ul>
+</li>
+<li class="">
+<p>링크 상태 라우팅(Link State Routing)</p>
+</li>
+<li class="">
+<p>경로 벡터 라우팅(Path Vector Routing)</p>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="32-라우팅-프로토콜-분류">3.2 라우팅 프로토콜 분류<a href="#32-라우팅-프로토콜-분류" class="hash-link" aria-label="Direct link to 3.2 라우팅 프로토콜 분류" title="Direct link to 3.2 라우팅 프로토콜 분류" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>IGP(Interior Gateway Protocol)</p>
+<ul>
+<li class="">IGP와 EGP (137, 1교시-1)</li>
+</ul>
+</li>
+<li class="">
+<p>EGP(Exterior Gateway Protocol)</p>
+<ul>
+<li class="">IGP와 EGP (137, 1교시-1)</li>
+</ul>
+</li>
+<li class="">
+<p>RIP(Routing Information Protocol)</p>
+<ul>
+<li class="">RIP와 OSPF 비교 (134, 1교시-8)</li>
+</ul>
+</li>
+<li class="">
+<p>OSPF(Open Shortest Path First)</p>
+<ul>
+<li class="">RIP와 OSPF 비교 (134, 1교시-8)</li>
+</ul>
+</li>
+<li class="">
+<p>BGP(Border Gateway Protocol)</p>
+</li>
+<li class="">
+<p>EIGRP</p>
+</li>
+<li class="">
+<p>IS-IS</p>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="33-ip-주소-관리">3.3 IP 주소 관리<a href="#33-ip-주소-관리" class="hash-link" aria-label="Direct link to 3.3 IP 주소 관리" title="Direct link to 3.3 IP 주소 관리" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>IPv4 / IPv6</p>
+</li>
+<li class="">
+<p>서브네팅(Subnetting)</p>
+<ul>
+<li class="">서브네팅(Subnetting)과 수퍼네팅(Supernetting) (130, 2교시-3)</li>
+</ul>
+</li>
+<li class="">
+<p>수퍼네팅(Supernetting)</p>
+<ul>
+<li class="">서브네팅(Subnetting)과 수퍼네팅(Supernetting) (130, 2교시-3)</li>
+</ul>
+</li>
+<li class="">
+<p>CIDR</p>
+</li>
+<li class="">
+<p>NAT / PAT</p>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="34-데이터-표현-및-프록시">3.4 데이터 표현 및 프록시<a href="#34-데이터-표현-및-프록시" class="hash-link" aria-label="Direct link to 3.4 데이터 표현 및 프록시" title="Direct link to 3.4 데이터 표현 및 프록시" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>ASN.1(Abstract Syntax Notation One)</p>
+<ul>
+<li class="">ASN.1 (110, 1교시-11)</li>
+</ul>
+</li>
+<li class="">
+<p>리버스 프록시(Reverse Proxy)</p>
+<ul>
+<li class="">리버스 프록시(Reverse Proxy) (110, 1교시-8)</li>
+</ul>
+</li>
+<li class="">
+<p>프레임릴레이(Frame Relay)</p>
+<ul>
+<li class="">프레임릴레이(Frame Relay) (124, 1교시-10)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="4-이동-통신">4. 이동 통신<a href="#4-이동-통신" class="hash-link" aria-label="Direct link to 4. 이동 통신" title="Direct link to 4. 이동 통신" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="41-5g">4.1 5G<a href="#41-5g" class="hash-link" aria-label="Direct link to 4.1 5G" title="Direct link to 4.1 5G" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>5G 네트워크</p>
+<ul>
+<li class="">5G 네트워크 기술적 특징 (114, 4교시-6)</li>
+</ul>
+</li>
+<li class="">
+<p>5G 특화망(지역 5G)</p>
+<ul>
+<li class="">5G 특화망(지역 5G) (125, 1교시-11)</li>
+<li class="">5G 특화망 네트워크 구축 고려사항 (133, 4교시-5)</li>
+</ul>
+</li>
+<li class="">
+<p>네트워크 슬라이싱(Network Slicing)</p>
+<ul>
+<li class="">5G 네트워크 슬라이싱(Network Slicing) (118, 1교시-10)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="42-6g">4.2 6G<a href="#42-6g" class="hash-link" aria-label="Direct link to 4.2 6G" title="Direct link to 4.2 6G" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>6G 이동통신</p>
+<ul>
+<li class="">6G 이동통신 (130, 1교시-7)</li>
+<li class="">6G 이동통신기술 서비스, 성능, 주파수 (135, 2교시-4)</li>
+</ul>
+</li>
+<li class="">
+<p>6G AI-Native Network</p>
+<ul>
+<li class="">6G AI-Native Network (138, 4교시-3)</li>
+</ul>
+</li>
+<li class="">
+<p>AI-RAN</p>
+<ul>
+<li class="">6G AI-Native Network (138, 4교시-3)</li>
+</ul>
+</li>
+<li class="">
+<p>SATIN(Satellite-Terrestrial Integrated Network)</p>
+<ul>
+<li class="">6G 위성-상공-지상 통합형 네트워크(SATIN) (128, 4교시-3)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="43-무선-접속-기술">4.3 무선 접속 기술<a href="#43-무선-접속-기술" class="hash-link" aria-label="Direct link to 4.3 무선 접속 기술" title="Direct link to 4.3 무선 접속 기술" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>NOMA(Non-Orthogonal Multiple Access)</p>
+<ul>
+<li class="">비직교 다중접속(NOMA) (129, 1교시-12)</li>
+</ul>
+</li>
+<li class="">
+<p>OFDMA / SCMA</p>
+</li>
+<li class="">
+<p>SDR(Software Defined Radio)</p>
+<ul>
+<li class="">SDR(Software Defined Radio) (125, 1교시-12)</li>
+</ul>
+</li>
+<li class="">
+<p>MIMO / Massive MIMO</p>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="44-차량-통신">4.4 차량 통신<a href="#44-차량-통신" class="hash-link" aria-label="Direct link to 4.4 차량 통신" title="Direct link to 4.4 차량 통신" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>C-V2X(Cellular Vehicle-to-Everything)</p>
+<ul>
+<li class="">차량·사물 셀룰러 통신(C-V2X) (121, 1교시-9)</li>
+</ul>
+</li>
+<li class="">
+<p>DSRC</p>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="45-무선-lanwi-fi">4.5 무선 LAN(Wi-Fi)<a href="#45-무선-lanwi-fi" class="hash-link" aria-label="Direct link to 4.5 무선 LAN(Wi-Fi)" title="Direct link to 4.5 무선 LAN(Wi-Fi)" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>IEEE 802.11 표준</p>
+</li>
+<li class="">
+<p>IEEE 802.11bn</p>
+<ul>
+<li class="">IEEE 802.11bn (135, 1교시-10)</li>
+</ul>
+</li>
+<li class="">
+<p>Wi-Fi 6 / Wi-Fi 7</p>
+</li>
+<li class="">
+<p>WPA3</p>
+</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="5-iot-및-센서-네트워크">5. IoT 및 센서 네트워크<a href="#5-iot-및-센서-네트워크" class="hash-link" aria-label="Direct link to 5. IoT 및 센서 네트워크" title="Direct link to 5. IoT 및 센서 네트워크" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="51-iot-개념">5.1 IoT 개념<a href="#51-iot-개념" class="hash-link" aria-label="Direct link to 5.1 IoT 개념" title="Direct link to 5.1 IoT 개념" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>IoT(Internet of Things)</p>
+</li>
+<li class="">
+<p>IoB(Internet of Behavior)</p>
+<ul>
+<li class="">행동인터넷(IoB, Internet of Behavior) (123, 3교시-6)</li>
+</ul>
+</li>
+<li class="">
+<p>CPS(Cyber-Physical System)</p>
+<ul>
+<li class="">CPS(Cyber-Physical System) (113, 1교시-9)</li>
+<li class="">CPS 구축 절차 (120, 1교시-6)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="52-iot-식별-및-디바이스">5.2 IoT 식별 및 디바이스<a href="#52-iot-식별-및-디바이스" class="hash-link" aria-label="Direct link to 5.2 IoT 식별 및 디바이스" title="Direct link to 5.2 IoT 식별 및 디바이스" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>객체식별자 기반 IoT 디바이스 식별체계</p>
+<ul>
+<li class="">객체식별자 기반 IoT 디바이스 식별체계 (116, 1교시-11)</li>
+</ul>
+</li>
+<li class="">
+<p>OID(Object Identifier)</p>
+</li>
+<li class="">
+<p>EPC(Electronic Product Code)</p>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="53-무선-센서-네트워크wsn">5.3 무선 센서 네트워크(WSN)<a href="#53-무선-센서-네트워크wsn" class="hash-link" aria-label="Direct link to 5.3 무선 센서 네트워크(WSN)" title="Direct link to 5.3 무선 센서 네트워크(WSN)" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>WSN(Wireless Sensor Network)</p>
+<ul>
+<li class="">WSN과 애드혹(Ad-hoc) 네트워크 (110, 2교시-4)</li>
+</ul>
+</li>
+<li class="">
+<p>애드혹(Ad-hoc) 네트워크</p>
+<ul>
+<li class="">WSN과 애드혹(Ad-hoc) 네트워크 (110, 2교시-4)</li>
+</ul>
+</li>
+<li class="">
+<p>WSN Itinerary Routing</p>
+<ul>
+<li class="">무선 센서 네트워크 Itinerary Routing (111, 1교시-7)</li>
+</ul>
+</li>
+<li class="">
+<p>WSN 라우팅 프로토콜(LEACH, PEGASIS)</p>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="54-저전력-광역-통신">5.4 저전력 광역 통신<a href="#54-저전력-광역-통신" class="hash-link" aria-label="Direct link to 5.4 저전력 광역 통신" title="Direct link to 5.4 저전력 광역 통신" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>LPWA(Low Power Wide Area)</p>
+<ul>
+<li class="">LPWA(Low Power Wide Area) (110, 1교시-2)</li>
+</ul>
+</li>
+<li class="">
+<p>LoRa / SigFox / NB-IoT</p>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="55-iot-보안-및-응용">5.5 IoT 보안 및 응용<a href="#55-iot-보안-및-응용" class="hash-link" aria-label="Direct link to 5.5 IoT 보안 및 응용" title="Direct link to 5.5 IoT 보안 및 응용" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>IoT 보안위협 → 보안 카테고리 참조</p>
+<ul>
+<li class="">미라이 봇넷(IoT 보안위협, 공통보안 7대원칙) (126, 4교시-3)</li>
+</ul>
+</li>
+<li class="">
+<p>스마트팩토리</p>
+<ul>
+<li class="">스마트팩토리시스템(Smart Factory System) (120, 1교시-7)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="6-네트워크-가상화-및-sdnnfv">6. 네트워크 가상화 및 SDN/NFV<a href="#6-네트워크-가상화-및-sdnnfv" class="hash-link" aria-label="Direct link to 6. 네트워크 가상화 및 SDN/NFV" title="Direct link to 6. 네트워크 가상화 및 SDN/NFV" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="61-sdnsoftware-defined-networking">6.1 SDN(Software Defined Networking)<a href="#61-sdnsoftware-defined-networking" class="hash-link" aria-label="Direct link to 6.1 SDN(Software Defined Networking)" title="Direct link to 6.1 SDN(Software Defined Networking)" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>SDN 제어 평면</p>
+<ul>
+<li class="">SDN 제어 평면, 오픈플로우(OpenFlow) (127, 3교시-5)</li>
+</ul>
+</li>
+<li class="">
+<p>OpenFlow</p>
+<ul>
+<li class="">SDN 제어 평면, 오픈플로우(OpenFlow) (127, 3교시-5)</li>
+</ul>
+</li>
+<li class="">
+<p>SDN 데이터 평면 / 관리 평면</p>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="62-nfvnetwork-function-virtualization">6.2 NFV(Network Function Virtualization)<a href="#62-nfvnetwork-function-virtualization" class="hash-link" aria-label="Direct link to 6.2 NFV(Network Function Virtualization)" title="Direct link to 6.2 NFV(Network Function Virtualization)" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>NFV(Network Function Virtualization)</p>
+<ul>
+<li class="">VLAN, VPN, NFV 비교 (120, 3교시-4)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="63-가상-lan">6.3 가상 LAN<a href="#63-가상-lan" class="hash-link" aria-label="Direct link to 6.3 가상 LAN" title="Direct link to 6.3 가상 LAN" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>VLAN(Virtual LAN)</p>
+<ul>
+<li class="">VLAN, VPN, NFV 비교 (120, 3교시-4)</li>
+</ul>
+</li>
+<li class="">
+<p>VPN(Virtual Private Network)</p>
+<ul>
+<li class="">VLAN, VPN, NFV 비교 (120, 3교시-4)</li>
+</ul>
+</li>
+<li class="">
+<p>VXLAN(Virtual eXtensible LAN)</p>
+<ul>
+<li class="">VXLAN(Virtual eXtensible LAN) (130, 1교시-8)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="64-의도-기반-네트워킹">6.4 의도 기반 네트워킹<a href="#64-의도-기반-네트워킹" class="hash-link" aria-label="Direct link to 6.4 의도 기반 네트워킹" title="Direct link to 6.4 의도 기반 네트워킹" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>IBN(Intent-Based Networking)</p>
+<ul>
+<li class="">IBN(Intent-Based Networking) (135, 1교시-4)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="7-qosquality-of-service">7. QoS(Quality of Service)<a href="#7-qosquality-of-service" class="hash-link" aria-label="Direct link to 7. QoS(Quality of Service)" title="Direct link to 7. QoS(Quality of Service)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="71-qos-모델">7.1 QoS 모델<a href="#71-qos-모델" class="hash-link" aria-label="Direct link to 7.1 QoS 모델" title="Direct link to 7.1 QoS 모델" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>DiffServ(Differentiated Services)</p>
+<ul>
+<li class="">DiffServ와 IntServ (125, 3교시-3)</li>
+</ul>
+</li>
+<li class="">
+<p>IntServ(Integrated Services)</p>
+<ul>
+<li class="">DiffServ와 IntServ (125, 3교시-3)</li>
+</ul>
+</li>
+<li class="">
+<p>MPLS</p>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="72-큐잉-알고리즘">7.2 큐잉 알고리즘<a href="#72-큐잉-알고리즘" class="hash-link" aria-label="Direct link to 7.2 큐잉 알고리즘" title="Direct link to 7.2 큐잉 알고리즘" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>WFQ(Weighted Fair Queuing)</p>
+<ul>
+<li class="">WFQ(Weighted Fair Queuing) (125, 1교시-10)</li>
+</ul>
+</li>
+<li class="">
+<p>FIFO / Priority Queuing / Class-Based Queuing</p>
+</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="8-망-정책-및-인터넷-거버넌스">8. 망 정책 및 인터넷 거버넌스<a href="#8-망-정책-및-인터넷-거버넌스" class="hash-link" aria-label="Direct link to 8. 망 정책 및 인터넷 거버넌스" title="Direct link to 8. 망 정책 및 인터넷 거버넌스" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="81-망중립성">8.1 망중립성<a href="#81-망중립성" class="hash-link" aria-label="Direct link to 8.1 망중립성" title="Direct link to 8.1 망중립성" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>망중립성(Network Neutrality)</p>
+<ul>
+<li class="">망중립성(Network Neutrality) (113, 1교시-13)</li>
+<li class="">망 중립성 정책 이슈 (114, 4교시-1)</li>
+<li class="">망중립성 이슈(CP 망관리 비용) (123, 4교시-1)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="82-제로-레이팅">8.2 제로 레이팅<a href="#82-제로-레이팅" class="hash-link" aria-label="Direct link to 8.2 제로 레이팅" title="Direct link to 8.2 제로 레이팅" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>제로 레이팅(Zero Rating)</p>
+<ul>
+<li class="">제로 레이팅(Zero Rating) (116, 1교시-6)</li>
+</ul>
+</li>
+<li class="">
+<p>OTT 서비스의 제로 레이팅</p>
+<ul>
+<li class="">OTT 서비스의 제로 레이팅 문제점 (119, 1교시-5)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="9-근거리-무선-통신">9. 근거리 무선 통신<a href="#9-근거리-무선-통신" class="hash-link" aria-label="Direct link to 9. 근거리 무선 통신" title="Direct link to 9. 근거리 무선 통신" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="91-nfc">9.1 NFC<a href="#91-nfc" class="hash-link" aria-label="Direct link to 9.1 NFC" title="Direct link to 9.1 NFC" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>NFC(Near Field Communication)</p>
+<ul>
+<li class="">NFC(Near Field Communication) (131, 1교시-2)</li>
+</ul>
+</li>
+<li class="">
+<p>HCE(Host Card Emulation)</p>
+<ul>
+<li class="">HCE(Host Card Emulation) (113, 1교시-10)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="92-익명-네트워크">9.2 익명 네트워크<a href="#92-익명-네트워크" class="hash-link" aria-label="Direct link to 9.2 익명 네트워크" title="Direct link to 9.2 익명 네트워크" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>TOR(The Onion Routing)</p>
+<ul>
+<li class="">익명 네트워크 TOR(The Onion Routing) (113, 1교시-7)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="93-광통신">9.3 광통신<a href="#93-광통신" class="hash-link" aria-label="Direct link to 9.3 광통신" title="Direct link to 9.3 광통신" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>FSO(Free Space Optics)</p>
+<ul>
+<li class="">모바일 FSO(Free Space Optics) 통신 (121, 1교시-8)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="10-엣지클라우드-네트워킹">10. 엣지·클라우드 네트워킹<a href="#10-엣지클라우드-네트워킹" class="hash-link" aria-label="Direct link to 10. 엣지·클라우드 네트워킹" title="Direct link to 10. 엣지·클라우드 네트워킹" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="101-엣지-컴퓨팅-네트워크">10.1 엣지 컴퓨팅 네트워크<a href="#101-엣지-컴퓨팅-네트워크" class="hash-link" aria-label="Direct link to 10.1 엣지 컴퓨팅 네트워크" title="Direct link to 10.1 엣지 컴퓨팅 네트워크" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>모바일 엣지 컴퓨팅(Mobile Edge Computing)</p>
+<ul>
+<li class="">모바일 엣지 컴퓨팅(Mobile Edge Computing) (118, 1교시-8)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="102-데이터센터-네트워킹">10.2 데이터센터 네트워킹<a href="#102-데이터센터-네트워킹" class="hash-link" aria-label="Direct link to 10.2 데이터센터 네트워킹" title="Direct link to 10.2 데이터센터 네트워킹" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>DCI(Data Center Interconnect)</p>
+<ul>
+<li class="">DCI(Data Center Interconnect) (134, 2교시-4)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="103-멀티클라우드-네트워크">10.3 멀티클라우드 네트워크<a href="#103-멀티클라우드-네트워크" class="hash-link" aria-label="Direct link to 10.3 멀티클라우드 네트워크" title="Direct link to 10.3 멀티클라우드 네트워크" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>멀티클라우드(MultiCloud)</p>
+<ul>
+<li class="">멀티클라우드(MultiCloud) (135, 3교시-3)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="104-해저-통신-인프라">10.4 해저 통신 인프라<a href="#104-해저-통신-인프라" class="hash-link" aria-label="Direct link to 10.4 해저 통신 인프라" title="Direct link to 10.4 해저 통신 인프라" translate="no">​</a></h3>
+<ul>
+<li class="">
+<p>해저케이블</p>
+<ul>
+<li class="">해저케이블 에퀴아노(Equiano) 프로젝트 (123, 1교시-13)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="메타정보">메타정보<a href="#메타정보" class="hash-link" aria-label="Direct link to 메타정보" title="Direct link to 메타정보" translate="no">​</a></h2>
+<ul>
+<li class="">출처: 정보관리기술사 110~138회 기출 (네트워크/통신 분야)</li>
+<li class="">메타데이터 표기: <code>(회차, 교시-문번)</code> — 복수일 경우 <code>/</code>로 구분</li>
+<li class="">분류 원칙: tree_readme.md 13개 규칙 적용</li>
+<li class="">비교 문제: 관련 개념 각각에 귀속(메타정보)</li>
+<li class="">형제 개념 보완: ARQ 기법 4종, OSI 7계층 전체, 라우팅 프로토콜 다양성, 응용 프로토콜(DNS/DHCP 등), 무선 LAN 표준 추가</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_YM8j"><a href="https://github.com/electro9666/gisulsa/tree/main/docs/category-M/04_네트워크_통신_tree2.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_hRvp" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_LNbR"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/gisulsa/docs/category-M/네트워크_통신"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">네트워크/통신 기출 키워드 분석</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/gisulsa/docs/category-M/인공지능_데이터분석"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">인공지능/데이터분석 기출 키워드 분석</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_VU0O thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-통신-및-네트워크-기초" class="table-of-contents__link toc-highlight">1. 통신 및 네트워크 기초</a><ul><li><a href="#11-정보이론-및-통신-기초" class="table-of-contents__link toc-highlight">1.1 정보이론 및 통신 기초</a></li><li><a href="#12-교환방식" class="table-of-contents__link toc-highlight">1.2 교환방식</a></li><li><a href="#13-osi-참조-모델" class="table-of-contents__link toc-highlight">1.3 OSI 참조 모델</a></li></ul></li><li><a href="#2-네트워크-프로토콜-및-통신" class="table-of-contents__link toc-highlight">2. 네트워크 프로토콜 및 통신</a><ul><li><a href="#21-프로토콜-설계-원리" class="table-of-contents__link toc-highlight">2.1 프로토콜 설계 원리</a></li><li><a href="#22-오류-제어-및-검출" class="table-of-contents__link toc-highlight">2.2 오류 제어 및 검출</a></li><li><a href="#23-흐름-제어-및-혼잡-제어" class="table-of-contents__link toc-highlight">2.3 흐름 제어 및 혼잡 제어</a></li><li><a href="#24-전송-계층-프로토콜" class="table-of-contents__link toc-highlight">2.4 전송 계층 프로토콜</a></li><li><a href="#25-응용-계층-프로토콜" class="table-of-contents__link toc-highlight">2.5 응용 계층 프로토콜</a></li><li><a href="#26-iotm2m-메시지-프로토콜" class="table-of-contents__link toc-highlight">2.6 IoT/M2M 메시지 프로토콜</a></li><li><a href="#27-소켓-및-실시간-통신" class="table-of-contents__link toc-highlight">2.7 소켓 및 실시간 통신</a></li></ul></li><li><a href="#3-라우팅-및-ip-네트워크" class="table-of-contents__link toc-highlight">3. 라우팅 및 IP 네트워크</a><ul><li><a href="#31-라우팅-알고리즘" class="table-of-contents__link toc-highlight">3.1 라우팅 알고리즘</a></li><li><a href="#32-라우팅-프로토콜-분류" class="table-of-contents__link toc-highlight">3.2 라우팅 프로토콜 분류</a></li><li><a href="#33-ip-주소-관리" class="table-of-contents__link toc-highlight">3.3 IP 주소 관리</a></li><li><a href="#34-데이터-표현-및-프록시" class="table-of-contents__link toc-highlight">3.4 데이터 표현 및 프록시</a></li></ul></li><li><a href="#4-이동-통신" class="table-of-contents__link toc-highlight">4. 이동 통신</a><ul><li><a href="#41-5g" class="table-of-contents__link toc-highlight">4.1 5G</a></li><li><a href="#42-6g" class="table-of-contents__link toc-highlight">4.2 6G</a></li><li><a href="#43-무선-접속-기술" class="table-of-contents__link toc-highlight">4.3 무선 접속 기술</a></li><li><a href="#44-차량-통신" class="table-of-contents__link toc-highlight">4.4 차량 통신</a></li><li><a href="#45-무선-lanwi-fi" class="table-of-contents__link toc-highlight">4.5 무선 LAN(Wi-Fi)</a></li></ul></li><li><a href="#5-iot-및-센서-네트워크" class="table-of-contents__link toc-highlight">5. IoT 및 센서 네트워크</a><ul><li><a href="#51-iot-개념" class="table-of-contents__link toc-highlight">5.1 IoT 개념</a></li><li><a href="#52-iot-식별-및-디바이스" class="table-of-contents__link toc-highlight">5.2 IoT 식별 및 디바이스</a></li><li><a href="#53-무선-센서-네트워크wsn" class="table-of-contents__link toc-highlight">5.3 무선 센서 네트워크(WSN)</a></li><li><a href="#54-저전력-광역-통신" class="table-of-contents__link toc-highlight">5.4 저전력 광역 통신</a></li><li><a href="#55-iot-보안-및-응용" class="table-of-contents__link toc-highlight">5.5 IoT 보안 및 응용</a></li></ul></li><li><a href="#6-네트워크-가상화-및-sdnnfv" class="table-of-contents__link toc-highlight">6. 네트워크 가상화 및 SDN/NFV</a><ul><li><a href="#61-sdnsoftware-defined-networking" class="table-of-contents__link toc-highlight">6.1 SDN(Software Defined Networking)</a></li><li><a href="#62-nfvnetwork-function-virtualization" class="table-of-contents__link toc-highlight">6.2 NFV(Network Function Virtualization)</a></li><li><a href="#63-가상-lan" class="table-of-contents__link toc-highlight">6.3 가상 LAN</a></li><li><a href="#64-의도-기반-네트워킹" class="table-of-contents__link toc-highlight">6.4 의도 기반 네트워킹</a></li></ul></li><li><a href="#7-qosquality-of-service" class="table-of-contents__link toc-highlight">7. QoS(Quality of Service)</a><ul><li><a href="#71-qos-모델" class="table-of-contents__link toc-highlight">7.1 QoS 모델</a></li><li><a href="#72-큐잉-알고리즘" class="table-of-contents__link toc-highlight">7.2 큐잉 알고리즘</a></li></ul></li><li><a href="#8-망-정책-및-인터넷-거버넌스" class="table-of-contents__link toc-highlight">8. 망 정책 및 인터넷 거버넌스</a><ul><li><a href="#81-망중립성" class="table-of-contents__link toc-highlight">8.1 망중립성</a></li><li><a href="#82-제로-레이팅" class="table-of-contents__link toc-highlight">8.2 제로 레이팅</a></li></ul></li><li><a href="#9-근거리-무선-통신" class="table-of-contents__link toc-highlight">9. 근거리 무선 통신</a><ul><li><a href="#91-nfc" class="table-of-contents__link toc-highlight">9.1 NFC</a></li><li><a href="#92-익명-네트워크" class="table-of-contents__link toc-highlight">9.2 익명 네트워크</a></li><li><a href="#93-광통신" class="table-of-contents__link toc-highlight">9.3 광통신</a></li></ul></li><li><a href="#10-엣지클라우드-네트워킹" class="table-of-contents__link toc-highlight">10. 엣지·클라우드 네트워킹</a><ul><li><a href="#101-엣지-컴퓨팅-네트워크" class="table-of-contents__link toc-highlight">10.1 엣지 컴퓨팅 네트워크</a></li><li><a href="#102-데이터센터-네트워킹" class="table-of-contents__link toc-highlight">10.2 데이터센터 네트워킹</a></li><li><a href="#103-멀티클라우드-네트워크" class="table-of-contents__link toc-highlight">10.3 멀티클라우드 네트워크</a></li><li><a href="#104-해저-통신-인프라" class="table-of-contents__link toc-highlight">10.4 해저 통신 인프라</a></li></ul></li><li><a href="#메타정보" class="table-of-contents__link toc-highlight">메타정보</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/gisulsa/docs/intro">Tutorial</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_dv6w"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_dv6w"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://x.com/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">X<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_dv6w"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/gisulsa/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_dv6w"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 gisulsa. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
