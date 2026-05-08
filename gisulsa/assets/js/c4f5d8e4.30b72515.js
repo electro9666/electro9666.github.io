@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkgisulsa=globalThis.webpackChunkgisulsa||[]).push([[52634],{19830(s,a,l){l.r(a),l.d(a,{default:()=>i});var u=l(59471),e=l(52264);function i(){const s=(0,e.W6)();return(0,u.useEffect)(()=>{s.replace("/gisulsa/docs/analysis/138M_analysis")},[]),null}}}]);
