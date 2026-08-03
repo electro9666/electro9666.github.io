@@ -11,93 +11,799 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/gisulsa/assets/css/styles.a1f5d752.css">
-<script src="/gisulsa/assets/js/runtime~main.3ad014ab.js" defer="defer"></script>
-<script src="/gisulsa/assets/js/main.4ed98a97.js" defer="defer"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/gisulsa/assets/css/styles.41fc131c.css">
+<script src="/gisulsa/assets/js/runtime~main.8669f273.js" defer="defer"></script>
+<script src="/gisulsa/assets/js/main.a54d0fea.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
 <symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
 </defs></svg>
-<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/gisulsa/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_WWLT" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/gisulsa/"><div class="navbar__logo"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_LsmM themedComponent--light_kzyx"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_LsmM themedComponent--dark_xYsB"></div><b class="navbar__title text--truncate">gisulsa</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/gisulsa/docs/category/analysis">Tutorial</a><a class="navbar__item navbar__link" href="/gisulsa/blog">Blog</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_dv6w"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_QAtP colorModeToggle_VHNg"><button class="clean-btn toggleButton_rINJ toggleButtonDisabled_v4UZ" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_FT9J lightToggleIcon_aOGA"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_FT9J darkToggleIcon_xqRO"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_FT9J systemToggleIcon_O5Jc"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_MDM0"><div class="navbar__search searchBarContainer_fx2U" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_CPtH" value=""><div class="loadingRing_rEdF searchBarLoadingRing_J01f"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_SQvo"><div class="docsWrapper_HjTU"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_91RE" type="button"></button><div class="docRoot_SzOB"><aside class="theme-doc-sidebar-container docSidebarContainer_Q0cb"><div class="sidebarViewport_TEb6"><div class="sidebar_LiQ3"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_iDgU"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist menu__link--active" href="/gisulsa/docs/category/analysis"><span title="Analysis" class="categoryLinkLabel_ezQx">Analysis</span></a><button aria-label="Collapse sidebar category &#x27;Analysis&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/137M_analysis"><span title="137회 정보관리기술사(137M) 기출 이유 분석" class="linkLabel_REp1">137회 정보관리기술사(137M) 기출 이유 분석</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_10_TTPs"><span title="138M" class="categoryLinkLabel_ezQx">138M</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_10_TTPs"><span title="문제 10) TTPs(Tactics, Techniques and Procedures)" class="linkLabel_REp1">문제 10) TTPs(Tactics, Techniques and Procedures)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_11_은행가_알고리즘"><span title="문제 11) 은행가 알고리즘(Banker&#x27;s Algorithm)" class="linkLabel_REp1">문제 11) 은행가 알고리즘(Banker&#x27;s Algorithm)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_12_프롬프트_인젝션"><span title="문제 12) 프롬프트 인젝션(Prompt Injection)" class="linkLabel_REp1">문제 12) 프롬프트 인젝션(Prompt Injection)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_13_모델_전도_공격"><span title="문제 13) 모델 전도 공격(Model Inversion Attack)" class="linkLabel_REp1">문제 13) 모델 전도 공격(Model Inversion Attack)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_1_AI_RMF"><span title="문제 1) AI RMF(Risk Management Framework)" class="linkLabel_REp1">문제 1) AI RMF(Risk Management Framework)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_2_프로젝트_위험관리"><span title="문제 2) 프로젝트 위험관리" class="linkLabel_REp1">문제 2) 프로젝트 위험관리</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_3_ISO_IEC_42001"><span title="문제 3) ISO/IEC 42001:2023" class="linkLabel_REp1">문제 3) ISO/IEC 42001:2023</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_4_베이즈_정리"><span title="문제 4) 베이즈 정리" class="linkLabel_REp1">문제 4) 베이즈 정리</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_5_안면인식_결제_서비스"><span title="문제 5) 안면인식 결제 서비스" class="linkLabel_REp1">문제 5) 안면인식 결제 서비스</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_6_테일러링"><span title="문제 6) 소프트웨어 개발 프로젝트에서 선도개발을 위한 개발방법론 테일러링(Tailoring)" class="linkLabel_REp1">문제 6) 소프트웨어 개발 프로젝트에서 선도개발을 위한 개발방법론 테일러링(Tailoring)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_7_자기회귀모형_이동평균모형"><span title="문제 7) 자기회귀모형(Autoregressive Model)과 이동평균모형(Moving Average Model)" class="linkLabel_REp1">문제 7) 자기회귀모형(Autoregressive Model)과 이동평균모형(Moving Average Model)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_8_데이터_관측가능성"><span title="문제 8) 데이터 관측가능성(Data Observability)" class="linkLabel_REp1">문제 8) 데이터 관측가능성(Data Observability)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_9_참조_무결성"><span title="문제 9) 정보모델링의 참조 무결성" class="linkLabel_REp1">문제 9) 정보모델링의 참조 무결성</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_2_1_오픈소스_DBMS_전환"><span title="문제 1) 오픈소스 DBMS 전환" class="linkLabel_REp1">문제 1) 오픈소스 DBMS 전환</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_2_2_ISP"><span title="문제 2) ISP(Information Strategy Planning)" class="linkLabel_REp1">문제 2) ISP(Information Strategy Planning)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_2_3_GPU_TPU"><span title="문제 3) GPU와 TPU" class="linkLabel_REp1">문제 3) GPU와 TPU</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_2_4_TA_AA"><span title="문제 4) TA(Technical Architect)와 AA(Application Architect)의 역할 및 협업" class="linkLabel_REp1">문제 4) TA(Technical Architect)와 AA(Application Architect)의 역할 및 협업</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_2_5_재공학_역공학"><span title="문제 5) 소프트웨어 재공학(Re-engineering)과 역공학(Reverse-engineering)" class="linkLabel_REp1">문제 5) 소프트웨어 재공학(Re-engineering)과 역공학(Reverse-engineering)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_2_6_메모리_영역"><span title="문제 6) 프로그램 실행 시 메모리 4가지 주요 영역" class="linkLabel_REp1">문제 6) 프로그램 실행 시 메모리 4가지 주요 영역</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_3_1_생성형AI_이용자보호_가이드라인"><span title="문제 1) 생성형 인공지능 서비스 이용자 보호 가이드라인 (2025.2.28.)" class="linkLabel_REp1">문제 1) 생성형 인공지능 서비스 이용자 보호 가이드라인 (2025.2.28.)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_3_2_로우코드"><span title="문제 2) 로우코드(Low Code) 플랫폼" class="linkLabel_REp1">문제 2) 로우코드(Low Code) 플랫폼</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_3_3_데이터베이스_분할"><span title="문제 3) 분산 데이터베이스 시스템 구축을 위한 데이터베이스 분할" class="linkLabel_REp1">문제 3) 분산 데이터베이스 시스템 구축을 위한 데이터베이스 분할</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_3_4_FTS_HA"><span title="문제 4) 가용성 보장 - FTS와 HA 구현 방법" class="linkLabel_REp1">문제 4) 가용성 보장 - FTS와 HA 구현 방법</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_3_5_공격표면_측면이동"><span title="문제 5) IT 인프라 확장에 따른 사이버 위협 - 공격 표면과 측면 이동" class="linkLabel_REp1">문제 5) IT 인프라 확장에 따른 사이버 위협 - 공격 표면과 측면 이동</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_3_6_ISMS"><span title="문제 6) 정보보호 관리체계(ISMS) 및 ISMS-P" class="linkLabel_REp1">문제 6) 정보보호 관리체계(ISMS) 및 ISMS-P</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_4_1_인공지능기본법"><span title="문제 1) 인공지능기본법 (AI 발전과 신뢰 기반 조성)" class="linkLabel_REp1">문제 1) 인공지능기본법 (AI 발전과 신뢰 기반 조성)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_4_2_해시_함수"><span title="문제 2) 단방향 해시 함수 (Hash Function)" class="linkLabel_REp1">문제 2) 단방향 해시 함수 (Hash Function)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_4_3_6G_AI_Native_Network"><span title="문제 3) 6G AI-Native Network" class="linkLabel_REp1">문제 3) 6G AI-Native Network</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_4_4_오류_제어"><span title="문제 4) 오류 제어 (Error Control)" class="linkLabel_REp1">문제 4) 오류 제어 (Error Control)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_4_5_랜섬웨어_RaaS"><span title="문제 5) 랜섬웨어와 RaaS (Ransomware as a Service)" class="linkLabel_REp1">문제 5) 랜섬웨어와 RaaS (Ransomware as a Service)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_4_6_PET"><span title="문제 6) PET (Privacy Enhancing Technology, 개인정보 보호 강화기술)" class="linkLabel_REp1">문제 6) PET (Privacy Enhancing Technology, 개인정보 보호 강화기술)</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M_analysis"><span title="138회 정보관리기술사(138M) 기출 이유 분석" class="linkLabel_REp1">138회 정보관리기술사(138M) 기출 이유 분석</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_10_WiFi7"><span title="139M" class="categoryLinkLabel_ezQx">139M</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M_analysis"><span title="139회 정보관리기술사(139M) 기출 이유 분석" class="linkLabel_REp1">139회 정보관리기술사(139M) 기출 이유 분석</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m"><span title="category-M" class="categoryLinkLabel_ezQx">category-M</span></a><button aria-label="Expand sidebar category &#x27;category-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m-summary"><span title="category-M-summary" class="categoryLinkLabel_ezQx">category-M-summary</span></a><button aria-label="Expand sidebar category &#x27;category-M-summary&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/category-mc"><span title="category-MC" class="categoryLinkLabel_ezQx">category-MC</span></a><button aria-label="Expand sidebar category &#x27;category-MC&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/gisulsa/docs/intro"><span title="Tutorial Intro" class="linkLabel_REp1">Tutorial Intro</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-m"><span title="기출-과목-M" class="categoryLinkLabel_ezQx">기출-과목-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-교재-m"><span title="기출-과목-교재-M" class="categoryLinkLabel_ezQx">기출-과목-교재-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-교재-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/etc"><span title="Etc" class="categoryLinkLabel_ezQx">Etc</span></a><button aria-label="Expand sidebar category &#x27;Etc&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/answer"><span title="Answer" class="categoryLinkLabel_ezQx">Answer</span></a><button aria-label="Expand sidebar category &#x27;Answer&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/dap"><span title="DAP" class="categoryLinkLabel_ezQx">DAP</span></a><button aria-label="Expand sidebar category &#x27;DAP&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/gisulsa/docs/keyword/IT서비스_통합/ISMP"><span title="keyword" class="categoryLinkLabel_ezQx">keyword</span></a></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_p7wf"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_Rd1m"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_C0wL"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_txwF"><div class="docItemContainer_FUEM"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_DlgT" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/gisulsa/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_BMIH"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/gisulsa/docs/category/analysis"><span>Analysis</span></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">138M</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">문제 6) 정보보호 관리체계(ISMS) 및 ISMS-P</span></li></ul></nav><div class="tocCollapsible_LBsY theme-doc-toc-mobile tocMobile_eMWB"><button type="button" class="clean-btn tocCollapsibleButton_fVBn">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>문제 6) 정보보호 관리체계(ISMS) 및 ISMS-P</h1></header>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/gisulsa/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_WWLT" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/gisulsa/"><div class="navbar__logo"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_rBb5 themedComponent--light_t3c2"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_rBb5 themedComponent--dark_Z76H"></div><b class="navbar__title text--truncate">gisulsa</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/gisulsa/docs/category/analysis">Tutorial</a><a class="navbar__item navbar__link" href="/gisulsa/blog">Blog</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_dv6w"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_QAtP colorModeToggle_VHNg"><button class="clean-btn toggleButton_rINJ toggleButtonDisabled_v4UZ" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_FT9J lightToggleIcon_aOGA"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_FT9J darkToggleIcon_xqRO"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_FT9J systemToggleIcon_O5Jc"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_MDM0"><div class="navbar__search searchBarContainer_I9Fh" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_g3lN" value=""><div class="loadingRing_PDHZ searchBarLoadingRing_dhft"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_SQvo"><div class="docsWrapper_HjTU"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_91RE" type="button"></button><div class="docRoot_SzOB"><aside class="theme-doc-sidebar-container docSidebarContainer_Q0cb"><div class="sidebarViewport_TEb6"><div class="sidebar_LiQ3"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_iDgU"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist menu__link--active" href="/gisulsa/docs/category/analysis"><span title="Analysis" class="categoryLinkLabel_ezQx">Analysis</span></a><button aria-label="Collapse sidebar category &#x27;Analysis&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/137M_analysis"><span title="137회 정보관리기술사(137M) 기출 이유 분석" class="linkLabel_REp1">137회 정보관리기술사(137M) 기출 이유 분석</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_10_TTPs"><span title="138M" class="categoryLinkLabel_ezQx">138M</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_10_TTPs"><span title="문제 10) TTPs(Tactics, Techniques and Procedures)" class="linkLabel_REp1">문제 10) TTPs(Tactics, Techniques and Procedures)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_11_은행가_알고리즘"><span title="문제 11) 은행가 알고리즘(Banker&#x27;s Algorithm)" class="linkLabel_REp1">문제 11) 은행가 알고리즘(Banker&#x27;s Algorithm)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_12_프롬프트_인젝션"><span title="문제 12) 프롬프트 인젝션(Prompt Injection)" class="linkLabel_REp1">문제 12) 프롬프트 인젝션(Prompt Injection)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_13_모델_전도_공격"><span title="문제 13) 모델 전도 공격(Model Inversion Attack)" class="linkLabel_REp1">문제 13) 모델 전도 공격(Model Inversion Attack)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_1_AI_RMF"><span title="문제 1) AI RMF(Risk Management Framework)" class="linkLabel_REp1">문제 1) AI RMF(Risk Management Framework)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_2_프로젝트_위험관리"><span title="문제 2) 프로젝트 위험관리" class="linkLabel_REp1">문제 2) 프로젝트 위험관리</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_3_ISO_IEC_42001"><span title="문제 3) ISO/IEC 42001:2023" class="linkLabel_REp1">문제 3) ISO/IEC 42001:2023</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_4_베이즈_정리"><span title="문제 4) 베이즈 정리" class="linkLabel_REp1">문제 4) 베이즈 정리</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_5_안면인식_결제_서비스"><span title="문제 5) 안면인식 결제 서비스" class="linkLabel_REp1">문제 5) 안면인식 결제 서비스</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_6_테일러링"><span title="문제 6) 소프트웨어 개발 프로젝트에서 선도개발을 위한 개발방법론 테일러링(Tailoring)" class="linkLabel_REp1">문제 6) 소프트웨어 개발 프로젝트에서 선도개발을 위한 개발방법론 테일러링(Tailoring)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_7_자기회귀모형_이동평균모형"><span title="문제 7) 자기회귀모형(Autoregressive Model)과 이동평균모형(Moving Average Model)" class="linkLabel_REp1">문제 7) 자기회귀모형(Autoregressive Model)과 이동평균모형(Moving Average Model)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_8_데이터_관측가능성"><span title="문제 8) 데이터 관측가능성(Data Observability)" class="linkLabel_REp1">문제 8) 데이터 관측가능성(Data Observability)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_9_참조_무결성"><span title="문제 9) 정보모델링의 참조 무결성" class="linkLabel_REp1">문제 9) 정보모델링의 참조 무결성</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_2_1_오픈소스_DBMS_전환"><span title="문제 1) 오픈소스 DBMS 전환" class="linkLabel_REp1">문제 1) 오픈소스 DBMS 전환</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_2_2_ISP"><span title="문제 2) ISP(Information Strategy Planning)" class="linkLabel_REp1">문제 2) ISP(Information Strategy Planning)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_2_3_GPU_TPU"><span title="문제 3) GPU와 TPU" class="linkLabel_REp1">문제 3) GPU와 TPU</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_2_4_TA_AA"><span title="문제 4) TA(Technical Architect)와 AA(Application Architect)의 역할 및 협업" class="linkLabel_REp1">문제 4) TA(Technical Architect)와 AA(Application Architect)의 역할 및 협업</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_2_5_재공학_역공학"><span title="문제 5) 소프트웨어 재공학(Re-engineering)과 역공학(Reverse-engineering)" class="linkLabel_REp1">문제 5) 소프트웨어 재공학(Re-engineering)과 역공학(Reverse-engineering)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_2_6_메모리_영역"><span title="문제 6) 프로그램 실행 시 메모리 4가지 주요 영역" class="linkLabel_REp1">문제 6) 프로그램 실행 시 메모리 4가지 주요 영역</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_3_1_생성형AI_이용자보호_가이드라인"><span title="문제 1) 생성형 인공지능 서비스 이용자 보호 가이드라인 (2025.2.28.)" class="linkLabel_REp1">문제 1) 생성형 인공지능 서비스 이용자 보호 가이드라인 (2025.2.28.)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_3_2_로우코드"><span title="문제 2) 로우코드(Low Code) 플랫폼" class="linkLabel_REp1">문제 2) 로우코드(Low Code) 플랫폼</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_3_3_데이터베이스_분할"><span title="문제 3) 분산 데이터베이스 시스템 구축을 위한 데이터베이스 분할" class="linkLabel_REp1">문제 3) 분산 데이터베이스 시스템 구축을 위한 데이터베이스 분할</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_3_4_FTS_HA"><span title="문제 4) 가용성 보장 - FTS와 HA 구현 방법" class="linkLabel_REp1">문제 4) 가용성 보장 - FTS와 HA 구현 방법</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_3_5_공격표면_측면이동"><span title="문제 5) IT 인프라 확장에 따른 사이버 위협 - 공격 표면과 측면 이동" class="linkLabel_REp1">문제 5) IT 인프라 확장에 따른 사이버 위협 - 공격 표면과 측면 이동</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_3_6_ISMS"><span title="문제 6) 정보보호 관리체계(ISMS) 및 ISMS-P" class="linkLabel_REp1">문제 6) 정보보호 관리체계(ISMS) 및 ISMS-P</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_4_1_인공지능기본법"><span title="문제 1) 인공지능기본법 (AI 발전과 신뢰 기반 조성)" class="linkLabel_REp1">문제 1) 인공지능기본법 (AI 발전과 신뢰 기반 조성)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_4_2_해시_함수"><span title="문제 2) 단방향 해시 함수 (Hash Function)" class="linkLabel_REp1">문제 2) 단방향 해시 함수 (Hash Function)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_4_3_6G_AI_Native_Network"><span title="문제 3) 6G AI-Native Network" class="linkLabel_REp1">문제 3) 6G AI-Native Network</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_4_4_오류_제어"><span title="문제 4) 오류 제어 (Error Control)" class="linkLabel_REp1">문제 4) 오류 제어 (Error Control)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_4_5_랜섬웨어_RaaS"><span title="문제 5) 랜섬웨어와 RaaS (Ransomware as a Service)" class="linkLabel_REp1">문제 5) 랜섬웨어와 RaaS (Ransomware as a Service)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_4_6_PET"><span title="문제 6) PET (Privacy Enhancing Technology, 개인정보 보호 강화기술)" class="linkLabel_REp1">문제 6) PET (Privacy Enhancing Technology, 개인정보 보호 강화기술)</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M_analysis"><span title="138회 정보관리기술사(138M) 기출 이유 분석" class="linkLabel_REp1">138회 정보관리기술사(138M) 기출 이유 분석</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_10_WiFi7"><span title="139M" class="categoryLinkLabel_ezQx">139M</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M_analysis"><span title="139회 정보관리기술사(139M) 기출 이유 분석" class="linkLabel_REp1">139회 정보관리기술사(139M) 기출 이유 분석</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m"><span title="category-M" class="categoryLinkLabel_ezQx">category-M</span></a><button aria-label="Expand sidebar category &#x27;category-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m-summary"><span title="category-M-summary" class="categoryLinkLabel_ezQx">category-M-summary</span></a><button aria-label="Expand sidebar category &#x27;category-M-summary&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/category-mc"><span title="category-MC" class="categoryLinkLabel_ezQx">category-MC</span></a><button aria-label="Expand sidebar category &#x27;category-MC&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/gisulsa/docs/intro"><span title="Tutorial Intro" class="linkLabel_REp1">Tutorial Intro</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-m"><span title="기출-과목-M" class="categoryLinkLabel_ezQx">기출-과목-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-교재-m"><span title="기출-과목-교재-M" class="categoryLinkLabel_ezQx">기출-과목-교재-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-교재-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/etc"><span title="Etc" class="categoryLinkLabel_ezQx">Etc</span></a><button aria-label="Expand sidebar category &#x27;Etc&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/answer"><span title="Answer" class="categoryLinkLabel_ezQx">Answer</span></a><button aria-label="Expand sidebar category &#x27;Answer&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/answer2-claudecode"><span title="Answer2-claudecode" class="categoryLinkLabel_ezQx">Answer2-claudecode</span></a><button aria-label="Expand sidebar category &#x27;Answer2-claudecode&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/answer2"><span title="Answer2" class="categoryLinkLabel_ezQx">Answer2</span></a><button aria-label="Expand sidebar category &#x27;Answer2&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/dap"><span title="DAP" class="categoryLinkLabel_ezQx">DAP</span></a><button aria-label="Expand sidebar category &#x27;DAP&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/gamrisa"><span title="Gamrisa" class="categoryLinkLabel_ezQx">Gamrisa</span></a><button aria-label="Expand sidebar category &#x27;Gamrisa&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/gisulsa/docs/keyword/IT서비스_통합/ISMP"><span title="keyword" class="categoryLinkLabel_ezQx">keyword</span></a></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_p7wf"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_Rd1m"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_C0wL"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_txwF"><div class="docItemContainer_FUEM"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_DlgT" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/gisulsa/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_BMIH"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/gisulsa/docs/category/analysis"><span>Analysis</span></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">138M</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">문제 6) 정보보호 관리체계(ISMS) 및 ISMS-P</span></li></ul></nav><div class="tocCollapsible_LBsY theme-doc-toc-mobile tocMobile_eMWB"><button type="button" class="clean-btn tocCollapsibleButton_fVBn">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>문제 6) 정보보호 관리체계(ISMS) 및 ISMS-P</h1></header>
 <h1>답)</h1>
-<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="개요">개요<a href="#개요" class="hash-link" aria-label="Direct link to 개요" title="Direct link to 개요" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_l_sM" id="개요">개요<a href="#개요" class="hash-link" aria-label="Direct link to 개요" title="Direct link to 개요" translate="no">​</a></h2>
 <p>정보보호 관리체계(ISMS: Information Security Management System)는 조직의 정보자산을 체계적으로 보호하기 위한 관리 프레임워크이다. 국내에서는 2018년 ISMS와 개인정보보호 관리체계(PIMS)를 통합한 <strong>ISMS-P</strong> 제도가 시행되었으며, 정보통신망법 및 개인정보보호법에 근거하여 의무인증 대상을 확대 운영 중이다.</p>
 <!-- -->
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="가-정보보호-관리체계isms의-인증-영역과-법적-근거">가. 정보보호 관리체계(ISMS)의 인증 영역과 법적 근거<a href="#가-정보보호-관리체계isms의-인증-영역과-법적-근거" class="hash-link" aria-label="Direct link to 가. 정보보호 관리체계(ISMS)의 인증 영역과 법적 근거" title="Direct link to 가. 정보보호 관리체계(ISMS)의 인증 영역과 법적 근거" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1-법적-근거">1. 법적 근거<a href="#1-법적-근거" class="hash-link" aria-label="Direct link to 1. 법적 근거" title="Direct link to 1. 법적 근거" translate="no">​</a></h3>
-<h4 class="anchor anchorTargetStickyNavbar_yIpS" id="근거-법령-체계">근거 법령 체계<a href="#근거-법령-체계" class="hash-link" aria-label="Direct link to 근거 법령 체계" title="Direct link to 근거 법령 체계" translate="no">​</a></h4>
+<h2 class="anchor anchorTargetStickyNavbar_l_sM" id="가-정보보호-관리체계isms의-인증-영역과-법적-근거">가. 정보보호 관리체계(ISMS)의 인증 영역과 법적 근거<a href="#가-정보보호-관리체계isms의-인증-영역과-법적-근거" class="hash-link" aria-label="Direct link to 가. 정보보호 관리체계(ISMS)의 인증 영역과 법적 근거" title="Direct link to 가. 정보보호 관리체계(ISMS)의 인증 영역과 법적 근거" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="1-법적-근거">1. 법적 근거<a href="#1-법적-근거" class="hash-link" aria-label="Direct link to 1. 법적 근거" title="Direct link to 1. 법적 근거" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_l_sM" id="근거-법령-체계">근거 법령 체계<a href="#근거-법령-체계" class="hash-link" aria-label="Direct link to 근거 법령 체계" title="Direct link to 근거 법령 체계" translate="no">​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>법령</th><th>조항</th><th>내용</th></tr></thead><tbody><tr><td><strong>정보통신망법</strong></td><td>제47조</td><td>ISMS 인증 의무 대상 및 인증 제도 운영</td></tr><tr><td><strong>정보통신망법</strong></td><td>제47조의3</td><td>ISMS-P 통합 인증 근거</td></tr><tr><td><strong>개인정보보호법</strong></td><td>제32조의2</td><td>개인정보보호 인증(PIMS) 근거</td></tr><tr><td><strong>전기통신사업법</strong></td><td>제2조</td><td>전기통신사업자 정의</td></tr><tr><td>정보보호 및 개인정보보호 관리체계 인증 등에 관한 고시</td><td>전체</td><td>인증 기준, 절차, 심사 방법 세부 규정</td></tr></tbody></table>
-<h4 class="anchor anchorTargetStickyNavbar_yIpS" id="isms-의무인증-대상-정보통신망법-제47조">ISMS 의무인증 대상 (정보통신망법 제47조)<a href="#isms-의무인증-대상-정보통신망법-제47조" class="hash-link" aria-label="Direct link to ISMS 의무인증 대상 (정보통신망법 제47조)" title="Direct link to ISMS 의무인증 대상 (정보통신망법 제47조)" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_l_sM" id="isms-의무인증-대상-정보통신망법-제47조">ISMS 의무인증 대상 (정보통신망법 제47조)<a href="#isms-의무인증-대상-정보통신망법-제47조" class="hash-link" aria-label="Direct link to ISMS 의무인증 대상 (정보통신망법 제47조)" title="Direct link to ISMS 의무인증 대상 (정보통신망법 제47조)" translate="no">​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>구분</th><th>의무인증 대상</th></tr></thead><tbody><tr><td><strong>ISP(인터넷서비스제공자)</strong></td><td>전국 규모 기간통신사업자</td></tr><tr><td><strong>IDC(집적정보통신시설 사업자)</strong></td><td>연간 매출 100억 원 이상 또는 이용자 100만명 이상</td></tr><tr><td><strong>정보통신서비스 제공자</strong></td><td>전년도 매출액 100억 원 이상, 전년도 말 기준 이용자 수 100만 명 이상</td></tr><tr><td><strong>병원</strong></td><td>500병상 이상 (의료정보시스템 운영)</td></tr><tr><td><strong>교육기관</strong></td><td>학생 수 1만 명 이상 대학교</td></tr></tbody></table>
-<h4 class="anchor anchorTargetStickyNavbar_yIpS" id="인증-기관-체계">인증 기관 체계<a href="#인증-기관-체계" class="hash-link" aria-label="Direct link to 인증 기관 체계" title="Direct link to 인증 기관 체계" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_l_sM" id="인증-기관-체계">인증 기관 체계<a href="#인증-기관-체계" class="hash-link" aria-label="Direct link to 인증 기관 체계" title="Direct link to 인증 기관 체계" translate="no">​</a></h4>
 <!-- -->
 <hr>
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="2-isms-p-인증-영역">2. ISMS-P 인증 영역<a href="#2-isms-p-인증-영역" class="hash-link" aria-label="Direct link to 2. ISMS-P 인증 영역" title="Direct link to 2. ISMS-P 인증 영역" translate="no">​</a></h3>
-<h4 class="anchor anchorTargetStickyNavbar_yIpS" id="인증-기준-체계-2023년-기준">인증 기준 체계 (2023년 기준)<a href="#인증-기준-체계-2023년-기준" class="hash-link" aria-label="Direct link to 인증 기준 체계 (2023년 기준)" title="Direct link to 인증 기준 체계 (2023년 기준)" translate="no">​</a></h4>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="2-isms-p-인증-영역">2. ISMS-P 인증 영역<a href="#2-isms-p-인증-영역" class="hash-link" aria-label="Direct link to 2. ISMS-P 인증 영역" title="Direct link to 2. ISMS-P 인증 영역" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_l_sM" id="인증-기준-체계-2023년-기준">인증 기준 체계 (2023년 기준)<a href="#인증-기준-체계-2023년-기준" class="hash-link" aria-label="Direct link to 인증 기준 체계 (2023년 기준)" title="Direct link to 인증 기준 체계 (2023년 기준)" translate="no">​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>구분</th><th>영역</th><th>항목 수</th></tr></thead><tbody><tr><td><strong>1. 관리체계 수립 및 운영</strong></td><td>관리체계 기반 마련</td><td>6개</td></tr><tr><td></td><td>위험 관리</td><td>4개</td></tr><tr><td></td><td>관리체계 운영</td><td>3개</td></tr><tr><td></td><td>관리체계 점검 및 개선</td><td>3개</td></tr><tr><td><strong>소계</strong></td><td></td><td><strong>16개</strong></td></tr><tr><td><strong>2. 보호대책 요구사항</strong></td><td>정책, 조직, 자산 관리</td><td>6개</td></tr><tr><td></td><td>인적 보안</td><td>4개</td></tr><tr><td></td><td>외부자 보안</td><td>3개</td></tr><tr><td></td><td>물리 보안</td><td>7개</td></tr><tr><td></td><td>인증 및 권한 관리</td><td>7개</td></tr><tr><td></td><td>접근 통제</td><td>7개</td></tr><tr><td></td><td>암호화 적용</td><td>2개</td></tr><tr><td></td><td>정보시스템 도입 및 개발 보안</td><td>6개</td></tr><tr><td></td><td>시스템 및 서비스 운영 관리</td><td>7개</td></tr><tr><td></td><td>시스템 및 서비스 보안 관리</td><td>9개</td></tr><tr><td></td><td>사고 예방 및 대응</td><td>4개</td></tr><tr><td></td><td>재해복구</td><td>2개</td></tr><tr><td><strong>소계</strong></td><td></td><td><strong>64개</strong></td></tr><tr><td><strong>3. 개인정보 처리 단계별 요구사항</strong></td><td>개인정보 수집 시 보호조치</td><td>5개</td></tr><tr><td>(ISMS-P 추가)</td><td>개인정보 보유 및 이용 시 보호조치</td><td>4개</td></tr><tr><td></td><td>개인정보 제공 시 보호조치</td><td>3개</td></tr><tr><td></td><td>개인정보 파기 시 보호조치</td><td>2개</td></tr><tr><td></td><td>정보주체 권리 보호</td><td>4개</td></tr><tr><td></td><td>개인정보 처리방침</td><td>2개</td></tr><tr><td></td><td>개인정보보호 현황 관리</td><td>2개</td></tr><tr><td><strong>소계</strong></td><td></td><td><strong>22개</strong></td></tr><tr><td><strong>전체 합계 (ISMS-P)</strong></td><td></td><td><strong>102개</strong></td></tr><tr><td><strong>ISMS만 해당</strong></td><td></td><td><strong>80개</strong></td></tr></tbody></table>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="나-정보보호-관리체계isms의-관리과정">나. 정보보호 관리체계(ISMS)의 관리과정<a href="#나-정보보호-관리체계isms의-관리과정" class="hash-link" aria-label="Direct link to 나. 정보보호 관리체계(ISMS)의 관리과정" title="Direct link to 나. 정보보호 관리체계(ISMS)의 관리과정" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1-관리과정-5단계-개요">1. 관리과정 5단계 개요<a href="#1-관리과정-5단계-개요" class="hash-link" aria-label="Direct link to 1. 관리과정 5단계 개요" title="Direct link to 1. 관리과정 5단계 개요" translate="no">​</a></h3>
+<h2 class="anchor anchorTargetStickyNavbar_l_sM" id="나-정보보호-관리체계isms의-관리과정">나. 정보보호 관리체계(ISMS)의 관리과정<a href="#나-정보보호-관리체계isms의-관리과정" class="hash-link" aria-label="Direct link to 나. 정보보호 관리체계(ISMS)의 관리과정" title="Direct link to 나. 정보보호 관리체계(ISMS)의 관리과정" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="1-관리과정-5단계-개요">1. 관리과정 5단계 개요<a href="#1-관리과정-5단계-개요" class="hash-link" aria-label="Direct link to 1. 관리과정 5단계 개요" title="Direct link to 1. 관리과정 5단계 개요" translate="no">​</a></h3>
 <p>ISMS 관리과정은 <strong>PDCA(Plan-Do-Check-Act)</strong> 사이클에 기반한 5단계 연속적 프로세스이다.</p>
 <!-- -->
 <hr>
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="2-단계별-세부-내용">2. 단계별 세부 내용<a href="#2-단계별-세부-내용" class="hash-link" aria-label="Direct link to 2. 단계별 세부 내용" title="Direct link to 2. 단계별 세부 내용" translate="no">​</a></h3>
-<h4 class="anchor anchorTargetStickyNavbar_yIpS" id="1단계-정보보호-정책-수립-및-범위-설정">1단계: 정보보호 정책 수립 및 범위 설정<a href="#1단계-정보보호-정책-수립-및-범위-설정" class="hash-link" aria-label="Direct link to 1단계: 정보보호 정책 수립 및 범위 설정" title="Direct link to 1단계: 정보보호 정책 수립 및 범위 설정" translate="no">​</a></h4>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="2-단계별-세부-내용">2. 단계별 세부 내용<a href="#2-단계별-세부-내용" class="hash-link" aria-label="Direct link to 2. 단계별 세부 내용" title="Direct link to 2. 단계별 세부 내용" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_l_sM" id="1단계-정보보호-정책-수립-및-범위-설정">1단계: 정보보호 정책 수립 및 범위 설정<a href="#1단계-정보보호-정책-수립-및-범위-설정" class="hash-link" aria-label="Direct link to 1단계: 정보보호 정책 수립 및 범위 설정" title="Direct link to 1단계: 정보보호 정책 수립 및 범위 설정" translate="no">​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td><strong>목적</strong></td><td>조직의 정보보호 목표와 원칙 정립</td></tr><tr><td><strong>주요 활동</strong></td><td>정보보호 정책서 작성, 인증 범위 결정, 이해관계자 파악</td></tr><tr><td><strong>산출물</strong></td><td>정보보호 정책서, 인증 범위 정의서, 정보자산 목록</td></tr><tr><td><strong>핵심 고려사항</strong></td><td>경영진 승인, 전 임직원 공표, 정기적 검토 체계</td></tr></tbody></table>
 <!-- -->
-<h4 class="anchor anchorTargetStickyNavbar_yIpS" id="2단계-경영진-책임-및-조직-구성">2단계: 경영진 책임 및 조직 구성<a href="#2단계-경영진-책임-및-조직-구성" class="hash-link" aria-label="Direct link to 2단계: 경영진 책임 및 조직 구성" title="Direct link to 2단계: 경영진 책임 및 조직 구성" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_l_sM" id="2단계-경영진-책임-및-조직-구성">2단계: 경영진 책임 및 조직 구성<a href="#2단계-경영진-책임-및-조직-구성" class="hash-link" aria-label="Direct link to 2단계: 경영진 책임 및 조직 구성" title="Direct link to 2단계: 경영진 책임 및 조직 구성" translate="no">​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td><strong>목적</strong></td><td>정보보호 추진을 위한 책임 체계 및 조직 구성</td></tr><tr><td><strong>경영진 역할</strong></td><td>CISO(최고정보보호책임자) 지정, 자원 배분 승인</td></tr><tr><td><strong>법적 요건</strong></td><td>정보통신망법상 CISO 의무 지정 (5만명 이상 정보통신서비스 제공자)</td></tr><tr><td><strong>산출물</strong></td><td>정보보호 조직도, 역할과 책임 정의서, 정보보호 위원회 운영 규정</td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>조직 구성 요소</th><th>역할</th></tr></thead><tbody><tr><td>정보보호 최고책임자 (CISO)</td><td>전사 정보보호 총괄 책임</td></tr><tr><td>정보보호 위원회</td><td>중요 의사결정, 정책 승인</td></tr><tr><td>정보보호 팀/부서</td><td>일상적 정보보호 업무 수행</td></tr><tr><td>정보보호 담당자</td><td>현업 부서별 정보보호 실무</td></tr></tbody></table>
-<h4 class="anchor anchorTargetStickyNavbar_yIpS" id="3단계-위험-관리">3단계: 위험 관리<a href="#3단계-위험-관리" class="hash-link" aria-label="Direct link to 3단계: 위험 관리" title="Direct link to 3단계: 위험 관리" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_l_sM" id="3단계-위험-관리">3단계: 위험 관리<a href="#3단계-위험-관리" class="hash-link" aria-label="Direct link to 3단계: 위험 관리" title="Direct link to 3단계: 위험 관리" translate="no">​</a></h4>
 <!-- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>위험 평가 방법</th><th>설명</th><th>특징</th></tr></thead><tbody><tr><td>베이스라인 접근법</td><td>표준 보호대책 기준 적용</td><td>신속, 비용 저렴</td></tr><tr><td>비정형 접근법</td><td>전문가 경험 기반</td><td>중소기업 적합</td></tr><tr><td>상세 위험 분석</td><td>자산/위협/취약점 정량적 분석</td><td>정확, 시간/비용 높음</td></tr><tr><td>복합 접근법</td><td>베이스라인 + 상세 위험 분석 혼합</td><td>균형적 접근</td></tr></tbody></table>
 <p><strong>위험도 산정 공식:</strong></p>
 <div class="language-text codeBlockContainer_huE5 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_oko_"><pre tabindex="0" class="prism-code language-text codeBlock_BBgU thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_t9f9"><span class="token-line" style="color:#393A34"><span class="token plain">위험도 = 자산가치 × 위협 발생 가능성 × 취약성 수준</span><br></span></code></pre></div></div>
-<h4 class="anchor anchorTargetStickyNavbar_yIpS" id="4단계-정보보호-대책-구현">4단계: 정보보호 대책 구현<a href="#4단계-정보보호-대책-구현" class="hash-link" aria-label="Direct link to 4단계: 정보보호 대책 구현" title="Direct link to 4단계: 정보보호 대책 구현" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_l_sM" id="4단계-정보보호-대책-구현">4단계: 정보보호 대책 구현<a href="#4단계-정보보호-대책-구현" class="hash-link" aria-label="Direct link to 4단계: 정보보호 대책 구현" title="Direct link to 4단계: 정보보호 대책 구현" translate="no">​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td><strong>목적</strong></td><td>위험 처리 계획에 따른 보호대책 실행</td></tr><tr><td><strong>주요 활동</strong></td><td>기술적/관리적/물리적 보안 대책 구현, 이행 계획서 작성</td></tr><tr><td><strong>이행 계획</strong></td><td>담당자, 일정, 예산, 우선순위 명시</td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>보호대책 유형</th><th>예시</th></tr></thead><tbody><tr><td>기술적 보안</td><td>방화벽, IDS/IPS, 암호화, 접근 통제 시스템</td></tr><tr><td>관리적 보안</td><td>보안 교육, 정책/절차 문서화, 인식 제고</td></tr><tr><td>물리적 보안</td><td>출입 통제, CCTV, 잠금장치, 환경 통제</td></tr></tbody></table>
-<h4 class="anchor anchorTargetStickyNavbar_yIpS" id="5단계-사후-관리">5단계: 사후 관리<a href="#5단계-사후-관리" class="hash-link" aria-label="Direct link to 5단계: 사후 관리" title="Direct link to 5단계: 사후 관리" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_l_sM" id="5단계-사후-관리">5단계: 사후 관리<a href="#5단계-사후-관리" class="hash-link" aria-label="Direct link to 5단계: 사후 관리" title="Direct link to 5단계: 사후 관리" translate="no">​</a></h4>
 <!-- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>사후 관리 활동</th><th>주기</th><th>내용</th></tr></thead><tbody><tr><td>내부 감사</td><td>연 1회 이상</td><td>인증 기준 준수 여부 점검</td></tr><tr><td>경영진 검토</td><td>연 1회 이상</td><td>정보보호 현황 보고 및 방향 결정</td></tr><tr><td>취약점 점검</td><td>분기/연 1회</td><td>시스템 취약점 스캔 및 조치</td></tr><tr><td>보안 사고 관리</td><td>상시</td><td>사고 탐지, 대응, 재발 방지</td></tr><tr><td>인증 갱신 심사</td><td>3년마다</td><td>최초/갱신 심사</td></tr><tr><td>사후 심사</td><td>연 1회 (인증 후)</td><td>유지 여부 확인</td></tr></tbody></table>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="다-isms-p-간편인증-제도">다. ISMS-P 간편인증 제도<a href="#다-isms-p-간편인증-제도" class="hash-link" aria-label="Direct link to 다. ISMS-P 간편인증 제도" title="Direct link to 다. ISMS-P 간편인증 제도" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1-간편인증-도입-배경">1. 간편인증 도입 배경<a href="#1-간편인증-도입-배경" class="hash-link" aria-label="Direct link to 1. 간편인증 도입 배경" title="Direct link to 1. 간편인증 도입 배경" translate="no">​</a></h3>
+<h2 class="anchor anchorTargetStickyNavbar_l_sM" id="다-isms-p-간편인증-제도">다. ISMS-P 간편인증 제도<a href="#다-isms-p-간편인증-제도" class="hash-link" aria-label="Direct link to 다. ISMS-P 간편인증 제도" title="Direct link to 다. ISMS-P 간편인증 제도" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="1-간편인증-도입-배경">1. 간편인증 도입 배경<a href="#1-간편인증-도입-배경" class="hash-link" aria-label="Direct link to 1. 간편인증 도입 배경" title="Direct link to 1. 간편인증 도입 배경" translate="no">​</a></h3>
 <!-- -->
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="2-간편인증-제도-개요">2. 간편인증 제도 개요<a href="#2-간편인증-제도-개요" class="hash-link" aria-label="Direct link to 2. 간편인증 제도 개요" title="Direct link to 2. 간편인증 제도 개요" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="2-간편인증-제도-개요">2. 간편인증 제도 개요<a href="#2-간편인증-제도-개요" class="hash-link" aria-label="Direct link to 2. 간편인증 제도 개요" title="Direct link to 2. 간편인증 제도 개요" translate="no">​</a></h3>
 <p><strong>간편인증</strong>은 이미 유사한 보안 인증을 취득하였거나 일정 기준을 충족하는 기업이 전체 심사 절차 없이 <strong>간소화된 절차로 ISMS-P 인증을 취득</strong>할 수 있는 제도이다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>구분</th><th>일반 인증</th><th>간편 인증</th></tr></thead><tbody><tr><td>심사 항목</td><td>80~102개 전체</td><td>핵심 항목 중심 축소</td></tr><tr><td>심사 기간</td><td>6개월~1년</td><td>3~4개월</td></tr><tr><td>비용</td><td>高</td><td>低 (30~50% 절감)</td></tr><tr><td>대상</td><td>모든 의무/임의 대상</td><td>유사 인증 보유, 소규모 기업</td></tr><tr><td>인증 유효기간</td><td>3년</td><td>3년 (동일)</td></tr></tbody></table>
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="3-간편인증-적용-대상">3. 간편인증 적용 대상<a href="#3-간편인증-적용-대상" class="hash-link" aria-label="Direct link to 3. 간편인증 적용 대상" title="Direct link to 3. 간편인증 적용 대상" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="3-간편인증-적용-대상">3. 간편인증 적용 대상<a href="#3-간편인증-적용-대상" class="hash-link" aria-label="Direct link to 3. 간편인증 적용 대상" title="Direct link to 3. 간편인증 적용 대상" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>적용 유형</th><th>조건</th><th>특이사항</th></tr></thead><tbody><tr><td><strong>타 인증 연계형</strong></td><td>ISO/IEC 27001 보유 기업</td><td>중복 심사 항목 면제</td></tr><tr><td></td><td>PCI DSS 인증 보유</td><td>카드결제 관련 항목 인정</td></tr><tr><td></td><td>CSP 클라우드 보안 인증 (CSAP)</td><td>클라우드 관련 항목 인정</td></tr><tr><td><strong>소규모 기업형</strong></td><td>매출 10억 미만</td><td>심사 항목 간소화</td></tr><tr><td><strong>의무 대상 외</strong></td><td>임의 신청 소기업</td><td>핵심 보호대책만 심사</td></tr></tbody></table>
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="4-간편인증-절차">4. 간편인증 절차<a href="#4-간편인증-절차" class="hash-link" aria-label="Direct link to 4. 간편인증 절차" title="Direct link to 4. 간편인증 절차" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="4-간편인증-절차">4. 간편인증 절차<a href="#4-간편인증-절차" class="hash-link" aria-label="Direct link to 4. 간편인증 절차" title="Direct link to 4. 간편인증 절차" translate="no">​</a></h3>
 <!-- -->
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="5-간편인증의-기대-효과">5. 간편인증의 기대 효과<a href="#5-간편인증의-기대-효과" class="hash-link" aria-label="Direct link to 5. 간편인증의 기대 효과" title="Direct link to 5. 간편인증의 기대 효과" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="5-간편인증의-기대-효과">5. 간편인증의 기대 효과<a href="#5-간편인증의-기대-효과" class="hash-link" aria-label="Direct link to 5. 간편인증의 기대 효과" title="Direct link to 5. 간편인증의 기대 효과" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>기대 효과</th><th>내용</th></tr></thead><tbody><tr><td>중소기업 보안 수준 향상</td><td>진입 장벽 낮춰 더 많은 기업 인증 참여 유도</td></tr><tr><td>인증 생태계 확대</td><td>국내 ISMS-P 인증 기업 수 증가</td></tr><tr><td>중복 규제 완화</td><td>유사 인증 간 상호 인정으로 기업 부담 경감</td></tr><tr><td>보안 투자 효율화</td><td>절감된 인증 비용을 실질 보안 투자로 전환</td></tr></tbody></table>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="라-isms-p-제도의-강화-방안">라. ISMS-P 제도의 강화 방안<a href="#라-isms-p-제도의-강화-방안" class="hash-link" aria-label="Direct link to 라. ISMS-P 제도의 강화 방안" title="Direct link to 라. ISMS-P 제도의 강화 방안" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1-현행-제도의-한계">1. 현행 제도의 한계<a href="#1-현행-제도의-한계" class="hash-link" aria-label="Direct link to 1. 현행 제도의 한계" title="Direct link to 1. 현행 제도의 한계" translate="no">​</a></h3>
+<h2 class="anchor anchorTargetStickyNavbar_l_sM" id="라-isms-p-제도의-강화-방안">라. ISMS-P 제도의 강화 방안<a href="#라-isms-p-제도의-강화-방안" class="hash-link" aria-label="Direct link to 라. ISMS-P 제도의 강화 방안" title="Direct link to 라. ISMS-P 제도의 강화 방안" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="1-현행-제도의-한계">1. 현행 제도의 한계<a href="#1-현행-제도의-한계" class="hash-link" aria-label="Direct link to 1. 현행 제도의 한계" title="Direct link to 1. 현행 제도의 한계" translate="no">​</a></h3>
 <!-- -->
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="2-강화-방안">2. 강화 방안<a href="#2-강화-방안" class="hash-link" aria-label="Direct link to 2. 강화 방안" title="Direct link to 2. 강화 방안" translate="no">​</a></h3>
-<h4 class="anchor anchorTargetStickyNavbar_yIpS" id="1-상시-모니터링-체계-도입">(1) 상시 모니터링 체계 도입<a href="#1-상시-모니터링-체계-도입" class="hash-link" aria-label="Direct link to (1) 상시 모니터링 체계 도입" title="Direct link to (1) 상시 모니터링 체계 도입" translate="no">​</a></h4>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="2-강화-방안">2. 강화 방안<a href="#2-강화-방안" class="hash-link" aria-label="Direct link to 2. 강화 방안" title="Direct link to 2. 강화 방안" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_l_sM" id="1-상시-모니터링-체계-도입">(1) 상시 모니터링 체계 도입<a href="#1-상시-모니터링-체계-도입" class="hash-link" aria-label="Direct link to (1) 상시 모니터링 체계 도입" title="Direct link to (1) 상시 모니터링 체계 도입" translate="no">​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>현황</th><th>강화 방안</th></tr></thead><tbody><tr><td>연 1회 사후 심사</td><td>상시 보안 모니터링 지표(KRI) 제출 의무화</td></tr><tr><td>서류 중심 심사</td><td>실시간 보안 대시보드 연동 심사</td></tr><tr><td>시점 스냅샷 평가</td><td>지속적 준수 여부(Continuous Compliance) 모니터링</td></tr></tbody></table>
 <!-- -->
-<h4 class="anchor anchorTargetStickyNavbar_yIpS" id="2-신기술-보안-기준-반영">(2) 신기술 보안 기준 반영<a href="#2-신기술-보안-기준-반영" class="hash-link" aria-label="Direct link to (2) 신기술 보안 기준 반영" title="Direct link to (2) 신기술 보안 기준 반영" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_l_sM" id="2-신기술-보안-기준-반영">(2) 신기술 보안 기준 반영<a href="#2-신기술-보안-기준-반영" class="hash-link" aria-label="Direct link to (2) 신기술 보안 기준 반영" title="Direct link to (2) 신기술 보안 기준 반영" translate="no">​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>신기술 영역</th><th>추가 반영 기준</th></tr></thead><tbody><tr><td><strong>AI/머신러닝</strong></td><td>AI 모델 보안, 학습 데이터 무결성, 적대적 공격 대응</td></tr><tr><td><strong>클라우드 네이티브</strong></td><td>컨테이너/쿠버네티스 보안, IaC 보안 코드 심사</td></tr><tr><td><strong>OT/ICS 보안</strong></td><td>산업제어시스템 보안 기준 (IEC 62443 연계)</td></tr><tr><td><strong>제로트러스트</strong></td><td>ZTA 성숙도 평가 기준 도입</td></tr><tr><td><strong>양자 암호</strong></td><td>양자내성암호(PQC) 전환 계획 심사</td></tr></tbody></table>
-<h4 class="anchor anchorTargetStickyNavbar_yIpS" id="3-공급망-보안-인증-확대">(3) 공급망 보안 인증 확대<a href="#3-공급망-보안-인증-확대" class="hash-link" aria-label="Direct link to (3) 공급망 보안 인증 확대" title="Direct link to (3) 공급망 보안 인증 확대" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_l_sM" id="3-공급망-보안-인증-확대">(3) 공급망 보안 인증 확대<a href="#3-공급망-보안-인증-확대" class="hash-link" aria-label="Direct link to (3) 공급망 보안 인증 확대" title="Direct link to (3) 공급망 보안 인증 확대" translate="no">​</a></h4>
 <!-- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>강화 방안</th><th>내용</th></tr></thead><tbody><tr><td>SBOM 의무화</td><td>소프트웨어 자재명세서(SBOM) 제출 및 취약점 관리</td></tr><tr><td>주요 공급업체 보안 심사</td><td>인증 범위 내 핵심 공급업체 포함</td></tr><tr><td>3자 보안 평가</td><td>공급업체 보안 수준 정기 평가 의무화</td></tr></tbody></table>
-<h4 class="anchor anchorTargetStickyNavbar_yIpS" id="4-인증-심사-품질-강화">(4) 인증 심사 품질 강화<a href="#4-인증-심사-품질-강화" class="hash-link" aria-label="Direct link to (4) 인증 심사 품질 강화" title="Direct link to (4) 인증 심사 품질 강화" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_l_sM" id="4-인증-심사-품질-강화">(4) 인증 심사 품질 강화<a href="#4-인증-심사-품질-강화" class="hash-link" aria-label="Direct link to (4) 인증 심사 품질 강화" title="Direct link to (4) 인증 심사 품질 강화" translate="no">​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>현황</th><th>강화 방안</th></tr></thead><tbody><tr><td>심사인 교육 미흡</td><td>심사인 자격 갱신 교육 강화 (연 20시간 이상)</td></tr><tr><td>심사 기관 품질 편차</td><td>심사기관 품질 평가제 도입</td></tr><tr><td>기술적 심사 취약</td><td>기술 심사 전문가 의무 배치</td></tr><tr><td>컨설팅-심사 분리 미흡</td><td>컨설팅-심사 기관 완전 분리 의무화</td></tr></tbody></table>
-<h4 class="anchor anchorTargetStickyNavbar_yIpS" id="5-인증-등급제-도입">(5) 인증 등급제 도입<a href="#5-인증-등급제-도입" class="hash-link" aria-label="Direct link to (5) 인증 등급제 도입" title="Direct link to (5) 인증 등급제 도입" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_l_sM" id="5-인증-등급제-도입">(5) 인증 등급제 도입<a href="#5-인증-등급제-도입" class="hash-link" aria-label="Direct link to (5) 인증 등급제 도입" title="Direct link to (5) 인증 등급제 도입" translate="no">​</a></h4>
 <!-- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>등급</th><th>대상</th><th>심사 방법</th><th>효과</th></tr></thead><tbody><tr><td>Bronze</td><td>소기업, 스타트업</td><td>간편 서면 심사</td><td>진입 장벽 완화</td></tr><tr><td>Silver</td><td>의무 인증 대상</td><td>현행 ISMS-P 심사</td><td>기본 보안 수준</td></tr><tr><td>Gold</td><td>금융, 의료</td><td>강화 심사 + 모니터링</td><td>고위험 분야 보안</td></tr><tr><td>Platinum</td><td>국가 핵심 인프라</td><td>레드팀 + 상시 심사</td><td>최고 수준 보장</td></tr></tbody></table>
-<h4 class="anchor anchorTargetStickyNavbar_yIpS" id="6-국제-표준-연계-강화">(6) 국제 표준 연계 강화<a href="#6-국제-표준-연계-강화" class="hash-link" aria-label="Direct link to (6) 국제 표준 연계 강화" title="Direct link to (6) 국제 표준 연계 강화" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_l_sM" id="6-국제-표준-연계-강화">(6) 국제 표준 연계 강화<a href="#6-국제-표준-연계-강화" class="hash-link" aria-label="Direct link to (6) 국제 표준 연계 강화" title="Direct link to (6) 국제 표준 연계 강화" translate="no">​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>국제 표준</th><th>연계 방안</th></tr></thead><tbody><tr><td>ISO/IEC 27001:2022</td><td>개정 기준 반영 (93개 통제항목 연계)</td></tr><tr><td>ISO/IEC 27701 (PIMS)</td><td>ISMS-P 개인정보 기준 국제 표준 정렬</td></tr><tr><td>NIST CSF 2.0</td><td>사이버보안 프레임워크 연계</td></tr><tr><td>SOC 2</td><td>클라우드 서비스 보안 기준 상호 인정</td></tr><tr><td>GDPR</td><td>유럽 개인정보보호 규정 연계 적용</td></tr></tbody></table>
-<h4 class="anchor anchorTargetStickyNavbar_yIpS" id="7-사고-연계-제재-강화">(7) 사고 연계 제재 강화<a href="#7-사고-연계-제재-강화" class="hash-link" aria-label="Direct link to (7) 사고 연계 제재 강화" title="Direct link to (7) 사고 연계 제재 강화" translate="no">​</a></h4>
+<h4 class="anchor anchorTargetStickyNavbar_l_sM" id="7-사고-연계-제재-강화">(7) 사고 연계 제재 강화<a href="#7-사고-연계-제재-강화" class="hash-link" aria-label="Direct link to (7) 사고 연계 제재 강화" title="Direct link to (7) 사고 연계 제재 강화" translate="no">​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>현황</th><th>강화 방안</th></tr></thead><tbody><tr><td>사고 발생 시 인증 유지 가능</td><td>중대 보안 사고 시 인증 즉시 취소 또는 정지</td></tr><tr><td>형식적 사후 대응</td><td>사고 원인 분석 및 개선 계획 제출 의무화</td></tr><tr><td>과징금 미연계</td><td>ISMS-P 미준수 항목과 과징금 산정 연계</td></tr></tbody></table>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="결론">결론<a href="#결론" class="hash-link" aria-label="Direct link to 결론" title="Direct link to 결론" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_l_sM" id="결론">결론<a href="#결론" class="hash-link" aria-label="Direct link to 결론" title="Direct link to 결론" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td><strong>ISMS 인증 영역</strong></td><td>관리과정(16개) + 보호대책(64개) + 개인정보(22개) = 총 102개 항목</td></tr><tr><td><strong>법적 근거</strong></td><td>정보통신망법 제47조, 개인정보보호법 제32조의2</td></tr><tr><td><strong>관리과정</strong></td><td>정책수립 → 조직구성 → 위험관리 → 대책구현 → 사후관리 (PDCA)</td></tr><tr><td><strong>간편인증</strong></td><td>중소기업·유사인증 보유기업 대상 심사 간소화</td></tr><tr><td><strong>강화 방안</strong></td><td>상시 모니터링, 신기술 반영, 공급망 보안, 등급제 도입</td></tr></tbody></table>
 <p>사이버 위협이 고도화되는 환경에서 ISMS-P는 <strong>정적 인증에서 동적·상시 관리 체계</strong>로 진화해야 하며, 국제 표준과의 정렬 및 신기술 보안 기준 반영을 통해 실효성 있는 정보보호 관리체계로 발전시켜야 한다.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_YM8j"><a href="https://github.com/electro9666/gisulsa/tree/main/docs/analysis/138M/138M_3_6_ISMS.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_hRvp" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_LNbR"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/gisulsa/docs/analysis/138M/138M_3_5_공격표면_측면이동"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">문제 5) IT 인프라 확장에 따른 사이버 위협 - 공격 표면과 측면 이동</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/gisulsa/docs/analysis/138M/138M_4_1_인공지능기본법"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">문제 1) 인공지능기본법 (AI 발전과 신뢰 기반 조성)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_VU0O thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#개요" class="table-of-contents__link toc-highlight">개요</a></li><li><a href="#가-정보보호-관리체계isms의-인증-영역과-법적-근거" class="table-of-contents__link toc-highlight">가. 정보보호 관리체계(ISMS)의 인증 영역과 법적 근거</a><ul><li><a href="#1-법적-근거" class="table-of-contents__link toc-highlight">1. 법적 근거</a></li><li><a href="#2-isms-p-인증-영역" class="table-of-contents__link toc-highlight">2. ISMS-P 인증 영역</a></li></ul></li><li><a href="#나-정보보호-관리체계isms의-관리과정" class="table-of-contents__link toc-highlight">나. 정보보호 관리체계(ISMS)의 관리과정</a><ul><li><a href="#1-관리과정-5단계-개요" class="table-of-contents__link toc-highlight">1. 관리과정 5단계 개요</a></li><li><a href="#2-단계별-세부-내용" class="table-of-contents__link toc-highlight">2. 단계별 세부 내용</a></li></ul></li><li><a href="#다-isms-p-간편인증-제도" class="table-of-contents__link toc-highlight">다. ISMS-P 간편인증 제도</a><ul><li><a href="#1-간편인증-도입-배경" class="table-of-contents__link toc-highlight">1. 간편인증 도입 배경</a></li><li><a href="#2-간편인증-제도-개요" class="table-of-contents__link toc-highlight">2. 간편인증 제도 개요</a></li><li><a href="#3-간편인증-적용-대상" class="table-of-contents__link toc-highlight">3. 간편인증 적용 대상</a></li><li><a href="#4-간편인증-절차" class="table-of-contents__link toc-highlight">4. 간편인증 절차</a></li><li><a href="#5-간편인증의-기대-효과" class="table-of-contents__link toc-highlight">5. 간편인증의 기대 효과</a></li></ul></li><li><a href="#라-isms-p-제도의-강화-방안" class="table-of-contents__link toc-highlight">라. ISMS-P 제도의 강화 방안</a><ul><li><a href="#1-현행-제도의-한계" class="table-of-contents__link toc-highlight">1. 현행 제도의 한계</a></li><li><a href="#2-강화-방안" class="table-of-contents__link toc-highlight">2. 강화 방안</a></li></ul></li><li><a href="#결론" class="table-of-contents__link toc-highlight">결론</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/gisulsa/docs/intro">Tutorial</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_dv6w"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_dv6w"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://x.com/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">X<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_dv6w"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/gisulsa/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_dv6w"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 gisulsa. Built with Docusaurus.</div></div></div></footer></div>
 </body>

@@ -11,73 +11,453 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/gisulsa/assets/css/styles.a1f5d752.css">
-<script src="/gisulsa/assets/js/runtime~main.3ad014ab.js" defer="defer"></script>
-<script src="/gisulsa/assets/js/main.4ed98a97.js" defer="defer"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/gisulsa/assets/css/styles.41fc131c.css">
+<script src="/gisulsa/assets/js/runtime~main.8669f273.js" defer="defer"></script>
+<script src="/gisulsa/assets/js/main.a54d0fea.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <svg style="display: none;"><defs>
 <symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
 </defs></svg>
-<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/gisulsa/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_WWLT" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/gisulsa/"><div class="navbar__logo"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_LsmM themedComponent--light_kzyx"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_LsmM themedComponent--dark_xYsB"></div><b class="navbar__title text--truncate">gisulsa</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/gisulsa/docs/category/analysis">Tutorial</a><a class="navbar__item navbar__link" href="/gisulsa/blog">Blog</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_dv6w"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_QAtP colorModeToggle_VHNg"><button class="clean-btn toggleButton_rINJ toggleButtonDisabled_v4UZ" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_FT9J lightToggleIcon_aOGA"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_FT9J darkToggleIcon_xqRO"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_FT9J systemToggleIcon_O5Jc"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_MDM0"><div class="navbar__search searchBarContainer_fx2U" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_CPtH" value=""><div class="loadingRing_rEdF searchBarLoadingRing_J01f"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_SQvo"><div class="docsWrapper_HjTU"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_91RE" type="button"></button><div class="docRoot_SzOB"><aside class="theme-doc-sidebar-container docSidebarContainer_Q0cb"><div class="sidebarViewport_TEb6"><div class="sidebar_LiQ3"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_iDgU"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist menu__link--active" href="/gisulsa/docs/category/analysis"><span title="Analysis" class="categoryLinkLabel_ezQx">Analysis</span></a><button aria-label="Collapse sidebar category &#x27;Analysis&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/137M_analysis"><span title="137회 정보관리기술사(137M) 기출 이유 분석" class="linkLabel_REp1">137회 정보관리기술사(137M) 기출 이유 분석</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_10_TTPs"><span title="138M" class="categoryLinkLabel_ezQx">138M</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M_analysis"><span title="138회 정보관리기술사(138M) 기출 이유 분석" class="linkLabel_REp1">138회 정보관리기술사(138M) 기출 이유 분석</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_10_WiFi7"><span title="139M" class="categoryLinkLabel_ezQx">139M</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_10_WiFi7"><span title="문제 10) Wi-Fi 7 (IEEE 802.11be, EHT)" class="linkLabel_REp1">문제 10) Wi-Fi 7 (IEEE 802.11be, EHT)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_11_CTEM"><span title="문제 11) CTEM(Continuous Threat Exposure Management)" class="linkLabel_REp1">문제 11) CTEM(Continuous Threat Exposure Management)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_12_양자머신러닝"><span title="문제 12) 양자머신러닝(QML, Quantum Machine Learning)" class="linkLabel_REp1">문제 12) 양자머신러닝(QML, Quantum Machine Learning)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_13_가명처리"><span title="문제 13) 개인정보보호를 위한 가명처리(Pseudonymization) 기법" class="linkLabel_REp1">문제 13) 개인정보보호를 위한 가명처리(Pseudonymization) 기법</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_1_WBS_작성방법"><span title="문제 1) WBS(Work Breakdown Structure) 작성방법" class="linkLabel_REp1">문제 1) WBS(Work Breakdown Structure) 작성방법</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_2_대수의_법칙과_중심극한정리"><span title="문제 2) 대수의 법칙과 중심극한정리" class="linkLabel_REp1">문제 2) 대수의 법칙과 중심극한정리</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_3_Advanced_RAG_Modular_RAG"><span title="문제 3) Advanced RAG와 Modular RAG 비교" class="linkLabel_REp1">문제 3) Advanced RAG와 Modular RAG 비교</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_4_부정적_위험_대응전략"><span title="문제 4) IT 프로젝트의 부정적 위험(Negative Risk)과 대응 전략" class="linkLabel_REp1">문제 4) IT 프로젝트의 부정적 위험(Negative Risk)과 대응 전략</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_5_무중단_배포"><span title="문제 5) 소프트웨어 무중단 배포 방식" class="linkLabel_REp1">문제 5) 소프트웨어 무중단 배포 방식</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_6_엣지_클라우드_컴퓨팅"><span title="문제 6) 엣지(Edge) 컴퓨팅과 클라우드 컴퓨팅의 차이점" class="linkLabel_REp1">문제 6) 엣지(Edge) 컴퓨팅과 클라우드 컴퓨팅의 차이점</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_7_분산_DB_투명성"><span title="문제 7) 분산 데이터베이스의 투명성(Transparency)" class="linkLabel_REp1">문제 7) 분산 데이터베이스의 투명성(Transparency)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_8_과적합_과소적합"><span title="문제 8) 과적합(Overfitting)과 과소적합(Underfitting)" class="linkLabel_REp1">문제 8) 과적합(Overfitting)과 과소적합(Underfitting)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_9_순환복잡도"><span title="문제 9) 맥케이브 순환복잡도(McCabe&#x27;s Cyclomatic Complexity)" class="linkLabel_REp1">문제 9) 맥케이브 순환복잡도(McCabe&#x27;s Cyclomatic Complexity)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_2_1_AI_리스크"><span title="문제 1) AI 리스크" class="linkLabel_REp1">문제 1) AI 리스크</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_2_2_파인튜닝_RAG_RLHF_RAFT"><span title="문제 2) LLM 기반 AI 시스템 구축" class="linkLabel_REp1">문제 2) LLM 기반 AI 시스템 구축</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_2_3_데이터_레이크"><span title="문제 3) 데이터 레이크 기반 통합 데이터 플랫폼" class="linkLabel_REp1">문제 3) 데이터 레이크 기반 통합 데이터 플랫폼</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_2_4_터보퀀트"><span title="문제 4) 터보퀀트(TurboQuant)" class="linkLabel_REp1">문제 4) 터보퀀트(TurboQuant)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_2_5_공공_SLA"><span title="문제 5) 공공 SLA와 정보시스템 등급제 (전자정부법 개정)" class="linkLabel_REp1">문제 5) 공공 SLA와 정보시스템 등급제 (전자정부법 개정)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_2_6_데이터_가치평가_자산화"><span title="문제 6) 데이터 가치평가 및 데이터 자산화" class="linkLabel_REp1">문제 6) 데이터 가치평가 및 데이터 자산화</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_3_1_다중_에이전트_시스템"><span title="문제 1) 기업의 업무구조를 바꾸는 다중 에이전트 시스템(MAS, Multi Agent System)" class="linkLabel_REp1">문제 1) 기업의 업무구조를 바꾸는 다중 에이전트 시스템(MAS, Multi Agent System)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_3_2_이상치_편향"><span title="문제 2) 데이터 분석에서 이상치(Outlier)와 편향(Bias)" class="linkLabel_REp1">문제 2) 데이터 분석에서 이상치(Outlier)와 편향(Bias)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_3_3_기술부채_코드스멜_리팩토링"><span title="문제 3) 명확하지 않은 요구사항으로 인한 소프트웨어 품질저하" class="linkLabel_REp1">문제 3) 명확하지 않은 요구사항으로 인한 소프트웨어 품질저하</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_3_4_소프트웨어_테스트"><span title="문제 4) 소프트웨어 테스트" class="linkLabel_REp1">문제 4) 소프트웨어 테스트</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_3_5_이진탐색트리_라우팅테이블"><span title="문제 5) 이진 탐색 트리와 라우팅 테이블 탐색 알고리즘의 상관관계" class="linkLabel_REp1">문제 5) 이진 탐색 트리와 라우팅 테이블 탐색 알고리즘의 상관관계</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_3_6_AI_학습데이터_품질관리"><span title="문제 6) AI 학습용 데이터 품질관리" class="linkLabel_REp1">문제 6) AI 학습용 데이터 품질관리</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_4_1_클러스터링_필터링_이상치탐지"><span title="문제 1) 빅데이터 분석기법 - 클러스터링, 필터링, 이상치 탐지" class="linkLabel_REp1">문제 1) 빅데이터 분석기법 - 클러스터링, 필터링, 이상치 탐지</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_4_2_뮤텍스_세마포어_모니터"><span title="문제 2) 프로세스 동기화 기법 - 뮤텍스, 세마포어, 모니터" class="linkLabel_REp1">문제 2) 프로세스 동기화 기법 - 뮤텍스, 세마포어, 모니터</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_4_3_데이터센터_위치선정"><span title="문제 3) 재난 대비 데이터센터 지리적 위치선정 및 대응전략" class="linkLabel_REp1">문제 3) 재난 대비 데이터센터 지리적 위치선정 및 대응전략</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_4_4_가상메모리"><span title="문제 4) 가상메모리(Virtual Memory)" class="linkLabel_REp1">문제 4) 가상메모리(Virtual Memory)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_4_5_VPP_AI기술"><span title="문제 5) VPP(Virtual Power Plant) 전력수요 예측 AI 기술" class="linkLabel_REp1">문제 5) VPP(Virtual Power Plant) 전력수요 예측 AI 기술</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_4_6_서브네팅_VLSM"><span title="문제 6) 네트워크 서브네팅(Subnetting)과 VLSM" class="linkLabel_REp1">문제 6) 네트워크 서브네팅(Subnetting)과 VLSM</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M_analysis"><span title="139회 정보관리기술사(139M) 기출 이유 분석" class="linkLabel_REp1">139회 정보관리기술사(139M) 기출 이유 분석</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m"><span title="category-M" class="categoryLinkLabel_ezQx">category-M</span></a><button aria-label="Expand sidebar category &#x27;category-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m-summary"><span title="category-M-summary" class="categoryLinkLabel_ezQx">category-M-summary</span></a><button aria-label="Expand sidebar category &#x27;category-M-summary&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/category-mc"><span title="category-MC" class="categoryLinkLabel_ezQx">category-MC</span></a><button aria-label="Expand sidebar category &#x27;category-MC&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/gisulsa/docs/intro"><span title="Tutorial Intro" class="linkLabel_REp1">Tutorial Intro</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-m"><span title="기출-과목-M" class="categoryLinkLabel_ezQx">기출-과목-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-교재-m"><span title="기출-과목-교재-M" class="categoryLinkLabel_ezQx">기출-과목-교재-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-교재-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/etc"><span title="Etc" class="categoryLinkLabel_ezQx">Etc</span></a><button aria-label="Expand sidebar category &#x27;Etc&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/answer"><span title="Answer" class="categoryLinkLabel_ezQx">Answer</span></a><button aria-label="Expand sidebar category &#x27;Answer&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/dap"><span title="DAP" class="categoryLinkLabel_ezQx">DAP</span></a><button aria-label="Expand sidebar category &#x27;DAP&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/gisulsa/docs/keyword/IT서비스_통합/ISMP"><span title="keyword" class="categoryLinkLabel_ezQx">keyword</span></a></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_p7wf"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_Rd1m"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_C0wL"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_txwF"><div class="docItemContainer_FUEM"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_DlgT" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/gisulsa/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_BMIH"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/gisulsa/docs/category/analysis"><span>Analysis</span></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">139M</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">문제 4) 터보퀀트(TurboQuant)</span></li></ul></nav><div class="tocCollapsible_LBsY theme-doc-toc-mobile tocMobile_eMWB"><button type="button" class="clean-btn tocCollapsibleButton_fVBn">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>문제 4) 터보퀀트(TurboQuant)</h1></header>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/gisulsa/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_WWLT" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/gisulsa/"><div class="navbar__logo"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_rBb5 themedComponent--light_t3c2"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_rBb5 themedComponent--dark_Z76H"></div><b class="navbar__title text--truncate">gisulsa</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/gisulsa/docs/category/analysis">Tutorial</a><a class="navbar__item navbar__link" href="/gisulsa/blog">Blog</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_dv6w"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_QAtP colorModeToggle_VHNg"><button class="clean-btn toggleButton_rINJ toggleButtonDisabled_v4UZ" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_FT9J lightToggleIcon_aOGA"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_FT9J darkToggleIcon_xqRO"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_FT9J systemToggleIcon_O5Jc"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_MDM0"><div class="navbar__search searchBarContainer_I9Fh" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_g3lN" value=""><div class="loadingRing_PDHZ searchBarLoadingRing_dhft"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_SQvo"><div class="docsWrapper_HjTU"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_91RE" type="button"></button><div class="docRoot_SzOB"><aside class="theme-doc-sidebar-container docSidebarContainer_Q0cb"><div class="sidebarViewport_TEb6"><div class="sidebar_LiQ3"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_iDgU"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist menu__link--active" href="/gisulsa/docs/category/analysis"><span title="Analysis" class="categoryLinkLabel_ezQx">Analysis</span></a><button aria-label="Collapse sidebar category &#x27;Analysis&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/137M_analysis"><span title="137회 정보관리기술사(137M) 기출 이유 분석" class="linkLabel_REp1">137회 정보관리기술사(137M) 기출 이유 분석</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/analysis/138M/138M_1_10_TTPs"><span title="138M" class="categoryLinkLabel_ezQx">138M</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/138M_analysis"><span title="138회 정보관리기술사(138M) 기출 이유 분석" class="linkLabel_REp1">138회 정보관리기술사(138M) 기출 이유 분석</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_10_WiFi7"><span title="139M" class="categoryLinkLabel_ezQx">139M</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_10_WiFi7"><span title="문제 10) Wi-Fi 7 (IEEE 802.11be, EHT)" class="linkLabel_REp1">문제 10) Wi-Fi 7 (IEEE 802.11be, EHT)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_11_CTEM"><span title="문제 11) CTEM(Continuous Threat Exposure Management)" class="linkLabel_REp1">문제 11) CTEM(Continuous Threat Exposure Management)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_12_양자머신러닝"><span title="문제 12) 양자머신러닝(QML, Quantum Machine Learning)" class="linkLabel_REp1">문제 12) 양자머신러닝(QML, Quantum Machine Learning)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_13_가명처리"><span title="문제 13) 개인정보보호를 위한 가명처리(Pseudonymization) 기법" class="linkLabel_REp1">문제 13) 개인정보보호를 위한 가명처리(Pseudonymization) 기법</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_1_WBS_작성방법"><span title="문제 1) WBS(Work Breakdown Structure) 작성방법" class="linkLabel_REp1">문제 1) WBS(Work Breakdown Structure) 작성방법</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_2_대수의_법칙과_중심극한정리"><span title="문제 2) 대수의 법칙과 중심극한정리" class="linkLabel_REp1">문제 2) 대수의 법칙과 중심극한정리</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_3_Advanced_RAG_Modular_RAG"><span title="문제 3) Advanced RAG와 Modular RAG 비교" class="linkLabel_REp1">문제 3) Advanced RAG와 Modular RAG 비교</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_4_부정적_위험_대응전략"><span title="문제 4) IT 프로젝트의 부정적 위험(Negative Risk)과 대응 전략" class="linkLabel_REp1">문제 4) IT 프로젝트의 부정적 위험(Negative Risk)과 대응 전략</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_5_무중단_배포"><span title="문제 5) 소프트웨어 무중단 배포 방식" class="linkLabel_REp1">문제 5) 소프트웨어 무중단 배포 방식</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_6_엣지_클라우드_컴퓨팅"><span title="문제 6) 엣지(Edge) 컴퓨팅과 클라우드 컴퓨팅의 차이점" class="linkLabel_REp1">문제 6) 엣지(Edge) 컴퓨팅과 클라우드 컴퓨팅의 차이점</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_7_분산_DB_투명성"><span title="문제 7) 분산 데이터베이스의 투명성(Transparency)" class="linkLabel_REp1">문제 7) 분산 데이터베이스의 투명성(Transparency)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_8_과적합_과소적합"><span title="문제 8) 과적합(Overfitting)과 과소적합(Underfitting)" class="linkLabel_REp1">문제 8) 과적합(Overfitting)과 과소적합(Underfitting)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_1_9_순환복잡도"><span title="문제 9) 맥케이브 순환복잡도(McCabe&#x27;s Cyclomatic Complexity)" class="linkLabel_REp1">문제 9) 맥케이브 순환복잡도(McCabe&#x27;s Cyclomatic Complexity)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_2_1_AI_리스크"><span title="문제 1) AI 리스크" class="linkLabel_REp1">문제 1) AI 리스크</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_2_2_파인튜닝_RAG_RLHF_RAFT"><span title="문제 2) LLM 기반 AI 시스템 구축" class="linkLabel_REp1">문제 2) LLM 기반 AI 시스템 구축</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_2_3_데이터_레이크"><span title="문제 3) 데이터 레이크 기반 통합 데이터 플랫폼" class="linkLabel_REp1">문제 3) 데이터 레이크 기반 통합 데이터 플랫폼</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_2_4_터보퀀트"><span title="문제 4) 터보퀀트(TurboQuant)" class="linkLabel_REp1">문제 4) 터보퀀트(TurboQuant)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_2_5_공공_SLA"><span title="문제 5) 공공 SLA와 정보시스템 등급제 (전자정부법 개정)" class="linkLabel_REp1">문제 5) 공공 SLA와 정보시스템 등급제 (전자정부법 개정)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_2_6_데이터_가치평가_자산화"><span title="문제 6) 데이터 가치평가 및 데이터 자산화" class="linkLabel_REp1">문제 6) 데이터 가치평가 및 데이터 자산화</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_3_1_다중_에이전트_시스템"><span title="문제 1) 기업의 업무구조를 바꾸는 다중 에이전트 시스템(MAS, Multi Agent System)" class="linkLabel_REp1">문제 1) 기업의 업무구조를 바꾸는 다중 에이전트 시스템(MAS, Multi Agent System)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_3_2_이상치_편향"><span title="문제 2) 데이터 분석에서 이상치(Outlier)와 편향(Bias)" class="linkLabel_REp1">문제 2) 데이터 분석에서 이상치(Outlier)와 편향(Bias)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_3_3_기술부채_코드스멜_리팩토링"><span title="문제 3) 명확하지 않은 요구사항으로 인한 소프트웨어 품질저하" class="linkLabel_REp1">문제 3) 명확하지 않은 요구사항으로 인한 소프트웨어 품질저하</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_3_4_소프트웨어_테스트"><span title="문제 4) 소프트웨어 테스트" class="linkLabel_REp1">문제 4) 소프트웨어 테스트</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_3_5_이진탐색트리_라우팅테이블"><span title="문제 5) 이진 탐색 트리와 라우팅 테이블 탐색 알고리즘의 상관관계" class="linkLabel_REp1">문제 5) 이진 탐색 트리와 라우팅 테이블 탐색 알고리즘의 상관관계</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_3_6_AI_학습데이터_품질관리"><span title="문제 6) AI 학습용 데이터 품질관리" class="linkLabel_REp1">문제 6) AI 학습용 데이터 품질관리</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_4_1_클러스터링_필터링_이상치탐지"><span title="문제 1) 빅데이터 분석기법 - 클러스터링, 필터링, 이상치 탐지" class="linkLabel_REp1">문제 1) 빅데이터 분석기법 - 클러스터링, 필터링, 이상치 탐지</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_4_2_뮤텍스_세마포어_모니터"><span title="문제 2) 프로세스 동기화 기법 - 뮤텍스, 세마포어, 모니터" class="linkLabel_REp1">문제 2) 프로세스 동기화 기법 - 뮤텍스, 세마포어, 모니터</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_4_3_데이터센터_위치선정"><span title="문제 3) 재난 대비 데이터센터 지리적 위치선정 및 대응전략" class="linkLabel_REp1">문제 3) 재난 대비 데이터센터 지리적 위치선정 및 대응전략</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_4_4_가상메모리"><span title="문제 4) 가상메모리(Virtual Memory)" class="linkLabel_REp1">문제 4) 가상메모리(Virtual Memory)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_4_5_VPP_AI기술"><span title="문제 5) VPP(Virtual Power Plant) 전력수요 예측 AI 기술" class="linkLabel_REp1">문제 5) VPP(Virtual Power Plant) 전력수요 예측 AI 기술</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M/139M_4_6_서브네팅_VLSM"><span title="문제 6) 네트워크 서브네팅(Subnetting)과 VLSM" class="linkLabel_REp1">문제 6) 네트워크 서브네팅(Subnetting)과 VLSM</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/analysis/139M_analysis"><span title="139회 정보관리기술사(139M) 기출 이유 분석" class="linkLabel_REp1">139회 정보관리기술사(139M) 기출 이유 분석</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m"><span title="category-M" class="categoryLinkLabel_ezQx">category-M</span></a><button aria-label="Expand sidebar category &#x27;category-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m-summary"><span title="category-M-summary" class="categoryLinkLabel_ezQx">category-M-summary</span></a><button aria-label="Expand sidebar category &#x27;category-M-summary&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/category-mc"><span title="category-MC" class="categoryLinkLabel_ezQx">category-MC</span></a><button aria-label="Expand sidebar category &#x27;category-MC&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/gisulsa/docs/intro"><span title="Tutorial Intro" class="linkLabel_REp1">Tutorial Intro</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-m"><span title="기출-과목-M" class="categoryLinkLabel_ezQx">기출-과목-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-교재-m"><span title="기출-과목-교재-M" class="categoryLinkLabel_ezQx">기출-과목-교재-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-교재-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/etc"><span title="Etc" class="categoryLinkLabel_ezQx">Etc</span></a><button aria-label="Expand sidebar category &#x27;Etc&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/answer"><span title="Answer" class="categoryLinkLabel_ezQx">Answer</span></a><button aria-label="Expand sidebar category &#x27;Answer&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/answer2-claudecode"><span title="Answer2-claudecode" class="categoryLinkLabel_ezQx">Answer2-claudecode</span></a><button aria-label="Expand sidebar category &#x27;Answer2-claudecode&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/answer2"><span title="Answer2" class="categoryLinkLabel_ezQx">Answer2</span></a><button aria-label="Expand sidebar category &#x27;Answer2&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/dap"><span title="DAP" class="categoryLinkLabel_ezQx">DAP</span></a><button aria-label="Expand sidebar category &#x27;DAP&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist" href="/gisulsa/docs/category/gamrisa"><span title="Gamrisa" class="categoryLinkLabel_ezQx">Gamrisa</span></a><button aria-label="Expand sidebar category &#x27;Gamrisa&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_nItb menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/gisulsa/docs/keyword/IT서비스_통합/ISMP"><span title="keyword" class="categoryLinkLabel_ezQx">keyword</span></a></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_p7wf"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_Rd1m"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_C0wL"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_txwF"><div class="docItemContainer_FUEM"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_DlgT" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/gisulsa/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_BMIH"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/gisulsa/docs/category/analysis"><span>Analysis</span></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">139M</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">문제 4) 터보퀀트(TurboQuant)</span></li></ul></nav><div class="tocCollapsible_LBsY theme-doc-toc-mobile tocMobile_eMWB"><button type="button" class="clean-btn tocCollapsibleButton_fVBn">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>문제 4) 터보퀀트(TurboQuant)</h1></header>
 <h1>답)</h1>
-<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="i-개요">I. 개요<a href="#i-개요" class="hash-link" aria-label="Direct link to I. 개요" title="Direct link to I. 개요" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_l_sM" id="i-개요">I. 개요<a href="#i-개요" class="hash-link" aria-label="Direct link to I. 개요" title="Direct link to I. 개요" translate="no">​</a></h2>
 <p>거대언어모델(LLM)과 딥러닝 모델의 파라미터 규모가 수백억~수천억 단위로 급증하면서, 모델 가중치를 저비트로 압축하는 양자화(Quantization)는 추론 비용 절감의 핵심 기술이 되었다. 기존 사후학습 양자화(PTQ)는 4비트 이하의 극저비트 영역에서 정확도 손실이 급격히 커지는 한계가 있었다. **터보퀀트(TurboQuant)**는 보정 데이터(calibration data)가 필요 없는 <strong>데이터 자유(data-free) 벡터 양자화</strong> 기법으로, <strong>랜덤 회전 전처리 + 적응적 스칼라/벡터 양자화</strong>를 결합하여 평균제곱오차(MSE) 왜곡을 이론적 하한에 근접시키며, 극저비트에서도 정확도 손실을 최소화한다.</p>
 <!-- -->
 <p>터보퀀트는 GPTQ, AWQ 등 보정 데이터 기반 PTQ나 재학습 기반 QAT와 달리, 가중치 행렬의 통계적 구조만을 이용해 즉시(on-the-fly) 양자화가 가능하다는 점에서 차별화된다.</p>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="ii-터보퀀트turboquant의-개념">II. 터보퀀트(TurboQuant)의 개념<a href="#ii-터보퀀트turboquant의-개념" class="hash-link" aria-label="Direct link to II. 터보퀀트(TurboQuant)의 개념" title="Direct link to II. 터보퀀트(TurboQuant)의 개념" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1-정의">1. 정의<a href="#1-정의" class="hash-link" aria-label="Direct link to 1. 정의" title="Direct link to 1. 정의" translate="no">​</a></h3>
+<h2 class="anchor anchorTargetStickyNavbar_l_sM" id="ii-터보퀀트turboquant의-개념">II. 터보퀀트(TurboQuant)의 개념<a href="#ii-터보퀀트turboquant의-개념" class="hash-link" aria-label="Direct link to II. 터보퀀트(TurboQuant)의 개념" title="Direct link to II. 터보퀀트(TurboQuant)의 개념" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="1-정의">1. 정의<a href="#1-정의" class="hash-link" aria-label="Direct link to 1. 정의" title="Direct link to 1. 정의" translate="no">​</a></h3>
 <p>터보퀀트는 가중치 벡터를 <strong>회전(rotation)을 통해 분포를 균질화한 뒤, 비트 예산에 따라 스칼라 또는 벡터 양자화를 적응적으로 적용</strong>하여, 임의의 입력 분포에 대해 MSE 왜곡을 최소화하는 데이터 자유 양자화 알고리즘이다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>구분</th><th>내용</th></tr></thead><tbody><tr><td>분류</td><td>사후학습 양자화(PTQ) 계열, 데이터 자유 벡터 양자화</td></tr><tr><td>입력</td><td>사전학습 가중치 행렬 W (보정 데이터 불필요)</td></tr><tr><td>핵심 연산</td><td>랜덤 직교 회전 + 적응적 양자화</td></tr><tr><td>목표 함수</td><td>가중치 재구성 MSE 최소화</td></tr><tr><td>적용 비트</td><td>1~4비트 극저비트 포함</td></tr><tr><td>산출물</td><td>양자화된 가중치 + 스케일/코드북 메타데이터</td></tr></tbody></table>
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="2-동작-원리">2. 동작 원리<a href="#2-동작-원리" class="hash-link" aria-label="Direct link to 2. 동작 원리" title="Direct link to 2. 동작 원리" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="2-동작-원리">2. 동작 원리<a href="#2-동작-원리" class="hash-link" aria-label="Direct link to 2. 동작 원리" title="Direct link to 2. 동작 원리" translate="no">​</a></h3>
 <!-- -->
 <p>랜덤 직교 회전 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em"></span><span class="mord mathnormal" style="margin-right:0.0077em">R</span></span></span></span> 을 가중치에 적용하면 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mi>W</mi></mrow><annotation encoding="application/x-tex">RW</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em"></span><span class="mord mathnormal" style="margin-right:0.0077em">R</span><span class="mord mathnormal" style="margin-right:0.1389em">W</span></span></span></span> 의 각 성분이 근사적으로 정규분포를 따르게 되어, 특정 채널에 몰린 이상치(outlier)가 전체 차원으로 분산된다. 이는 양자화 격자가 균일하게 활용되도록 만들어 왜곡을 줄인다.</p>
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="3-mse-왜곡-최소화-관점">3. MSE 왜곡 최소화 관점<a href="#3-mse-왜곡-최소화-관점" class="hash-link" aria-label="Direct link to 3. MSE 왜곡 최소화 관점" title="Direct link to 3. MSE 왜곡 최소화 관점" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="3-mse-왜곡-최소화-관점">3. MSE 왜곡 최소화 관점<a href="#3-mse-왜곡-최소화-관점" class="hash-link" aria-label="Direct link to 3. MSE 왜곡 최소화 관점" title="Direct link to 3. MSE 왜곡 최소화 관점" translate="no">​</a></h3>
 <p>양자화 왜곡은 다음 MSE로 정의된다.</p>
 <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>D</mi><mo>=</mo><mi mathvariant="double-struck">E</mi><mrow><mo fence="true">[</mo><mi mathvariant="normal">∥</mi><mi>W</mi><mo>−</mo><mover accent="true"><mi>W</mi><mo>^</mo></mover><msubsup><mi mathvariant="normal">∥</mi><mn>2</mn><mn>2</mn></msubsup><mo fence="true">]</mo></mrow></mrow><annotation encoding="application/x-tex">D = \mathbb{E}\left[\| W - \hat{W} \|_2^2\right]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em"></span><span class="mord mathnormal" style="margin-right:0.0278em">D</span><span class="mspace" style="margin-right:0.2778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em"></span></span><span class="base"><span class="strut" style="height:1.8em;vertical-align:-0.65em"></span><span class="mord mathbb">E</span><span class="mspace" style="margin-right:0.1667em"></span><span class="minner"><span class="mopen delimcenter" style="top:0em"><span class="delimsizing size2">[</span></span><span class="mord">∥</span><span class="mord mathnormal" style="margin-right:0.1389em">W</span><span class="mspace" style="margin-right:0.2222em"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9468em"><span style="top:-3em"><span class="pstrut" style="height:3em"></span><span class="mord mathnormal" style="margin-right:0.1389em">W</span></span><span style="top:-3.2523em"><span class="pstrut" style="height:3em"></span><span class="accent-body" style="left:-0.25em"><span class="mord">^</span></span></span></span></span></span></span><span class="mord"><span class="mord">∥</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641em"><span style="top:-2.453em;margin-left:0em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span><span style="top:-3.113em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em"><span class="delimsizing size2">]</span></span></span></span></span></span></span>
 <p>회전 후의 신호는 균질한 분포를 가지므로, 율-왜곡 이론(rate-distortion theory)상의 하한에 근접한다.</p>
 <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>D</mi><mi>min</mi><mo>⁡</mo></msub><mo>≈</mo><msup><mi>σ</mi><mn>2</mn></msup><mo>⋅</mo><msup><mn>2</mn><mrow><mo>−</mo><mn>2</mn><mi>R</mi></mrow></msup></mrow><annotation encoding="application/x-tex">D_{\min} \approx \sigma^2 \cdot 2^{-2R}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0278em">D</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3175em"><span style="top:-2.55em;margin-left:-0.0278em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mop mtight"><span class="mtight">m</span><span class="mtight">i</span><span class="mtight">n</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em"></span><span class="mrel">≈</span><span class="mspace" style="margin-right:0.2778em"></span></span><span class="base"><span class="strut" style="height:0.8641em"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0359em">σ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641em"><span style="top:-3.113em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em"></span></span><span class="base"><span class="strut" style="height:0.8913em"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913em"><span style="top:-3.113em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">2</span><span class="mord mathnormal mtight" style="margin-right:0.0077em">R</span></span></span></span></span></span></span></span></span></span></span></span></span>
 <p>여기서 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em"></span><span class="mord mathnormal" style="margin-right:0.0077em">R</span></span></span></span> 은 차원당 비트수, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>σ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\sigma^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141em"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0359em">σ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em"><span style="top:-3.063em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> 은 신호 분산이다. 터보퀀트는 회전을 통해 분포를 가우시안에 근사시킴으로써 이 하한에 가깝게 도달한다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>양자화 형태</th><th>왜곡 특성</th><th>비트 효율</th></tr></thead><tbody><tr><td>단순 스칼라 양자화</td><td>이상치에 민감, 격자 낭비</td><td>낮음</td></tr><tr><td>회전 + 스칼라</td><td>분포 균질화로 왜곡 감소</td><td>중간</td></tr><tr><td>회전 + 적응 벡터</td><td>차원 간 상관 활용, 하한 근접</td><td>높음</td></tr></tbody></table>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="iii-터보퀀트의-특징">III. 터보퀀트의 특징<a href="#iii-터보퀀트의-특징" class="hash-link" aria-label="Direct link to III. 터보퀀트의 특징" title="Direct link to III. 터보퀀트의 특징" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1-핵심-특징">1. 핵심 특징<a href="#1-핵심-특징" class="hash-link" aria-label="Direct link to 1. 핵심 특징" title="Direct link to 1. 핵심 특징" translate="no">​</a></h3>
+<h2 class="anchor anchorTargetStickyNavbar_l_sM" id="iii-터보퀀트의-특징">III. 터보퀀트의 특징<a href="#iii-터보퀀트의-특징" class="hash-link" aria-label="Direct link to III. 터보퀀트의 특징" title="Direct link to III. 터보퀀트의 특징" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="1-핵심-특징">1. 핵심 특징<a href="#1-핵심-특징" class="hash-link" aria-label="Direct link to 1. 핵심 특징" title="Direct link to 1. 핵심 특징" translate="no">​</a></h3>
 <!-- -->
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="2-특징별-상세">2. 특징별 상세<a href="#2-특징별-상세" class="hash-link" aria-label="Direct link to 2. 특징별 상세" title="Direct link to 2. 특징별 상세" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="2-특징별-상세">2. 특징별 상세<a href="#2-특징별-상세" class="hash-link" aria-label="Direct link to 2. 특징별 상세" title="Direct link to 2. 특징별 상세" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>특징</th><th>설명</th><th>효과</th></tr></thead><tbody><tr><td><strong>데이터 자유(data-free)</strong></td><td>보정·재학습 데이터 없이 가중치만으로 양자화</td><td>데이터 확보 비용·프라이버시 문제 제거</td></tr><tr><td><strong>랜덤 회전 전처리</strong></td><td>직교 회전으로 분포 평탄화</td><td>이상치 영향 최소화</td></tr><tr><td><strong>적응적 양자화</strong></td><td>비트 예산에 따라 스칼라/벡터 자동 선택</td><td>비트당 정확도 극대화</td></tr><tr><td><strong>이론적 보장</strong></td><td>율-왜곡 하한에 근접하는 MSE 보장</td><td>극저비트 안정성</td></tr><tr><td><strong>빠른 처리 속도</strong></td><td>보정 루프 없이 1회 변환</td><td>양자화 시간 대폭 단축</td></tr><tr><td><strong>범용성</strong></td><td>모델 구조에 무관하게 적용</td><td>LLM·비전·임베딩 모두 지원</td></tr></tbody></table>
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="3-데이터-자유-방식의-의의">3. 데이터 자유 방식의 의의<a href="#3-데이터-자유-방식의-의의" class="hash-link" aria-label="Direct link to 3. 데이터 자유 방식의 의의" title="Direct link to 3. 데이터 자유 방식의 의의" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="3-데이터-자유-방식의-의의">3. 데이터 자유 방식의 의의<a href="#3-데이터-자유-방식의-의의" class="hash-link" aria-label="Direct link to 3. 데이터 자유 방식의 의의" title="Direct link to 3. 데이터 자유 방식의 의의" translate="no">​</a></h3>
 <!-- -->
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="iv-터보퀀트의-성능">IV. 터보퀀트의 성능<a href="#iv-터보퀀트의-성능" class="hash-link" aria-label="Direct link to IV. 터보퀀트의 성능" title="Direct link to IV. 터보퀀트의 성능" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1-정확도-측면">1. 정확도 측면<a href="#1-정확도-측면" class="hash-link" aria-label="Direct link to 1. 정확도 측면" title="Direct link to 1. 정확도 측면" translate="no">​</a></h3>
+<h2 class="anchor anchorTargetStickyNavbar_l_sM" id="iv-터보퀀트의-성능">IV. 터보퀀트의 성능<a href="#iv-터보퀀트의-성능" class="hash-link" aria-label="Direct link to IV. 터보퀀트의 성능" title="Direct link to IV. 터보퀀트의 성능" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="1-정확도-측면">1. 정확도 측면<a href="#1-정확도-측면" class="hash-link" aria-label="Direct link to 1. 정확도 측면" title="Direct link to 1. 정확도 측면" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>비트 폭</th><th>기존 PTQ 정확도 손실</th><th>터보퀀트 정확도 손실</th></tr></thead><tbody><tr><td>8비트(INT8)</td><td>거의 무손실</td><td>거의 무손실</td></tr><tr><td>4비트</td><td>1~3% 성능 저하</td><td>1% 미만</td></tr><tr><td>3비트</td><td>5~10% 이상 급락</td><td>2~4% 수준</td></tr><tr><td>2비트</td><td>사실상 사용 불가</td><td>제한적 사용 가능 수준</td></tr></tbody></table>
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="2-성능-평가-지표">2. 성능 평가 지표<a href="#2-성능-평가-지표" class="hash-link" aria-label="Direct link to 2. 성능 평가 지표" title="Direct link to 2. 성능 평가 지표" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="2-성능-평가-지표">2. 성능 평가 지표<a href="#2-성능-평가-지표" class="hash-link" aria-label="Direct link to 2. 성능 평가 지표" title="Direct link to 2. 성능 평가 지표" translate="no">​</a></h3>
 <!-- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>지표</th><th>의미</th><th>터보퀀트 강점</th></tr></thead><tbody><tr><td>Perplexity(PPL)</td><td>언어모델 예측 품질</td><td>저비트에서 PPL 증가 억제</td></tr><tr><td>다운스트림 정확도</td><td>벤치마크 과제 성능</td><td>4비트 이하에서 우위</td></tr><tr><td>재구성 MSE</td><td>가중치 복원 오차</td><td>이론적 하한 근접</td></tr><tr><td>양자화 시간</td><td>모델 변환 소요 시간</td><td>보정 루프 제거로 단축</td></tr></tbody></table>
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="3-성능-우위의-원인">3. 성능 우위의 원인<a href="#3-성능-우위의-원인" class="hash-link" aria-label="Direct link to 3. 성능 우위의 원인" title="Direct link to 3. 성능 우위의 원인" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="3-성능-우위의-원인">3. 성능 우위의 원인<a href="#3-성능-우위의-원인" class="hash-link" aria-label="Direct link to 3. 성능 우위의 원인" title="Direct link to 3. 성능 우위의 원인" translate="no">​</a></h3>
 <p>저비트 영역에서 터보퀀트가 우위를 갖는 핵심은 <strong>회전을 통한 이상치 분산</strong>이다. LLM 가중치·활성값에는 소수의 거대한 이상치 채널이 존재하여, 이들이 양자화 스케일을 지배하고 나머지 값들의 표현 정밀도를 떨어뜨린다. 회전은 이 이상치를 전 차원으로 고르게 퍼뜨려 격자 활용도를 높인다.</p>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="v-기존-양자화quantization-기술과의-차이점">V. 기존 양자화(Quantization) 기술과의 차이점<a href="#v-기존-양자화quantization-기술과의-차이점" class="hash-link" aria-label="Direct link to V. 기존 양자화(Quantization) 기술과의 차이점" title="Direct link to V. 기존 양자화(Quantization) 기술과의 차이점" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1-양자화-기술-분류">1. 양자화 기술 분류<a href="#1-양자화-기술-분류" class="hash-link" aria-label="Direct link to 1. 양자화 기술 분류" title="Direct link to 1. 양자화 기술 분류" translate="no">​</a></h3>
+<h2 class="anchor anchorTargetStickyNavbar_l_sM" id="v-기존-양자화quantization-기술과의-차이점">V. 기존 양자화(Quantization) 기술과의 차이점<a href="#v-기존-양자화quantization-기술과의-차이점" class="hash-link" aria-label="Direct link to V. 기존 양자화(Quantization) 기술과의 차이점" title="Direct link to V. 기존 양자화(Quantization) 기술과의 차이점" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="1-양자화-기술-분류">1. 양자화 기술 분류<a href="#1-양자화-기술-분류" class="hash-link" aria-label="Direct link to 1. 양자화 기술 분류" title="Direct link to 1. 양자화 기술 분류" translate="no">​</a></h3>
 <!-- -->
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="2-주요-기법-비교표">2. 주요 기법 비교표<a href="#2-주요-기법-비교표" class="hash-link" aria-label="Direct link to 2. 주요 기법 비교표" title="Direct link to 2. 주요 기법 비교표" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="2-주요-기법-비교표">2. 주요 기법 비교표<a href="#2-주요-기법-비교표" class="hash-link" aria-label="Direct link to 2. 주요 기법 비교표" title="Direct link to 2. 주요 기법 비교표" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>비교 항목</th><th>GPTQ</th><th>AWQ</th><th>QAT</th><th>터보퀀트</th></tr></thead><tbody><tr><td><strong>분류</strong></td><td>PTQ</td><td>PTQ</td><td>학습 기반</td><td>PTQ(데이터 자유)</td></tr><tr><td><strong>보정 데이터</strong></td><td>필요</td><td>필요</td><td>학습 데이터 필요</td><td><strong>불필요</strong></td></tr><tr><td><strong>재학습</strong></td><td>불필요</td><td>불필요</td><td><strong>필요</strong></td><td>불필요</td></tr><tr><td><strong>핵심 원리</strong></td><td>헤시안 기반 오차보정</td><td>중요 가중치 스케일 보존</td><td>양자화 시뮬레이션 학습</td><td>회전+적응 양자화</td></tr><tr><td><strong>이상치 처리</strong></td><td>부분적</td><td>활성값 기반 보정</td><td>학습으로 흡수</td><td><strong>회전으로 분산</strong></td></tr><tr><td><strong>극저비트(≤3bit)</strong></td><td>손실 큼</td><td>손실 큼</td><td>우수하나 고비용</td><td><strong>손실 최소</strong></td></tr><tr><td><strong>양자화 속도</strong></td><td>중간</td><td>빠름</td><td>매우 느림</td><td><strong>빠름</strong></td></tr><tr><td><strong>이론적 보장</strong></td><td>약함</td><td>약함</td><td>경험적</td><td><strong>율-왜곡 하한</strong></td></tr><tr><td><strong>프라이버시</strong></td><td>데이터 노출 위험</td><td>데이터 노출 위험</td><td>데이터 노출 위험</td><td><strong>안전</strong></td></tr></tbody></table>
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="3-차이점-핵심-요약">3. 차이점 핵심 요약<a href="#3-차이점-핵심-요약" class="hash-link" aria-label="Direct link to 3. 차이점 핵심 요약" title="Direct link to 3. 차이점 핵심 요약" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="3-차이점-핵심-요약">3. 차이점 핵심 요약<a href="#3-차이점-핵심-요약" class="hash-link" aria-label="Direct link to 3. 차이점 핵심 요약" title="Direct link to 3. 차이점 핵심 요약" translate="no">​</a></h3>
 <!-- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>비교 대상</th><th>터보퀀트의 차별점</th></tr></thead><tbody><tr><td>GPTQ 대비</td><td>보정 데이터·헤시안 계산 불필요, 회전으로 이상치 근본 해소</td></tr><tr><td>AWQ 대비</td><td>활성값 의존 없이 가중치 통계만으로 처리, 이론적 최적성 확보</td></tr><tr><td>QAT 대비</td><td>재학습 비용·시간 없이 유사 수준 정확도 달성</td></tr><tr><td>일반 PTQ 대비</td><td>극저비트에서 정확도 붕괴 방지</td></tr></tbody></table>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="vi-터보퀀트의-기대효과">VI. 터보퀀트의 기대효과<a href="#vi-터보퀀트의-기대효과" class="hash-link" aria-label="Direct link to VI. 터보퀀트의 기대효과" title="Direct link to VI. 터보퀀트의 기대효과" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="1-메모리-및-추론-속도-효과">1. 메모리 및 추론 속도 효과<a href="#1-메모리-및-추론-속도-효과" class="hash-link" aria-label="Direct link to 1. 메모리 및 추론 속도 효과" title="Direct link to 1. 메모리 및 추론 속도 효과" translate="no">​</a></h3>
+<h2 class="anchor anchorTargetStickyNavbar_l_sM" id="vi-터보퀀트의-기대효과">VI. 터보퀀트의 기대효과<a href="#vi-터보퀀트의-기대효과" class="hash-link" aria-label="Direct link to VI. 터보퀀트의 기대효과" title="Direct link to VI. 터보퀀트의 기대효과" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="1-메모리-및-추론-속도-효과">1. 메모리 및 추론 속도 효과<a href="#1-메모리-및-추론-속도-효과" class="hash-link" aria-label="Direct link to 1. 메모리 및 추론 속도 효과" title="Direct link to 1. 메모리 및 추론 속도 효과" translate="no">​</a></h3>
 <!-- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>비트 폭</th><th>메모리 사용(FP16 대비)</th><th>메모리 절감율</th></tr></thead><tbody><tr><td>FP16(기준)</td><td>100%</td><td>0%</td></tr><tr><td>INT8</td><td>50%</td><td>50%</td></tr><tr><td>4비트</td><td>25%</td><td>75%</td></tr><tr><td>3비트</td><td>약 19%</td><td>약 81%</td></tr><tr><td>2비트</td><td>약 12.5%</td><td>약 87.5%</td></tr></tbody></table>
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="2-기대효과-상세">2. 기대효과 상세<a href="#2-기대효과-상세" class="hash-link" aria-label="Direct link to 2. 기대효과 상세" title="Direct link to 2. 기대효과 상세" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="2-기대효과-상세">2. 기대효과 상세<a href="#2-기대효과-상세" class="hash-link" aria-label="Direct link to 2. 기대효과 상세" title="Direct link to 2. 기대효과 상세" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>기대효과</th><th>내용</th></tr></thead><tbody><tr><td><strong>메모리 절감</strong></td><td>4비트 기준 FP16 대비 약 75% 메모리 절감, GPU 1장으로 대형 모델 서빙</td></tr><tr><td><strong>추론 속도 향상</strong></td><td>LLM 추론은 메모리 대역폭 병목이 지배적이므로, 가중치 축소가 토큰 생성 속도(throughput) 직접 향상</td></tr><tr><td><strong>서빙 비용 절감</strong></td><td>동일 하드웨어에서 더 큰 배치·더 큰 모델 처리로 단위 추론 비용 감소</td></tr><tr><td><strong>온디바이스 배포</strong></td><td>모바일·엣지 등 제한된 메모리 환경에 대형 모델 탑재 가능</td></tr><tr><td><strong>양자화 운영 효율</strong></td><td>보정 데이터 파이프라인 불필요로 MLOps 단순화</td></tr><tr><td><strong>데이터 거버넌스</strong></td><td>민감 데이터 없이 양자화 가능하여 규제 준수 용이</td></tr></tbody></table>
-<h3 class="anchor anchorTargetStickyNavbar_yIpS" id="3-적용-시-고려사항">3. 적용 시 고려사항<a href="#3-적용-시-고려사항" class="hash-link" aria-label="Direct link to 3. 적용 시 고려사항" title="Direct link to 3. 적용 시 고려사항" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_l_sM" id="3-적용-시-고려사항">3. 적용 시 고려사항<a href="#3-적용-시-고려사항" class="hash-link" aria-label="Direct link to 3. 적용 시 고려사항" title="Direct link to 3. 적용 시 고려사항" translate="no">​</a></h3>
 <!-- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>고려사항</th><th>내용</th></tr></thead><tbody><tr><td>하드웨어 호환</td><td>INT4/INT3 연산을 지원하는 커널·GPU 필요</td></tr><tr><td>혼합 정밀도</td><td>민감 레이어는 고비트 유지하는 혼합 전략 검토</td></tr><tr><td>회전 오버헤드</td><td>추론 시 역회전 연산 비용 최소화 설계 필요</td></tr><tr><td>검증 체계</td><td>양자화 후 PPL·다운스트림 정확도 회귀 검증</td></tr></tbody></table>
 <hr>
-<h2 class="anchor anchorTargetStickyNavbar_yIpS" id="결론">결론<a href="#결론" class="hash-link" aria-label="Direct link to 결론" title="Direct link to 결론" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_l_sM" id="결론">결론<a href="#결론" class="hash-link" aria-label="Direct link to 결론" title="Direct link to 결론" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <table><thead><tr><th>구분</th><th>핵심 내용</th></tr></thead><tbody><tr><td><strong>개념</strong></td><td>데이터 자유 + 회전 + 적응적 스칼라/벡터 양자화 기법</td></tr><tr><td><strong>특징</strong></td><td>보정 데이터 불필요, 이상치 분산, 율-왜곡 하한 근접</td></tr><tr><td><strong>성능</strong></td><td>4비트 이하 극저비트에서 정확도 손실 최소화</td></tr><tr><td><strong>차이점</strong></td><td>GPTQ/AWQ 보정 의존·QAT 재학습 부담 모두 제거</td></tr><tr><td><strong>기대효과</strong></td><td>메모리 75% 절감, 추론 속도 향상, 온디바이스 배포</td></tr></tbody></table>
 <p>정보관리기술사 관점에서 터보퀀트는 단순한 압축 기술을 넘어, <strong>대규모 AI 서비스의 총소유비용(TCO)을 좌우하는 인프라 최적화 전략</strong>으로 이해해야 한다. 모델 양자화는 정확도-비용-지연의 트레이드오프 위에서 결정되며, 데이터 자유 방식은 데이터 거버넌스·프라이버시 규제 환경에서 도입 리스크를 크게 낮춘다. 따라서 기술사는 양자화 도입 시 하드웨어 커널 지원, 레이어별 민감도 기반 혼합 정밀도, 양자화 후 정확도 회귀 검증 체계를 함께 설계하여, 비용 절감과 서비스 품질을 동시에 보장하는 의사결정을 주도해야 한다.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_YM8j"><a href="https://github.com/electro9666/gisulsa/tree/main/docs/analysis/139M/139M_2_4_터보퀀트.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_hRvp" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_LNbR"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/gisulsa/docs/analysis/139M/139M_2_3_데이터_레이크"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">문제 3) 데이터 레이크 기반 통합 데이터 플랫폼</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/gisulsa/docs/analysis/139M/139M_2_5_공공_SLA"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">문제 5) 공공 SLA와 정보시스템 등급제 (전자정부법 개정)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_VU0O thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#i-개요" class="table-of-contents__link toc-highlight">I. 개요</a></li><li><a href="#ii-터보퀀트turboquant의-개념" class="table-of-contents__link toc-highlight">II. 터보퀀트(TurboQuant)의 개념</a><ul><li><a href="#1-정의" class="table-of-contents__link toc-highlight">1. 정의</a></li><li><a href="#2-동작-원리" class="table-of-contents__link toc-highlight">2. 동작 원리</a></li><li><a href="#3-mse-왜곡-최소화-관점" class="table-of-contents__link toc-highlight">3. MSE 왜곡 최소화 관점</a></li></ul></li><li><a href="#iii-터보퀀트의-특징" class="table-of-contents__link toc-highlight">III. 터보퀀트의 특징</a><ul><li><a href="#1-핵심-특징" class="table-of-contents__link toc-highlight">1. 핵심 특징</a></li><li><a href="#2-특징별-상세" class="table-of-contents__link toc-highlight">2. 특징별 상세</a></li><li><a href="#3-데이터-자유-방식의-의의" class="table-of-contents__link toc-highlight">3. 데이터 자유 방식의 의의</a></li></ul></li><li><a href="#iv-터보퀀트의-성능" class="table-of-contents__link toc-highlight">IV. 터보퀀트의 성능</a><ul><li><a href="#1-정확도-측면" class="table-of-contents__link toc-highlight">1. 정확도 측면</a></li><li><a href="#2-성능-평가-지표" class="table-of-contents__link toc-highlight">2. 성능 평가 지표</a></li><li><a href="#3-성능-우위의-원인" class="table-of-contents__link toc-highlight">3. 성능 우위의 원인</a></li></ul></li><li><a href="#v-기존-양자화quantization-기술과의-차이점" class="table-of-contents__link toc-highlight">V. 기존 양자화(Quantization) 기술과의 차이점</a><ul><li><a href="#1-양자화-기술-분류" class="table-of-contents__link toc-highlight">1. 양자화 기술 분류</a></li><li><a href="#2-주요-기법-비교표" class="table-of-contents__link toc-highlight">2. 주요 기법 비교표</a></li><li><a href="#3-차이점-핵심-요약" class="table-of-contents__link toc-highlight">3. 차이점 핵심 요약</a></li></ul></li><li><a href="#vi-터보퀀트의-기대효과" class="table-of-contents__link toc-highlight">VI. 터보퀀트의 기대효과</a><ul><li><a href="#1-메모리-및-추론-속도-효과" class="table-of-contents__link toc-highlight">1. 메모리 및 추론 속도 효과</a></li><li><a href="#2-기대효과-상세" class="table-of-contents__link toc-highlight">2. 기대효과 상세</a></li><li><a href="#3-적용-시-고려사항" class="table-of-contents__link toc-highlight">3. 적용 시 고려사항</a></li></ul></li><li><a href="#결론" class="table-of-contents__link toc-highlight">결론</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/gisulsa/docs/intro">Tutorial</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_dv6w"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_dv6w"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://x.com/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">X<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_dv6w"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/gisulsa/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_dv6w"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 gisulsa. Built with Docusaurus.</div></div></div></footer></div>
 </body>
