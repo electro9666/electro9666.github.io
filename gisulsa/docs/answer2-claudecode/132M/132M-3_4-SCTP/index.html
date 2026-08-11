@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-answer2-claudecode/132M/132M-3_4-SCTP" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">SCTP | gisulsa</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://electro9666.github.io/gisulsa/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://electro9666.github.io/gisulsa/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/132M/132M-3_4-SCTP"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="SCTP | gisulsa"><meta data-rh="true" name="description" content="문제"><meta data-rh="true" property="og:description" content="문제"><link data-rh="true" rel="icon" href="/gisulsa/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/132M/132M-3_4-SCTP"><link data-rh="true" rel="alternate" href="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/132M/132M-3_4-SCTP" hreflang="en"><link data-rh="true" rel="alternate" href="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/132M/132M-3_4-SCTP" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Answer2-claudecode","item":"https://electro9666.github.io/gisulsa/docs/category/answer2-claudecode"},{"@type":"ListItem","position":2,"name":"SCTP","item":"https://electro9666.github.io/gisulsa/docs/answer2-claudecode/132M/132M-3_4-SCTP"}]}</script><link rel="alternate" type="application/rss+xml" href="/gisulsa/blog/rss.xml" title="gisulsa RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/gisulsa/blog/atom.xml" title="gisulsa Atom Feed">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/gisulsa/assets/css/styles.c89f6dc4.css">
+<script src="/gisulsa/assets/js/runtime~main.5dba9a82.js" defer="defer"></script>
+<script src="/gisulsa/assets/js/main.4563a94a.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/gisulsa/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_vkR3" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/gisulsa/"><div class="navbar__logo"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_IEiv themedComponent--light_RPL7"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_IEiv themedComponent--dark_CQXo"></div><b class="navbar__title text--truncate">gisulsa</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/gisulsa/docs/category/analysis">Tutorial</a><a class="navbar__item navbar__link" href="/gisulsa/blog">Blog</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_PjNm colorModeToggle_TMeo"><button class="clean-btn toggleButton_VcKS toggleButtonDisabled_pgtH" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_pvfg lightToggleIcon_MST1"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_pvfg darkToggleIcon_YXKr"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_pvfg systemToggleIcon_lCGD"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_FpHK"><div class="navbar__search searchBarContainer_J6UD" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_WmZV" value=""><div class="loadingRing_Kp6M searchBarLoadingRing_Vdde"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_GqYq"><div class="docsWrapper_f6JN"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_B1Te" type="button"></button><div class="docRoot_Ki3G"><aside class="theme-doc-sidebar-container docSidebarContainer_LsqT"><div class="sidebarViewport_mUvM"><div class="sidebar_LKPT"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_ReP7"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/analysis"><span title="Analysis" class="categoryLinkLabel__m5q">Analysis</span></a><button aria-label="Expand sidebar category &#x27;Analysis&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m"><span title="category-M" class="categoryLinkLabel__m5q">category-M</span></a><button aria-label="Expand sidebar category &#x27;category-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m-summary"><span title="category-M-summary" class="categoryLinkLabel__m5q">category-M-summary</span></a><button aria-label="Expand sidebar category &#x27;category-M-summary&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/category-mc"><span title="category-MC" class="categoryLinkLabel__m5q">category-MC</span></a><button aria-label="Expand sidebar category &#x27;category-MC&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/gisulsa/docs/intro"><span title="Tutorial Intro" class="linkLabel_fB60">Tutorial Intro</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-m"><span title="기출-과목-M" class="categoryLinkLabel__m5q">기출-과목-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-교재-m"><span title="기출-과목-교재-M" class="categoryLinkLabel__m5q">기출-과목-교재-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-교재-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/etc"><span title="Etc" class="categoryLinkLabel__m5q">Etc</span></a><button aria-label="Expand sidebar category &#x27;Etc&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/answer"><span title="Answer" class="categoryLinkLabel__m5q">Answer</span></a><button aria-label="Expand sidebar category &#x27;Answer&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--active" href="/gisulsa/docs/category/answer2-claudecode"><span title="Answer2-claudecode" class="categoryLinkLabel__m5q">Answer2-claudecode</span></a><button aria-label="Collapse sidebar category &#x27;Answer2-claudecode&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/110M/110M-1_1-EIP"><span title="110M" class="categoryLinkLabel__m5q">110M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/111M/111M-1_1-통계적 가설 검정, p-value"><span title="111M" class="categoryLinkLabel__m5q">111M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/113M/113M-1_1-크라임웨어"><span title="113M" class="categoryLinkLabel__m5q">113M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/114M/114M-1_1-다중 연결 리스트"><span title="114M" class="categoryLinkLabel__m5q">114M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/116M/116M-1_1-전자서명"><span title="116M" class="categoryLinkLabel__m5q">116M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/117M/117M-1_1-HMAC"><span title="117M" class="categoryLinkLabel__m5q">117M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/118M/118M-1_1-정규화"><span title="118M" class="categoryLinkLabel__m5q">118M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/119M/119M-1_1-COCOMO II"><span title="119M" class="categoryLinkLabel__m5q">119M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/120M/120M-1_1-바코드, QR코드"><span title="120M" class="categoryLinkLabel__m5q">120M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/121M/121M-1_1-지능형 CCTV 스마트 관제"><span title="121M" class="categoryLinkLabel__m5q">121M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/122M/122M-1_1-세마포어, 모니터"><span title="122M" class="categoryLinkLabel__m5q">122M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/123M/123M-1_1-스크럼(SCRUM)"><span title="123M" class="categoryLinkLabel__m5q">123M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/124M/124M-1_1-ERP, SCM, MES, CRM"><span title="124M" class="categoryLinkLabel__m5q">124M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/125M/125M-1_1-SECaaS"><span title="125M" class="categoryLinkLabel__m5q">125M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/126M/126M-1_1-정규분포"><span title="126M" class="categoryLinkLabel__m5q">126M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/127M/127M-1_1-NFT"><span title="127M" class="categoryLinkLabel__m5q">127M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/128M/128M-1_1-WBS"><span title="128M" class="categoryLinkLabel__m5q">128M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/129M/129M-1_1-디지털 플랫폼 정부"><span title="129M" class="categoryLinkLabel__m5q">129M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/130M/130M-1_1-노코드"><span title="130M" class="categoryLinkLabel__m5q">130M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/131M/131M-1_1-디지털 트랜스포메이션"><span title="131M" class="categoryLinkLabel__m5q">131M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_1-ISO 31000"><span title="132M" class="categoryLinkLabel__m5q">132M</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_1-ISO 31000"><span title="ISO 31000" class="linkLabel_fB60">ISO 31000</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_10-점추정, 구간추정"><span title="점추정, 구간추정" class="linkLabel_fB60">점추정, 구간추정</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_11-다중공선성"><span title="다중공선성(Multicollinearity)" class="linkLabel_fB60">다중공선성(Multicollinearity)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_12-블록, 파일, 오브젝트 스토리지"><span title="블록, 파일, 오브젝트 스토리지" class="linkLabel_fB60">블록, 파일, 오브젝트 스토리지</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_13-분산 데이터베이스의 투명성"><span title="분산 데이터베이스의 투명성" class="linkLabel_fB60">분산 데이터베이스의 투명성</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_2-데이터 거래소"><span title="데이터 거래소" class="linkLabel_fB60">데이터 거래소</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_3-베이지안 최적화"><span title="베이지안 최적화(Bayesian Optimization)" class="linkLabel_fB60">베이지안 최적화(Bayesian Optimization)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_4-대칭 암호화, 비대칭 암호화"><span title="대칭 암호화, 비대칭 암호화" class="linkLabel_fB60">대칭 암호화, 비대칭 암호화</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_5-ISA-IEC 62443"><span title="ISA/IEC 62443" class="linkLabel_fB60">ISA/IEC 62443</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_6-큐싱"><span title="큐싱(Qshing)" class="linkLabel_fB60">큐싱(Qshing)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_7-ELK 스택"><span title="ELK 스택" class="linkLabel_fB60">ELK 스택</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_8-TPM"><span title="TPM(Trusted Platform Module)" class="linkLabel_fB60">TPM(Trusted Platform Module)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_9-좋은 소프트웨어의 특징"><span title="좋은 소프트웨어의 특징" class="linkLabel_fB60">좋은 소프트웨어의 특징</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-2_1-중심극한정리, t-검정, z-검정"><span title="중심극한정리, t-검정, z-검정" class="linkLabel_fB60">중심극한정리, t-검정, z-검정</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-2_2-서포트 벡터 머신, 마진"><span title="서포트 벡터 머신, 마진" class="linkLabel_fB60">서포트 벡터 머신, 마진</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-2_3-소프트웨어 기술자 등급제, IT 직무제"><span title="소프트웨어 기술자 등급제, IT 직무제" class="linkLabel_fB60">소프트웨어 기술자 등급제, IT 직무제</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-2_4-마이데이터 전송 보안"><span title="마이데이터 전송 보안" class="linkLabel_fB60">마이데이터 전송 보안</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-2_5-ISO 14000"><span title="ISO 14000" class="linkLabel_fB60">ISO 14000</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-2_6-스택, 큐, 리스트"><span title="스택, 큐, 리스트" class="linkLabel_fB60">스택, 큐, 리스트</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-3_1-SW 운영단계 대가산정"><span title="SW 운영단계 대가산정" class="linkLabel_fB60">SW 운영단계 대가산정</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-3_2-클라우드 관리 플랫폼(CMP)"><span title="클라우드 관리 플랫폼(CMP)" class="linkLabel_fB60">클라우드 관리 플랫폼(CMP)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-3_3-TF-IDF 계산"><span title="TF-IDF 계산" class="linkLabel_fB60">TF-IDF 계산</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-3_4-SCTP"><span title="SCTP" class="linkLabel_fB60">SCTP</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-3_5-APEC CBPR"><span title="APEC CBPR" class="linkLabel_fB60">APEC CBPR</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-3_6-성능 요구사항 지표"><span title="성능 요구사항 지표" class="linkLabel_fB60">성능 요구사항 지표</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-4_1-FIPS 140-2"><span title="FIPS 140-2" class="linkLabel_fB60">FIPS 140-2</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-4_2-공공데이터 예방적 품질관리"><span title="공공데이터 예방적 품질관리" class="linkLabel_fB60">공공데이터 예방적 품질관리</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-4_3-예지정비, LangChain"><span title="예지정비, LangChain" class="linkLabel_fB60">예지정비, LangChain</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-4_4-소프트웨어 진흥법"><span title="소프트웨어 진흥법" class="linkLabel_fB60">소프트웨어 진흥법</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-4_5-소프트웨어 규모 산정"><span title="소프트웨어 규모 산정" class="linkLabel_fB60">소프트웨어 규모 산정</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-4_6-정보보호 정책, 보안 활동"><span title="정보보호 정책, 보안 활동" class="linkLabel_fB60">정보보호 정책, 보안 활동</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-1_1-REST API"><span title="133M" class="categoryLinkLabel__m5q">133M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/134M/134M-1_1-터크만 사다리 모델"><span title="134M" class="categoryLinkLabel__m5q">134M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/135M/135M-1_1-PR 곡선, ROC 곡선"><span title="135M" class="categoryLinkLabel__m5q">135M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-1_1-화이트 레이블 마케팅"><span title="136M" class="categoryLinkLabel__m5q">136M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-1_1-IGP, EGP"><span title="137M" class="categoryLinkLabel__m5q">137M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-1_1-AI RMF"><span title="138M" class="categoryLinkLabel__m5q">138M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/139M/139M-1_1-WBS"><span title="139M" class="categoryLinkLabel__m5q">139M</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/139M-all"><span title="139회 정보관리기술사 답안 (Claude Code)" class="linkLabel_fB60">139회 정보관리기술사 답안 (Claude Code)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/request"><span title="요구사항" class="linkLabel_fB60">요구사항</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/answer2"><span title="Answer2" class="categoryLinkLabel__m5q">Answer2</span></a><button aria-label="Expand sidebar category &#x27;Answer2&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/knowledgetree"><span title="knowledgeTree" class="categoryLinkLabel__m5q">knowledgeTree</span></a><button aria-label="Expand sidebar category &#x27;knowledgeTree&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/knowledgetree2"><span title="knowledgeTree2" class="categoryLinkLabel__m5q">knowledgeTree2</span></a><button aria-label="Expand sidebar category &#x27;knowledgeTree2&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/dap"><span title="DAP" class="categoryLinkLabel__m5q">DAP</span></a><button aria-label="Expand sidebar category &#x27;DAP&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/gamrisa"><span title="Gamrisa" class="categoryLinkLabel__m5q">Gamrisa</span></a><button aria-label="Expand sidebar category &#x27;Gamrisa&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/gisulsa/docs/keyword/IT서비스_통합/ISMP"><span title="keyword" class="categoryLinkLabel__m5q">keyword</span></a></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_YXDl"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_x8jL"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_nm12"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_wg8x"><div class="docItemContainer_Mqgw"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_rPiA" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/gisulsa/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_p0i5"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/gisulsa/docs/category/answer2-claudecode"><span>Answer2-claudecode</span></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">132M</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">SCTP</span></li></ul></nav><div class="tocCollapsible_H8IZ theme-doc-toc-mobile tocMobile_m8QO"><button type="button" class="clean-btn tocCollapsibleButton_Ecyy">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>SCTP</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="문제">문제<a href="#문제" class="hash-link" aria-label="Direct link to 문제" title="Direct link to 문제" translate="no">​</a></h2>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">4.SCTP(Stream Control Transmission Protocol)와 관련하여 다음을 설명하시오.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">가.SCTP 개요와 특징</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">나.SCTP 프로토콜(Protocol) 구조 및 동작 방식</span><br></span></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅰ-개요">Ⅰ. 개요<a href="#ⅰ-개요" class="hash-link" aria-label="Direct link to Ⅰ. 개요" title="Direct link to Ⅰ. 개요" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-배경">1. 배경<a href="#1-배경" class="hash-link" aria-label="Direct link to 1. 배경" title="Direct link to 1. 배경" translate="no">​</a></h3>
+<p>TCP와 UDP는 오랫동안 전송계층을 양분해 왔으나, <strong>통신망 신호(Signaling) 전송</strong>과 같이 <strong>높은 신뢰성과 가용성을 동시에 요구하는 응용</strong>에는 두 프로토콜 모두 한계가 있었다.</p>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [TCP·UDP의 한계]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **TCP** : 신뢰성 ○ / **단일 경로**(장애 시 세션 단절) ✕</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">             **HOL 블로킹**(하나의 패킷 손실이 전체 지연) ✕</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">             **바이트 스트림**(메시지 경계 없음) ✕</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">             **SYN Flooding에 취약** ✕</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **UDP** : 경량·빠름 ○ / **신뢰성·순서 보장 없음** ✕</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        ▼  전화망 **SS7 신호**를 IP망으로 전달해야 하는 요구</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">           (**SIGTRAN**) — 통신 신호는 **단 1건도 유실 불가**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        ▼</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   [**SCTP**] IETF **RFC 4960**(현행) — 1차 표준 RFC 2960(2000)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   · **TCP의 신뢰성 + UDP의 메시지 경계**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   · **멀티호밍**(경로 이중화) · **멀티스트리밍**(HOL 해소)</span><br></span></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅱ-가-sctp-개요와-특징">Ⅱ. 가. SCTP 개요와 특징<a href="#ⅱ-가-sctp-개요와-특징" class="hash-link" aria-label="Direct link to Ⅱ. 가. SCTP 개요와 특징" title="Direct link to Ⅱ. 가. SCTP 개요와 특징" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-개요">1. 개요<a href="#1-개요" class="hash-link" aria-label="Direct link to 1. 개요" title="Direct link to 1. 개요" translate="no">​</a></h3>
+<p><strong>SCTP(Stream Control Transmission Protocol, 스트림 제어 전송 프로토콜)</strong> 는 <strong>TCP의 신뢰성과 UDP의 메시지 지향성을 결합</strong>하고, <strong>멀티호밍과 멀티스트리밍</strong>을 추가로 제공하는 <strong>연결지향 전송계층 프로토콜</strong>이다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td><strong>표준</strong></td><td><strong>IETF RFC 4960</strong>(RFC 2960 개정), 확장: RFC 3758(PR-SCTP), RFC 5061(동적 주소)</td></tr><tr><td><strong>계층</strong></td><td><strong>전송계층(L4)</strong> — IP 프로토콜 번호 <strong>132</strong></td></tr><tr><td><strong>개발 목적</strong></td><td><strong>SS7 신호를 IP망으로 전송</strong>(SIGTRAN)하기 위한 고신뢰 전송</td></tr><tr><td><strong>연결 단위</strong></td><td><strong>연결(Connection)</strong> 이 아닌 <strong>연관(Association)</strong> — 다중 IP 주소 집합 간의 관계</td></tr><tr><td><strong>전송 단위</strong></td><td><strong>청크(Chunk)</strong> — 메시지 지향</td></tr><tr><td><strong>주요 활용</strong></td><td><strong>5G/LTE 코어망</strong>(NGAP·S1AP·Diameter), VoIP 신호, IoT, 금융 거래</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="2-sctp의-주요-특징">2. SCTP의 주요 특징<a href="#2-sctp의-주요-특징" class="hash-link" aria-label="Direct link to 2. SCTP의 주요 특징" title="Direct link to 2. SCTP의 주요 특징" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain"> ┌──────────── **SCTP의 6대 핵심 특징** ────────────┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  **① 멀티호밍**(Multi-homing)   ← 최대 차별점     │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  **② 멀티스트리밍**(Multi-streaming) ← HOL 해소   │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  **③ 메시지 지향**(Message-oriented)              │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  **④ 4-way Handshake + 쿠키**(보안 강화)          │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  **⑤ 부분 신뢰성**(PR-SCTP, 선택)                 │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  **⑥ TCP 수준의 신뢰성·혼잡제어**                 │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> └───────────────────────────────────────────────────┘</span><br></span></code></pre></div></div>
+<h4 class="anchor anchorTargetStickyNavbar__gEy" id="--멀티호밍-multi-homing--경로-이중화">■ ① 멀티호밍 (Multi-homing) — 경로 이중화<a href="#--멀티호밍-multi-homing--경로-이중화" class="hash-link" aria-label="Direct link to ■ ① 멀티호밍 (Multi-homing) — 경로 이중화" title="Direct link to ■ ① 멀티호밍 (Multi-homing) — 경로 이중화" translate="no">​</a></h4>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [**TCP**] 단일 IP 쌍만 사용                [**SCTP**] 다중 IP 주소 사용</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   [호스트A]                                  [호스트A]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   IP1 ────── 경로 ────── IP3 [호스트B]       IP1 ══**주 경로**══ IP3 [호스트B]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                              IP2 ┄┄**대체 경로**┄┄ IP4</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   경로 장애 → **세션 단절**                        │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   → 재연결 필요(수 초~수십 초)                     ▼</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                              주 경로 장애 시</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                              **자동으로 대체 경로 전환**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                              (**세션 유지 · 무중단**)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   · **하트비트(HEARTBEAT)** 청크로 대체 경로 **상시 상태 감시**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   · 각 경로별 **RTT·상태(Active/Inactive)** 관리</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   · **전송계층에서 이중화 제공** ← TCP는 애플리케이션이 처리해야 함</span><br></span></code></pre></div></div>
+<h4 class="anchor anchorTargetStickyNavbar__gEy" id="--멀티스트리밍-multi-streaming--hol-블로킹-해소">■ ② 멀티스트리밍 (Multi-streaming) — HOL 블로킹 해소<a href="#--멀티스트리밍-multi-streaming--hol-블로킹-해소" class="hash-link" aria-label="Direct link to ■ ② 멀티스트리밍 (Multi-streaming) — HOL 블로킹 해소" title="Direct link to ■ ② 멀티스트리밍 (Multi-streaming) — HOL 블로킹 해소" translate="no">​</a></h4>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [**TCP — Head-of-Line 블로킹**]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ┌───┬───┬───┬───┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │ 1 │ ✕ │ 3 │ 4 │   2번 패킷 손실 시</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   └───┴───┴───┴───┘   → **3, 4번이 도착해도 전달 불가**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">         ▲ 손실           (순서 보장 때문에 **전체 대기**)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   [**SCTP — 독립 스트림**]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **Stream 0** : ┌───┬───┐  정상 전달 ○</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **Stream 1** : ┌─✕─┬───┐  ← 이 스트림만 대기</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **Stream 2** : ┌───┬───┐  정상 전달 ○</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                    ▲ 손실</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ⇒ **하나의 연관(Association) 안에 여러 논리 스트림**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ⇒ **한 스트림의 손실이 다른 스트림에 영향 없음**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ⇒ 스트림별 **순서 보장**, 필요 시 **순서 무관 전달(Unordered)** 도 가능</span><br></span></code></pre></div></div>
+<h4 class="anchor anchorTargetStickyNavbar__gEy" id="--메시지-지향-message-oriented">■ ③ 메시지 지향 (Message-oriented)<a href="#--메시지-지향-message-oriented" class="hash-link" aria-label="Direct link to ■ ③ 메시지 지향 (Message-oriented)" title="Direct link to ■ ③ 메시지 지향 (Message-oriented)" translate="no">​</a></h4>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [**TCP — 바이트 스트림**]           [**SCTP·UDP — 메시지 지향**]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   송신: &quot;ABC&quot; + &quot;DEF&quot;                 송신: &quot;ABC&quot; + &quot;DEF&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   수신: &quot;ABCDEF&quot;                      수신: &quot;ABC&quot;, &quot;DEF&quot;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        ▲ **메시지 경계 소실**              ▲ **경계 보존**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        → 애플리케이션이 직접 구분          → 별도 처리 불필요</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">          (길이 헤더 등 추가 구현)</span><br></span></code></pre></div></div>
+<h4 class="anchor anchorTargetStickyNavbar__gEy" id="-특징-종합">■ 특징 종합<a href="#-특징-종합" class="hash-link" aria-label="Direct link to ■ 특징 종합" title="Direct link to ■ 특징 종합" translate="no">​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>특징</th><th>내용</th></tr></thead><tbody><tr><td><strong>① 멀티호밍</strong></td><td>하나의 연관에 <strong>다중 IP 주소</strong> 사용 → <strong>경로 장애 시 자동 절체</strong>, 무중단</td></tr><tr><td><strong>② 멀티스트리밍</strong></td><td>하나의 연관 내 <strong>다중 독립 스트림</strong> → <strong>HOL 블로킹 해소</strong></td></tr><tr><td><strong>③ 메시지 지향</strong></td><td><strong>메시지 경계 보존</strong>(UDP 장점) + 신뢰성(TCP 장점)</td></tr><tr><td><strong>④ 보안 강화</strong></td><td><strong>4-way Handshake + 쿠키(Cookie)</strong> → <strong>SYN Flooding 공격 방어</strong></td></tr><tr><td><strong>⑤ 신뢰성</strong></td><td>확인응답(SACK), 재전송, 순서 보장, <strong>CRC-32c 체크섬</strong>(TCP보다 강력)</td></tr><tr><td><strong>⑥ 혼잡·흐름 제어</strong></td><td>TCP와 유사한 슬로우 스타트·혼잡 회피</td></tr><tr><td><strong>⑦ 부분 신뢰성</strong>(PR-SCTP)</td><td>옵션 — <strong>일정 시간 내 전달 실패 시 포기</strong> → 실시간 응용 지원</td></tr><tr><td><strong>⑧ 순서 무관 전달</strong></td><td>스트림별로 <strong>순서 보장 여부 선택 가능</strong></td></tr><tr><td><strong>⑨ 경로 MTU 발견</strong></td><td>경로별 MTU 관리, <strong>청크 번들링(Bundling)</strong> 으로 효율 향상</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅲ-나-sctp-프로토콜-구조-및-동작-방식">Ⅲ. 나. SCTP 프로토콜 구조 및 동작 방식<a href="#ⅲ-나-sctp-프로토콜-구조-및-동작-방식" class="hash-link" aria-label="Direct link to Ⅲ. 나. SCTP 프로토콜 구조 및 동작 방식" title="Direct link to Ⅲ. 나. SCTP 프로토콜 구조 및 동작 방식" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-패킷-구조">1. 패킷 구조<a href="#1-패킷-구조" class="hash-link" aria-label="Direct link to 1. 패킷 구조" title="Direct link to 1. 패킷 구조" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain"> ┌──────────────────── **SCTP 패킷** ────────────────────┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │                                                       │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  ┌─────────── **공통 헤더**(Common Header, 12바이트) ──┐│</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  │ **Source Port**(16bit)  │ **Dest Port**(16bit)    ││</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  ├─────────────────────────┴─────────────────────────┤│</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  │ **Verification Tag**(32bit)                        ││</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  │   ← 연관 식별·검증, **위조 패킷 차단**             ││</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  ├───────────────────────────────────────────────────┤│</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  │ **Checksum**(32bit) — **CRC-32c**                  ││</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  └───────────────────────────────────────────────────┘│</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │                                                       │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  ┌─────────── **Chunk #1** ──────────────────────────┐│</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  │ **Type**(8) │ **Flags**(8) │ **Length**(16)       ││</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  ├───────────────────────────────────────────────────┤│</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  │ **Chunk Value**(가변) — 실제 데이터 또는 제어정보  ││</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  └───────────────────────────────────────────────────┘│</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  ┌─────────── **Chunk #2** ──────────────────────────┐│</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  │ …  ← **여러 청크를 한 패킷에 번들링 가능**          ││</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  └───────────────────────────────────────────────────┘│</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> └───────────────────────────────────────────────────────┘</span><br></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>헤더 필드</th><th>내용</th></tr></thead><tbody><tr><td><strong>Source / Destination Port</strong></td><td>송·수신 포트 번호</td></tr><tr><td><strong>Verification Tag</strong></td><td>· 연관 수립 시 교환한 <strong>고유 태그</strong><br>· 수신 시 검증 → <strong>위조·과거 연관의 패킷 차단</strong>(보안 강화)</td></tr><tr><td><strong>Checksum</strong></td><td><strong>CRC-32c</strong> — TCP의 16비트 체크섬보다 <strong>오류 검출 능력 우수</strong></td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="2-청크chunk의-종류">2. 청크(Chunk)의 종류<a href="#2-청크chunk의-종류" class="hash-link" aria-label="Direct link to 2. 청크(Chunk)의 종류" title="Direct link to 2. 청크(Chunk)의 종류" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>분류</th><th>청크 타입</th><th>기능</th></tr></thead><tbody><tr><td><strong>데이터</strong></td><td><strong>DATA (0)</strong></td><td>사용자 데이터 전송 — <strong>TSN·Stream ID·SSN</strong> 포함</td></tr><tr><td><strong>연관 수립</strong></td><td><strong>INIT (1)</strong></td><td>연관 개시 요청 — IP 주소 목록·스트림 수 전달</td></tr><tr><td></td><td><strong>INIT ACK (2)</strong></td><td>응답 + <strong>State Cookie</strong> 전달</td></tr><tr><td></td><td><strong>COOKIE ECHO (10)</strong></td><td>받은 쿠키 반송</td></tr><tr><td></td><td><strong>COOKIE ACK (11)</strong></td><td>쿠키 검증 완료 → <strong>연관 수립</strong></td></tr><tr><td><strong>확인응답</strong></td><td><strong>SACK (3)</strong></td><td><strong>선택적 확인응답</strong> — 수신 TSN·누락 구간 통보</td></tr><tr><td><strong>경로 관리</strong></td><td><strong>HEARTBEAT (4)</strong></td><td><strong>대체 경로 생존 확인</strong></td></tr><tr><td></td><td><strong>HEARTBEAT ACK (5)</strong></td><td>하트비트 응답</td></tr><tr><td><strong>연관 해제</strong></td><td><strong>SHUTDOWN (7)</strong></td><td>정상 종료 요청</td></tr><tr><td></td><td><strong>SHUTDOWN ACK (8)</strong></td><td>종료 확인</td></tr><tr><td></td><td><strong>SHUTDOWN COMPLETE (14)</strong></td><td>종료 완료</td></tr><tr><td></td><td><strong>ABORT (6)</strong></td><td><strong>비정상 강제 종료</strong></td></tr><tr><td><strong>오류</strong></td><td><strong>ERROR (9)</strong></td><td>오류 통보</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="3-data-청크의-주요-필드">3. DATA 청크의 주요 필드<a href="#3-data-청크의-주요-필드" class="hash-link" aria-label="Direct link to 3. DATA 청크의 주요 필드" title="Direct link to 3. DATA 청크의 주요 필드" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   ┌─────────────────────────────────────────────────┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │ **TSN**(Transmission Sequence Number, 32bit)     │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │   → **연관 전체**의 전송 순서 번호(신뢰성·재전송) │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ├─────────────────────────────────────────────────┤</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │ **Stream Identifier (S)**(16bit)                 │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │   → 어느 **스트림**에 속하는가                    │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ├─────────────────────────────────────────────────┤</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │ **Stream Sequence Number (SSN)**(16bit)          │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │   → **해당 스트림 내**의 순서 번호(순서 보장)     │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ├─────────────────────────────────────────────────┤</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │ **Payload Protocol Identifier**(32bit)           │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │   → 상위 프로토콜 식별(예: S1AP·Diameter)         │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ├─────────────────────────────────────────────────┤</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │ **User Data**(가변)                              │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   └─────────────────────────────────────────────────┘</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ※ **TSN(전체 순서)** 과 **SSN(스트림별 순서)** 의 **분리**가</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      **멀티스트리밍(HOL 블로킹 해소)** 을 가능하게 하는 핵심 설계</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="4-동작-방식">4. 동작 방식<a href="#4-동작-방식" class="hash-link" aria-label="Direct link to 4. 동작 방식" title="Direct link to 4. 동작 방식" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar__gEy" id="-1-연관-수립--4-way-handshake">■ (1) 연관 수립 — 4-way Handshake<a href="#-1-연관-수립--4-way-handshake" class="hash-link" aria-label="Direct link to ■ (1) 연관 수립 — 4-way Handshake" title="Direct link to ■ (1) 연관 수립 — 4-way Handshake" translate="no">​</a></h4>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [클라이언트 A]                              [서버 B]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │                                          │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │ ─── ① **INIT** ────────────────────────▶ │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │     · Initiate Tag                       │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │     · **IP 주소 목록**(멀티호밍)          │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │     · 스트림 수, 초기 TSN                 │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │                                          │ ※ **자원 할당 안 함**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │ ◀── ② **INIT ACK** ───────────────────── │   (**SYN Flooding 방어**)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │     · Initiate Tag                       │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │     · **State Cookie**(서명된 상태 정보)  │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │     · 서버 IP 주소 목록                   │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │                                          │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │ ─── ③ **COOKIE ECHO** ─────────────────▶ │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │     · 받은 쿠키를 그대로 반송             │ ※ **쿠키 검증 후**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │       (데이터 청크 번들 가능)             │   **비로소 자원 할당**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │                                          │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │ ◀── ④ **COOKIE ACK** ────────────────── │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │                                          │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │  ═══════ **ESTABLISHED**(연관 수립) ═════ │</span><br></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>단계</th><th>내용</th></tr></thead><tbody><tr><td><strong>① INIT</strong></td><td>연관 개시 요청 — <strong>사용 가능한 모든 IP 주소</strong>와 스트림 수 통보</td></tr><tr><td><strong>② INIT ACK</strong></td><td>서버가 <strong>State Cookie</strong>(연관 정보를 서명·암호화한 값)를 전달<br><strong>이 시점에 서버는 어떤 자원도 할당하지 않음</strong></td></tr><tr><td><strong>③ COOKIE ECHO</strong></td><td>클라이언트가 쿠키를 그대로 반송 → <strong>정당한 클라이언트임을 증명</strong></td></tr><tr><td><strong>④ COOKIE ACK</strong></td><td>서버가 쿠키를 검증한 후 <strong>비로소 연관 자원 할당</strong></td></tr></tbody></table>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [**4-way Handshake의 보안 효과 — SYN Flooding 방어**]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **TCP 3-way** : SYN 수신 즉시 **백로그 큐에 자원 할당**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │  공격자가 SYN만 대량 전송 → **큐 고갈 → 서비스 마비**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        ▼</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **SCTP 4-way** : INIT 수신 시 **자원 할당 없이 쿠키만 발급**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │  공격자가 INIT만 대량 전송해도 **서버 자원 소모 없음**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │  쿠키를 반송(COOKIE ECHO)해야 자원 할당</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        ▼</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ⇒ **INIT Flooding 공격이 구조적으로 무력화**</span><br></span></code></pre></div></div>
+<h4 class="anchor anchorTargetStickyNavbar__gEy" id="-2-데이터-전송">■ (2) 데이터 전송<a href="#-2-데이터-전송" class="hash-link" aria-label="Direct link to ■ (2) 데이터 전송" title="Direct link to ■ (2) 데이터 전송" translate="no">​</a></h4>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   ① **번들링**(Bundling) — 여러 청크를 하나의 패킷에 담아 효율 향상</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ② **스트림 배정** — 애플리케이션이 지정한 **Stream ID**로 전송</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ③ **TSN 부여** — 연관 전체 순서 번호 할당(신뢰성 보장용)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ④ **SSN 부여** — 스트림별 순서 번호 할당(스트림 내 순서 보장용)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ⑤ **주 경로 전송** — 기본적으로 **Primary Path**로 전송</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ⑥ **SACK 수신** — 수신 측이 **누적 TSN + 누락 구간(Gap Ack Block)** 통보</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ⑦ **재전송** — 누락된 TSN을 재전송</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        · **빠른 재전송**(중복 SACK 4회) 또는 **타임아웃 재전송**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        · 재전송은 **대체 경로로 시도** 가능 ← 멀티호밍 활용</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ⑧ **전달**(Delivery) — 스트림별로 **SSN 순서대로** 상위 계층에 전달</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        · 다른 스트림은 **영향 없이 독립 전달**</span><br></span></code></pre></div></div>
+<h4 class="anchor anchorTargetStickyNavbar__gEy" id="-3-경로-관리-멀티호밍-동작">■ (3) 경로 관리 (멀티호밍 동작)<a href="#-3-경로-관리-멀티호밍-동작" class="hash-link" aria-label="Direct link to ■ (3) 경로 관리 (멀티호밍 동작)" title="Direct link to ■ (3) 경로 관리 (멀티호밍 동작)" translate="no">​</a></h4>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [**경로 감시 및 절체**]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **① 주 경로(Primary Path) 선정** — 연관 수립 시 결정</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        ▼</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **② HEARTBEAT 주기 송신** — 모든 **대체 경로**에 생존 확인</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │  · HEARTBEAT ACK 수신 → 경로 **Active**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │  · 응답 없음이 임계치 초과 → 경로 **Inactive**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        ▼</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **③ 주 경로 장애 감지**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │  · 재전송 실패 횟수가 **Path.Max.Retrans** 초과</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        ▼</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **④ 자동 경로 절체(Failover)**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │  · **Active 상태의 대체 경로로 전환**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │  · **연관은 유지** → 애플리케이션은 장애를 인지하지 못함</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        ▼</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **⑤ 주 경로 복구 시** — HEARTBEAT 응답 재개 → Active 복귀</span><br></span></code></pre></div></div>
+<h4 class="anchor anchorTargetStickyNavbar__gEy" id="-4-연관-해제--3-way-graceful-shutdown">■ (4) 연관 해제 — 3-way (Graceful Shutdown)<a href="#-4-연관-해제--3-way-graceful-shutdown" class="hash-link" aria-label="Direct link to ■ (4) 연관 해제 — 3-way (Graceful Shutdown)" title="Direct link to ■ (4) 연관 해제 — 3-way (Graceful Shutdown)" translate="no">​</a></h4>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [호스트 A]                              [호스트 B]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │ ── ① **SHUTDOWN** ──────────────▶ │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │    (미전송 데이터 모두 전송 후)     │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │ ◀─ ② **SHUTDOWN ACK** ─────────── │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │ ── ③ **SHUTDOWN COMPLETE** ─────▶ │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │        **연관 종료**                │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ※ **TCP와의 차이** : SCTP는 **Half-Close를 지원하지 않음**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      → 한쪽이 종료를 요청하면 **양방향 모두 종료**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      → 대신 **미전송 데이터를 모두 보낸 후 종료**(Graceful)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ※ **ABORT** : 오류 발생 시 즉시 강제 종료(TCP의 RST에 해당)</span><br></span></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅳ-tcpudp와의-비교">Ⅳ. TCP·UDP와의 비교<a href="#ⅳ-tcpudp와의-비교" class="hash-link" aria-label="Direct link to Ⅳ. TCP·UDP와의 비교" title="Direct link to Ⅳ. TCP·UDP와의 비교" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>비교 기준</th><th><strong>TCP</strong></th><th><strong>UDP</strong></th><th><strong>SCTP</strong></th></tr></thead><tbody><tr><td><strong>연결 방식</strong></td><td>연결지향(<strong>Connection</strong>)</td><td>비연결</td><td><strong>연결지향(Association)</strong></td></tr><tr><td><strong>연결 수립</strong></td><td><strong>3-way Handshake</strong></td><td>없음</td><td><strong>4-way Handshake + 쿠키</strong></td></tr><tr><td><strong>신뢰성</strong></td><td><strong>보장</strong>(재전송)</td><td>없음</td><td><strong>보장</strong>(재전송)</td></tr><tr><td><strong>순서 보장</strong></td><td><strong>전체 순서</strong></td><td>없음</td><td><strong>스트림별 순서</strong>(선택적 무순서)</td></tr><tr><td><strong>전송 단위</strong></td><td><strong>바이트 스트림</strong></td><td><strong>메시지(데이터그램)</strong></td><td><strong>메시지(청크)</strong></td></tr><tr><td><strong>메시지 경계</strong></td><td><strong>소실</strong></td><td>보존</td><td><strong>보존</strong></td></tr><tr><td><strong>멀티호밍</strong></td><td><strong>미지원</strong></td><td>미지원</td><td><strong>지원</strong> ★</td></tr><tr><td><strong>멀티스트리밍</strong></td><td>미지원(<strong>HOL 블로킹</strong>)</td><td>해당 없음</td><td><strong>지원</strong>(HOL 해소) ★</td></tr><tr><td><strong>흐름·혼잡 제어</strong></td><td>지원</td><td>없음</td><td>지원</td></tr><tr><td><strong>체크섬</strong></td><td>16bit</td><td>16bit</td><td><strong>CRC-32c</strong>(강력)</td></tr><tr><td><strong>SYN Flooding</strong></td><td><strong>취약</strong></td><td>해당 없음</td><td><strong>강건</strong>(쿠키)</td></tr><tr><td><strong>Half-Close</strong></td><td><strong>지원</strong></td><td>해당 없음</td><td><strong>미지원</strong></td></tr><tr><td><strong>헤더 크기</strong></td><td>20바이트~</td><td><strong>8바이트</strong></td><td>12바이트 + 청크</td></tr><tr><td><strong>보급도</strong></td><td><strong>매우 높음</strong></td><td><strong>매우 높음</strong></td><td><strong>낮음</strong>(특수 영역)</td></tr><tr><td><strong>주 용도</strong></td><td>웹·파일 전송·메일</td><td>스트리밍·DNS·게임</td><td><strong>통신 신호(SIGTRAN)</strong>, 5G 코어망</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅴ-활용-및-고려사항">Ⅴ. 활용 및 고려사항<a href="#ⅴ-활용-및-고려사항" class="hash-link" aria-label="Direct link to Ⅴ. 활용 및 고려사항" title="Direct link to Ⅴ. 활용 및 고려사항" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-활용-분야">1. 활용 분야<a href="#1-활용-분야" class="hash-link" aria-label="Direct link to 1. 활용 분야" title="Direct link to 1. 활용 분야" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>분야</th><th>내용</th></tr></thead><tbody><tr><td><strong>이동통신 코어망</strong>(주 용도)</td><td>· <strong>5G</strong>: <strong>NGAP</strong>(AMF–gNB), XnAP<br>· <strong>LTE</strong>: <strong>S1AP</strong>(MME–eNB), X2AP<br>· <strong>Diameter</strong>(인증·과금), <strong>SIGTRAN</strong>(SS7 over IP)</td></tr><tr><td><strong>VoIP·IMS</strong></td><td>SIP 신호 전송(고신뢰 요구 구간)</td></tr><tr><td><strong>금융·거래 시스템</strong></td><td>무중단·고신뢰 메시지 전송</td></tr><tr><td><strong>IoT·산업 제어</strong></td><td>다중 경로 필요 환경</td></tr><tr><td><strong>WebRTC 데이터 채널</strong></td><td><strong>SCTP over DTLS over UDP</strong> — 브라우저 P2P 데이터 전송</td></tr><tr><td><strong>RDMA·클러스터 통신</strong></td><td>고성능 노드 간 통신</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="2-한계-및-고려사항">2. 한계 및 고려사항<a href="#2-한계-및-고려사항" class="hash-link" aria-label="Direct link to 2. 한계 및 고려사항" title="Direct link to 2. 한계 및 고려사항" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>고려사항</th><th>내용</th></tr></thead><tbody><tr><td><strong>① 미들박스 통과 문제</strong>(최대 장벽)</td><td>· <strong>NAT·방화벽이 SCTP(프로토콜 132)를 지원하지 않는 경우가 많음</strong><br>· 인터넷 공개망에서 <strong>차단·폐기</strong>되기 쉬움<br>→ <strong>폐쇄망·사업자망에서 주로 사용</strong>, 공개망은 <strong>UDP 캡슐화</strong>(RFC 6951)</td></tr><tr><td><strong>② 낮은 보급도</strong></td><td>· 운영체제·라이브러리 지원 제한(Linux·Solaris 지원, <strong>Windows 기본 미지원</strong>)<br>· 개발자 친숙도 낮음, 참고 자료 부족</td></tr><tr><td><strong>③ 애플리케이션 수정 필요</strong></td><td>TCP 소켓 API와 달라 <strong>애플리케이션 재작성</strong> 필요</td></tr><tr><td><strong>④ 자체 보안 기능 없음</strong></td><td>암호화 미제공 → <strong>IPSec 또는 DTLS와 결합</strong> 필요</td></tr><tr><td><strong>⑤ 멀티호밍 설계 요건</strong></td><td>실효성 확보를 위해 <strong>물리적으로 분리된 경로</strong>(다른 회선·다른 통신사) 필요<br>→ 같은 스위치에 두 IP만 두면 <strong>이중화 효과 없음</strong></td></tr><tr><td><strong>⑥ 운영 복잡도</strong></td><td>경로 상태·스트림 관리 등 <strong>모니터링 항목 증가</strong></td></tr><tr><td><strong>⑦ 대안 기술</strong></td><td><strong>QUIC</strong>(UDP 기반) — 멀티스트리밍·HOL 해소·연결 이동성 제공하며 <strong>공개망 통과 용이</strong> → 웹 영역에서는 QUIC이 대세<br>단, <strong>멀티호밍 기반 무중단 절체</strong>는 SCTP의 고유 강점</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅵ-결론">Ⅵ. 결론<a href="#ⅵ-결론" class="hash-link" aria-label="Direct link to Ⅵ. 결론" title="Direct link to Ⅵ. 결론" translate="no">​</a></h2>
+<p>SCTP는 <strong>&quot;TCP의 신뢰성과 UDP의 메시지 경계를 결합하고, 여기에 멀티호밍과 멀티스트리밍을 더한&quot;</strong> 전송계층 프로토콜이다. 특히 <strong>통신망 신호(SS7)를 IP망으로 옮기는 SIGTRAN 요구</strong>에서 출발했기에, <strong>단 한 건의 메시지 유실도 허용하지 않는 고신뢰·무중단 전송</strong>에 최적화되어 있다.</p>
+<p>SCTP의 두 가지 핵심 차별점은 다음과 같다. <strong>첫째, 멀티호밍은 전송계층 자체에서 경로 이중화를 제공</strong>한다. TCP에서는 경로 장애 시 세션이 끊어져 애플리케이션이 재연결을 처리해야 하지만, SCTP는 <strong>하트비트로 대체 경로를 상시 감시하다가 장애 시 자동 절체하여 연관을 유지</strong>한다. <strong>둘째, 멀티스트리밍은 TCP의 고질적 문제인 HOL 블로킹을 해소</strong>한다. TSN(연관 전체 순서)과 SSN(스트림별 순서)을 분리 설계함으로써, <strong>한 스트림의 패킷 손실이 다른 스트림의 전달을 막지 않도록</strong> 한 것이 핵심이다.</p>
+<p>여기에 <strong>4-way Handshake와 State Cookie 방식</strong>은 <strong>INIT 수신 시점에 자원을 할당하지 않음으로써 SYN Flooding 공격을 구조적으로 무력화</strong>한다는 점에서, 보안 측면의 개선도 주목할 만하다.</p>
+<p>그럼에도 SCTP가 TCP를 대체하지 못한 결정적 이유는 <strong>미들박스 통과 문제</strong>이다. 인터넷의 NAT·방화벽 다수가 프로토콜 번호 132를 인식하지 못해 패킷을 폐기하므로, <strong>공개 인터넷에서는 사실상 사용이 어렵다</strong>. 이 때문에 SCTP는 <strong>사업자 폐쇄망(5G/LTE 코어망의 NGAP·S1AP·Diameter)</strong> 이라는 특수 영역에서 확고한 표준으로 자리 잡은 반면, 일반 인터넷 서비스에서는 <strong>UDP 기반이어서 통과가 자유로운 QUIC</strong>이 멀티스트리밍의 이점을 가져갔다.</p>
+<p>따라서 실무적 판단은 명확하다. <strong>폐쇄망에서 무중단 신뢰 전송이 필요하면 SCTP</strong>, <strong>공개망에서 HOL 해소와 빠른 연결이 필요하면 QUIC</strong>을 선택하는 것이 합리적이다. 다만 SCTP를 도입할 경우 <strong>멀티호밍의 실효성을 위해 물리적으로 분리된 경로를 확보</strong>해야 하며, <strong>자체 암호화 기능이 없으므로 IPSec·DTLS와의 결합</strong>을 반드시 설계에 포함해야 한다.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_zkUn"><a href="https://github.com/electro9666/gisulsa/tree/main/docs/answer2-claudecode/132M/132M-3_4-SCTP.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_QeP7" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_VbYH"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/gisulsa/docs/answer2-claudecode/132M/132M-3_3-TF-IDF 계산"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">TF-IDF 계산</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/gisulsa/docs/answer2-claudecode/132M/132M-3_5-APEC CBPR"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">APEC CBPR</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_oTRv thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#문제" class="table-of-contents__link toc-highlight">문제</a></li><li><a href="#ⅰ-개요" class="table-of-contents__link toc-highlight">Ⅰ. 개요</a><ul><li><a href="#1-배경" class="table-of-contents__link toc-highlight">1. 배경</a></li></ul></li><li><a href="#ⅱ-가-sctp-개요와-특징" class="table-of-contents__link toc-highlight">Ⅱ. 가. SCTP 개요와 특징</a><ul><li><a href="#1-개요" class="table-of-contents__link toc-highlight">1. 개요</a></li><li><a href="#2-sctp의-주요-특징" class="table-of-contents__link toc-highlight">2. SCTP의 주요 특징</a></li></ul></li><li><a href="#ⅲ-나-sctp-프로토콜-구조-및-동작-방식" class="table-of-contents__link toc-highlight">Ⅲ. 나. SCTP 프로토콜 구조 및 동작 방식</a><ul><li><a href="#1-패킷-구조" class="table-of-contents__link toc-highlight">1. 패킷 구조</a></li><li><a href="#2-청크chunk의-종류" class="table-of-contents__link toc-highlight">2. 청크(Chunk)의 종류</a></li><li><a href="#3-data-청크의-주요-필드" class="table-of-contents__link toc-highlight">3. DATA 청크의 주요 필드</a></li><li><a href="#4-동작-방식" class="table-of-contents__link toc-highlight">4. 동작 방식</a></li></ul></li><li><a href="#ⅳ-tcpudp와의-비교" class="table-of-contents__link toc-highlight">Ⅳ. TCP·UDP와의 비교</a></li><li><a href="#ⅴ-활용-및-고려사항" class="table-of-contents__link toc-highlight">Ⅴ. 활용 및 고려사항</a><ul><li><a href="#1-활용-분야" class="table-of-contents__link toc-highlight">1. 활용 분야</a></li><li><a href="#2-한계-및-고려사항" class="table-of-contents__link toc-highlight">2. 한계 및 고려사항</a></li></ul></li><li><a href="#ⅵ-결론" class="table-of-contents__link toc-highlight">Ⅵ. 결론</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/gisulsa/docs/intro">Tutorial</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://x.com/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">X<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/gisulsa/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 gisulsa. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-answer2-claudecode/133M/133M-3_5-요구공학" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">소프트웨어 요구공학 | gisulsa</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://electro9666.github.io/gisulsa/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://electro9666.github.io/gisulsa/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/133M/133M-3_5-요구공학"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="소프트웨어 요구공학 | gisulsa"><meta data-rh="true" name="description" content="문제"><meta data-rh="true" property="og:description" content="문제"><link data-rh="true" rel="icon" href="/gisulsa/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/133M/133M-3_5-요구공학"><link data-rh="true" rel="alternate" href="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/133M/133M-3_5-요구공학" hreflang="en"><link data-rh="true" rel="alternate" href="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/133M/133M-3_5-요구공학" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Answer2-claudecode","item":"https://electro9666.github.io/gisulsa/docs/category/answer2-claudecode"},{"@type":"ListItem","position":2,"name":"소프트웨어 요구공학","item":"https://electro9666.github.io/gisulsa/docs/answer2-claudecode/133M/133M-3_5-요구공학"}]}</script><link rel="alternate" type="application/rss+xml" href="/gisulsa/blog/rss.xml" title="gisulsa RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/gisulsa/blog/atom.xml" title="gisulsa Atom Feed">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/gisulsa/assets/css/styles.c89f6dc4.css">
+<script src="/gisulsa/assets/js/runtime~main.5dba9a82.js" defer="defer"></script>
+<script src="/gisulsa/assets/js/main.4563a94a.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/gisulsa/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_vkR3" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/gisulsa/"><div class="navbar__logo"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_IEiv themedComponent--light_RPL7"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_IEiv themedComponent--dark_CQXo"></div><b class="navbar__title text--truncate">gisulsa</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/gisulsa/docs/category/analysis">Tutorial</a><a class="navbar__item navbar__link" href="/gisulsa/blog">Blog</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_PjNm colorModeToggle_TMeo"><button class="clean-btn toggleButton_VcKS toggleButtonDisabled_pgtH" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_pvfg lightToggleIcon_MST1"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_pvfg darkToggleIcon_YXKr"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_pvfg systemToggleIcon_lCGD"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_FpHK"><div class="navbar__search searchBarContainer_J6UD" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_WmZV" value=""><div class="loadingRing_Kp6M searchBarLoadingRing_Vdde"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_GqYq"><div class="docsWrapper_f6JN"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_B1Te" type="button"></button><div class="docRoot_Ki3G"><aside class="theme-doc-sidebar-container docSidebarContainer_LsqT"><div class="sidebarViewport_mUvM"><div class="sidebar_LKPT"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_ReP7"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/analysis"><span title="Analysis" class="categoryLinkLabel__m5q">Analysis</span></a><button aria-label="Expand sidebar category &#x27;Analysis&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m"><span title="category-M" class="categoryLinkLabel__m5q">category-M</span></a><button aria-label="Expand sidebar category &#x27;category-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m-summary"><span title="category-M-summary" class="categoryLinkLabel__m5q">category-M-summary</span></a><button aria-label="Expand sidebar category &#x27;category-M-summary&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/category-mc"><span title="category-MC" class="categoryLinkLabel__m5q">category-MC</span></a><button aria-label="Expand sidebar category &#x27;category-MC&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/gisulsa/docs/intro"><span title="Tutorial Intro" class="linkLabel_fB60">Tutorial Intro</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-m"><span title="기출-과목-M" class="categoryLinkLabel__m5q">기출-과목-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-교재-m"><span title="기출-과목-교재-M" class="categoryLinkLabel__m5q">기출-과목-교재-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-교재-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/etc"><span title="Etc" class="categoryLinkLabel__m5q">Etc</span></a><button aria-label="Expand sidebar category &#x27;Etc&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/answer"><span title="Answer" class="categoryLinkLabel__m5q">Answer</span></a><button aria-label="Expand sidebar category &#x27;Answer&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--active" href="/gisulsa/docs/category/answer2-claudecode"><span title="Answer2-claudecode" class="categoryLinkLabel__m5q">Answer2-claudecode</span></a><button aria-label="Collapse sidebar category &#x27;Answer2-claudecode&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/110M/110M-1_1-EIP"><span title="110M" class="categoryLinkLabel__m5q">110M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/111M/111M-1_1-통계적 가설 검정, p-value"><span title="111M" class="categoryLinkLabel__m5q">111M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/113M/113M-1_1-크라임웨어"><span title="113M" class="categoryLinkLabel__m5q">113M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/114M/114M-1_1-다중 연결 리스트"><span title="114M" class="categoryLinkLabel__m5q">114M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/116M/116M-1_1-전자서명"><span title="116M" class="categoryLinkLabel__m5q">116M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/117M/117M-1_1-HMAC"><span title="117M" class="categoryLinkLabel__m5q">117M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/118M/118M-1_1-정규화"><span title="118M" class="categoryLinkLabel__m5q">118M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/119M/119M-1_1-COCOMO II"><span title="119M" class="categoryLinkLabel__m5q">119M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/120M/120M-1_1-바코드, QR코드"><span title="120M" class="categoryLinkLabel__m5q">120M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/121M/121M-1_1-지능형 CCTV 스마트 관제"><span title="121M" class="categoryLinkLabel__m5q">121M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/122M/122M-1_1-세마포어, 모니터"><span title="122M" class="categoryLinkLabel__m5q">122M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/123M/123M-1_1-스크럼(SCRUM)"><span title="123M" class="categoryLinkLabel__m5q">123M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/124M/124M-1_1-ERP, SCM, MES, CRM"><span title="124M" class="categoryLinkLabel__m5q">124M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/125M/125M-1_1-SECaaS"><span title="125M" class="categoryLinkLabel__m5q">125M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/126M/126M-1_1-정규분포"><span title="126M" class="categoryLinkLabel__m5q">126M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/127M/127M-1_1-NFT"><span title="127M" class="categoryLinkLabel__m5q">127M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/128M/128M-1_1-WBS"><span title="128M" class="categoryLinkLabel__m5q">128M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/129M/129M-1_1-디지털 플랫폼 정부"><span title="129M" class="categoryLinkLabel__m5q">129M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/130M/130M-1_1-노코드"><span title="130M" class="categoryLinkLabel__m5q">130M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/131M/131M-1_1-디지털 트랜스포메이션"><span title="131M" class="categoryLinkLabel__m5q">131M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_1-ISO 31000"><span title="132M" class="categoryLinkLabel__m5q">132M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-1_1-REST API"><span title="133M" class="categoryLinkLabel__m5q">133M</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-1_1-REST API"><span title="REST API" class="linkLabel_fB60">REST API</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-1_10-딥페이크"><span title="딥페이크(Deepfake)" class="linkLabel_fB60">딥페이크(Deepfake)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-1_11-3R"><span title="3R (Reverse Engineering, Restructuring, Reengineering)" class="linkLabel_fB60">3R (Reverse Engineering, Restructuring, Reengineering)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-1_12-쿠버네티스"><span title="쿠버네티스(Kubernetes)" class="linkLabel_fB60">쿠버네티스(Kubernetes)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-1_13-TCP 3-way, 4-way handshake"><span title="TCP 3-way, 4-way handshake" class="linkLabel_fB60">TCP 3-way, 4-way handshake</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-1_2-뮤테이션 테스트"><span title="뮤테이션 테스트" class="linkLabel_fB60">뮤테이션 테스트</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-1_3-NoSQL 유형, 모델링 절차"><span title="NoSQL 유형, 모델링 절차" class="linkLabel_fB60">NoSQL 유형, 모델링 절차</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-1_4-전자봉투"><span title="전자봉투" class="linkLabel_fB60">전자봉투</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-1_5-동형암호"><span title="동형암호(Homomorphic Encryption)" class="linkLabel_fB60">동형암호(Homomorphic Encryption)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-1_6-기술수용모델(TAM)"><span title="기술수용모델(TAM)" class="linkLabel_fB60">기술수용모델(TAM)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-1_7-CRUD 매트릭스"><span title="CRUD 매트릭스" class="linkLabel_fB60">CRUD 매트릭스</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-1_8-인공지능 신뢰성"><span title="인공지능 신뢰성" class="linkLabel_fB60">인공지능 신뢰성</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-1_9-BCP, DRS"><span title="BCP, DRS" class="linkLabel_fB60">BCP, DRS</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-2_1-하드웨어 규모산정 지침"><span title="하드웨어 규모산정 지침" class="linkLabel_fB60">하드웨어 규모산정 지침</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-2_2-디지털 정부서비스 UI-UX 가이드라인"><span title="디지털 정부서비스 UI/UX 가이드라인" class="linkLabel_fB60">디지털 정부서비스 UI/UX 가이드라인</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-2_3-ITSM, ISO-IEC 20000"><span title="ITSM, ISO/IEC 20000" class="linkLabel_fB60">ITSM, ISO/IEC 20000</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-2_4-PLM, LLM 훈련 과정"><span title="PLM, LLM 훈련 과정" class="linkLabel_fB60">PLM, LLM 훈련 과정</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-2_5-Privacy by Design"><span title="Privacy by Design" class="linkLabel_fB60">Privacy by Design</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-2_6-데이터 안심구역"><span title="데이터 안심구역" class="linkLabel_fB60">데이터 안심구역</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-3_1-안티포렌식"><span title="안티포렌식(Anti-Forensic)" class="linkLabel_fB60">안티포렌식(Anti-Forensic)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-3_2-생성형 AI 보안 가이드라인"><span title="생성형 AI 보안 가이드라인" class="linkLabel_fB60">생성형 AI 보안 가이드라인</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-3_3-슈퍼앱"><span title="슈퍼앱" class="linkLabel_fB60">슈퍼앱</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-3_4-SWOT, 3C, PEST 분석"><span title="SWOT, 3C, PEST 분석" class="linkLabel_fB60">SWOT, 3C, PEST 분석</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-3_5-요구공학"><span title="소프트웨어 요구공학" class="linkLabel_fB60">소프트웨어 요구공학</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-3_6-인공신경망, 역전파"><span title="인공신경망, 역전파" class="linkLabel_fB60">인공신경망, 역전파</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-4_1-다자간 계산(MPC)"><span title="다자간 계산(MPC)" class="linkLabel_fB60">다자간 계산(MPC)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-4_2-신뢰성 테스트, 이식성 테스트"><span title="신뢰성 테스트, 이식성 테스트" class="linkLabel_fB60">신뢰성 테스트, 이식성 테스트</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-4_3-접근제어"><span title="접근제어" class="linkLabel_fB60">접근제어</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-4_4-데이터 모델링, 식별, 비식별"><span title="데이터 모델링, 식별, 비식별" class="linkLabel_fB60">데이터 모델링, 식별, 비식별</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-4_5-5G 특화망 구축"><span title="5G 특화망 구축" class="linkLabel_fB60">5G 특화망 구축</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-4_6-VPN, IPSec, SSL"><span title="VPN, IPSec, SSL" class="linkLabel_fB60">VPN, IPSec, SSL</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/134M/134M-1_1-터크만 사다리 모델"><span title="134M" class="categoryLinkLabel__m5q">134M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/135M/135M-1_1-PR 곡선, ROC 곡선"><span title="135M" class="categoryLinkLabel__m5q">135M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-1_1-화이트 레이블 마케팅"><span title="136M" class="categoryLinkLabel__m5q">136M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-1_1-IGP, EGP"><span title="137M" class="categoryLinkLabel__m5q">137M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-1_1-AI RMF"><span title="138M" class="categoryLinkLabel__m5q">138M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/139M/139M-1_1-WBS"><span title="139M" class="categoryLinkLabel__m5q">139M</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/139M-all"><span title="139회 정보관리기술사 답안 (Claude Code)" class="linkLabel_fB60">139회 정보관리기술사 답안 (Claude Code)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/request"><span title="요구사항" class="linkLabel_fB60">요구사항</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/answer2"><span title="Answer2" class="categoryLinkLabel__m5q">Answer2</span></a><button aria-label="Expand sidebar category &#x27;Answer2&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/knowledgetree"><span title="knowledgeTree" class="categoryLinkLabel__m5q">knowledgeTree</span></a><button aria-label="Expand sidebar category &#x27;knowledgeTree&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/knowledgetree2"><span title="knowledgeTree2" class="categoryLinkLabel__m5q">knowledgeTree2</span></a><button aria-label="Expand sidebar category &#x27;knowledgeTree2&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/dap"><span title="DAP" class="categoryLinkLabel__m5q">DAP</span></a><button aria-label="Expand sidebar category &#x27;DAP&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/gamrisa"><span title="Gamrisa" class="categoryLinkLabel__m5q">Gamrisa</span></a><button aria-label="Expand sidebar category &#x27;Gamrisa&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/gisulsa/docs/keyword/IT서비스_통합/ISMP"><span title="keyword" class="categoryLinkLabel__m5q">keyword</span></a></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_YXDl"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_x8jL"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_nm12"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_wg8x"><div class="docItemContainer_Mqgw"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_rPiA" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/gisulsa/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_p0i5"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/gisulsa/docs/category/answer2-claudecode"><span>Answer2-claudecode</span></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">133M</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">소프트웨어 요구공학</span></li></ul></nav><div class="tocCollapsible_H8IZ theme-doc-toc-mobile tocMobile_m8QO"><button type="button" class="clean-btn tocCollapsibleButton_Ecyy">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>소프트웨어 요구공학</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="문제">문제<a href="#문제" class="hash-link" aria-label="Direct link to 문제" title="Direct link to 문제" translate="no">​</a></h2>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">5.소프트웨어 요구공학(Requirement Engineering)에 대하여 설명하시오.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">가.요구공학 정의 및 필요성</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">나.요구공학 절차</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">다.요구사항 명세서</span><br></span></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅰ-개요">Ⅰ. 개요<a href="#ⅰ-개요" class="hash-link" aria-label="Direct link to Ⅰ. 개요" title="Direct link to Ⅰ. 개요" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-배경">1. 배경<a href="#1-배경" class="hash-link" aria-label="Direct link to 1. 배경" title="Direct link to 1. 배경" translate="no">​</a></h3>
+<p>소프트웨어 프로젝트 실패 원인 분석에서 <strong>요구사항 관련 문제가 지속적으로 1위</strong>를 차지한다. 요구사항 결함은 <strong>후행 단계로 갈수록 수정 비용이 기하급수적으로 증가</strong>한다.</p>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [**결함 수정 비용의 증폭** — Boehm의 법칙]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   요구  설계   구현    시험     운영</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    1×    5×    10×     50×    **100~200×**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    │                              │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    └──────── 조기 발견의 가치 ─────┘</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ⇒ 요구공학은 **가장 저렴한 단계에서 결함을 제거**하는 활동</span><br></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>요구사항 실패의 대표 양상</th><th>결과</th></tr></thead><tbody><tr><td>요구사항 <strong>누락·불완전</strong></td><td>재작업, 일정 지연</td></tr><tr><td><strong>모호한 표현</strong></td><td>발주자·개발자 해석 차이 → 인수 거부</td></tr><tr><td><strong>잦은 변경·범위 증식</strong>(Scope Creep)</td><td>비용 초과, 품질 저하</td></tr><tr><td><strong>이해관계자 미참여</strong></td><td>완성 후 &quot;원하던 게 아니다&quot;</td></tr><tr><td><strong>추적성 부재</strong></td><td>변경 영향도 파악 불가, 검증 누락</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅱ-가-요구공학의-정의-및-필요성">Ⅱ. 가. 요구공학의 정의 및 필요성<a href="#ⅱ-가-요구공학의-정의-및-필요성" class="hash-link" aria-label="Direct link to Ⅱ. 가. 요구공학의 정의 및 필요성" title="Direct link to Ⅱ. 가. 요구공학의 정의 및 필요성" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-정의">1. 정의<a href="#1-정의" class="hash-link" aria-label="Direct link to 1. 정의" title="Direct link to 1. 정의" translate="no">​</a></h3>
+<p><strong>요구공학(Requirements Engineering)</strong> 이란 이해관계자의 요구를 <strong>체계적으로 도출·분석·명세·검증하고, 개발 전 생애주기에 걸쳐 변경을 관리</strong>하는 <strong>공학적 접근 방법</strong>이다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>관점</th><th>내용</th></tr></thead><tbody><tr><td><strong>목적</strong></td><td><strong>&quot;올바른 시스템을 만들기 위해(Build the Right System)&quot;</strong> — 검증(Validation)의 영역<br>※ 시험은 &quot;시스템을 올바르게 만드는가(Build the System Right)&quot;</td></tr><tr><td><strong>범위</strong></td><td>요구 도출 → 분석 → 명세 → 확인·검증 → <strong>변경 관리</strong>(전 생애주기)</td></tr><tr><td><strong>산출물</strong></td><td><strong>요구사항 명세서(SRS)</strong>, 요구사항 추적표(RTM), 변경 이력</td></tr><tr><td><strong>표준</strong></td><td><strong>ISO/IEC/IEEE 29148</strong>(요구공학 표준), IEEE 830(SRS), CMMI REQM/RD, <strong>SW사업 요구사항 상세화 지침</strong></td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="2-요구사항의-유형">2. 요구사항의 유형<a href="#2-요구사항의-유형" class="hash-link" aria-label="Direct link to 2. 요구사항의 유형" title="Direct link to 2. 요구사항의 유형" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain"> ┌──────────── **요구사항의 분류** ────────────┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │                                             │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  **① 기능 요구사항**(Functional)             │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │      시스템이 **무엇을 해야 하는가**         │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │      예) 사용자는 민원을 온라인 신청할 수 있다│</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │                                             │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  **② 비기능 요구사항**(Non-Functional) ★     │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │      **얼마나 잘** 해야 하는가 — 품질 속성   │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │      성능·가용성·보안·사용성·이식성·확장성   │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │      예) 조회 응답시간 3초 이내, 가용성 99.9%│</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │      ※ **프로젝트 실패의 주요 원인**         │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │        (정량화되지 않아 검증 불가)           │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │                                             │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  **③ 제약사항**(Constraints)                 │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │      기술·법규·예산·일정·표준 준수           │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │                                             │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │  **④ 도메인 요구사항**                       │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> │      업무 영역 고유의 규칙(Business Rule)    │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"> └─────────────────────────────────────────────┘</span><br></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>계층</th><th>내용</th></tr></thead><tbody><tr><td><strong>비즈니스 요구사항</strong></td><td>조직의 목표·기대효과(왜 만드는가)</td></tr><tr><td><strong>이해관계자 요구사항</strong></td><td>사용자·운영자의 요구(무엇을 원하는가)</td></tr><tr><td><strong>시스템 요구사항</strong></td><td>구현 가능한 수준의 상세 요구(어떻게 구현할 것인가)</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="3-필요성">3. 필요성<a href="#3-필요성" class="hash-link" aria-label="Direct link to 3. 필요성" title="Direct link to 3. 필요성" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>필요성</th><th>내용</th></tr></thead><tbody><tr><td><strong>① 프로젝트 실패 예방</strong></td><td>요구사항 오류가 실패의 최대 원인 → <strong>조기 제거로 비용 절감</strong>(1 : 100 법칙)</td></tr><tr><td><strong>② 이해관계자 간 합의 기반 확보</strong></td><td>발주자·사용자·개발자의 <strong>공통 이해와 계약적 기준</strong></td></tr><tr><td><strong>③ 범위 통제(Scope Management)</strong></td><td>명확한 범위 정의로 <strong>범위 증식·과업 분쟁 방지</strong></td></tr><tr><td><strong>④ 검증 기준 제공</strong></td><td><strong>인수 기준·테스트 케이스의 원천</strong> — 요구사항 없이는 검증 불가</td></tr><tr><td><strong>⑤ 변경 영향도 관리</strong></td><td><strong>추적성(Traceability)</strong> 확보 → 변경 시 영향 범위 즉시 파악</td></tr><tr><td><strong>⑥ 산정 근거 제공</strong></td><td><strong>규모·공수·비용 산정</strong>(FP·기능점수)의 기초</td></tr><tr><td><strong>⑦ 법·제도 준수</strong></td><td>공공 사업의 <strong>과업내용서·요구사항 상세화</strong> 의무, 감리 점검 대상</td></tr><tr><td><strong>⑧ 품질 확보</strong></td><td><strong>비기능 요구사항의 정량화</strong>를 통한 품질 목표 명시</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅲ-나-요구공학-절차">Ⅲ. 나. 요구공학 절차<a href="#ⅲ-나-요구공학-절차" class="hash-link" aria-label="Direct link to Ⅲ. 나. 요구공학 절차" title="Direct link to Ⅲ. 나. 요구공학 절차" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-전체-프로세스">1. 전체 프로세스<a href="#1-전체-프로세스" class="hash-link" aria-label="Direct link to 1. 전체 프로세스" title="Direct link to 1. 전체 프로세스" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   ┌──────────────────────────────────────────────────────────┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │                  **요구사항 개발**(Development)            │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │                                                          │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │  ① **도출**(Elicitation)                                  │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │       이해관계자 식별 → 요구 수집                        │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │            ▼                                             │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │  ② **분석**(Analysis)                                     │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │       분류·구조화·충돌 해결·**우선순위**·실현가능성       │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │            ▼                                             │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │  ③ **명세**(Specification)                                │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │       **SRS 작성** — 문서화·모델링                        │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │            ▼                                             │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │  ④ **확인·검증**(Validation &amp; Verification)               │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │       리뷰·프로토타이핑·**이해관계자 승인**               │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │            │                                             │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   └────────────┼─────────────────────────────────────────────┘</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                ▼          ※ ①~④는 **반복(Iterative)** 수행</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ┌──────────────────────────────────────────────────────────┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │  ⑤ **요구사항 관리**(Management) — **전 생애주기 지속**    │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │       **기준선(Baseline) 설정** → 변경 통제(CCB) →        │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │       **추적성 관리(RTM)** → 상태 추적                     │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   └──────────────────────────────────────────────────────────┘</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="2-단계별-상세">2. 단계별 상세<a href="#2-단계별-상세" class="hash-link" aria-label="Direct link to 2. 단계별 상세" title="Direct link to 2. 단계별 상세" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar__gEy" id="-요구사항-도출-elicitation">① 요구사항 도출 (Elicitation)<a href="#-요구사항-도출-elicitation" class="hash-link" aria-label="Direct link to ① 요구사항 도출 (Elicitation)" title="Direct link to ① 요구사항 도출 (Elicitation)" translate="no">​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td><strong>목적</strong></td><td>이해관계자의 <strong>명시적·암묵적 요구를 발견</strong></td></tr><tr><td><strong>주요 활동</strong></td><td>이해관계자 식별, 현행 업무·시스템 분석(AS-IS), 요구 수집</td></tr><tr><td><strong>기법</strong></td><td><strong>인터뷰</strong>, 설문, <strong>워크숍(JAD)</strong>, 브레인스토밍, <strong>관찰(Ethnography)</strong>, 문서 분석, <strong>프로토타이핑</strong>, 벤치마킹, 유스케이스·<strong>사용자 스토리</strong></td></tr><tr><td><strong>어려움</strong></td><td>· 이해관계자가 <strong>자신의 요구를 정확히 모름</strong>(암묵지)<br>· 부서 간 <strong>상충하는 요구</strong><br>· 도메인 지식 격차</td></tr><tr><td><strong>유의사항</strong></td><td><strong>모든 이해관계자를 빠짐없이 식별</strong>(운영·보안·감사 담당 누락 빈번)</td></tr></tbody></table>
+<h4 class="anchor anchorTargetStickyNavbar__gEy" id="-요구사항-분석-analysis">② 요구사항 분석 (Analysis)<a href="#-요구사항-분석-analysis" class="hash-link" aria-label="Direct link to ② 요구사항 분석 (Analysis)" title="Direct link to ② 요구사항 분석 (Analysis)" translate="no">​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td><strong>목적</strong></td><td>수집된 요구를 <strong>정제·구조화</strong>하고 <strong>충돌을 해결</strong></td></tr><tr><td><strong>주요 활동</strong></td><td>분류(기능/비기능/제약), <strong>중복·모호성 제거</strong>, <strong>충돌 조정</strong>, 실현 가능성 분석, <strong>우선순위 결정</strong></td></tr><tr><td><strong>기법</strong></td><td><strong>모델링</strong>(UML 유스케이스·클래스·상태도, DFD, ERD), <strong>MoSCoW</strong>(Must/Should/Could/Won&#x27;t), <strong>AHP·Kano 모델</strong>, 프로토타이핑</td></tr><tr><td><strong>산출물</strong></td><td>분석 모델, 요구사항 목록, <strong>우선순위 표</strong></td></tr><tr><td><strong>유의사항</strong></td><td><strong>비기능 요구사항의 정량화</strong> — &quot;빨라야 한다&quot; → <strong>&quot;평균 응답 2초 이내, 피크 시 3초 이내&quot;</strong></td></tr></tbody></table>
+<h4 class="anchor anchorTargetStickyNavbar__gEy" id="-요구사항-명세-specification">③ 요구사항 명세 (Specification)<a href="#-요구사항-명세-specification" class="hash-link" aria-label="Direct link to ③ 요구사항 명세 (Specification)" title="Direct link to ③ 요구사항 명세 (Specification)" translate="no">​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td><strong>목적</strong></td><td>합의된 요구를 <strong>표준 형식으로 문서화</strong></td></tr><tr><td><strong>주요 활동</strong></td><td><strong>SRS 작성</strong>, 요구사항 ID 부여, 모델 첨부, 용어사전 정의</td></tr><tr><td><strong>기법</strong></td><td>자연어 명세(<strong>정형 템플릿 사용</strong>), 정형 명세(Z·VDM), 준정형(UML·의사결정표), 사용자 스토리 + <strong>인수 조건(Acceptance Criteria)</strong></td></tr><tr><td><strong>산출물</strong></td><td><strong>SRS(요구사항 명세서)</strong>, 요구사항 목록, 데이터 사전</td></tr></tbody></table>
+<h4 class="anchor anchorTargetStickyNavbar__gEy" id="-요구사항-확인검증-validation--verification">④ 요구사항 확인·검증 (Validation &amp; Verification)<a href="#-요구사항-확인검증-validation--verification" class="hash-link" aria-label="Direct link to ④ 요구사항 확인·검증 (Validation &amp; Verification)" title="Direct link to ④ 요구사항 확인·검증 (Validation &amp; Verification)" translate="no">​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td><strong>Validation</strong>(확인)</td><td><strong>&quot;올바른 요구인가&quot;</strong> — 이해관계자의 실제 니즈와 일치하는가</td></tr><tr><td><strong>Verification</strong>(검증)</td><td><strong>&quot;요구를 올바르게 기술했는가&quot;</strong> — 명세 품질(완전성·일관성)</td></tr><tr><td><strong>기법</strong></td><td><strong>동료 검토·워크스루·인스펙션</strong>, 체크리스트, <strong>프로토타입 시연</strong>, 모델 검증, 테스트 케이스 도출 가능성 확인</td></tr><tr><td><strong>결과</strong></td><td>이해관계자 <strong>공식 승인 → 기준선(Baseline) 설정</strong></td></tr></tbody></table>
+<h4 class="anchor anchorTargetStickyNavbar__gEy" id="-요구사항-관리-management">⑤ 요구사항 관리 (Management)<a href="#-요구사항-관리-management" class="hash-link" aria-label="Direct link to ⑤ 요구사항 관리 (Management)" title="Direct link to ⑤ 요구사항 관리 (Management)" translate="no">​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td><strong>목적</strong></td><td>승인된 요구사항의 <strong>변경을 통제</strong>하고 <strong>추적성 유지</strong></td></tr><tr><td><strong>주요 활동</strong></td><td><strong>기준선 설정</strong>, <strong>변경 요청(CR) → 영향분석 → CCB 승인 → 반영</strong>, 버전·이력 관리, <strong>추적성 매트릭스(RTM)</strong> 유지, 상태 추적</td></tr><tr><td><strong>추적성</strong></td><td><strong>전방 추적</strong>(요구 → 설계 → 코드 → 테스트)<br><strong>후방 추적</strong>(테스트 → 요구, 근거 확인)<br><strong>양방향 추적성</strong>으로 누락·과잉 구현 검출</td></tr><tr><td><strong>도구</strong></td><td>JIRA, DOORS, Redmine, Azure DevOps</td></tr><tr><td><strong>유의사항</strong></td><td><strong>변경을 막는 것이 아니라 통제된 변경을 가능하게 하는 것</strong>이 목적</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅳ-다-요구사항-명세서-srs">Ⅳ. 다. 요구사항 명세서 (SRS)<a href="#ⅳ-다-요구사항-명세서-srs" class="hash-link" aria-label="Direct link to Ⅳ. 다. 요구사항 명세서 (SRS)" title="Direct link to Ⅳ. 다. 요구사항 명세서 (SRS)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-개념-및-역할">1. 개념 및 역할<a href="#1-개념-및-역할" class="hash-link" aria-label="Direct link to 1. 개념 및 역할" title="Direct link to 1. 개념 및 역할" translate="no">​</a></h3>
+<p><strong>SRS(Software Requirements Specification)</strong> 는 개발할 시스템이 <strong>무엇을 해야 하는지를 이해관계자가 합의한 형태로 기술한 공식 문서</strong>이다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>역할</th><th>내용</th></tr></thead><tbody><tr><td><strong>합의 문서</strong></td><td>발주자·수행자 간 <strong>계약적 기준</strong>(과업 범위의 근거)</td></tr><tr><td><strong>설계 입력</strong></td><td>설계·구현의 <strong>출발점</strong></td></tr><tr><td><strong>검증 기준</strong></td><td><strong>인수 시험·감리 점검의 기준</strong></td></tr><tr><td><strong>산정 근거</strong></td><td>규모·비용 산정, 일정 수립</td></tr><tr><td><strong>변경 관리 기준선</strong></td><td>변경 영향도 판단의 <strong>기준선(Baseline)</strong></td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="2-srs의-구성-ieee-830--isoiecieee-29148-기준">2. SRS의 구성 (IEEE 830 / ISO/IEC/IEEE 29148 기준)<a href="#2-srs의-구성-ieee-830--isoiecieee-29148-기준" class="hash-link" aria-label="Direct link to 2. SRS의 구성 (IEEE 830 / ISO/IEC/IEEE 29148 기준)" title="Direct link to 2. SRS의 구성 (IEEE 830 / ISO/IEC/IEEE 29148 기준)" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   **1. 개요(Introduction)**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      1.1 목적          1.2 범위</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      1.3 용어 정의     1.4 참조 문서    1.5 문서 구성</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **2. 전체 설명(Overall Description)**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      2.1 제품 관점(기존 시스템·외부 인터페이스 관계)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      2.2 제품 기능 요약</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      2.3 **사용자 특성**(사용자 유형·숙련도)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      2.4 **제약 조건**(법규·표준·기술·정책)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      2.5 **가정 및 종속성**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **3. 상세 요구사항(Specific Requirements)** ★ **핵심**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      3.1 **기능 요구사항** (기능별 상세)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      3.2 **외부 인터페이스 요구사항**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">           사용자·하드웨어·소프트웨어·통신 인터페이스</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      3.3 **비기능(품질) 요구사항**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">           **성능 · 가용성 · 보안 · 신뢰성 · 사용성 ·</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">             유지보수성 · 이식성 · 확장성**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      3.4 **데이터 요구사항**(데이터 모델·보존·정합성)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      3.5 **제약사항 및 준수 요구**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **4. 부록**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      **요구사항 추적 매트릭스(RTM)** · 용어사전 · 분석 모델 · 화면 시안</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="3-개별-요구사항의-기술-항목">3. 개별 요구사항의 기술 항목<a href="#3-개별-요구사항의-기술-항목" class="hash-link" aria-label="Direct link to 3. 개별 요구사항의 기술 항목" title="Direct link to 3. 개별 요구사항의 기술 항목" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>항목</th><th>내용</th><th>예시</th></tr></thead><tbody><tr><td><strong>요구사항 ID</strong></td><td>고유 식별자(추적의 기준)</td><td><code>SFR-001</code></td></tr><tr><td><strong>요구사항 명</strong></td><td>간결한 제목</td><td>온라인 민원 신청</td></tr><tr><td><strong>유형</strong></td><td>기능/성능/보안/인터페이스 등</td><td>기능 요구사항</td></tr><tr><td><strong>정의·상세 설명</strong></td><td><strong>검증 가능한 문장</strong>으로 기술</td><td>사용자는 로그인 후 민원을 신청하고 접수번호를 발급받을 수 있어야 한다</td></tr><tr><td><strong>우선순위</strong></td><td>Must / Should / Could</td><td>Must</td></tr><tr><td><strong>관련 요구사항</strong></td><td>연관 ID</td><td>SFR-002, SER-005</td></tr><tr><td><strong>인수 기준</strong></td><td><strong>검증 방법·판정 기준</strong></td><td>신청 완료 후 3초 이내 접수번호 표시</td></tr><tr><td><strong>출처</strong></td><td>요구 제기 주체</td><td>민원과 사용자 인터뷰</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="4-좋은-요구사항-명세의-품질-특성-isoiecieee-29148">4. 좋은 요구사항 명세의 품질 특성 (ISO/IEC/IEEE 29148)<a href="#4-좋은-요구사항-명세의-품질-특성-isoiecieee-29148" class="hash-link" aria-label="Direct link to 4. 좋은 요구사항 명세의 품질 특성 (ISO/IEC/IEEE 29148)" title="Direct link to 4. 좋은 요구사항 명세의 품질 특성 (ISO/IEC/IEEE 29148)" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>특성</th><th>내용</th><th>나쁜 예 → 좋은 예</th></tr></thead><tbody><tr><td><strong>① 완전성</strong>(Complete)</td><td>필요한 요구가 <strong>빠짐없이</strong> 기술</td><td>예외·오류 처리 누락 → 정상·예외 흐름 모두 기술</td></tr><tr><td><strong>② 일관성</strong>(Consistent)</td><td>요구 간 <strong>상충 없음</strong></td><td>&quot;모든 이력 영구 보관&quot; vs &quot;1년 후 파기&quot; → 충돌 해소</td></tr><tr><td><strong>③ 명확성</strong>(Unambiguous)</td><td><strong>한 가지로만 해석</strong></td><td>&quot;적절히 빠르게&quot; → <strong>&quot;평균 2초 이내&quot;</strong></td></tr><tr><td><strong>④ 검증 가능성</strong>(Verifiable)</td><td><strong>테스트로 확인 가능</strong></td><td>&quot;사용하기 편해야 한다&quot; → <strong>&quot;신규 사용자가 교육 없이 5분 내 신청 완료&quot;</strong></td></tr><tr><td><strong>⑤ 추적 가능성</strong>(Traceable)</td><td><strong>ID 부여</strong>, 출처·후속 산출물 연결</td><td>ID 없음 → SFR-001 부여 및 RTM 등재</td></tr><tr><td><strong>⑥ 실현 가능성</strong>(Feasible)</td><td>기술·예산·일정 내 <strong>구현 가능</strong></td><td>비현실적 성능 요구 → 근거 기반 조정</td></tr><tr><td><strong>⑦ 필요성</strong>(Necessary)</td><td><strong>실제 필요한 요구</strong>만 포함</td><td>사용되지 않을 기능 → 제거(<strong>Gold Plating 방지</strong>)</td></tr><tr><td><strong>⑧ 수정 용이성</strong>(Modifiable)</td><td><strong>구조화·중복 제거</strong>로 변경 용이</td><td>동일 내용 중복 기술 → 참조 방식</td></tr><tr><td><strong>⑨ 단일성</strong>(Singular)</td><td><strong>1 요구사항 = 1 기능</strong></td><td>&quot;조회하고 출력하고 전송한다&quot; → 3개로 분리</td></tr><tr><td><strong>⑩ 구현 중립성</strong></td><td><strong>What</strong>을 기술, How는 설계 영역</td><td>&quot;Oracle로 저장&quot; → <strong>&quot;데이터를 5년간 보존&quot;</strong></td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="5-공공-정보화-사업에서의-요구사항-명세">5. 공공 정보화 사업에서의 요구사항 명세<a href="#5-공공-정보화-사업에서의-요구사항-명세" class="hash-link" aria-label="Direct link to 5. 공공 정보화 사업에서의 요구사항 명세" title="Direct link to 5. 공공 정보화 사업에서의 요구사항 명세" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td><strong>법·지침 근거</strong></td><td><strong>SW사업 요구사항 상세화 지침</strong>, 「소프트웨어 진흥법」, 과업심의위원회 제도</td></tr><tr><td><strong>요구사항 상세화</strong></td><td>RFP·<strong>과업내용서에 요구사항을 구체적으로 명시</strong> → 모호한 과업으로 인한 분쟁 방지</td></tr><tr><td><strong>요구사항 분류 코드</strong></td><td><strong>SFR</strong>(기능), <strong>PER</strong>(성능), <strong>SER</strong>(보안), <strong>INR</strong>(인터페이스), <strong>DAR</strong>(데이터), <strong>TER</strong>(시험), <strong>QUR</strong>(품질), <strong>COR</strong>(제약), <strong>PMR</strong>(프로젝트관리), <strong>PSR</strong>(지원)</td></tr><tr><td><strong>과업 변경 관리</strong></td><td>과업 변경 시 <strong>과업심의위원회 심의</strong> → 대가 조정</td></tr><tr><td><strong>감리 점검</strong></td><td>요구사항 정의의 <strong>충실성·추적성(RTM)</strong> 이 요구정의 단계 감리의 핵심 점검 항목</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅴ-고려사항-및-최신-동향">Ⅴ. 고려사항 및 최신 동향<a href="#ⅴ-고려사항-및-최신-동향" class="hash-link" aria-label="Direct link to Ⅴ. 고려사항 및 최신 동향" title="Direct link to Ⅴ. 고려사항 및 최신 동향" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>고려사항</th><th>내용</th></tr></thead><tbody><tr><td><strong>① 비기능 요구사항의 정량화</strong></td><td>실패의 최대 원인 → <strong>측정 가능한 수치와 측정 조건(부하·환경)</strong> 명시</td></tr><tr><td><strong>② 이해관계자 누락 방지</strong></td><td>사용자뿐 아니라 <strong>운영·보안·감사·유지보수 담당</strong> 포함</td></tr><tr><td><strong>③ 변경은 불가피하다는 전제</strong></td><td>변경 차단이 아닌 <strong>통제된 변경 절차(CCB·영향분석)</strong> 구축</td></tr><tr><td><strong>④ 추적성 유지 비용</strong></td><td>RTM 수작업 유지 곤란 → <strong>도구 기반 자동화</strong></td></tr><tr><td><strong>⑤ 애자일 환경에서의 요구공학</strong></td><td>상세 SRS 대신 <strong>제품 백로그·사용자 스토리 + 인수 조건</strong><br>단, <strong>비기능 요구·제약사항은 여전히 명세 필요</strong>(Definition of Done에 포함)</td></tr><tr><td><strong>⑥ 요구사항 재사용</strong></td><td>유사 사업의 요구사항 <strong>템플릿·라이브러리화</strong></td></tr><tr><td><strong>⑦ AI 활용</strong></td><td>생성형 AI로 <strong>요구사항 초안 작성·모호성 검토·테스트 케이스 도출</strong> 지원<br>단, <strong>최종 검증은 사람의 책임</strong></td></tr><tr><td><strong>⑧ 신기술 영역 요구</strong></td><td>AI 시스템은 <strong>정확도·공정성·설명가능성</strong>, 클라우드는 <strong>가용성·확장성·비용</strong>을 요구사항으로 명시</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅵ-결론">Ⅵ. 결론<a href="#ⅵ-결론" class="hash-link" aria-label="Direct link to Ⅵ. 결론" title="Direct link to Ⅵ. 결론" translate="no">​</a></h2>
+<p>요구공학은 <strong>&quot;시스템을 올바르게 만드는 것(How)&quot;에 앞서 &quot;올바른 시스템을 정의하는 것(What)&quot;</strong> 을 담당하는 활동으로, <strong>결함 수정 비용이 후행 단계로 갈수록 100배 이상 증폭</strong>된다는 점에서 소프트웨어 공학에서 <strong>투자 대비 효과가 가장 큰 영역</strong>이다.</p>
+<p>절차적으로는 <strong>도출 → 분석 → 명세 → 확인·검증</strong>의 개발 활동과, 그 이후 전 생애주기에 걸친 <strong>요구사항 관리(변경 통제·추적성)</strong> 로 구성되며, 이 중 실무에서 가장 취약한 부분은 <strong>명세 이후의 관리 단계</strong>이다. 승인된 요구사항이 기준선으로 관리되지 않고 구두 합의로 변경되면, 결국 <strong>과업 범위 분쟁과 인수 거부</strong>로 귀결된다.</p>
+<p>요구사항 명세서(SRS)의 품질을 좌우하는 결정적 요소는 <strong>검증 가능성</strong>이다. &quot;사용하기 편해야 한다&quot;, &quot;빨라야 한다&quot;와 같은 문장은 <strong>테스트할 수 없으므로 요구사항이 아니다</strong>. 특히 <strong>비기능 요구사항의 정량화</strong>(응답시간·처리량·가용성·복구시간)와 <strong>인수 기준의 명시</strong>가 실패를 가르는 지점이며, 공공 사업에서는 <strong>SW사업 요구사항 상세화 지침에 따른 분류 코드 체계와 RTM 기반 추적성 확보</strong>가 감리·과업심의의 핵심 점검 대상이 된다.</p>
+<p>끝으로, 애자일 방법론이 확산되면서 &quot;문서를 줄인다&quot;는 명분으로 요구공학 자체를 생략하는 오해가 있으나, 애자일은 <strong>요구사항의 형식(백로그·사용자 스토리)</strong> 과 <strong>시점(점진적 상세화)</strong> 을 바꾼 것이지 <strong>요구를 명확히 하고 합의하는 활동을 없앤 것이 아니다</strong>. 오히려 반복 주기가 짧을수록 <strong>인수 조건의 명확성과 우선순위 관리</strong>가 더 중요해진다는 점을 유념해야 한다.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_zkUn"><a href="https://github.com/electro9666/gisulsa/tree/main/docs/answer2-claudecode/133M/133M-3_5-요구공학.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_QeP7" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_VbYH"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/gisulsa/docs/answer2-claudecode/133M/133M-3_4-SWOT, 3C, PEST 분석"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">SWOT, 3C, PEST 분석</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/gisulsa/docs/answer2-claudecode/133M/133M-3_6-인공신경망, 역전파"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">인공신경망, 역전파</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_oTRv thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#문제" class="table-of-contents__link toc-highlight">문제</a></li><li><a href="#ⅰ-개요" class="table-of-contents__link toc-highlight">Ⅰ. 개요</a><ul><li><a href="#1-배경" class="table-of-contents__link toc-highlight">1. 배경</a></li></ul></li><li><a href="#ⅱ-가-요구공학의-정의-및-필요성" class="table-of-contents__link toc-highlight">Ⅱ. 가. 요구공학의 정의 및 필요성</a><ul><li><a href="#1-정의" class="table-of-contents__link toc-highlight">1. 정의</a></li><li><a href="#2-요구사항의-유형" class="table-of-contents__link toc-highlight">2. 요구사항의 유형</a></li><li><a href="#3-필요성" class="table-of-contents__link toc-highlight">3. 필요성</a></li></ul></li><li><a href="#ⅲ-나-요구공학-절차" class="table-of-contents__link toc-highlight">Ⅲ. 나. 요구공학 절차</a><ul><li><a href="#1-전체-프로세스" class="table-of-contents__link toc-highlight">1. 전체 프로세스</a></li><li><a href="#2-단계별-상세" class="table-of-contents__link toc-highlight">2. 단계별 상세</a></li></ul></li><li><a href="#ⅳ-다-요구사항-명세서-srs" class="table-of-contents__link toc-highlight">Ⅳ. 다. 요구사항 명세서 (SRS)</a><ul><li><a href="#1-개념-및-역할" class="table-of-contents__link toc-highlight">1. 개념 및 역할</a></li><li><a href="#2-srs의-구성-ieee-830--isoiecieee-29148-기준" class="table-of-contents__link toc-highlight">2. SRS의 구성 (IEEE 830 / ISO/IEC/IEEE 29148 기준)</a></li><li><a href="#3-개별-요구사항의-기술-항목" class="table-of-contents__link toc-highlight">3. 개별 요구사항의 기술 항목</a></li><li><a href="#4-좋은-요구사항-명세의-품질-특성-isoiecieee-29148" class="table-of-contents__link toc-highlight">4. 좋은 요구사항 명세의 품질 특성 (ISO/IEC/IEEE 29148)</a></li><li><a href="#5-공공-정보화-사업에서의-요구사항-명세" class="table-of-contents__link toc-highlight">5. 공공 정보화 사업에서의 요구사항 명세</a></li></ul></li><li><a href="#ⅴ-고려사항-및-최신-동향" class="table-of-contents__link toc-highlight">Ⅴ. 고려사항 및 최신 동향</a></li><li><a href="#ⅵ-결론" class="table-of-contents__link toc-highlight">Ⅵ. 결론</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/gisulsa/docs/intro">Tutorial</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://x.com/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">X<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/gisulsa/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 gisulsa. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

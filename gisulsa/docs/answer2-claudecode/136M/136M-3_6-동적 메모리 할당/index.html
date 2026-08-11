@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-answer2-claudecode/136M/136M-3_6-동적 메모리 할당" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">동적 메모리 할당과 메모리 누수(Memory Leak) | gisulsa</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://electro9666.github.io/gisulsa/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://electro9666.github.io/gisulsa/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/136M/136M-3_6-동적 메모리 할당"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="동적 메모리 할당과 메모리 누수(Memory Leak) | gisulsa"><meta data-rh="true" name="description" content="Ⅰ. 개요"><meta data-rh="true" property="og:description" content="Ⅰ. 개요"><link data-rh="true" rel="icon" href="/gisulsa/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/136M/136M-3_6-동적 메모리 할당"><link data-rh="true" rel="alternate" href="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/136M/136M-3_6-동적 메모리 할당" hreflang="en"><link data-rh="true" rel="alternate" href="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/136M/136M-3_6-동적 메모리 할당" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Answer2-claudecode","item":"https://electro9666.github.io/gisulsa/docs/category/answer2-claudecode"},{"@type":"ListItem","position":2,"name":"동적 메모리 할당과 메모리 누수(Memory Leak)","item":"https://electro9666.github.io/gisulsa/docs/answer2-claudecode/136M/136M-3_6-동적 메모리 할당"}]}</script><link rel="alternate" type="application/rss+xml" href="/gisulsa/blog/rss.xml" title="gisulsa RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/gisulsa/blog/atom.xml" title="gisulsa Atom Feed">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/gisulsa/assets/css/styles.c89f6dc4.css">
+<script src="/gisulsa/assets/js/runtime~main.5dba9a82.js" defer="defer"></script>
+<script src="/gisulsa/assets/js/main.4563a94a.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/gisulsa/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_vkR3" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/gisulsa/"><div class="navbar__logo"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_IEiv themedComponent--light_RPL7"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_IEiv themedComponent--dark_CQXo"></div><b class="navbar__title text--truncate">gisulsa</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/gisulsa/docs/category/analysis">Tutorial</a><a class="navbar__item navbar__link" href="/gisulsa/blog">Blog</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_PjNm colorModeToggle_TMeo"><button class="clean-btn toggleButton_VcKS toggleButtonDisabled_pgtH" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_pvfg lightToggleIcon_MST1"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_pvfg darkToggleIcon_YXKr"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_pvfg systemToggleIcon_lCGD"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_FpHK"><div class="navbar__search searchBarContainer_J6UD" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_WmZV" value=""><div class="loadingRing_Kp6M searchBarLoadingRing_Vdde"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_GqYq"><div class="docsWrapper_f6JN"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_B1Te" type="button"></button><div class="docRoot_Ki3G"><aside class="theme-doc-sidebar-container docSidebarContainer_LsqT"><div class="sidebarViewport_mUvM"><div class="sidebar_LKPT"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_ReP7"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/analysis"><span title="Analysis" class="categoryLinkLabel__m5q">Analysis</span></a><button aria-label="Expand sidebar category &#x27;Analysis&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m"><span title="category-M" class="categoryLinkLabel__m5q">category-M</span></a><button aria-label="Expand sidebar category &#x27;category-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m-summary"><span title="category-M-summary" class="categoryLinkLabel__m5q">category-M-summary</span></a><button aria-label="Expand sidebar category &#x27;category-M-summary&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/category-mc"><span title="category-MC" class="categoryLinkLabel__m5q">category-MC</span></a><button aria-label="Expand sidebar category &#x27;category-MC&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/gisulsa/docs/intro"><span title="Tutorial Intro" class="linkLabel_fB60">Tutorial Intro</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-m"><span title="기출-과목-M" class="categoryLinkLabel__m5q">기출-과목-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-교재-m"><span title="기출-과목-교재-M" class="categoryLinkLabel__m5q">기출-과목-교재-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-교재-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/etc"><span title="Etc" class="categoryLinkLabel__m5q">Etc</span></a><button aria-label="Expand sidebar category &#x27;Etc&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/answer"><span title="Answer" class="categoryLinkLabel__m5q">Answer</span></a><button aria-label="Expand sidebar category &#x27;Answer&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--active" href="/gisulsa/docs/category/answer2-claudecode"><span title="Answer2-claudecode" class="categoryLinkLabel__m5q">Answer2-claudecode</span></a><button aria-label="Collapse sidebar category &#x27;Answer2-claudecode&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/110M/110M-1_1-EIP"><span title="110M" class="categoryLinkLabel__m5q">110M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/111M/111M-1_1-통계적 가설 검정, p-value"><span title="111M" class="categoryLinkLabel__m5q">111M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/113M/113M-1_1-크라임웨어"><span title="113M" class="categoryLinkLabel__m5q">113M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/114M/114M-1_1-다중 연결 리스트"><span title="114M" class="categoryLinkLabel__m5q">114M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/116M/116M-1_1-전자서명"><span title="116M" class="categoryLinkLabel__m5q">116M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/117M/117M-1_1-HMAC"><span title="117M" class="categoryLinkLabel__m5q">117M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/118M/118M-1_1-정규화"><span title="118M" class="categoryLinkLabel__m5q">118M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/119M/119M-1_1-COCOMO II"><span title="119M" class="categoryLinkLabel__m5q">119M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/120M/120M-1_1-바코드, QR코드"><span title="120M" class="categoryLinkLabel__m5q">120M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/121M/121M-1_1-지능형 CCTV 스마트 관제"><span title="121M" class="categoryLinkLabel__m5q">121M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/122M/122M-1_1-세마포어, 모니터"><span title="122M" class="categoryLinkLabel__m5q">122M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/123M/123M-1_1-스크럼(SCRUM)"><span title="123M" class="categoryLinkLabel__m5q">123M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/124M/124M-1_1-ERP, SCM, MES, CRM"><span title="124M" class="categoryLinkLabel__m5q">124M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/125M/125M-1_1-SECaaS"><span title="125M" class="categoryLinkLabel__m5q">125M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/126M/126M-1_1-정규분포"><span title="126M" class="categoryLinkLabel__m5q">126M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/127M/127M-1_1-NFT"><span title="127M" class="categoryLinkLabel__m5q">127M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/128M/128M-1_1-WBS"><span title="128M" class="categoryLinkLabel__m5q">128M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/129M/129M-1_1-디지털 플랫폼 정부"><span title="129M" class="categoryLinkLabel__m5q">129M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/130M/130M-1_1-노코드"><span title="130M" class="categoryLinkLabel__m5q">130M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/131M/131M-1_1-디지털 트랜스포메이션"><span title="131M" class="categoryLinkLabel__m5q">131M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_1-ISO 31000"><span title="132M" class="categoryLinkLabel__m5q">132M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-1_1-REST API"><span title="133M" class="categoryLinkLabel__m5q">133M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/134M/134M-1_1-터크만 사다리 모델"><span title="134M" class="categoryLinkLabel__m5q">134M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/135M/135M-1_1-PR 곡선, ROC 곡선"><span title="135M" class="categoryLinkLabel__m5q">135M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-1_1-화이트 레이블 마케팅"><span title="136M" class="categoryLinkLabel__m5q">136M</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-1_1-화이트 레이블 마케팅"><span title="화이트 레이블 마케팅(White Label Marketing)" class="linkLabel_fB60">화이트 레이블 마케팅(White Label Marketing)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-1_10-개인정보 안심구역, 데이터안심구역"><span title="개인정보 안심구역과 데이터안심구역 비교" class="linkLabel_fB60">개인정보 안심구역과 데이터안심구역 비교</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-1_11-CC"><span title="CC(Common Criteria, 공통평가기준)" class="linkLabel_fB60">CC(Common Criteria, 공통평가기준)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-1_12-타원곡선 암호"><span title="타원곡선 암호(ECC: Elliptic Curve Cryptography)" class="linkLabel_fB60">타원곡선 암호(ECC: Elliptic Curve Cryptography)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-1_13-MCP"><span title="MCP(Model Context Protocol)" class="linkLabel_fB60">MCP(Model Context Protocol)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-1_2-범용 AI 위험관리 프레임워크"><span title="범용 AI(General-Purpose AI) 위험관리 프레임워크" class="linkLabel_fB60">범용 AI(General-Purpose AI) 위험관리 프레임워크</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-1_3-에이전틱 AI"><span title="에이전틱 AI(Agentic AI)" class="linkLabel_fB60">에이전틱 AI(Agentic AI)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-1_4-제4정규형"><span title="제4정규형(4NF: Fourth Normal Form)" class="linkLabel_fB60">제4정규형(4NF: Fourth Normal Form)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-1_5-프록시 디자인 패턴"><span title="프록시(Proxy) 디자인 패턴" class="linkLabel_fB60">프록시(Proxy) 디자인 패턴</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-1_6-DevOps 장단점"><span title="DevOps의 장점과 단점" class="linkLabel_fB60">DevOps의 장점과 단점</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-1_7-세그멘테이션 오류"><span title="세그멘테이션 오류(Segmentation Fault)" class="linkLabel_fB60">세그멘테이션 오류(Segmentation Fault)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-1_8-CXL"><span title="CXL(Compute Express Link)" class="linkLabel_fB60">CXL(Compute Express Link)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-1_9-서버리스 컴퓨팅"><span title="서버리스 컴퓨팅(Serverless Computing)" class="linkLabel_fB60">서버리스 컴퓨팅(Serverless Computing)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-2_1-공급망관리"><span title="공급망관리(SCM: Supply Chain Management)" class="linkLabel_fB60">공급망관리(SCM: Supply Chain Management)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-2_2-정보시스템 감리, PMO"><span title="정보시스템 감리와 PMO(전자정부사업관리위탁)" class="linkLabel_fB60">정보시스템 감리와 PMO(전자정부사업관리위탁)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-2_3-LLM 도입 보안 위험"><span title="AI 기반 소프트웨어 개발에서 LLM 도입 시 보안 위험과 대응 방안" class="linkLabel_fB60">AI 기반 소프트웨어 개발에서 LLM 도입 시 보안 위험과 대응 방안</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-2_4-제품계열 방법론"><span title="제품계열(Product Line) 방법론" class="linkLabel_fB60">제품계열(Product Line) 방법론</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-2_5-데이터베이스 인덱스"><span title="데이터베이스 인덱스와 클러스터드·논클러스터드 인덱스 비교" class="linkLabel_fB60">데이터베이스 인덱스와 클러스터드·논클러스터드 인덱스 비교</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-2_6-TLS 1.2, 1.3"><span title="TLS 프로토콜 — TLS 1.2의 취약점과 TLS 1.3의 개선" class="linkLabel_fB60">TLS 프로토콜 — TLS 1.2의 취약점과 TLS 1.3의 개선</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-3_1-갈등관리, 터크만 모델"><span title="IT 프로젝트의 갈등관리와 터크만 팀 발달 모델" class="linkLabel_fB60">IT 프로젝트의 갈등관리와 터크만 팀 발달 모델</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-3_2-AX"><span title="기업의 AI 전환(AX: AI Transformation)" class="linkLabel_fB60">기업의 AI 전환(AX: AI Transformation)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-3_3-소프트웨어 품질보증, 인스펙션"><span title="소프트웨어 품질보증과 인스펙션(Inspection)" class="linkLabel_fB60">소프트웨어 품질보증과 인스펙션(Inspection)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-3_4-아웃라이어"><span title="데이터 분석의 아웃라이어(Outlier)" class="linkLabel_fB60">데이터 분석의 아웃라이어(Outlier)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-3_5-혼동행렬"><span title="혼동행렬(Confusion Matrix)을 이용한 모델 성능 평가" class="linkLabel_fB60">혼동행렬(Confusion Matrix)을 이용한 모델 성능 평가</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-3_6-동적 메모리 할당"><span title="동적 메모리 할당과 메모리 누수(Memory Leak)" class="linkLabel_fB60">동적 메모리 할당과 메모리 누수(Memory Leak)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-4_1-AI 윤리기준, 생성형 AI 역기능"><span title="국내 AI 윤리기준과 생성형 AI의 역기능" class="linkLabel_fB60">국내 AI 윤리기준과 생성형 AI의 역기능</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-4_2-IPC"><span title="IPC(Inter Process Communication, 프로세스 간 통신)" class="linkLabel_fB60">IPC(Inter Process Communication, 프로세스 간 통신)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-4_3-제안서평가 세부기준, 전문평가제도"><span title="조달청 협상에 의한 계약 제안서평가 세부기준 개정과 대형 SW 사업 전문평가제도" class="linkLabel_fB60">조달청 협상에 의한 계약 제안서평가 세부기준 개정과 대형 SW 사업 전문평가제도</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-4_4-공급망 보안, 제로트러스트"><span title="공급망 보안(Supply Chain Security)과 제로트러스트 기반 아키텍처" class="linkLabel_fB60">공급망 보안(Supply Chain Security)과 제로트러스트 기반 아키텍처</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-4_5-OWASP Top 10 for LLM"><span title="OWASP Top 10 for LLM Applications 2025" class="linkLabel_fB60">OWASP Top 10 for LLM Applications 2025</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-4_6-소프트웨어 보안 품질"><span title="소프트웨어 품질 속성 — 보안 품질(Security Quality)" class="linkLabel_fB60">소프트웨어 품질 속성 — 보안 품질(Security Quality)</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-1_1-IGP, EGP"><span title="137M" class="categoryLinkLabel__m5q">137M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-1_1-AI RMF"><span title="138M" class="categoryLinkLabel__m5q">138M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/139M/139M-1_1-WBS"><span title="139M" class="categoryLinkLabel__m5q">139M</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/139M-all"><span title="139회 정보관리기술사 답안 (Claude Code)" class="linkLabel_fB60">139회 정보관리기술사 답안 (Claude Code)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/request"><span title="요구사항" class="linkLabel_fB60">요구사항</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/answer2"><span title="Answer2" class="categoryLinkLabel__m5q">Answer2</span></a><button aria-label="Expand sidebar category &#x27;Answer2&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/knowledgetree"><span title="knowledgeTree" class="categoryLinkLabel__m5q">knowledgeTree</span></a><button aria-label="Expand sidebar category &#x27;knowledgeTree&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/knowledgetree2"><span title="knowledgeTree2" class="categoryLinkLabel__m5q">knowledgeTree2</span></a><button aria-label="Expand sidebar category &#x27;knowledgeTree2&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/dap"><span title="DAP" class="categoryLinkLabel__m5q">DAP</span></a><button aria-label="Expand sidebar category &#x27;DAP&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/gamrisa"><span title="Gamrisa" class="categoryLinkLabel__m5q">Gamrisa</span></a><button aria-label="Expand sidebar category &#x27;Gamrisa&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/gisulsa/docs/keyword/IT서비스_통합/ISMP"><span title="keyword" class="categoryLinkLabel__m5q">keyword</span></a></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_YXDl"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_x8jL"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_nm12"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_wg8x"><div class="docItemContainer_Mqgw"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_rPiA" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/gisulsa/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_p0i5"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/gisulsa/docs/category/answer2-claudecode"><span>Answer2-claudecode</span></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">136M</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">동적 메모리 할당과 메모리 누수(Memory Leak)</span></li></ul></nav><div class="tocCollapsible_H8IZ theme-doc-toc-mobile tocMobile_m8QO"><button type="button" class="clean-btn tocCollapsibleButton_Ecyy">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>동적 메모리 할당과 메모리 누수(Memory Leak)</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅰ-개요">Ⅰ. 개요<a href="#ⅰ-개요" class="hash-link" aria-label="Direct link to Ⅰ. 개요" title="Direct link to Ⅰ. 개요" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-메모리-할당-방식의-구분">1. 메모리 할당 방식의 구분<a href="#1-메모리-할당-방식의-구분" class="hash-link" aria-label="Direct link to 1. 메모리 할당 방식의 구분" title="Direct link to 1. 메모리 할당 방식의 구분" translate="no">​</a></h3>
+<p>프로그램이 사용하는 메모리는 <strong>할당 시점과 생명주기</strong>에 따라 정적 할당과 동적 할당으로 구분된다.</p>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [프로세스 주소공간]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   높은 주소 ┌───────────────┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">             │ **Stack**      │ 지역변수·함수 호출 정보 — **컴파일 시 크기 결정, 자동 해제**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">             ├───────────────┤ ↓ 성장</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">             │      ↕        │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">             ├───────────────┤ ↑ 성장</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">             │ **Heap**       │ **동적 할당 영역 — 런타임에 크기 결정, 명시적/GC 해제**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">             ├───────────────┤</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">             │ Data / BSS    │ 전역·정적 변수 — 프로그램 종료까지 유지</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">             ├───────────────┤</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   낮은 주소 │ Code(Text)    │ 기계어 명령(읽기 전용)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">             └───────────────┘</span><br></span></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅱ-가-동적-메모리-할당의-필요성">Ⅱ. 가. 동적 메모리 할당의 필요성<a href="#ⅱ-가-동적-메모리-할당의-필요성" class="hash-link" aria-label="Direct link to Ⅱ. 가. 동적 메모리 할당의 필요성" title="Direct link to Ⅱ. 가. 동적 메모리 할당의 필요성" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-개념">1. 개념<a href="#1-개념" class="hash-link" aria-label="Direct link to 1. 개념" title="Direct link to 1. 개념" translate="no">​</a></h3>
+<p><strong>동적 메모리 할당(Dynamic Memory Allocation)</strong> 은 프로그램 <strong>실행 중(Runtime)에 필요한 크기만큼 힙(Heap) 영역의 메모리를 요청·할당받아 사용하고, 불필요해지면 반환</strong>하는 방식이다.</p>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="2-필요성">2. 필요성<a href="#2-필요성" class="hash-link" aria-label="Direct link to 2. 필요성" title="Direct link to 2. 필요성" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>구분</th><th>필요성</th><th>상세 내용</th></tr></thead><tbody><tr><td><strong>① 크기의 불확실성</strong></td><td><strong>컴파일 시점에 필요한 메모리 크기를 알 수 없음</strong></td><td>사용자 입력 건수, 파일 크기, 네트워크 수신 데이터, DB 조회 결과 건수 등은 <strong>실행해 봐야 알 수 있다</strong></td></tr><tr><td><strong>② 메모리 효율성</strong></td><td>정적 할당의 낭비·부족 문제 해결</td><td>최대치를 가정한 정적 배열은 <strong>평소에는 낭비, 초과 시에는 오버플로</strong><br>→ 동적 할당은 <strong>필요한 만큼만 사용</strong></td></tr><tr><td><strong>③ 생명주기의 유연성</strong></td><td><strong>함수 종료와 무관하게 데이터 유지</strong></td><td>스택 변수는 함수 반환 시 소멸하므로, <strong>함수 밖으로 데이터를 전달</strong>하려면 힙 할당 필요</td></tr><tr><td><strong>④ 대용량 데이터 처리</strong></td><td>스택 크기 한계 극복</td><td>스택은 통상 <strong>1~8MB로 제한</strong> → 대용량 배열·이미지·버퍼는 <strong>반드시 힙 사용</strong></td></tr><tr><td><strong>⑤ 가변 자료구조 구현</strong></td><td>크기가 변하는 구조 지원</td><td><strong>연결 리스트, 트리, 그래프, 동적 배열(Vector)</strong> 등은 동적 할당이 전제</td></tr><tr><td><strong>⑥ 자원의 공유·재사용</strong></td><td>여러 함수·스레드 간 데이터 공유</td><td>힙은 <strong>프로세스 전체에서 접근 가능</strong></td></tr><tr><td>⑦ 객체지향 지원</td><td>객체의 동적 생성·다형성</td><td>런타임에 결정되는 객체 생성(<code>new</code>), 다형적 참조</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="3-할당-방식-비교">3. 할당 방식 비교<a href="#3-할당-방식-비교" class="hash-link" aria-label="Direct link to 3. 할당 방식 비교" title="Direct link to 3. 할당 방식 비교" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>비교 기준</th><th><strong>정적 할당(Static)</strong></th><th><strong>스택 할당(Stack)</strong></th><th><strong>동적 할당(Heap)</strong></th></tr></thead><tbody><tr><td>크기 결정</td><td>컴파일 시</td><td>컴파일 시(호출 시 확보)</td><td><strong>런타임</strong></td></tr><tr><td>생명주기</td><td>프로그램 전체</td><td><strong>함수 실행 구간</strong></td><td><strong>명시적 해제 또는 GC까지</strong></td></tr><tr><td>해제</td><td>자동</td><td><strong>자동(LIFO)</strong></td><td><strong>수동 또는 GC</strong></td></tr><tr><td>속도</td><td>빠름</td><td><strong>가장 빠름</strong></td><td><strong>느림</strong>(할당자 탐색·포인터 간접 참조)</td></tr><tr><td>크기 제한</td><td>고정</td><td>작음(1~8MB)</td><td><strong>큼</strong>(가용 메모리)</td></tr><tr><td>위험</td><td>—</td><td>스택 오버플로</td><td><strong>메모리 누수·단편화·UAF</strong></td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅲ-나-메모리-누수memory-leak로-인한-문제">Ⅲ. 나. 메모리 누수(Memory Leak)로 인한 문제<a href="#ⅲ-나-메모리-누수memory-leak로-인한-문제" class="hash-link" aria-label="Direct link to Ⅲ. 나. 메모리 누수(Memory Leak)로 인한 문제" title="Direct link to Ⅲ. 나. 메모리 누수(Memory Leak)로 인한 문제" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-개념-1">1. 개념<a href="#1-개념-1" class="hash-link" aria-label="Direct link to 1. 개념" title="Direct link to 1. 개념" translate="no">​</a></h3>
+<p><strong>메모리 누수</strong>란 <strong>더 이상 사용하지 않는 동적 할당 메모리가 해제되지 않아, 프로그램이 계속 점유한 채 회수되지 않는 현상</strong>이다. 할당된 메모리에 대한 <strong>참조(포인터)를 잃어버려 해제할 방법조차 없어지는 경우</strong>가 대표적이다.</p>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [메모리 누수 발생 메커니즘]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ① 할당 :  ptr ──────► [힙 메모리 100MB]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ② 재할당:  ptr ──────► [힙 메모리 200MB]   (새로 할당)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                          [힙 메모리 100MB]   ← **참조를 잃음 = 해제 불가**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                            ▲ **누수(Leak)** — 프로그램 종료 전까지 회수 불가</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   [시간에 따른 메모리 사용량]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   메모리 │                                        ╱ ← **OOM(Out Of Memory) 발생**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   사용량 │                              ╱─────────</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">          │                    ╱─────────</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">          │          ╱─────────                  ← 정상 : 일정 수준 유지(톱니형)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">          │ ╱────────</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">          └──────────────────────────────────────► 시간</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">            **누수 시 : 우상향으로 지속 증가**</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="2-발생-원인">2. 발생 원인<a href="#2-발생-원인" class="hash-link" aria-label="Direct link to 2. 발생 원인" title="Direct link to 2. 발생 원인" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>원인</th><th>내용</th></tr></thead><tbody><tr><td><strong>해제 누락</strong></td><td><code>malloc</code>/<code>new</code> 후 <code>free</code>/<code>delete</code> 호출 누락</td></tr><tr><td><strong>참조 상실</strong></td><td>해제 전에 포인터를 덮어쓰거나 스코프를 벗어남</td></tr><tr><td><strong>예외 발생</strong></td><td>할당과 해제 사이에서 예외 발생 → 해제 코드 미실행</td></tr><tr><td><strong>순환 참조</strong></td><td>A→B, B→A로 서로 참조 → <strong>참조 카운팅 방식 GC에서 회수 불가</strong></td></tr><tr><td><strong>컬렉션 무한 증가</strong></td><td>캐시·리스트에 계속 추가만 하고 제거하지 않음(<strong>논리적 누수</strong>)</td></tr><tr><td><strong>리스너·콜백 미해제</strong></td><td>이벤트 리스너 등록 후 해제하지 않아 참조가 유지됨</td></tr><tr><td><strong>정적(static) 참조</strong></td><td>정적 필드가 객체를 참조하여 <strong>프로그램 종료까지 회수 불가</strong></td></tr><tr><td>자원 누수</td><td>파일·소켓·DB 커넥션 미반환(메모리 외 자원)</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="3-메모리-누수로-인한-문제">3. 메모리 누수로 인한 문제<a href="#3-메모리-누수로-인한-문제" class="hash-link" aria-label="Direct link to 3. 메모리 누수로 인한 문제" title="Direct link to 3. 메모리 누수로 인한 문제" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>구분</th><th>문제</th><th>상세 내용</th></tr></thead><tbody><tr><td><strong>① 가용 메모리 고갈</strong></td><td><strong>OOM(Out Of Memory) 오류</strong></td><td>사용 가능한 메모리가 소진되어 <strong>추가 할당 실패 → 프로그램 강제 종료(크래시)</strong></td></tr><tr><td><strong>② 성능 저하</strong></td><td><strong>점진적 응답 지연</strong></td><td>ⓐ 물리 메모리 부족 → <strong>스와핑(Swapping)</strong> 증가 → 디스크 I/O 폭증<br>ⓑ <strong>GC 실행 빈도·시간 증가</strong>(Java: Full GC로 인한 <strong>Stop-The-World</strong> 장기화)<br>ⓒ 캐시 효율 저하</td></tr><tr><td><strong>③ 시스템 전체 영향</strong></td><td>다른 프로세스 피해</td><td>한 프로세스의 누수가 <strong>시스템 전체 메모리를 잠식</strong> → 다른 서비스까지 장애</td></tr><tr><td><strong>④ 장기 실행 시스템 치명</strong></td><td><strong>서버·임베디드 시스템</strong></td><td>24×365 운영 서버는 <strong>작은 누수도 누적되어 결국 장애</strong> → 주기적 재기동으로 임시 대응하는 악순환</td></tr><tr><td><strong>⑤ 진단의 어려움</strong></td><td><strong>재현·원인 규명 곤란</strong></td><td>즉시 오류가 나지 않고 <strong>수 시간~수 일 후 발현</strong> → 개발·테스트 단계에서 발견하기 어려움</td></tr><tr><td><strong>⑥ 서비스 가용성</strong></td><td>장애·SLA 위반</td><td>예측 불가능한 시점의 다운타임, 신뢰도 하락</td></tr><tr><td><strong>⑦ 보안 취약점</strong></td><td><strong>DoS 공격 표면</strong></td><td>공격자가 누수를 유발하는 요청을 반복하여 <strong>의도적 서비스 마비</strong>(자원 고갈 공격)</td></tr><tr><td>⑧ 비용</td><td>인프라 비용 증가</td><td>불필요한 메모리 증설, 잦은 재기동에 따른 운영 비용</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅳ-다-프로그래밍-언어에서-지원하는-메모리-누수-해결방안">Ⅳ. 다. 프로그래밍 언어에서 지원하는 메모리 누수 해결방안<a href="#ⅳ-다-프로그래밍-언어에서-지원하는-메모리-누수-해결방안" class="hash-link" aria-label="Direct link to Ⅳ. 다. 프로그래밍 언어에서 지원하는 메모리 누수 해결방안" title="Direct link to Ⅳ. 다. 프로그래밍 언어에서 지원하는 메모리 누수 해결방안" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-언어별-메모리-관리-방식">1. 언어별 메모리 관리 방식<a href="#1-언어별-메모리-관리-방식" class="hash-link" aria-label="Direct link to 1. 언어별 메모리 관리 방식" title="Direct link to 1. 언어별 메모리 관리 방식" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [메모리 관리 패러다임]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ┌─────────────────┬──────────────────┬────────────────────┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │ **수동 관리**    │ **자동 관리(GC)** │ **컴파일 타임 관리** │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │  C / C++        │  Java, Python,   │  **Rust**           │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │  malloc-free    │  C#, Go, JS      │  소유권(Ownership)  │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │  new-delete     │  가비지 컬렉터    │  런타임 비용 없음    │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   └─────────────────┴──────────────────┴────────────────────┘</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="2-java의-해결-방안">2. Java의 해결 방안<a href="#2-java의-해결-방안" class="hash-link" aria-label="Direct link to 2. Java의 해결 방안" title="Direct link to 2. Java의 해결 방안" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar__gEy" id="1-가비지-컬렉션gc">(1) 가비지 컬렉션(GC)<a href="#1-가비지-컬렉션gc" class="hash-link" aria-label="Direct link to (1) 가비지 컬렉션(GC)" title="Direct link to (1) 가비지 컬렉션(GC)" translate="no">​</a></h4>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [도달성(Reachability) 기반 판정]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **GC Root** (스택 지역변수, static 필드, JNI 참조 등)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │  참조 추적</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        ├──► 객체 A ──► 객체 B          ← **도달 가능 = 살아있음**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        ✕    객체 C ⇄ 객체 D            ← **도달 불가 = 수거 대상**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">             (서로 참조해도 Root에서 도달 못 하면 회수됨)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ⇒ **참조 카운팅과 달리 순환 참조 문제를 해결**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   [세대별 GC — Generational Hypothesis]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ┌── Young Generation ──┐    ┌── Old Generation ──┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │ Eden │ S0 │ S1       │ ─► │  장수 객체          │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │ **Minor GC**(빈번·고속)│    │ **Major/Full GC**   │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   └──────────────────────┘    │ (느림, STW 발생)    │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                               └────────────────────┘</span><br></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>방안</th><th>내용</th></tr></thead><tbody><tr><td><strong>자동 GC</strong></td><td>개발자가 명시적 해제 불필요 — <strong>해제 누락형 누수 원천 차단</strong></td></tr><tr><td><strong>GC 알고리즘 선택</strong></td><td>Serial / Parallel / <strong>G1GC</strong>(기본) / <strong>ZGC·Shenandoah</strong>(저지연, STW 최소화)</td></tr><tr><td><strong>약한 참조(Weak Reference)</strong></td><td><code>WeakReference</code>·<code>SoftReference</code> — <strong>GC가 회수할 수 있는 참조</strong><br>→ <strong>캐시 구현 시 <code>WeakHashMap</code></strong> 사용으로 누수 방지</td></tr><tr><td><strong>try-with-resources</strong></td><td><code>AutoCloseable</code> 구현 객체를 <strong>자동으로 close()</strong> → 자원 누수 방지</td></tr><tr><td>finally 블록</td><td>예외 발생 시에도 자원 해제 보장</td></tr></tbody></table>
+<blockquote>
+<p><strong>주의</strong>: GC가 있어도 <strong>논리적 누수는 발생한다.</strong> static 컬렉션에 객체를 계속 추가하거나, 리스너를 해제하지 않으면 <strong>참조가 살아있어 GC가 회수하지 못한다.</strong> 즉 GC는 &quot;<strong>참조가 끊긴 객체</strong>&quot;만 회수한다.</p>
+</blockquote>
+<h4 class="anchor anchorTargetStickyNavbar__gEy" id="2-자바의-대표적-누수-패턴과-대응">(2) 자바의 대표적 누수 패턴과 대응<a href="#2-자바의-대표적-누수-패턴과-대응" class="hash-link" aria-label="Direct link to (2) 자바의 대표적 누수 패턴과 대응" title="Direct link to (2) 자바의 대표적 누수 패턴과 대응" translate="no">​</a></h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>누수 패턴</th><th>대응</th></tr></thead><tbody><tr><td>static 컬렉션 무한 증가</td><td>크기 제한, <strong>LRU 캐시</strong>, 주기적 정리</td></tr><tr><td>리스너·콜백 미해제</td><td>등록 시점에 <strong>해제 코드 함께 작성</strong>, WeakReference 사용</td></tr><tr><td>ThreadLocal 미제거</td><td>사용 후 <strong><code>remove()</code> 필수</strong>(스레드 풀 환경에서 특히 중요)</td></tr><tr><td>커넥션·스트림 미반환</td><td><strong>try-with-resources</strong>, 커넥션 풀 사용</td></tr><tr><td>내부 클래스의 외부 참조</td><td><strong>static 중첩 클래스</strong> 사용</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="3-python의-해결-방안">3. Python의 해결 방안<a href="#3-python의-해결-방안" class="hash-link" aria-label="Direct link to 3. Python의 해결 방안" title="Direct link to 3. Python의 해결 방안" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [Python의 이중 메모리 관리]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ① **참조 카운팅(Reference Counting)** — 주 방식</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      객체마다 참조 수 관리 → **0이 되는 즉시 해제**(결정적·즉시성)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      ⚠ 한계 : **순환 참조를 해결하지 못함**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                a.ref = b ;  b.ref = a  → 카운트가 0이 되지 않음</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ② **세대별 GC(gc 모듈)** — 보조 방식</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      순환 참조를 주기적으로 탐지·수거 (3세대 구조)</span><br></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>방안</th><th>내용</th></tr></thead><tbody><tr><td><strong>참조 카운팅</strong></td><td>참조가 사라지는 즉시 해제 → 예측 가능한 해제 시점</td></tr><tr><td><strong>순환 참조 수집기</strong></td><td><code>gc</code> 모듈이 도달 불가능한 순환 구조를 탐지·회수</td></tr><tr><td><strong><code>weakref</code> 모듈</strong></td><td>참조 카운트를 증가시키지 않는 <strong>약한 참조</strong> → <strong>순환 참조 방지</strong>(부모-자식 구조에서 자식→부모 참조에 활용)</td></tr><tr><td><strong><code>with</code> 문(컨텍스트 매니저)</strong></td><td><code>__enter__</code>/<code>__exit__</code>로 <strong>자원 자동 해제</strong>(파일·락·커넥션)</td></tr><tr><td><strong><code>__slots__</code></strong></td><td>인스턴스 <code>__dict__</code> 제거로 메모리 사용량 절감</td></tr><tr><td>진단 도구</td><td><code>tracemalloc</code>, <code>objgraph</code>, <code>memory_profiler</code></td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="4-기타-언어의-접근">4. 기타 언어의 접근<a href="#4-기타-언어의-접근" class="hash-link" aria-label="Direct link to 4. 기타 언어의 접근" title="Direct link to 4. 기타 언어의 접근" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>언어</th><th>방식</th><th>내용</th></tr></thead><tbody><tr><td><strong>C++</strong></td><td><strong>RAII + 스마트 포인터</strong></td><td><strong>RAII(Resource Acquisition Is Initialization)</strong> — 객체 소멸자에서 자동 해제<br><code>unique_ptr</code>(단독 소유), <code>shared_ptr</code>(참조 카운팅), <strong><code>weak_ptr</code>(순환 참조 차단)</strong></td></tr><tr><td><strong>C</strong></td><td>수동 관리</td><td><strong>할당-해제 짝 맞추기</strong>, 해제 후 <code>NULL</code> 대입, 함수 단위 소유권 규칙 문서화</td></tr><tr><td><strong>Rust</strong></td><td><strong>소유권(Ownership)·빌림(Borrowing)</strong></td><td><strong>컴파일 타임에 생명주기를 검증</strong>하여 메모리 안전성 보장<br>→ <strong>GC 없이 런타임 오버헤드 없이 누수·UAF 원천 차단</strong>(단, 순환 참조는 <code>Rc</code>+<code>Weak</code>로 대응)</td></tr><tr><td><strong>Go</strong></td><td>GC + escape analysis</td><td>동시성 GC(저지연), 컴파일러가 스택/힙 배치 자동 결정</td></tr><tr><td>C#</td><td>GC + <code>IDisposable</code></td><td><code>using</code> 문으로 비관리 자원 해제</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="5-공통-대응-방안--도구와-프로세스">5. 공통 대응 방안 — 도구와 프로세스<a href="#5-공통-대응-방안--도구와-프로세스" class="hash-link" aria-label="Direct link to 5. 공통 대응 방안 — 도구와 프로세스" title="Direct link to 5. 공통 대응 방안 — 도구와 프로세스" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>구분</th><th>방안</th></tr></thead><tbody><tr><td><strong>탐지 도구</strong></td><td><strong>Java</strong>: VisualVM, <strong>힙 덤프 분석(MAT)</strong>, JProfiler, GC 로그 분석<br><strong>C/C++</strong>: <strong>Valgrind</strong>, AddressSanitizer(ASan)<br><strong>Python</strong>: tracemalloc, objgraph<br>공통: <strong>APM(메모리 사용량 추이 모니터링)</strong></td></tr><tr><td><strong>모니터링</strong></td><td>힙 사용량·GC 빈도/시간 <strong>상시 모니터링</strong>, 우상향 추세 시 경보(임계값 알람)</td></tr><tr><td><strong>테스트</strong></td><td><strong>장시간 부하 테스트(Soak Test)</strong> 로 누수 조기 발견 — 단시간 테스트로는 탐지 불가</td></tr><tr><td><strong>개발 관행</strong></td><td>할당-해제 <strong>짝 맞추기 규칙</strong>, 코드 리뷰 체크리스트, 정적 분석 도구(SonarQube) CI 통합</td></tr><tr><td><strong>설계</strong></td><td>객체 풀링, <strong>캐시에 반드시 크기 제한·TTL 설정</strong>, 자원 소유권 명확화</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅴ-결론">Ⅴ. 결론<a href="#ⅴ-결론" class="hash-link" aria-label="Direct link to Ⅴ. 결론" title="Direct link to Ⅴ. 결론" translate="no">​</a></h2>
+<p>동적 메모리 할당은 <strong>실행 시점에야 알 수 있는 데이터 크기와 유연한 생명주기를 다루기 위한 필수 기법</strong>이지만, 그 대가로 <strong>메모리 누수라는 관리 책임</strong>을 수반한다. 특히 누수는 <strong>즉시 드러나지 않고 장시간 운영 후 발현</strong>되기 때문에, 24×365 운영되는 서버 시스템에서 가장 치명적이다.</p>
+<p>언어 차원의 해결책은 <strong>① 수동 관리(C/C++) → ② 자동 GC(Java·Python) → ③ 컴파일 타임 검증(Rust)</strong> 으로 발전해 왔으며, 각각 <strong>개발자 부담·런타임 오버헤드·학습 곡선</strong> 사이의 Trade-off를 갖는다.</p>
+<p>다만 반드시 유의할 점은 <strong>GC가 있다고 메모리 누수가 사라지지 않는다는 것</strong>이다. GC는 &quot;참조가 끊긴 객체&quot;만 회수하므로, <strong>static 컬렉션 무한 증가·리스너 미해제·ThreadLocal 미제거</strong> 같은 <strong>논리적 누수</strong>는 여전히 개발자의 책임이다.</p>
+<p>따라서 실무적으로는 ① <strong><code>try-with-resources</code>·<code>with</code>·RAII 등 언어가 제공하는 자동 해제 구문을 기본으로 사용</strong>하고, ② <strong>캐시·컬렉션에는 반드시 크기 제한과 약한 참조(WeakReference)를 적용</strong>하며, ③ <strong>장시간 부하 테스트와 메모리 사용량 상시 모니터링</strong>으로 조기에 탐지하는 것이 핵심이다. 궁극적으로 메모리 관리는 도구의 문제가 아니라 <strong>자원의 소유권과 생명주기를 명확히 설계하는 문제</strong>이다.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_zkUn"><a href="https://github.com/electro9666/gisulsa/tree/main/docs/answer2-claudecode/136M/136M-3_6-동적 메모리 할당.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_QeP7" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_VbYH"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/gisulsa/docs/answer2-claudecode/136M/136M-3_5-혼동행렬"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">혼동행렬(Confusion Matrix)을 이용한 모델 성능 평가</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/gisulsa/docs/answer2-claudecode/136M/136M-4_1-AI 윤리기준, 생성형 AI 역기능"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">국내 AI 윤리기준과 생성형 AI의 역기능</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_oTRv thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#ⅰ-개요" class="table-of-contents__link toc-highlight">Ⅰ. 개요</a><ul><li><a href="#1-메모리-할당-방식의-구분" class="table-of-contents__link toc-highlight">1. 메모리 할당 방식의 구분</a></li></ul></li><li><a href="#ⅱ-가-동적-메모리-할당의-필요성" class="table-of-contents__link toc-highlight">Ⅱ. 가. 동적 메모리 할당의 필요성</a><ul><li><a href="#1-개념" class="table-of-contents__link toc-highlight">1. 개념</a></li><li><a href="#2-필요성" class="table-of-contents__link toc-highlight">2. 필요성</a></li><li><a href="#3-할당-방식-비교" class="table-of-contents__link toc-highlight">3. 할당 방식 비교</a></li></ul></li><li><a href="#ⅲ-나-메모리-누수memory-leak로-인한-문제" class="table-of-contents__link toc-highlight">Ⅲ. 나. 메모리 누수(Memory Leak)로 인한 문제</a><ul><li><a href="#1-개념-1" class="table-of-contents__link toc-highlight">1. 개념</a></li><li><a href="#2-발생-원인" class="table-of-contents__link toc-highlight">2. 발생 원인</a></li><li><a href="#3-메모리-누수로-인한-문제" class="table-of-contents__link toc-highlight">3. 메모리 누수로 인한 문제</a></li></ul></li><li><a href="#ⅳ-다-프로그래밍-언어에서-지원하는-메모리-누수-해결방안" class="table-of-contents__link toc-highlight">Ⅳ. 다. 프로그래밍 언어에서 지원하는 메모리 누수 해결방안</a><ul><li><a href="#1-언어별-메모리-관리-방식" class="table-of-contents__link toc-highlight">1. 언어별 메모리 관리 방식</a></li><li><a href="#2-java의-해결-방안" class="table-of-contents__link toc-highlight">2. Java의 해결 방안</a></li><li><a href="#3-python의-해결-방안" class="table-of-contents__link toc-highlight">3. Python의 해결 방안</a></li><li><a href="#4-기타-언어의-접근" class="table-of-contents__link toc-highlight">4. 기타 언어의 접근</a></li><li><a href="#5-공통-대응-방안--도구와-프로세스" class="table-of-contents__link toc-highlight">5. 공통 대응 방안 — 도구와 프로세스</a></li></ul></li><li><a href="#ⅴ-결론" class="table-of-contents__link toc-highlight">Ⅴ. 결론</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/gisulsa/docs/intro">Tutorial</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://x.com/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">X<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/gisulsa/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 gisulsa. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

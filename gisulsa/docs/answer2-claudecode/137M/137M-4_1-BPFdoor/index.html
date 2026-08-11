@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-answer2-claudecode/137M/137M-4_1-BPFdoor" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">BPFdoor(Berkeley Packet Filter door) 악성코드 | gisulsa</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://electro9666.github.io/gisulsa/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://electro9666.github.io/gisulsa/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/137M/137M-4_1-BPFdoor"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="BPFdoor(Berkeley Packet Filter door) 악성코드 | gisulsa"><meta data-rh="true" name="description" content="Ⅰ. 개요"><meta data-rh="true" property="og:description" content="Ⅰ. 개요"><link data-rh="true" rel="icon" href="/gisulsa/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/137M/137M-4_1-BPFdoor"><link data-rh="true" rel="alternate" href="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/137M/137M-4_1-BPFdoor" hreflang="en"><link data-rh="true" rel="alternate" href="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/137M/137M-4_1-BPFdoor" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Answer2-claudecode","item":"https://electro9666.github.io/gisulsa/docs/category/answer2-claudecode"},{"@type":"ListItem","position":2,"name":"BPFdoor(Berkeley Packet Filter door) 악성코드","item":"https://electro9666.github.io/gisulsa/docs/answer2-claudecode/137M/137M-4_1-BPFdoor"}]}</script><link rel="alternate" type="application/rss+xml" href="/gisulsa/blog/rss.xml" title="gisulsa RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/gisulsa/blog/atom.xml" title="gisulsa Atom Feed">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/gisulsa/assets/css/styles.c89f6dc4.css">
+<script src="/gisulsa/assets/js/runtime~main.5dba9a82.js" defer="defer"></script>
+<script src="/gisulsa/assets/js/main.4563a94a.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/gisulsa/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_vkR3" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/gisulsa/"><div class="navbar__logo"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_IEiv themedComponent--light_RPL7"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_IEiv themedComponent--dark_CQXo"></div><b class="navbar__title text--truncate">gisulsa</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/gisulsa/docs/category/analysis">Tutorial</a><a class="navbar__item navbar__link" href="/gisulsa/blog">Blog</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_PjNm colorModeToggle_TMeo"><button class="clean-btn toggleButton_VcKS toggleButtonDisabled_pgtH" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_pvfg lightToggleIcon_MST1"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_pvfg darkToggleIcon_YXKr"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_pvfg systemToggleIcon_lCGD"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_FpHK"><div class="navbar__search searchBarContainer_J6UD" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_WmZV" value=""><div class="loadingRing_Kp6M searchBarLoadingRing_Vdde"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_GqYq"><div class="docsWrapper_f6JN"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_B1Te" type="button"></button><div class="docRoot_Ki3G"><aside class="theme-doc-sidebar-container docSidebarContainer_LsqT"><div class="sidebarViewport_mUvM"><div class="sidebar_LKPT"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_ReP7"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/analysis"><span title="Analysis" class="categoryLinkLabel__m5q">Analysis</span></a><button aria-label="Expand sidebar category &#x27;Analysis&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m"><span title="category-M" class="categoryLinkLabel__m5q">category-M</span></a><button aria-label="Expand sidebar category &#x27;category-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m-summary"><span title="category-M-summary" class="categoryLinkLabel__m5q">category-M-summary</span></a><button aria-label="Expand sidebar category &#x27;category-M-summary&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/category-mc"><span title="category-MC" class="categoryLinkLabel__m5q">category-MC</span></a><button aria-label="Expand sidebar category &#x27;category-MC&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/gisulsa/docs/intro"><span title="Tutorial Intro" class="linkLabel_fB60">Tutorial Intro</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-m"><span title="기출-과목-M" class="categoryLinkLabel__m5q">기출-과목-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-교재-m"><span title="기출-과목-교재-M" class="categoryLinkLabel__m5q">기출-과목-교재-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-교재-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/etc"><span title="Etc" class="categoryLinkLabel__m5q">Etc</span></a><button aria-label="Expand sidebar category &#x27;Etc&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/answer"><span title="Answer" class="categoryLinkLabel__m5q">Answer</span></a><button aria-label="Expand sidebar category &#x27;Answer&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--active" href="/gisulsa/docs/category/answer2-claudecode"><span title="Answer2-claudecode" class="categoryLinkLabel__m5q">Answer2-claudecode</span></a><button aria-label="Collapse sidebar category &#x27;Answer2-claudecode&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/110M/110M-1_1-EIP"><span title="110M" class="categoryLinkLabel__m5q">110M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/111M/111M-1_1-통계적 가설 검정, p-value"><span title="111M" class="categoryLinkLabel__m5q">111M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/113M/113M-1_1-크라임웨어"><span title="113M" class="categoryLinkLabel__m5q">113M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/114M/114M-1_1-다중 연결 리스트"><span title="114M" class="categoryLinkLabel__m5q">114M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/116M/116M-1_1-전자서명"><span title="116M" class="categoryLinkLabel__m5q">116M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/117M/117M-1_1-HMAC"><span title="117M" class="categoryLinkLabel__m5q">117M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/118M/118M-1_1-정규화"><span title="118M" class="categoryLinkLabel__m5q">118M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/119M/119M-1_1-COCOMO II"><span title="119M" class="categoryLinkLabel__m5q">119M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/120M/120M-1_1-바코드, QR코드"><span title="120M" class="categoryLinkLabel__m5q">120M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/121M/121M-1_1-지능형 CCTV 스마트 관제"><span title="121M" class="categoryLinkLabel__m5q">121M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/122M/122M-1_1-세마포어, 모니터"><span title="122M" class="categoryLinkLabel__m5q">122M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/123M/123M-1_1-스크럼(SCRUM)"><span title="123M" class="categoryLinkLabel__m5q">123M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/124M/124M-1_1-ERP, SCM, MES, CRM"><span title="124M" class="categoryLinkLabel__m5q">124M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/125M/125M-1_1-SECaaS"><span title="125M" class="categoryLinkLabel__m5q">125M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/126M/126M-1_1-정규분포"><span title="126M" class="categoryLinkLabel__m5q">126M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/127M/127M-1_1-NFT"><span title="127M" class="categoryLinkLabel__m5q">127M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/128M/128M-1_1-WBS"><span title="128M" class="categoryLinkLabel__m5q">128M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/129M/129M-1_1-디지털 플랫폼 정부"><span title="129M" class="categoryLinkLabel__m5q">129M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/130M/130M-1_1-노코드"><span title="130M" class="categoryLinkLabel__m5q">130M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/131M/131M-1_1-디지털 트랜스포메이션"><span title="131M" class="categoryLinkLabel__m5q">131M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_1-ISO 31000"><span title="132M" class="categoryLinkLabel__m5q">132M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-1_1-REST API"><span title="133M" class="categoryLinkLabel__m5q">133M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/134M/134M-1_1-터크만 사다리 모델"><span title="134M" class="categoryLinkLabel__m5q">134M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/135M/135M-1_1-PR 곡선, ROC 곡선"><span title="135M" class="categoryLinkLabel__m5q">135M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-1_1-화이트 레이블 마케팅"><span title="136M" class="categoryLinkLabel__m5q">136M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-1_1-IGP, EGP"><span title="137M" class="categoryLinkLabel__m5q">137M</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-1_1-IGP, EGP"><span title="동적 라우팅 프로토콜 — IGP와 EGP" class="linkLabel_fB60">동적 라우팅 프로토콜 — IGP와 EGP</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-1_10-데이터 늪"><span title="데이터 늪(Data Swamp)" class="linkLabel_fB60">데이터 늪(Data Swamp)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-1_11-역공학, 재공학"><span title="소프트웨어 역공학(Reverse Engineering)과 재공학(Re-engineering)" class="linkLabel_fB60">소프트웨어 역공학(Reverse Engineering)과 재공학(Re-engineering)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-1_12-이진 탐색 트리"><span title="이진 탐색 트리(BST: Binary Search Tree)" class="linkLabel_fB60">이진 탐색 트리(BST: Binary Search Tree)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-1_13-연관 규칙 분석 지표"><span title="데이터마이닝 연관 규칙 분석(Association Rule Analysis) 지표" class="linkLabel_fB60">데이터마이닝 연관 규칙 분석(Association Rule Analysis) 지표</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-1_2-디지털 포렌식 아티팩트"><span title="디지털 포렌식의 아티팩트(Artifact)" class="linkLabel_fB60">디지털 포렌식의 아티팩트(Artifact)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-1_3-MODBUS"><span title="MODBUS 프로토콜" class="linkLabel_fB60">MODBUS 프로토콜</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-1_4-암호문 공격"><span title="암호문 공격(Ciphertext Attack)" class="linkLabel_fB60">암호문 공격(Ciphertext Attack)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-1_5-GNN"><span title="GNN(Graph Neural Network, 그래프 신경망)" class="linkLabel_fB60">GNN(Graph Neural Network, 그래프 신경망)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-1_6-AI 거버넌스"><span title="AI 거버넌스(AI Governance)" class="linkLabel_fB60">AI 거버넌스(AI Governance)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-1_7-트랜스포머, MoE"><span title="트랜스포머(Transformer)와 MoE(Mixture of Experts)" class="linkLabel_fB60">트랜스포머(Transformer)와 MoE(Mixture of Experts)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-1_8-AI 신뢰성 검인증 제도"><span title="AI 신뢰성 검·인증 제도(CAT: Certification of AI Trustworthiness)" class="linkLabel_fB60">AI 신뢰성 검·인증 제도(CAT: Certification of AI Trustworthiness)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-1_9-AB 테스팅"><span title="A/B 테스팅(A/B Testing)" class="linkLabel_fB60">A/B 테스팅(A/B Testing)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-2_1-캐시 메모리"><span title="캐시 메모리(Cache Memory)의 쓰기 정책과 일관성" class="linkLabel_fB60">캐시 메모리(Cache Memory)의 쓰기 정책과 일관성</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-2_2-SLA"><span title="전자상거래 정보시스템의 SLA(Service Level Agreement)" class="linkLabel_fB60">전자상거래 정보시스템의 SLA(Service Level Agreement)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-2_3-MCP 보안 취약점"><span title="MCP(Model Context Protocol) 기반 AI 서비스의 보안 취약점과 대응 방안" class="linkLabel_fB60">MCP(Model Context Protocol) 기반 AI 서비스의 보안 취약점과 대응 방안</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-2_4-공공부문 초거대 AI 가이드라인"><span title="공공부문 초거대 AI 도입·활용 가이드라인 2.0" class="linkLabel_fB60">공공부문 초거대 AI 도입·활용 가이드라인 2.0</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-2_5-동적 테스트"><span title="소프트웨어 동적 테스트(Dynamic Test)" class="linkLabel_fB60">소프트웨어 동적 테스트(Dynamic Test)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-2_6-TEXT2SQL"><span title="TEXT2SQL" class="linkLabel_fB60">TEXT2SQL</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-3_1-CPU, 디스크 스케줄링"><span title="운영체제 스케줄링 기법 — CPU 스케줄링과 디스크 스케줄링" class="linkLabel_fB60">운영체제 스케줄링 기법 — CPU 스케줄링과 디스크 스케줄링</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-3_2-운영, 유지보수 감리"><span title="정보시스템 감리 — 시스템 운영 및 유지보수 감리" class="linkLabel_fB60">정보시스템 감리 — 시스템 운영 및 유지보수 감리</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-3_3-Multi-Region Active-Active"><span title="다중지역 동시 가동방식(Multi-Region Active-Active) 재해복구시스템" class="linkLabel_fB60">다중지역 동시 가동방식(Multi-Region Active-Active) 재해복구시스템</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-3_4-트랜잭션 격리 수준"><span title="데이터베이스 트랜잭션 격리 수준(Transaction Isolation Level)" class="linkLabel_fB60">데이터베이스 트랜잭션 격리 수준(Transaction Isolation Level)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-3_5-통신 프로토콜"><span title="통신 프로토콜 — 오류 제어·혼잡 제어, 슬라이딩 윈도우, 설계 시 고려사항" class="linkLabel_fB60">통신 프로토콜 — 오류 제어·혼잡 제어, 슬라이딩 윈도우, 설계 시 고려사항</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-3_6-N2SF"><span title="국가 망 보안체계(N2SF: National Network Security Framework)" class="linkLabel_fB60">국가 망 보안체계(N2SF: National Network Security Framework)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-4_1-BPFdoor"><span title="BPFdoor(Berkeley Packet Filter door) 악성코드" class="linkLabel_fB60">BPFdoor(Berkeley Packet Filter door) 악성코드</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-4_2-HNSW, IVF"><span title="벡터 데이터베이스의 HNSW와 IVF 동작원리" class="linkLabel_fB60">벡터 데이터베이스의 HNSW와 IVF 동작원리</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-4_3-쿠버네티스"><span title="쿠버네티스(Kubernetes)" class="linkLabel_fB60">쿠버네티스(Kubernetes)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-4_4-UML 행위 다이어그램"><span title="UML 행위 다이어그램 — 활동·상태·유스케이스 다이어그램" class="linkLabel_fB60">UML 행위 다이어그램 — 활동·상태·유스케이스 다이어그램</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-4_5-유전 알고리즘"><span title="유전 알고리즘(Genetic Algorithm)" class="linkLabel_fB60">유전 알고리즘(Genetic Algorithm)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-4_6-소프트웨어 사업 대가산정"><span title="소프트웨어 사업 대가산정 (2025년 개정판 기준)" class="linkLabel_fB60">소프트웨어 사업 대가산정 (2025년 개정판 기준)</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-1_1-AI RMF"><span title="138M" class="categoryLinkLabel__m5q">138M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/139M/139M-1_1-WBS"><span title="139M" class="categoryLinkLabel__m5q">139M</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/139M-all"><span title="139회 정보관리기술사 답안 (Claude Code)" class="linkLabel_fB60">139회 정보관리기술사 답안 (Claude Code)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/request"><span title="요구사항" class="linkLabel_fB60">요구사항</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/answer2"><span title="Answer2" class="categoryLinkLabel__m5q">Answer2</span></a><button aria-label="Expand sidebar category &#x27;Answer2&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/knowledgetree"><span title="knowledgeTree" class="categoryLinkLabel__m5q">knowledgeTree</span></a><button aria-label="Expand sidebar category &#x27;knowledgeTree&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/knowledgetree2"><span title="knowledgeTree2" class="categoryLinkLabel__m5q">knowledgeTree2</span></a><button aria-label="Expand sidebar category &#x27;knowledgeTree2&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/dap"><span title="DAP" class="categoryLinkLabel__m5q">DAP</span></a><button aria-label="Expand sidebar category &#x27;DAP&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/gamrisa"><span title="Gamrisa" class="categoryLinkLabel__m5q">Gamrisa</span></a><button aria-label="Expand sidebar category &#x27;Gamrisa&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/gisulsa/docs/keyword/IT서비스_통합/ISMP"><span title="keyword" class="categoryLinkLabel__m5q">keyword</span></a></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_YXDl"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_x8jL"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_nm12"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_wg8x"><div class="docItemContainer_Mqgw"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_rPiA" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/gisulsa/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_p0i5"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/gisulsa/docs/category/answer2-claudecode"><span>Answer2-claudecode</span></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">137M</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">BPFdoor(Berkeley Packet Filter door) 악성코드</span></li></ul></nav><div class="tocCollapsible_H8IZ theme-doc-toc-mobile tocMobile_m8QO"><button type="button" class="clean-btn tocCollapsibleButton_Ecyy">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>BPFdoor(Berkeley Packet Filter door) 악성코드</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅰ-개요">Ⅰ. 개요<a href="#ⅰ-개요" class="hash-link" aria-label="Direct link to Ⅰ. 개요" title="Direct link to Ⅰ. 개요" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-개념">1. 개념<a href="#1-개념" class="hash-link" aria-label="Direct link to 1. 개념" title="Direct link to 1. 개념" translate="no">​</a></h3>
+<p><strong>BPFdoor</strong>는 리눅스 커널의 패킷 필터링 기능인 <strong>BPF(Berkeley Packet Filter)</strong> 를 악용하여, <strong>열린 포트 없이(Portless) 네트워크 트래픽을 감청하다가 특정 매직 패킷(Magic Packet)을 수신하면 활성화되는 스텔스형 백도어</strong>이다.</p>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="2-위협의-심각성">2. 위협의 심각성<a href="#2-위협의-심각성" class="hash-link" aria-label="Direct link to 2. 위협의 심각성" title="Direct link to 2. 위협의 심각성" translate="no">​</a></h3>
+<p>2022년 공개된 이후 통신·금융 인프라에서 <strong>수년간 탐지되지 않은 채 상주한 사례</strong>가 보고되었으며, 2025년 국내 통신사 침해사고에서도 변종이 확인되면서 <strong>장기 잠복형(APT) 백도어의 대표 사례</strong>로 부각되었다.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅱ-가-bpfdoor의-개념-및-기존-백도어-방식과의-차이점">Ⅱ. 가. BPFdoor의 개념 및 기존 백도어 방식과의 차이점<a href="#ⅱ-가-bpfdoor의-개념-및-기존-백도어-방식과의-차이점" class="hash-link" aria-label="Direct link to Ⅱ. 가. BPFdoor의 개념 및 기존 백도어 방식과의 차이점" title="Direct link to Ⅱ. 가. BPFdoor의 개념 및 기존 백도어 방식과의 차이점" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-bpfberkeley-packet-filter-기술-배경">1. BPF(Berkeley Packet Filter) 기술 배경<a href="#1-bpfberkeley-packet-filter-기술-배경" class="hash-link" aria-label="Direct link to 1. BPF(Berkeley Packet Filter) 기술 배경" title="Direct link to 1. BPF(Berkeley Packet Filter) 기술 배경" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>BPF</strong>는 커널 계층에서 네트워크 패킷을 필터링하여 <strong>필요한 패킷만 사용자 영역으로 전달</strong>하는 기술(tcpdump·Wireshark의 기반).</li>
+<li class="">BPFdoor는 이 기능을 악용해 <strong>소켓에 BPF 필터를 부착</strong>하고, 커널이 패킷을 처리하기 전 단계에서 <strong>매직 패킷만 선별적으로 수신</strong>한다.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="2-동작-원리">2. 동작 원리<a href="#2-동작-원리" class="hash-link" aria-label="Direct link to 2. 동작 원리" title="Direct link to 2. 동작 원리" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [BPFdoor 동작 흐름]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ① 침투 후 상주 : 정상 프로세스명으로 위장(예: /sbin/udevd, dbus-daemon)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │            **포트를 열지 않음(LISTEN 상태 없음)**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        ▼</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ② **Raw Socket + BPF 필터 부착** → 커널 수준에서 모든 트래픽 감시</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │  ※ 방화벽이 차단한 패킷도 **필터에 걸리면 수신 가능**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        ▼</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ③ 공격자가 **매직 패킷(특정 바이트 시퀀스 포함)** 전송</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │  (TCP/UDP/ICMP 어느 프로토콜이든 가능)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        ▼</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ④ BPF 필터가 매직 패킷 탐지 → **백도어 활성화**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │  ├─ iptables 규칙 **동적 추가**로 공격자 IP만 임시 허용</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │  ├─ **리버스 셸** 연결 또는 바인드 셸 개방</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │  └─ 명령 수행 후 **규칙 원복·흔적 제거**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        ▼</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ⑤ 통신 종료 후 다시 **잠복 상태로 복귀**(포트 닫힘)</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="3-기존-백도어-방식과의-차이점">3. 기존 백도어 방식과의 차이점<a href="#3-기존-백도어-방식과의-차이점" class="hash-link" aria-label="Direct link to 3. 기존 백도어 방식과의 차이점" title="Direct link to 3. 기존 백도어 방식과의 차이점" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>비교 기준</th><th><strong>기존 백도어</strong>(바인드/리버스 셸)</th><th><strong>BPFdoor</strong></th></tr></thead><tbody><tr><td><strong>포트 개방</strong></td><td>특정 포트를 <strong>LISTEN 상태로 대기</strong></td><td><strong>포트를 열지 않음(Portless)</strong> — <code>netstat</code>·<code>ss</code>로 미탐지</td></tr><tr><td><strong>탐지 방법</strong></td><td>포트 스캔·열린 포트 점검으로 발견</td><td><strong>포트 스캔으로 발견 불가</strong></td></tr><tr><td><strong>동작 계층</strong></td><td>사용자 영역(애플리케이션) 소켓</td><td><strong>커널의 BPF 필터 계층</strong> — 방화벽·소켓 계층 이전</td></tr><tr><td><strong>방화벽 우회</strong></td><td>방화벽이 차단하면 통신 불가</td><td><strong>방화벽이 드롭한 패킷도 BPF 필터에서 수신</strong></td></tr><tr><td><strong>활성 상태</strong></td><td>상시 대기(Always-on)</td><td><strong>평시 비활성 → 매직 패킷 수신 시에만 활성화</strong></td></tr><tr><td><strong>트래픽 특성</strong></td><td>지속적 C2 비콘(주기적 아웃바운드)</td><td><strong>평시 트래픽 없음</strong> → 이상 트래픽 탐지 회피</td></tr><tr><td><strong>프로세스 위장</strong></td><td>단순 은닉·루트킷</td><td><strong>정상 시스템 데몬명으로 위장</strong>, 실행 후 자기 삭제(메모리 상주)</td></tr><tr><td><strong>접근 제어</strong></td><td>고정 IP·포트</td><td>매직 패킷 발신 IP를 <strong>동적으로 iptables에 허용 후 원복</strong></td></tr><tr><td><strong>프로토콜</strong></td><td>주로 TCP</td><td><strong>TCP·UDP·ICMP 모두 활용 가능</strong></td></tr><tr><td><strong>탐지 난이도</strong></td><td>중간</td><td><strong>매우 높음</strong>(수년간 미탐지 사례 다수)</td></tr></tbody></table>
+<blockquote>
+<p><strong>핵심 차이</strong>: 기존 백도어는 &quot;문을 열어두고 기다리는&quot; 방식이지만, BPFdoor는 <strong>&quot;문이 없는 것처럼 보이다가 특정 노크에만 반응하는&quot;</strong> 방식이다. 이 때문에 <strong>포트 기반 점검·방화벽 정책·아웃바운드 트래픽 감시</strong> 등 전통적 탐지 수단이 모두 무력화된다.</p>
+</blockquote>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅲ-나-bpfdoor의-위협-요소와-기업-시스템에-미치는-영향">Ⅲ. 나. BPFdoor의 위협 요소와 기업 시스템에 미치는 영향<a href="#ⅲ-나-bpfdoor의-위협-요소와-기업-시스템에-미치는-영향" class="hash-link" aria-label="Direct link to Ⅲ. 나. BPFdoor의 위협 요소와 기업 시스템에 미치는 영향" title="Direct link to Ⅲ. 나. BPFdoor의 위협 요소와 기업 시스템에 미치는 영향" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-위협-요소">1. 위협 요소<a href="#1-위협-요소" class="hash-link" aria-label="Direct link to 1. 위협 요소" title="Direct link to 1. 위협 요소" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>구분</th><th>위협 요소</th><th>상세 내용</th></tr></thead><tbody><tr><td><strong>탐지 회피</strong></td><td><strong>스텔스 상주</strong></td><td>포트 미개방, 정상 프로세스 위장, 실행 파일 자기 삭제 후 메모리 상주</td></tr><tr><td></td><td><strong>트래픽 은폐</strong></td><td>평시 통신 없음 → NDR·비콘 탐지 무력화, 소량 패킷만 사용</td></tr><tr><td></td><td>로그 최소화</td><td>접속 흔적 최소, 커널 수준 동작으로 애플리케이션 로그에 미기록</td></tr><tr><td><strong>방어 우회</strong></td><td><strong>경계 보안 무력화</strong></td><td>방화벽·ACL이 차단해도 <strong>BPF 필터가 먼저 패킷 획득</strong></td></tr><tr><td></td><td>네트워크 분리 우회</td><td>내부망 감염 시 정상 트래픽에 섞인 매직 패킷으로 제어</td></tr><tr><td><strong>지속성</strong></td><td><strong>장기 잠복(Persistence)</strong></td><td>수개월~수년간 미탐지 상주 → <strong>APT 공격의 지속 거점</strong></td></tr><tr><td></td><td>재감염</td><td>부팅 스크립트·서비스 등록으로 재기동 후에도 유지</td></tr><tr><td><strong>권한</strong></td><td><strong>루트 권한 요구·획득</strong></td><td>Raw Socket 사용을 위해 root 권한 필요 → 감염 시 <strong>시스템 완전 장악</strong></td></tr><tr><td><strong>확산</strong></td><td>측면 이동 기반</td><td>확보한 거점에서 내부 자격증명 탈취 후 <strong>다른 서버로 확산</strong></td></tr><tr><td><strong>대상</strong></td><td><strong>리눅스 서버 집중</strong></td><td>웹서버·DB·미들웨어 등 <strong>핵심 기간 서버</strong>가 주 표적</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="2-기업-시스템에-미치는-영향">2. 기업 시스템에 미치는 영향<a href="#2-기업-시스템에-미치는-영향" class="hash-link" aria-label="Direct link to 2. 기업 시스템에 미치는 영향" title="Direct link to 2. 기업 시스템에 미치는 영향" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [피해 확산 경로]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   BPFdoor 상주 ─► 자격증명·키 탈취 ─► **측면 이동** ─► 핵심 시스템 장악</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │                                                      │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        ├─► 장기간 **데이터 지속 유출**(고객정보·영업비밀)      │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        ├─► 시스템 조작·백도어 추가 설치                        │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        └─► 랜섬웨어 배포 거점으로 활용 ◄──────────────────────┘</span><br></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>영향 영역</th><th>내용</th></tr></thead><tbody><tr><td><strong>기밀성 침해</strong></td><td>고객 개인정보·금융정보·영업비밀의 <strong>장기간 지속적 유출</strong> — 유출 시점·범위 특정 곤란</td></tr><tr><td><strong>시스템 무결성</strong></td><td>루트 권한으로 설정 변경·추가 악성코드 설치, <strong>시스템 신뢰성 자체 상실</strong></td></tr><tr><td><strong>서비스 가용성</strong></td><td>랜섬웨어 배포 거점화 시 <strong>전사 서비스 중단</strong></td></tr><tr><td><strong>법적·규제 리스크</strong></td><td>개인정보보호법상 <strong>유출 신고·통지 의무</strong>, 과징금(전체 매출 기준), 손해배상 소송</td></tr><tr><td><strong>재무적 손실</strong></td><td>사고 대응·포렌식 비용, 시스템 전면 재구축 비용, 영업 손실</td></tr><tr><td><strong>신뢰도 하락</strong></td><td>브랜드 이미지 훼손, 고객 이탈, <strong>통신·금융은 사회적 파급 극대</strong></td></tr><tr><td><strong>복구 난이도</strong></td><td>감염 시점 특정이 어려워 <strong>백업본까지 오염 가능</strong> → 안전한 복구 지점 판단 곤란</td></tr><tr><td><strong>공급망 위험</strong></td><td>협력사·고객사로 침해 확산 가능</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅳ-다-bpfdoor-위협에-대응하기-위한-기술적관리적-방안">Ⅳ. 다. BPFdoor 위협에 대응하기 위한 기술적·관리적 방안<a href="#ⅳ-다-bpfdoor-위협에-대응하기-위한-기술적관리적-방안" class="hash-link" aria-label="Direct link to Ⅳ. 다. BPFdoor 위협에 대응하기 위한 기술적·관리적 방안" title="Direct link to Ⅳ. 다. BPFdoor 위협에 대응하기 위한 기술적·관리적 방안" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-기술적-대응-방안">1. 기술적 대응 방안<a href="#1-기술적-대응-방안" class="hash-link" aria-label="Direct link to 1. 기술적 대응 방안" title="Direct link to 1. 기술적 대응 방안" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>계층</th><th>대응 방안</th><th>상세 내용</th></tr></thead><tbody><tr><td><strong>탐지 — 호스트</strong></td><td><strong>BPF 사용 프로세스 점검</strong></td><td><code>ss -0pb</code>, <code>/proc/net/packet</code> 확인으로 <strong>Raw Socket·BPF 필터를 부착한 비정상 프로세스</strong> 식별 — 가장 직접적인 탐지법</td></tr><tr><td></td><td><strong>프로세스 무결성 검증</strong></td><td>실행 파일 경로와 프로세스명 불일치 확인(<code>ls -l /proc/[pid]/exe</code>), <strong>삭제된 바이너리로 실행 중인 프로세스(deleted)</strong> 탐지</td></tr><tr><td></td><td><strong>EDR 행위 기반 탐지</strong></td><td>Raw Socket 생성, <code>SO_ATTACH_FILTER</code> 시스템 콜, <strong>iptables 동적 변경</strong>, 예기치 않은 셸 생성 등 <strong>행위 패턴 탐지</strong></td></tr><tr><td></td><td>파일 무결성 모니터링</td><td>FIM으로 시스템 디렉터리·기동 스크립트 변경 감시</td></tr><tr><td></td><td><strong>메모리 포렌식</strong></td><td>디스크에 파일이 없으므로 <strong>메모리 덤프 분석</strong>이 필수(Volatility 등)</td></tr><tr><td><strong>탐지 — 네트워크</strong></td><td>이상 패킷 탐지</td><td><strong>매직 패킷 시그니처</strong>(공개된 IoC) 기반 IDS/IPS 룰 적용</td></tr><tr><td></td><td>트래픽 전량 분석</td><td>방화벽이 드롭한 패킷도 서버에 도달하므로 <strong>네트워크 탭 기반 전수 분석(NDR)</strong> 필요</td></tr><tr><td></td><td><strong>아웃바운드 통제</strong></td><td>서버의 외부 접속을 <strong>화이트리스트 방식으로 제한</strong> — 리버스 셸 차단</td></tr><tr><td><strong>차단·완화</strong></td><td><strong>최소 권한·권한 분리</strong></td><td>불필요한 root 실행 제거, <strong><code>CAP_NET_RAW</code> 권한 제한</strong>(Raw Socket 생성 차단)</td></tr><tr><td></td><td><strong>커널 보안 강화</strong></td><td>SELinux·AppArmor <strong>강제 접근통제(MAC)</strong> 적용, seccomp로 시스템 콜 제한</td></tr><tr><td></td><td>취약점 관리</td><td>초기 침투 경로 차단 — <strong>인터넷 노출 서버·미들웨어 신속 패치</strong>, 불필요 서비스 제거</td></tr><tr><td></td><td><strong>네트워크 분리</strong></td><td><strong>마이크로 세그멘테이션</strong>으로 서버 간 통신 최소화 → 측면 이동 차단</td></tr><tr><td></td><td>인증 강화</td><td>SSH 키 기반 인증·MFA, 관리자 접근은 <strong>PAM(특권계정 관리)</strong> 경유</td></tr><tr><td><strong>가시성</strong></td><td><strong>중앙 로그 수집</strong></td><td>서버 로컬 로그는 삭제 가능 → <strong>원격 SIEM으로 실시간 전송·보존</strong></td></tr><tr><td></td><td>시스템 콜 감사</td><td>auditd로 Raw Socket·권한 상승 관련 시스템 콜 기록</td></tr><tr><td></td><td>정기 스캔</td><td>침해지표(IoC) 기반 전 서버 정기 점검, YARA 룰 적용</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="2-관리적-대응-방안">2. 관리적 대응 방안<a href="#2-관리적-대응-방안" class="hash-link" aria-label="Direct link to 2. 관리적 대응 방안" title="Direct link to 2. 관리적 대응 방안" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>구분</th><th>대응 방안</th><th>상세 내용</th></tr></thead><tbody><tr><td><strong>거버넌스</strong></td><td><strong>침해 가정(Assume Breach) 전략</strong></td><td>&quot;이미 침투당했다&quot;는 전제로 <strong>정기적 위협 헌팅(Threat Hunting)</strong> 수행</td></tr><tr><td></td><td>보안 정책·기준</td><td>서버 보안 기준(CIS Benchmark) 수립, root 사용 통제 정책</td></tr><tr><td><strong>자산·구성 관리</strong></td><td>자산 현황 관리</td><td>서버·서비스 인벤토리 정확성 확보, <strong>인터넷 노출 자산 상시 식별(EASM)</strong></td></tr><tr><td></td><td><strong>정상 상태 기준선(Baseline)</strong></td><td>정상 프로세스·포트·통신 목록을 문서화하여 <strong>이상 탐지의 기준</strong> 확보</td></tr><tr><td><strong>취약점·패치</strong></td><td>패치 관리 프로세스</td><td>정기·긴급 패치 절차, 패치 이행 검증</td></tr><tr><td></td><td>정기 진단</td><td>모의해킹·취약점 진단, <strong>침해사고 예방 점검</strong></td></tr><tr><td><strong>사고 대응</strong></td><td><strong>IR 플레이북 정비</strong></td><td>BPFdoor 유형별 대응 절차(격리·메모리 확보·포렌식) 사전 수립</td></tr><tr><td></td><td><strong>증거 보존 원칙 교육</strong></td><td>감염 의심 시 <strong>재부팅·전원 차단 금지</strong>(메모리 증거 소실) → <strong>네트워크 격리 우선</strong></td></tr><tr><td></td><td>신고 체계</td><td>KISA·수사기관 신고 절차, 개인정보 유출 시 법정 통지</td></tr><tr><td></td><td><strong>정기 훈련</strong></td><td>침해사고 대응 모의훈련(Table-top·실전), 위협 헌팅 훈련</td></tr><tr><td><strong>정보 공유</strong></td><td>위협 인텔리전스</td><td>최신 <strong>IoC·TTP(MITRE ATT&amp;CK) 공유 채널 참여</strong>, 업계 공동 대응</td></tr><tr><td><strong>인력·조직</strong></td><td>전문 인력</td><td>리눅스·커널 수준 분석 역량 확보, 외부 전문기관 협력 체계</td></tr><tr><td></td><td>협력사 관리</td><td>위탁 운영 서버의 보안 요구사항 계약 반영, 접근 통제</td></tr><tr><td><strong>복구 대비</strong></td><td><strong>백업 무결성</strong></td><td>오프라인·불변(Immutable) 백업, <strong>감염 이전 시점 복구 가능성 확보</strong></td></tr><tr><td></td><td>재구축 기준</td><td>루트 권한 침해 시 <strong>패치가 아닌 시스템 재설치(Rebuild)</strong> 를 원칙으로 규정</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="3-단계별-대응-로드맵">3. 단계별 대응 로드맵<a href="#3-단계별-대응-로드맵" class="hash-link" aria-label="Direct link to 3. 단계별 대응 로드맵" title="Direct link to 3. 단계별 대응 로드맵" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [즉시]   IoC 기반 전 서버 스캔 → BPF 부착 프로세스·삭제된 바이너리 실행 점검</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      ▼</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   [단기]   EDR 배포, 중앙 로그 수집, 아웃바운드 화이트리스트, 노출 자산 패치</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      ▼</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   [중기]   마이크로 세그멘테이션, MAC(SELinux) 적용, CAP_NET_RAW 통제, PAM 도입</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      ▼</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   [지속]   정기 위협 헌팅, 침해 모의훈련, 위협 인텔리전스 연계, 기준선 갱신</span><br></span></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅴ-결론">Ⅴ. 결론<a href="#ⅴ-결론" class="hash-link" aria-label="Direct link to Ⅴ. 결론" title="Direct link to Ⅴ. 결론" translate="no">​</a></h2>
+<p>BPFdoor는 <strong>커널의 정상 기능(BPF)을 악용하여 &quot;열린 포트도, 상시 트래픽도 없는&quot; 상태로 잠복</strong>한다는 점에서, 포트 점검·방화벽 정책·비콘 탐지 등 <strong>전통적 방어 수단이 구조적으로 무력화되는 위협</strong>이다. 수년간 탐지되지 않은 사례들이 이를 입증한다.</p>
+<p>따라서 대응의 핵심은 시그니처 탐지가 아니라 <strong>① 호스트 수준의 행위 가시성 확보(EDR·Raw Socket/BPF 부착 프로세스 점검), ② 정상 상태 기준선과의 차이 탐지, ③ 아웃바운드 통제와 마이크로 세그멘테이션을 통한 활용 경로 차단</strong>에 있다.</p>
+<p>아울러 관리적으로는 <strong>&quot;침투는 이미 일어났다&quot;는 전제하에 정기적 위협 헌팅을 제도화</strong>하고, 감염 의심 시 <strong>재부팅이 아닌 메모리 증거 확보 우선</strong> 원칙을 교육하며, 루트 권한 침해 시에는 <strong>시스템 재구축을 원칙</strong>으로 규정해야 한다. 궁극적으로 이러한 커널 수준 위협에 대한 대비는 <strong>가시성(Observability) 확보에 대한 사전 투자</strong>로만 가능하다.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_zkUn"><a href="https://github.com/electro9666/gisulsa/tree/main/docs/answer2-claudecode/137M/137M-4_1-BPFdoor.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_QeP7" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_VbYH"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/gisulsa/docs/answer2-claudecode/137M/137M-3_6-N2SF"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">국가 망 보안체계(N2SF: National Network Security Framework)</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/gisulsa/docs/answer2-claudecode/137M/137M-4_2-HNSW, IVF"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">벡터 데이터베이스의 HNSW와 IVF 동작원리</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_oTRv thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#ⅰ-개요" class="table-of-contents__link toc-highlight">Ⅰ. 개요</a><ul><li><a href="#1-개념" class="table-of-contents__link toc-highlight">1. 개념</a></li><li><a href="#2-위협의-심각성" class="table-of-contents__link toc-highlight">2. 위협의 심각성</a></li></ul></li><li><a href="#ⅱ-가-bpfdoor의-개념-및-기존-백도어-방식과의-차이점" class="table-of-contents__link toc-highlight">Ⅱ. 가. BPFdoor의 개념 및 기존 백도어 방식과의 차이점</a><ul><li><a href="#1-bpfberkeley-packet-filter-기술-배경" class="table-of-contents__link toc-highlight">1. BPF(Berkeley Packet Filter) 기술 배경</a></li><li><a href="#2-동작-원리" class="table-of-contents__link toc-highlight">2. 동작 원리</a></li><li><a href="#3-기존-백도어-방식과의-차이점" class="table-of-contents__link toc-highlight">3. 기존 백도어 방식과의 차이점</a></li></ul></li><li><a href="#ⅲ-나-bpfdoor의-위협-요소와-기업-시스템에-미치는-영향" class="table-of-contents__link toc-highlight">Ⅲ. 나. BPFdoor의 위협 요소와 기업 시스템에 미치는 영향</a><ul><li><a href="#1-위협-요소" class="table-of-contents__link toc-highlight">1. 위협 요소</a></li><li><a href="#2-기업-시스템에-미치는-영향" class="table-of-contents__link toc-highlight">2. 기업 시스템에 미치는 영향</a></li></ul></li><li><a href="#ⅳ-다-bpfdoor-위협에-대응하기-위한-기술적관리적-방안" class="table-of-contents__link toc-highlight">Ⅳ. 다. BPFdoor 위협에 대응하기 위한 기술적·관리적 방안</a><ul><li><a href="#1-기술적-대응-방안" class="table-of-contents__link toc-highlight">1. 기술적 대응 방안</a></li><li><a href="#2-관리적-대응-방안" class="table-of-contents__link toc-highlight">2. 관리적 대응 방안</a></li><li><a href="#3-단계별-대응-로드맵" class="table-of-contents__link toc-highlight">3. 단계별 대응 로드맵</a></li></ul></li><li><a href="#ⅴ-결론" class="table-of-contents__link toc-highlight">Ⅴ. 결론</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/gisulsa/docs/intro">Tutorial</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://x.com/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">X<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/gisulsa/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 gisulsa. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

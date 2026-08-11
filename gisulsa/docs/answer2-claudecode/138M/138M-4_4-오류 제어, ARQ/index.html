@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-answer2-claudecode/138M/138M-4_4-오류 제어, ARQ" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">데이터 통신의 오류 제어(Error Control) 기술 | gisulsa</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://electro9666.github.io/gisulsa/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://electro9666.github.io/gisulsa/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/138M/138M-4_4-오류 제어, ARQ"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="데이터 통신의 오류 제어(Error Control) 기술 | gisulsa"><meta data-rh="true" name="description" content="Ⅰ. 개요"><meta data-rh="true" property="og:description" content="Ⅰ. 개요"><link data-rh="true" rel="icon" href="/gisulsa/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/138M/138M-4_4-오류 제어, ARQ"><link data-rh="true" rel="alternate" href="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/138M/138M-4_4-오류 제어, ARQ" hreflang="en"><link data-rh="true" rel="alternate" href="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/138M/138M-4_4-오류 제어, ARQ" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Answer2-claudecode","item":"https://electro9666.github.io/gisulsa/docs/category/answer2-claudecode"},{"@type":"ListItem","position":2,"name":"데이터 통신의 오류 제어(Error Control) 기술","item":"https://electro9666.github.io/gisulsa/docs/answer2-claudecode/138M/138M-4_4-오류 제어, ARQ"}]}</script><link rel="alternate" type="application/rss+xml" href="/gisulsa/blog/rss.xml" title="gisulsa RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/gisulsa/blog/atom.xml" title="gisulsa Atom Feed">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/gisulsa/assets/css/styles.c89f6dc4.css">
+<script src="/gisulsa/assets/js/runtime~main.5dba9a82.js" defer="defer"></script>
+<script src="/gisulsa/assets/js/main.4563a94a.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/gisulsa/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_vkR3" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/gisulsa/"><div class="navbar__logo"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_IEiv themedComponent--light_RPL7"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_IEiv themedComponent--dark_CQXo"></div><b class="navbar__title text--truncate">gisulsa</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/gisulsa/docs/category/analysis">Tutorial</a><a class="navbar__item navbar__link" href="/gisulsa/blog">Blog</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_PjNm colorModeToggle_TMeo"><button class="clean-btn toggleButton_VcKS toggleButtonDisabled_pgtH" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_pvfg lightToggleIcon_MST1"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_pvfg darkToggleIcon_YXKr"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_pvfg systemToggleIcon_lCGD"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_FpHK"><div class="navbar__search searchBarContainer_J6UD" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_WmZV" value=""><div class="loadingRing_Kp6M searchBarLoadingRing_Vdde"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_GqYq"><div class="docsWrapper_f6JN"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_B1Te" type="button"></button><div class="docRoot_Ki3G"><aside class="theme-doc-sidebar-container docSidebarContainer_LsqT"><div class="sidebarViewport_mUvM"><div class="sidebar_LKPT"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_ReP7"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/analysis"><span title="Analysis" class="categoryLinkLabel__m5q">Analysis</span></a><button aria-label="Expand sidebar category &#x27;Analysis&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m"><span title="category-M" class="categoryLinkLabel__m5q">category-M</span></a><button aria-label="Expand sidebar category &#x27;category-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m-summary"><span title="category-M-summary" class="categoryLinkLabel__m5q">category-M-summary</span></a><button aria-label="Expand sidebar category &#x27;category-M-summary&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/category-mc"><span title="category-MC" class="categoryLinkLabel__m5q">category-MC</span></a><button aria-label="Expand sidebar category &#x27;category-MC&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/gisulsa/docs/intro"><span title="Tutorial Intro" class="linkLabel_fB60">Tutorial Intro</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-m"><span title="기출-과목-M" class="categoryLinkLabel__m5q">기출-과목-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-교재-m"><span title="기출-과목-교재-M" class="categoryLinkLabel__m5q">기출-과목-교재-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-교재-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/etc"><span title="Etc" class="categoryLinkLabel__m5q">Etc</span></a><button aria-label="Expand sidebar category &#x27;Etc&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/answer"><span title="Answer" class="categoryLinkLabel__m5q">Answer</span></a><button aria-label="Expand sidebar category &#x27;Answer&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--active" href="/gisulsa/docs/category/answer2-claudecode"><span title="Answer2-claudecode" class="categoryLinkLabel__m5q">Answer2-claudecode</span></a><button aria-label="Collapse sidebar category &#x27;Answer2-claudecode&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/110M/110M-1_1-EIP"><span title="110M" class="categoryLinkLabel__m5q">110M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/111M/111M-1_1-통계적 가설 검정, p-value"><span title="111M" class="categoryLinkLabel__m5q">111M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/113M/113M-1_1-크라임웨어"><span title="113M" class="categoryLinkLabel__m5q">113M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/114M/114M-1_1-다중 연결 리스트"><span title="114M" class="categoryLinkLabel__m5q">114M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/116M/116M-1_1-전자서명"><span title="116M" class="categoryLinkLabel__m5q">116M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/117M/117M-1_1-HMAC"><span title="117M" class="categoryLinkLabel__m5q">117M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/118M/118M-1_1-정규화"><span title="118M" class="categoryLinkLabel__m5q">118M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/119M/119M-1_1-COCOMO II"><span title="119M" class="categoryLinkLabel__m5q">119M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/120M/120M-1_1-바코드, QR코드"><span title="120M" class="categoryLinkLabel__m5q">120M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/121M/121M-1_1-지능형 CCTV 스마트 관제"><span title="121M" class="categoryLinkLabel__m5q">121M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/122M/122M-1_1-세마포어, 모니터"><span title="122M" class="categoryLinkLabel__m5q">122M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/123M/123M-1_1-스크럼(SCRUM)"><span title="123M" class="categoryLinkLabel__m5q">123M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/124M/124M-1_1-ERP, SCM, MES, CRM"><span title="124M" class="categoryLinkLabel__m5q">124M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/125M/125M-1_1-SECaaS"><span title="125M" class="categoryLinkLabel__m5q">125M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/126M/126M-1_1-정규분포"><span title="126M" class="categoryLinkLabel__m5q">126M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/127M/127M-1_1-NFT"><span title="127M" class="categoryLinkLabel__m5q">127M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/128M/128M-1_1-WBS"><span title="128M" class="categoryLinkLabel__m5q">128M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/129M/129M-1_1-디지털 플랫폼 정부"><span title="129M" class="categoryLinkLabel__m5q">129M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/130M/130M-1_1-노코드"><span title="130M" class="categoryLinkLabel__m5q">130M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/131M/131M-1_1-디지털 트랜스포메이션"><span title="131M" class="categoryLinkLabel__m5q">131M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_1-ISO 31000"><span title="132M" class="categoryLinkLabel__m5q">132M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-1_1-REST API"><span title="133M" class="categoryLinkLabel__m5q">133M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/134M/134M-1_1-터크만 사다리 모델"><span title="134M" class="categoryLinkLabel__m5q">134M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/135M/135M-1_1-PR 곡선, ROC 곡선"><span title="135M" class="categoryLinkLabel__m5q">135M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-1_1-화이트 레이블 마케팅"><span title="136M" class="categoryLinkLabel__m5q">136M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-1_1-IGP, EGP"><span title="137M" class="categoryLinkLabel__m5q">137M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-1_1-AI RMF"><span title="138M" class="categoryLinkLabel__m5q">138M</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-1_1-AI RMF"><span title="NIST AI RMF(AI Risk Management Framework)" class="linkLabel_fB60">NIST AI RMF(AI Risk Management Framework)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-1_10-TTPs"><span title="TTPs(Tactics, Techniques and Procedures)" class="linkLabel_fB60">TTPs(Tactics, Techniques and Procedures)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-1_11-은행가 알고리즘"><span title="은행가 알고리즘(Banker&#x27;s Algorithm)" class="linkLabel_fB60">은행가 알고리즘(Banker&#x27;s Algorithm)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-1_12-프롬프트 인젝션"><span title="프롬프트 인젝션(Prompt Injection)" class="linkLabel_fB60">프롬프트 인젝션(Prompt Injection)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-1_13-모델 전도 공격"><span title="모델 전도 공격(Model Inversion Attack)" class="linkLabel_fB60">모델 전도 공격(Model Inversion Attack)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-1_2-프로젝트 위험관리"><span title="프로젝트 위험관리(Project Risk Management)" class="linkLabel_fB60">프로젝트 위험관리(Project Risk Management)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-1_3-ISO-IEC 42001"><span title="ISO/IEC 42001:2023 (AI 경영시스템, AIMS)" class="linkLabel_fB60">ISO/IEC 42001:2023 (AI 경영시스템, AIMS)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-1_4-베이즈 정리"><span title="베이즈 정리(Bayes&#x27; Theorem)" class="linkLabel_fB60">베이즈 정리(Bayes&#x27; Theorem)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-1_5-안면인식 결제 서비스"><span title="안면인식 결제 서비스(Face Recognition Payment)" class="linkLabel_fB60">안면인식 결제 서비스(Face Recognition Payment)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-1_6-개발방법론 테일러링"><span title="개발방법론 테일러링(Tailoring)" class="linkLabel_fB60">개발방법론 테일러링(Tailoring)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-1_7-자기회귀모형, 이동평균모형"><span title="자기회귀모형(AR)과 이동평균모형(MA)" class="linkLabel_fB60">자기회귀모형(AR)과 이동평균모형(MA)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-1_8-데이터 관측가능성"><span title="데이터 관측가능성(Data Observability)" class="linkLabel_fB60">데이터 관측가능성(Data Observability)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-1_9-참조 무결성"><span title="정보모델링의 참조 무결성(Referential Integrity)" class="linkLabel_fB60">정보모델링의 참조 무결성(Referential Integrity)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-2_1-오픈소스 DBMS 전환"><span title="상용 DBMS의 오픈소스 DBMS 전환 방안" class="linkLabel_fB60">상용 DBMS의 오픈소스 DBMS 전환 방안</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-2_2-ISP, ISMP"><span title="ISP(정보화전략계획)와 ISMP 비교" class="linkLabel_fB60">ISP(정보화전략계획)와 ISMP 비교</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-2_3-GPU, TPU"><span title="AI 학습용 GPU와 TPU 비교" class="linkLabel_fB60">AI 학습용 GPU와 TPU 비교</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-2_4-TA, AA"><span title="클라우드 네이티브 전환 프로젝트의 TA와 AA" class="linkLabel_fB60">클라우드 네이티브 전환 프로젝트의 TA와 AA</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-2_5-재공학, 역공학"><span title="소프트웨어 재공학(Re-engineering)과 역공학(Reverse-engineering)" class="linkLabel_fB60">소프트웨어 재공학(Re-engineering)과 역공학(Reverse-engineering)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-2_6-메모리 4가지 영역"><span title="프로그램 실행 시 메모리의 4가지 영역" class="linkLabel_fB60">프로그램 실행 시 메모리의 4가지 영역</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-3_1-생성형 AI 이용자 보호 가이드라인"><span title="생성형 인공지능 서비스 이용자 보호 가이드라인(2025.2.28.)" class="linkLabel_fB60">생성형 인공지능 서비스 이용자 보호 가이드라인(2025.2.28.)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-3_2-로우코드, 노코드"><span title="로우코드(Low Code) 플랫폼" class="linkLabel_fB60">로우코드(Low Code) 플랫폼</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-3_3-데이터베이스 분할"><span title="분산 데이터베이스의 데이터베이스 분할(Fragmentation)" class="linkLabel_fB60">분산 데이터베이스의 데이터베이스 분할(Fragmentation)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-3_4-FTS, HA"><span title="가용성 보장 — FTS(Fault Tolerant System)와 HA(High Availability)" class="linkLabel_fB60">가용성 보장 — FTS(Fault Tolerant System)와 HA(High Availability)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-3_5-공격 표면, 측면 이동"><span title="IT 인프라 확장에 따른 공격 표면·공격 벡터와 측면 이동" class="linkLabel_fB60">IT 인프라 확장에 따른 공격 표면·공격 벡터와 측면 이동</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-3_6-ISMS-P"><span title="정보보호 관리체계(ISMS) 및 ISMS-P 제도" class="linkLabel_fB60">정보보호 관리체계(ISMS) 및 ISMS-P 제도</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-4_1-인공지능기본법"><span title="인공지능 발전과 신뢰 기반 조성 등에 관한 기본법(인공지능기본법)" class="linkLabel_fB60">인공지능 발전과 신뢰 기반 조성 등에 관한 기본법(인공지능기본법)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-4_2-단방향 해시 함수"><span title="단방향 해시 함수(One-way Hash Function)" class="linkLabel_fB60">단방향 해시 함수(One-way Hash Function)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-4_3-AI-Native Network"><span title="6G 핵심 개념 — AI-Native Network" class="linkLabel_fB60">6G 핵심 개념 — AI-Native Network</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-4_4-오류 제어, ARQ"><span title="데이터 통신의 오류 제어(Error Control) 기술" class="linkLabel_fB60">데이터 통신의 오류 제어(Error Control) 기술</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-4_5-랜섬웨어, RaaS"><span title="랜섬웨어와 RaaS(Ransomware as a Service)" class="linkLabel_fB60">랜섬웨어와 RaaS(Ransomware as a Service)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-4_6-PET"><span title="개인정보 보호 강화기술(PET: Privacy Enhancing Technology)" class="linkLabel_fB60">개인정보 보호 강화기술(PET: Privacy Enhancing Technology)</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/139M/139M-1_1-WBS"><span title="139M" class="categoryLinkLabel__m5q">139M</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/139M-all"><span title="139회 정보관리기술사 답안 (Claude Code)" class="linkLabel_fB60">139회 정보관리기술사 답안 (Claude Code)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/request"><span title="요구사항" class="linkLabel_fB60">요구사항</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/answer2"><span title="Answer2" class="categoryLinkLabel__m5q">Answer2</span></a><button aria-label="Expand sidebar category &#x27;Answer2&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/knowledgetree"><span title="knowledgeTree" class="categoryLinkLabel__m5q">knowledgeTree</span></a><button aria-label="Expand sidebar category &#x27;knowledgeTree&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/knowledgetree2"><span title="knowledgeTree2" class="categoryLinkLabel__m5q">knowledgeTree2</span></a><button aria-label="Expand sidebar category &#x27;knowledgeTree2&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/dap"><span title="DAP" class="categoryLinkLabel__m5q">DAP</span></a><button aria-label="Expand sidebar category &#x27;DAP&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/gamrisa"><span title="Gamrisa" class="categoryLinkLabel__m5q">Gamrisa</span></a><button aria-label="Expand sidebar category &#x27;Gamrisa&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/gisulsa/docs/keyword/IT서비스_통합/ISMP"><span title="keyword" class="categoryLinkLabel__m5q">keyword</span></a></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_YXDl"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_x8jL"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_nm12"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_wg8x"><div class="docItemContainer_Mqgw"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_rPiA" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/gisulsa/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_p0i5"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/gisulsa/docs/category/answer2-claudecode"><span>Answer2-claudecode</span></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">138M</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">데이터 통신의 오류 제어(Error Control) 기술</span></li></ul></nav><div class="tocCollapsible_H8IZ theme-doc-toc-mobile tocMobile_m8QO"><button type="button" class="clean-btn tocCollapsibleButton_Ecyy">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>데이터 통신의 오류 제어(Error Control) 기술</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅰ-개요">Ⅰ. 개요<a href="#ⅰ-개요" class="hash-link" aria-label="Direct link to Ⅰ. 개요" title="Direct link to Ⅰ. 개요" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-오류-제어의-필요성">1. 오류 제어의 필요성<a href="#1-오류-제어의-필요성" class="hash-link" aria-label="Direct link to 1. 오류 제어의 필요성" title="Direct link to 1. 오류 제어의 필요성" translate="no">​</a></h3>
+<p>전송 매체의 잡음·감쇠·간섭으로 인해 데이터는 <strong>비트 오류(단일 비트 오류·버스트 오류)</strong> 를 겪는다. 신뢰성 있는 전송을 보장하려면 <strong>오류를 검출하고, 정정하거나 재전송</strong>하는 오류 제어가 필수적이다.</p>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="2-오류-제어-방식-분류">2. 오류 제어 방식 분류<a href="#2-오류-제어-방식-분류" class="hash-link" aria-label="Direct link to 2. 오류 제어 방식 분류" title="Direct link to 2. 오류 제어 방식 분류" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">                    [오류 제어]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">            ┌───────────┴────────────┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">     **오류 검출 + 재전송**        **오류 정정(전진 정정)**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        = **ARQ**(Backward EC)        = **FEC**(Forward EC)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">     정지-대기 / Go-Back-N /       해밍코드 / 리드-솔로몬 /</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">     선택적 재전송(SR)              컨볼루션 / LDPC / 터보코드</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        ▲ 역채널 필요, 지연 가변      ▲ 역채널 불필요, 대역 오버헤드</span><br></span></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅱ-가-오류-검출과-오류-정정의-개념">Ⅱ. 가. 오류 검출과 오류 정정의 개념<a href="#ⅱ-가-오류-검출과-오류-정정의-개념" class="hash-link" aria-label="Direct link to Ⅱ. 가. 오류 검출과 오류 정정의 개념" title="Direct link to Ⅱ. 가. 오류 검출과 오류 정정의 개념" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-오류-검출error-detection">1. 오류 검출(Error Detection)<a href="#1-오류-검출error-detection" class="hash-link" aria-label="Direct link to 1. 오류 검출(Error Detection)" title="Direct link to 1. 오류 검출(Error Detection)" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>개념</strong>: 전송된 데이터에 오류가 <strong>발생했는지 여부만 판별</strong>하는 기법. 송신 측이 원본으로부터 <strong>잉여 비트(Redundancy Bit)</strong> 를 생성해 함께 전송하고, 수신 측이 재계산하여 비교한다.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>기법</th><th>원리</th><th>특징</th></tr></thead><tbody><tr><td><strong>패리티 비트</strong></td><td>1의 개수를 짝수/홀수로 맞추는 1비트 추가</td><td>구현 단순, <strong>짝수 개 오류 검출 불가</strong></td></tr><tr><td><strong>블록 합 검사</strong>(2차원 패리티)</td><td>행·열 방향 패리티</td><td>검출률 향상, 일부 정정 가능</td></tr><tr><td><strong>체크섬(Checksum)</strong></td><td>데이터를 블록 단위로 합산 후 1의 보수 전송</td><td>TCP/IP·UDP 사용, 연산 단순, 검출력 낮음</td></tr><tr><td><strong>CRC(순환중복검사)</strong></td><td>데이터를 다항식으로 보고 <strong>생성 다항식으로 나눈 나머지(FCS)</strong> 를 부가</td><td><strong>버스트 오류 검출력 매우 우수</strong>, HW 구현 용이 → 이더넷·HDLC 표준</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="2-오류-정정error-correction">2. 오류 정정(Error Correction)<a href="#2-오류-정정error-correction" class="hash-link" aria-label="Direct link to 2. 오류 정정(Error Correction)" title="Direct link to 2. 오류 정정(Error Correction)" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>개념</strong>: 수신 측이 <strong>재전송 없이 오류의 위치를 찾아 스스로 복원</strong>하는 기법(FEC). 잉여 비트를 더 많이 부가하는 대신 지연을 제거한다.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>기법</th><th>원리</th><th>특징</th></tr></thead><tbody><tr><td><strong>해밍코드</strong></td><td>패리티 비트를 특정 위치에 배치해 <strong>오류 비트 위치(신드롬)</strong> 산출</td><td><strong>단일 비트 오류 정정</strong>, 2비트 검출(SEC-DED) → ECC 메모리</td></tr><tr><td><strong>리드-솔로몬(RS)</strong></td><td>심볼 단위 블록 부호</td><td><strong>버스트 오류에 강함</strong> → CD/DVD, QR코드, 위성</td></tr><tr><td><strong>컨볼루션 부호 + 비터비</strong></td><td>상태 기계 기반 연속 부호화</td><td>이동통신·무선</td></tr><tr><td><strong>터보코드 / LDPC</strong></td><td>반복 복호로 <strong>샤논 한계에 근접</strong></td><td>LTE·5G 표준 채널 부호</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="3-오류-검출-vs-오류-정정-비교">3. 오류 검출 vs 오류 정정 비교<a href="#3-오류-검출-vs-오류-정정-비교" class="hash-link" aria-label="Direct link to 3. 오류 검출 vs 오류 정정 비교" title="Direct link to 3. 오류 검출 vs 오류 정정 비교" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>비교 기준</th><th><strong>오류 검출(+ARQ)</strong></th><th><strong>오류 정정(FEC)</strong></th></tr></thead><tbody><tr><td>목적</td><td>오류 <strong>유무 판별</strong> 후 재전송 요구</td><td>수신 측이 <strong>자체 복원</strong></td></tr><tr><td>잉여 비트</td><td>적음(오버헤드 낮음)</td><td><strong>많음</strong>(대역폭 소모 큼)</td></tr><tr><td>지연</td><td>재전송에 따른 <strong>가변 지연(RTT 의존)</strong></td><td><strong>일정·짧음</strong>(재전송 없음)</td></tr><tr><td>역채널</td><td><strong>필요</strong>(ACK/NAK)</td><td>불필요 (단방향 가능)</td></tr><tr><td>적합 환경</td><td>오류율 낮고 <strong>지연 허용</strong> 가능(유선·TCP)</td><td><strong>재전송 곤란</strong>(위성·방송·실시간 스트리밍), 고오류 무선</td></tr><tr><td>구현 복잡도</td><td>낮음</td><td>높음(복호기 연산)</td></tr><tr><td>대표 사례</td><td>TCP, HDLC, 이더넷 CRC</td><td>5G LDPC, 위성통신, 저장장치 ECC</td></tr></tbody></table>
+<blockquote>
+<p>실제 시스템은 <strong>HARQ(Hybrid ARQ)</strong> 처럼 FEC로 1차 정정 후 실패 시 재전송하는 <strong>혼합 방식</strong>을 사용한다(LTE·5G).</p>
+</blockquote>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅲ-나-정지-대기-arq와-go-back-n-arq의-개념-및-수행절차">Ⅲ. 나. 정지-대기 ARQ와 Go-Back-N ARQ의 개념 및 수행절차<a href="#ⅲ-나-정지-대기-arq와-go-back-n-arq의-개념-및-수행절차" class="hash-link" aria-label="Direct link to Ⅲ. 나. 정지-대기 ARQ와 Go-Back-N ARQ의 개념 및 수행절차" title="Direct link to Ⅲ. 나. 정지-대기 ARQ와 Go-Back-N ARQ의 개념 및 수행절차" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-정지-대기stop-and-wait-arq">1. 정지-대기(Stop-and-Wait) ARQ<a href="#1-정지-대기stop-and-wait-arq" class="hash-link" aria-label="Direct link to 1. 정지-대기(Stop-and-Wait) ARQ" title="Direct link to 1. 정지-대기(Stop-and-Wait) ARQ" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>개념</strong>: 송신 측이 <strong>한 개의 프레임을 보낸 후 그에 대한 ACK를 받을 때까지 대기</strong>하고, 수신 후 다음 프레임을 전송하는 가장 단순한 ARQ. <strong>윈도우 크기 = 1</strong>.</li>
+</ul>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   송신                                수신</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    │── Frame 0 ──────────────────────►│  수신·오류검사 정상</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    │◄──────────────────── ACK 1 ──────│  (다음 기대 번호 응답)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    │── Frame 1 ──────────────────────►│  오류 발생 / 분실</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    │        ⏱ 타임아웃 만료            │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    │── Frame 1 (재전송) ─────────────►│  정상 수신</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    │◄──────────────────── ACK 0 ──────│</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    ※ 순서번호는 **1비트(0/1)** 만으로 충분(중복 프레임 식별용)</span><br></span></code></pre></div></div>
+<p><strong>수행 절차</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>단계</th><th>송신 측</th><th>수신 측</th></tr></thead><tbody><tr><td>①</td><td>프레임 전송 후 사본 보관, <strong>타이머 시작</strong></td><td>프레임 수신</td></tr><tr><td>②</td><td>ACK 대기(다음 프레임 전송 불가)</td><td>오류 검사(CRC)</td></tr><tr><td>③</td><td>ACK 수신 → 사본 폐기, 순서번호 반전</td><td>정상 → ACK 전송 / 오류 → 폐기(또는 NAK)</td></tr><tr><td>④</td><td><strong>타임아웃 시 재전송</strong></td><td>중복 프레임 수신 시 폐기 후 ACK 재전송</td></tr></tbody></table>
+<ul>
+<li class=""><strong>문제 유형별 처리</strong>: 프레임 분실 → 타임아웃 재전송 / ACK 분실 → 타임아웃 재전송 후 수신 측이 <strong>중복 검출·폐기</strong> / ACK 지연 → 불필요 재전송 발생</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="2-go-back-n-arq">2. Go-Back-N ARQ<a href="#2-go-back-n-arq" class="hash-link" aria-label="Direct link to 2. Go-Back-N ARQ" title="Direct link to 2. Go-Back-N ARQ" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>개념</strong>: 송신 측이 ACK를 기다리지 않고 <strong>윈도우 크기 N만큼 연속 전송</strong>하다가, 오류가 발생하면 <strong>오류 프레임과 그 이후 전송된 모든 프레임을 재전송</strong>하는 슬라이딩 윈도우 방식. 수신 윈도우 크기 = 1(순서대로만 수용).</li>
+</ul>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   송신 윈도우 N=4</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    │── F0 ─► │── F1 ─► │── F2 ─► │── F3 ─►</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    │◄ ACK1   │  F1 오류(분실)      │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    │                    수신 측 : F2, F3는 순서 어긋남 → **모두 폐기**, ACK1 반복 전송</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    │  타임아웃(또는 NAK1) 발생</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    │── F1 ─► │── F2 ─► │── F3 ─►   ← **F1부터 전부 재전송(Go-Back-N)**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ※ 순서번호 m비트 → 송신 윈도우 최대 **2^m − 1**</span><br></span></code></pre></div></div>
+<p><strong>수행 절차</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>단계</th><th>내용</th></tr></thead><tbody><tr><td>①</td><td>송신 측이 윈도우 범위 내 프레임을 <strong>연속 전송</strong>, 각 프레임 사본 보관·타이머 운용</td></tr><tr><td>②</td><td>수신 측은 <strong>순서대로 도착한 프레임만 수용</strong>, 어긋나면 폐기하고 <strong>마지막 정상 수신 다음 번호로 ACK(누적 확인응답)</strong></td></tr><tr><td>③</td><td>송신 측이 ACK 수신 → <strong>윈도우 슬라이딩</strong>, 해당 프레임 사본 폐기</td></tr><tr><td>④</td><td><strong>타임아웃 또는 NAK 수신 시 → 해당 프레임부터 이후 전송분 전체 재전송</strong></td></tr></tbody></table>
+<ul>
+<li class=""><strong>누적 ACK(Cumulative ACK)</strong>: ACK n은 &quot;n−1까지 모두 정상 수신, 다음은 n을 기대&quot;를 의미 → 일부 ACK 분실도 후속 ACK로 보완 가능</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅳ-다-정지-대기-arq와-go-back-n-arq-비교">Ⅳ. 다. 정지-대기 ARQ와 Go-Back-N ARQ 비교<a href="#ⅳ-다-정지-대기-arq와-go-back-n-arq-비교" class="hash-link" aria-label="Direct link to Ⅳ. 다. 정지-대기 ARQ와 Go-Back-N ARQ 비교" title="Direct link to Ⅳ. 다. 정지-대기 ARQ와 Go-Back-N ARQ 비교" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>비교 기준</th><th><strong>정지-대기 ARQ</strong></th><th><strong>Go-Back-N ARQ</strong></th></tr></thead><tbody><tr><td><strong>송신 윈도우</strong></td><td><strong>1</strong></td><td><strong>N (최대 2^m − 1)</strong></td></tr><tr><td>수신 윈도우</td><td>1</td><td>1 (순서대로만 수용)</td></tr><tr><td>순서번호</td><td>1비트(0, 1)</td><td>m비트</td></tr><tr><td><strong>전송 방식</strong></td><td>한 개 전송 후 대기(Half-duplex 유사)</td><td><strong>연속 전송</strong>(파이프라이닝)</td></tr><tr><td><strong>채널 이용률</strong></td><td><strong>매우 낮음</strong> — U = Tf/(Tf+2Tp) = 1/(1+2a)</td><td>높음 — U = N/(1+2a) (N ≥ 1+2a면 100%)</td></tr><tr><td>재전송 범위</td><td>해당 프레임 1개</td><td><strong>오류 프레임 이후 전체</strong>(불필요 재전송 발생)</td></tr><tr><td>버퍼 요구량</td><td>송·수신 <strong>각 1개</strong>(최소)</td><td>송신 N개, 수신 1개</td></tr><tr><td>구현 복잡도</td><td><strong>매우 단순</strong></td><td>중간(윈도우·타이머 관리)</td></tr><tr><td>오류율 높은 환경</td><td>재전송 1개로 손실 적으나 처리량 자체가 낮음</td><td><strong>재전송 폭증으로 효율 급락</strong></td></tr><tr><td>지연·대역 큰 환경(위성)</td><td><strong>매우 비효율</strong>(대기 시간 지배)</td><td>상대적으로 우수</td></tr><tr><td>적용 사례</td><td>단순 임베디드·저속 링크, TFTP</td><td><strong>HDLC, 초기 TCP 계열</strong></td></tr></tbody></table>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [채널 이용률 비교 — a = Tp/Tf (전파지연/전송시간)]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   a = 1 인 경우</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   Stop-and-Wait : U = 1/(1+2×1) = **33%**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   Go-Back-N(N=4): U = 4/(1+2×1) = **100%(상한)**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ⇒ 대역폭-지연 곱(BDP)이 클수록 윈도우 방식의 우위가 결정적</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="선택적-재전송selective-repeat과의-관계">선택적 재전송(Selective Repeat)과의 관계<a href="#선택적-재전송selective-repeat과의-관계" class="hash-link" aria-label="Direct link to 선택적 재전송(Selective Repeat)과의 관계" title="Direct link to 선택적 재전송(Selective Repeat)과의 관계" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>항목</th><th>Go-Back-N</th><th><strong>Selective Repeat</strong></th></tr></thead><tbody><tr><td>재전송</td><td>오류 이후 <strong>전부</strong></td><td><strong>오류 프레임만</strong></td></tr><tr><td>수신 버퍼</td><td>1개</td><td><strong>N개</strong>(순서 재정렬 필요)</td></tr><tr><td>효율</td><td>오류율 높으면 급락</td><td><strong>오류율 높아도 효율 유지</strong></td></tr><tr><td>복잡도</td><td>낮음</td><td>높음</td></tr><tr><td>윈도우 제약</td><td>2^m − 1</td><td><strong>2^(m−1)</strong></td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅴ-결론">Ⅴ. 결론<a href="#ⅴ-결론" class="hash-link" aria-label="Direct link to Ⅴ. 결론" title="Direct link to Ⅴ. 결론" translate="no">​</a></h2>
+<p>오류 제어는 <strong>검출 후 재전송(ARQ)</strong> 과 <strong>자체 정정(FEC)</strong> 이라는 두 축으로 구성되며, 채널 특성에 따라 선택이 달라진다. ARQ 내에서도 정지-대기는 구현이 단순하나 <strong>대역폭-지연 곱이 큰 환경에서 채널 이용률이 치명적으로 낮고</strong>, Go-Back-N은 파이프라이닝으로 효율을 크게 개선하지만 <strong>오류율이 높으면 불필요 재전송이 급증</strong>하는 한계가 있다.</p>
+<p>따라서 실무 설계 시에는 ① <strong>BDP(대역폭×지연)와 오류율을 함께 고려</strong>하여 윈도우 크기와 방식을 결정하고, ② 무선·위성처럼 오류율과 지연이 모두 큰 환경에서는 <strong>FEC로 1차 정정 후 잔여 오류만 재전송하는 HARQ</strong>를 적용하며, ③ TCP처럼 <strong>선택적 확인응답(SACK)</strong> 을 결합해 Go-Back-N의 비효율을 보완하는 접근이 바람직하다. 5G가 LDPC와 HARQ를 결합해 초저지연·초신뢰를 달성한 것이 이러한 설계 원칙의 대표적 구현 사례이다.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_zkUn"><a href="https://github.com/electro9666/gisulsa/tree/main/docs/answer2-claudecode/138M/138M-4_4-오류 제어, ARQ.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_QeP7" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_VbYH"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/gisulsa/docs/answer2-claudecode/138M/138M-4_3-AI-Native Network"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">6G 핵심 개념 — AI-Native Network</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/gisulsa/docs/answer2-claudecode/138M/138M-4_5-랜섬웨어, RaaS"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">랜섬웨어와 RaaS(Ransomware as a Service)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_oTRv thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#ⅰ-개요" class="table-of-contents__link toc-highlight">Ⅰ. 개요</a><ul><li><a href="#1-오류-제어의-필요성" class="table-of-contents__link toc-highlight">1. 오류 제어의 필요성</a></li><li><a href="#2-오류-제어-방식-분류" class="table-of-contents__link toc-highlight">2. 오류 제어 방식 분류</a></li></ul></li><li><a href="#ⅱ-가-오류-검출과-오류-정정의-개념" class="table-of-contents__link toc-highlight">Ⅱ. 가. 오류 검출과 오류 정정의 개념</a><ul><li><a href="#1-오류-검출error-detection" class="table-of-contents__link toc-highlight">1. 오류 검출(Error Detection)</a></li><li><a href="#2-오류-정정error-correction" class="table-of-contents__link toc-highlight">2. 오류 정정(Error Correction)</a></li><li><a href="#3-오류-검출-vs-오류-정정-비교" class="table-of-contents__link toc-highlight">3. 오류 검출 vs 오류 정정 비교</a></li></ul></li><li><a href="#ⅲ-나-정지-대기-arq와-go-back-n-arq의-개념-및-수행절차" class="table-of-contents__link toc-highlight">Ⅲ. 나. 정지-대기 ARQ와 Go-Back-N ARQ의 개념 및 수행절차</a><ul><li><a href="#1-정지-대기stop-and-wait-arq" class="table-of-contents__link toc-highlight">1. 정지-대기(Stop-and-Wait) ARQ</a></li><li><a href="#2-go-back-n-arq" class="table-of-contents__link toc-highlight">2. Go-Back-N ARQ</a></li></ul></li><li><a href="#ⅳ-다-정지-대기-arq와-go-back-n-arq-비교" class="table-of-contents__link toc-highlight">Ⅳ. 다. 정지-대기 ARQ와 Go-Back-N ARQ 비교</a><ul><li><a href="#선택적-재전송selective-repeat과의-관계" class="table-of-contents__link toc-highlight">선택적 재전송(Selective Repeat)과의 관계</a></li></ul></li><li><a href="#ⅴ-결론" class="table-of-contents__link toc-highlight">Ⅴ. 결론</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/gisulsa/docs/intro">Tutorial</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://x.com/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">X<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/gisulsa/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 gisulsa. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

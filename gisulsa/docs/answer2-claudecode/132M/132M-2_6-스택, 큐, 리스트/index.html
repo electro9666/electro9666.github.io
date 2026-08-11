@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-answer2-claudecode/132M/132M-2_6-스택, 큐, 리스트" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">스택, 큐, 리스트 | gisulsa</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://electro9666.github.io/gisulsa/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://electro9666.github.io/gisulsa/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/132M/132M-2_6-스택, 큐, 리스트"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="스택, 큐, 리스트 | gisulsa"><meta data-rh="true" name="description" content="문제"><meta data-rh="true" property="og:description" content="문제"><link data-rh="true" rel="icon" href="/gisulsa/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/132M/132M-2_6-스택, 큐, 리스트"><link data-rh="true" rel="alternate" href="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/132M/132M-2_6-스택, 큐, 리스트" hreflang="en"><link data-rh="true" rel="alternate" href="https://electro9666.github.io/gisulsa/docs/answer2-claudecode/132M/132M-2_6-스택, 큐, 리스트" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Answer2-claudecode","item":"https://electro9666.github.io/gisulsa/docs/category/answer2-claudecode"},{"@type":"ListItem","position":2,"name":"스택, 큐, 리스트","item":"https://electro9666.github.io/gisulsa/docs/answer2-claudecode/132M/132M-2_6-스택, 큐, 리스트"}]}</script><link rel="alternate" type="application/rss+xml" href="/gisulsa/blog/rss.xml" title="gisulsa RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/gisulsa/blog/atom.xml" title="gisulsa Atom Feed">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/gisulsa/assets/css/styles.c89f6dc4.css">
+<script src="/gisulsa/assets/js/runtime~main.5dba9a82.js" defer="defer"></script>
+<script src="/gisulsa/assets/js/main.4563a94a.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/gisulsa/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_vkR3" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/gisulsa/"><div class="navbar__logo"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_IEiv themedComponent--light_RPL7"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_IEiv themedComponent--dark_CQXo"></div><b class="navbar__title text--truncate">gisulsa</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/gisulsa/docs/category/analysis">Tutorial</a><a class="navbar__item navbar__link" href="/gisulsa/blog">Blog</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_PjNm colorModeToggle_TMeo"><button class="clean-btn toggleButton_VcKS toggleButtonDisabled_pgtH" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_pvfg lightToggleIcon_MST1"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_pvfg darkToggleIcon_YXKr"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_pvfg systemToggleIcon_lCGD"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_FpHK"><div class="navbar__search searchBarContainer_J6UD" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_WmZV" value=""><div class="loadingRing_Kp6M searchBarLoadingRing_Vdde"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_GqYq"><div class="docsWrapper_f6JN"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_B1Te" type="button"></button><div class="docRoot_Ki3G"><aside class="theme-doc-sidebar-container docSidebarContainer_LsqT"><div class="sidebarViewport_mUvM"><div class="sidebar_LKPT"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_ReP7"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/analysis"><span title="Analysis" class="categoryLinkLabel__m5q">Analysis</span></a><button aria-label="Expand sidebar category &#x27;Analysis&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m"><span title="category-M" class="categoryLinkLabel__m5q">category-M</span></a><button aria-label="Expand sidebar category &#x27;category-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m-summary"><span title="category-M-summary" class="categoryLinkLabel__m5q">category-M-summary</span></a><button aria-label="Expand sidebar category &#x27;category-M-summary&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/category-mc"><span title="category-MC" class="categoryLinkLabel__m5q">category-MC</span></a><button aria-label="Expand sidebar category &#x27;category-MC&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/gisulsa/docs/intro"><span title="Tutorial Intro" class="linkLabel_fB60">Tutorial Intro</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-m"><span title="기출-과목-M" class="categoryLinkLabel__m5q">기출-과목-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-교재-m"><span title="기출-과목-교재-M" class="categoryLinkLabel__m5q">기출-과목-교재-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-교재-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/etc"><span title="Etc" class="categoryLinkLabel__m5q">Etc</span></a><button aria-label="Expand sidebar category &#x27;Etc&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/answer"><span title="Answer" class="categoryLinkLabel__m5q">Answer</span></a><button aria-label="Expand sidebar category &#x27;Answer&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--active" href="/gisulsa/docs/category/answer2-claudecode"><span title="Answer2-claudecode" class="categoryLinkLabel__m5q">Answer2-claudecode</span></a><button aria-label="Collapse sidebar category &#x27;Answer2-claudecode&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/110M/110M-1_1-EIP"><span title="110M" class="categoryLinkLabel__m5q">110M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/111M/111M-1_1-통계적 가설 검정, p-value"><span title="111M" class="categoryLinkLabel__m5q">111M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/113M/113M-1_1-크라임웨어"><span title="113M" class="categoryLinkLabel__m5q">113M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/114M/114M-1_1-다중 연결 리스트"><span title="114M" class="categoryLinkLabel__m5q">114M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/116M/116M-1_1-전자서명"><span title="116M" class="categoryLinkLabel__m5q">116M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/117M/117M-1_1-HMAC"><span title="117M" class="categoryLinkLabel__m5q">117M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/118M/118M-1_1-정규화"><span title="118M" class="categoryLinkLabel__m5q">118M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/119M/119M-1_1-COCOMO II"><span title="119M" class="categoryLinkLabel__m5q">119M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/120M/120M-1_1-바코드, QR코드"><span title="120M" class="categoryLinkLabel__m5q">120M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/121M/121M-1_1-지능형 CCTV 스마트 관제"><span title="121M" class="categoryLinkLabel__m5q">121M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/122M/122M-1_1-세마포어, 모니터"><span title="122M" class="categoryLinkLabel__m5q">122M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/123M/123M-1_1-스크럼(SCRUM)"><span title="123M" class="categoryLinkLabel__m5q">123M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/124M/124M-1_1-ERP, SCM, MES, CRM"><span title="124M" class="categoryLinkLabel__m5q">124M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/125M/125M-1_1-SECaaS"><span title="125M" class="categoryLinkLabel__m5q">125M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/126M/126M-1_1-정규분포"><span title="126M" class="categoryLinkLabel__m5q">126M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/127M/127M-1_1-NFT"><span title="127M" class="categoryLinkLabel__m5q">127M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/128M/128M-1_1-WBS"><span title="128M" class="categoryLinkLabel__m5q">128M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/129M/129M-1_1-디지털 플랫폼 정부"><span title="129M" class="categoryLinkLabel__m5q">129M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/130M/130M-1_1-노코드"><span title="130M" class="categoryLinkLabel__m5q">130M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/131M/131M-1_1-디지털 트랜스포메이션"><span title="131M" class="categoryLinkLabel__m5q">131M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_1-ISO 31000"><span title="132M" class="categoryLinkLabel__m5q">132M</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_1-ISO 31000"><span title="ISO 31000" class="linkLabel_fB60">ISO 31000</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_10-점추정, 구간추정"><span title="점추정, 구간추정" class="linkLabel_fB60">점추정, 구간추정</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_11-다중공선성"><span title="다중공선성(Multicollinearity)" class="linkLabel_fB60">다중공선성(Multicollinearity)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_12-블록, 파일, 오브젝트 스토리지"><span title="블록, 파일, 오브젝트 스토리지" class="linkLabel_fB60">블록, 파일, 오브젝트 스토리지</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_13-분산 데이터베이스의 투명성"><span title="분산 데이터베이스의 투명성" class="linkLabel_fB60">분산 데이터베이스의 투명성</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_2-데이터 거래소"><span title="데이터 거래소" class="linkLabel_fB60">데이터 거래소</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_3-베이지안 최적화"><span title="베이지안 최적화(Bayesian Optimization)" class="linkLabel_fB60">베이지안 최적화(Bayesian Optimization)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_4-대칭 암호화, 비대칭 암호화"><span title="대칭 암호화, 비대칭 암호화" class="linkLabel_fB60">대칭 암호화, 비대칭 암호화</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_5-ISA-IEC 62443"><span title="ISA/IEC 62443" class="linkLabel_fB60">ISA/IEC 62443</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_6-큐싱"><span title="큐싱(Qshing)" class="linkLabel_fB60">큐싱(Qshing)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_7-ELK 스택"><span title="ELK 스택" class="linkLabel_fB60">ELK 스택</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_8-TPM"><span title="TPM(Trusted Platform Module)" class="linkLabel_fB60">TPM(Trusted Platform Module)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-1_9-좋은 소프트웨어의 특징"><span title="좋은 소프트웨어의 특징" class="linkLabel_fB60">좋은 소프트웨어의 특징</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-2_1-중심극한정리, t-검정, z-검정"><span title="중심극한정리, t-검정, z-검정" class="linkLabel_fB60">중심극한정리, t-검정, z-검정</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-2_2-서포트 벡터 머신, 마진"><span title="서포트 벡터 머신, 마진" class="linkLabel_fB60">서포트 벡터 머신, 마진</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-2_3-소프트웨어 기술자 등급제, IT 직무제"><span title="소프트웨어 기술자 등급제, IT 직무제" class="linkLabel_fB60">소프트웨어 기술자 등급제, IT 직무제</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-2_4-마이데이터 전송 보안"><span title="마이데이터 전송 보안" class="linkLabel_fB60">마이데이터 전송 보안</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-2_5-ISO 14000"><span title="ISO 14000" class="linkLabel_fB60">ISO 14000</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-2_6-스택, 큐, 리스트"><span title="스택, 큐, 리스트" class="linkLabel_fB60">스택, 큐, 리스트</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-3_1-SW 운영단계 대가산정"><span title="SW 운영단계 대가산정" class="linkLabel_fB60">SW 운영단계 대가산정</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-3_2-클라우드 관리 플랫폼(CMP)"><span title="클라우드 관리 플랫폼(CMP)" class="linkLabel_fB60">클라우드 관리 플랫폼(CMP)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-3_3-TF-IDF 계산"><span title="TF-IDF 계산" class="linkLabel_fB60">TF-IDF 계산</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-3_4-SCTP"><span title="SCTP" class="linkLabel_fB60">SCTP</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-3_5-APEC CBPR"><span title="APEC CBPR" class="linkLabel_fB60">APEC CBPR</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-3_6-성능 요구사항 지표"><span title="성능 요구사항 지표" class="linkLabel_fB60">성능 요구사항 지표</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-4_1-FIPS 140-2"><span title="FIPS 140-2" class="linkLabel_fB60">FIPS 140-2</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-4_2-공공데이터 예방적 품질관리"><span title="공공데이터 예방적 품질관리" class="linkLabel_fB60">공공데이터 예방적 품질관리</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-4_3-예지정비, LangChain"><span title="예지정비, LangChain" class="linkLabel_fB60">예지정비, LangChain</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-4_4-소프트웨어 진흥법"><span title="소프트웨어 진흥법" class="linkLabel_fB60">소프트웨어 진흥법</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-4_5-소프트웨어 규모 산정"><span title="소프트웨어 규모 산정" class="linkLabel_fB60">소프트웨어 규모 산정</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/132M/132M-4_6-정보보호 정책, 보안 활동"><span title="정보보호 정책, 보안 활동" class="linkLabel_fB60">정보보호 정책, 보안 활동</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/133M/133M-1_1-REST API"><span title="133M" class="categoryLinkLabel__m5q">133M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/134M/134M-1_1-터크만 사다리 모델"><span title="134M" class="categoryLinkLabel__m5q">134M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/135M/135M-1_1-PR 곡선, ROC 곡선"><span title="135M" class="categoryLinkLabel__m5q">135M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/136M/136M-1_1-화이트 레이블 마케팅"><span title="136M" class="categoryLinkLabel__m5q">136M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/137M/137M-1_1-IGP, EGP"><span title="137M" class="categoryLinkLabel__m5q">137M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/138M/138M-1_1-AI RMF"><span title="138M" class="categoryLinkLabel__m5q">138M</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/answer2-claudecode/139M/139M-1_1-WBS"><span title="139M" class="categoryLinkLabel__m5q">139M</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/139M-all"><span title="139회 정보관리기술사 답안 (Claude Code)" class="linkLabel_fB60">139회 정보관리기술사 답안 (Claude Code)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/answer2-claudecode/request"><span title="요구사항" class="linkLabel_fB60">요구사항</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/answer2"><span title="Answer2" class="categoryLinkLabel__m5q">Answer2</span></a><button aria-label="Expand sidebar category &#x27;Answer2&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/knowledgetree"><span title="knowledgeTree" class="categoryLinkLabel__m5q">knowledgeTree</span></a><button aria-label="Expand sidebar category &#x27;knowledgeTree&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/knowledgetree2"><span title="knowledgeTree2" class="categoryLinkLabel__m5q">knowledgeTree2</span></a><button aria-label="Expand sidebar category &#x27;knowledgeTree2&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/dap"><span title="DAP" class="categoryLinkLabel__m5q">DAP</span></a><button aria-label="Expand sidebar category &#x27;DAP&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/gamrisa"><span title="Gamrisa" class="categoryLinkLabel__m5q">Gamrisa</span></a><button aria-label="Expand sidebar category &#x27;Gamrisa&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/gisulsa/docs/keyword/IT서비스_통합/ISMP"><span title="keyword" class="categoryLinkLabel__m5q">keyword</span></a></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_YXDl"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_x8jL"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_nm12"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_wg8x"><div class="docItemContainer_Mqgw"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_rPiA" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/gisulsa/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_p0i5"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/gisulsa/docs/category/answer2-claudecode"><span>Answer2-claudecode</span></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">132M</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">스택, 큐, 리스트</span></li></ul></nav><div class="tocCollapsible_H8IZ theme-doc-toc-mobile tocMobile_m8QO"><button type="button" class="clean-btn tocCollapsibleButton_Ecyy">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>스택, 큐, 리스트</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="문제">문제<a href="#문제" class="hash-link" aria-label="Direct link to 문제" title="Direct link to 문제" translate="no">​</a></h2>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">6.선형 자료 구조인 스택, 큐, 리스트의 자료 입출력 원리를 설명하시오.</span><br></span></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅰ-개요">Ⅰ. 개요<a href="#ⅰ-개요" class="hash-link" aria-label="Direct link to Ⅰ. 개요" title="Direct link to Ⅰ. 개요" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-선형-자료구조의-개념">1. 선형 자료구조의 개념<a href="#1-선형-자료구조의-개념" class="hash-link" aria-label="Direct link to 1. 선형 자료구조의 개념" title="Direct link to 1. 선형 자료구조의 개념" translate="no">​</a></h3>
+<p><strong>선형 자료구조(Linear Data Structure)</strong> 는 데이터가 <strong>일렬로 나열되어 각 원소가 앞·뒤로 하나의 이웃만 갖는</strong> 구조이다. <strong>스택·큐·리스트</strong>는 대표적인 선형 자료구조로, <strong>입출력이 허용되는 위치와 순서 규칙</strong>에 따라 구분된다.</p>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [자료구조의 분류]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ┌── **선형**(Linear) ── 1:1 관계</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │     **리스트**(배열·연결리스트) · **스택** · **큐** · 데크</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   └── **비선형**(Non-linear) ── 1:N, N:M 관계</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">         트리 · 그래프 · 힙</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   [**세 자료구조의 본질적 차이 — 입출력 위치**]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **스택(Stack)**      : 입력·출력이 **같은 쪽 끝(top)** 에서만  → **LIFO**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **큐(Queue)**        : 입력은 **뒤(rear)**, 출력은 **앞(front)** → **FIFO**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **리스트(List)**     : **임의의 위치**에서 입력·출력 가능       → 제약 없음</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                          ⇒ 스택·큐는 **리스트에 제약을 가한 특수 형태**</span><br></span></code></pre></div></div>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅱ-스택-stack">Ⅱ. 스택 (Stack)<a href="#ⅱ-스택-stack" class="hash-link" aria-label="Direct link to Ⅱ. 스택 (Stack)" title="Direct link to Ⅱ. 스택 (Stack)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-개념-및-입출력-원리">1. 개념 및 입출력 원리<a href="#1-개념-및-입출력-원리" class="hash-link" aria-label="Direct link to 1. 개념 및 입출력 원리" title="Direct link to 1. 개념 및 입출력 원리" translate="no">​</a></h3>
+<p><strong>스택</strong>은 <strong>한쪽 끝(top)에서만 삽입과 삭제가 이루어지는</strong> 자료구조로, <strong>나중에 들어간 데이터가 먼저 나오는 LIFO(Last-In First-Out)</strong> 원리를 따른다.</p>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [**스택의 입출력 원리 — LIFO**]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">              **push**(삽입)        **pop**(삭제)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                  │                    ▲</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                  ▼                    │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">              ┌───────┐            ┌───────┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    top ────▶ │   D   │  ◀── top ──│   D   │ ← **가장 나중에 넣은 것이**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">              ├───────┤            ├───────┤    **가장 먼저 나옴**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">              │   C   │            │   C   │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">              ├───────┤            ├───────┤</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">              │   B   │            │   B   │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">              ├───────┤            ├───────┤</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">              │   A   │            │   A   │ ← bottom (가장 먼저 넣음)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">              └───────┘            └───────┘</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">              **입구 = 출구**(한쪽 끝만 개방)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   [동작 예시]  push(A) → push(B) → push(C) → pop() → pop()</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                결과 : **C, B 순으로 출력**, 스택에는 A만 남음</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   [비유] 접시 쌓기, 프링글스 통, 되돌리기(Undo) 이력</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="2-주요-연산">2. 주요 연산<a href="#2-주요-연산" class="hash-link" aria-label="Direct link to 2. 주요 연산" title="Direct link to 2. 주요 연산" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>연산</th><th>기능</th><th>시간복잡도</th></tr></thead><tbody><tr><td><strong>push(x)</strong></td><td>top 위치에 데이터 <strong>삽입</strong></td><td><strong>O(1)</strong></td></tr><tr><td><strong>pop()</strong></td><td>top 위치의 데이터 <strong>삭제 및 반환</strong></td><td><strong>O(1)</strong></td></tr><tr><td><strong>peek() / top()</strong></td><td>top 데이터를 <strong>삭제하지 않고 조회</strong></td><td><strong>O(1)</strong></td></tr><tr><td><strong>isEmpty()</strong></td><td>스택이 비었는지 확인</td><td>O(1)</td></tr><tr><td><strong>isFull()</strong></td><td>(배열 구현 시) 가득 찼는지 확인</td><td>O(1)</td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>예외 상황</th><th>내용</th></tr></thead><tbody><tr><td><strong>스택 오버플로</strong>(Overflow)</td><td>가득 찬 스택에 <strong>push</strong> 시도 → <strong>재귀 호출 무한 반복</strong> 시 발생</td></tr><tr><td><strong>스택 언더플로</strong>(Underflow)</td><td>빈 스택에서 <strong>pop</strong> 시도</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="3-활용">3. 활용<a href="#3-활용" class="hash-link" aria-label="Direct link to 3. 활용" title="Direct link to 3. 활용" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>활용</th><th>내용</th></tr></thead><tbody><tr><td><strong>함수 호출 관리</strong></td><td><strong>호출 스택(Call Stack)</strong> — 함수 복귀 주소·지역변수 저장, <strong>재귀 호출</strong>의 기반</td></tr><tr><td><strong>되돌리기(Undo)</strong></td><td>편집기의 작업 이력 관리</td></tr><tr><td><strong>수식 계산</strong></td><td><strong>중위 → 후위 표기 변환</strong>, 후위 표기식 계산</td></tr><tr><td><strong>괄호 검사</strong></td><td>여는 괄호 push, 닫는 괄호 시 pop하여 짝 검증</td></tr><tr><td><strong>웹 브라우저 뒤로 가기</strong></td><td>방문 이력 저장</td></tr><tr><td><strong>DFS</strong>(깊이 우선 탐색)</td><td>그래프 탐색 시 경로 저장</td></tr><tr><td><strong>인터럽트 처리</strong></td><td>실행 문맥 저장·복원</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅲ-큐-queue">Ⅲ. 큐 (Queue)<a href="#ⅲ-큐-queue" class="hash-link" aria-label="Direct link to Ⅲ. 큐 (Queue)" title="Direct link to Ⅲ. 큐 (Queue)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-개념-및-입출력-원리-1">1. 개념 및 입출력 원리<a href="#1-개념-및-입출력-원리-1" class="hash-link" aria-label="Direct link to 1. 개념 및 입출력 원리" title="Direct link to 1. 개념 및 입출력 원리" translate="no">​</a></h3>
+<p><strong>큐</strong>는 <strong>한쪽 끝(rear)에서 삽입하고 반대쪽 끝(front)에서 삭제</strong>하는 자료구조로, <strong>먼저 들어간 데이터가 먼저 나오는 FIFO(First-In First-Out)</strong> 원리를 따른다.</p>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [**큐의 입출력 원리 — FIFO**]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    **dequeue**(삭제)                              **enqueue**(삽입)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">         ▲                                              │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">         │                                              ▼</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    ┌────────┬────────┬────────┬────────┬────────┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    │   A    │   B    │   C    │   D    │        │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    └────────┴────────┴────────┴────────┴────────┘</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      ▲ **front**                    ▲ **rear**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      (출구)                          (입구)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ⇒ **입구와 출구가 서로 반대편** → **먼저 들어온 순서대로 처리**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   [동작 예시]  enqueue(A) → enqueue(B) → enqueue(C) → dequeue() → dequeue()</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                결과 : **A, B 순으로 출력**, 큐에는 C만 남음</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   [비유] 매표소 줄서기, 은행 번호표, 프린터 인쇄 대기열</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="2-주요-연산-1">2. 주요 연산<a href="#2-주요-연산-1" class="hash-link" aria-label="Direct link to 2. 주요 연산" title="Direct link to 2. 주요 연산" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>연산</th><th>기능</th><th>시간복잡도</th></tr></thead><tbody><tr><td><strong>enqueue(x)</strong></td><td>rear에 데이터 <strong>삽입</strong></td><td><strong>O(1)</strong></td></tr><tr><td><strong>dequeue()</strong></td><td>front의 데이터 <strong>삭제 및 반환</strong></td><td><strong>O(1)</strong></td></tr><tr><td><strong>front() / peek()</strong></td><td>front 데이터 <strong>조회</strong>(삭제 없이)</td><td>O(1)</td></tr><tr><td><strong>isEmpty() / isFull()</strong></td><td>공백·포화 상태 확인</td><td>O(1)</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="3-큐의-변형">3. 큐의 변형<a href="#3-큐의-변형" class="hash-link" aria-label="Direct link to 3. 큐의 변형" title="Direct link to 3. 큐의 변형" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [**선형 큐의 문제와 원형 큐**]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **[선형 큐]** — 배열 구현 시</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ┌───┬───┬───┬───┬───┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │ ✕ │ ✕ │ C │ D │   │   ✕ = dequeue된 빈 공간</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   └───┴───┴───┴───┴───┘</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">     0   1   2   3   4</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                 ▲ rear   ⇒ **앞쪽에 공간이 있어도 rear가 끝에 도달하면**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">             ▲ front         **더 이상 삽입 불가**(**메모리 낭비**)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **[원형 큐]**(Circular Queue) — 해결책</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        ┌─── 0 ───┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      4           1      배열의 끝과 처음을 **논리적으로 연결**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │  **원형** │      rear = (rear + 1) % size</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      3           2      ⇒ **공간 재활용 가능**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        └─── ─────┘</span><br></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>종류</th><th>내용</th></tr></thead><tbody><tr><td><strong>선형 큐</strong></td><td>기본 형태 — 배열 구현 시 <strong>공간 낭비 문제</strong></td></tr><tr><td><strong>원형 큐</strong>(Circular)</td><td>배열의 끝과 시작을 연결(<strong>모듈러 연산</strong>) → <strong>공간 효율</strong></td></tr><tr><td><strong>우선순위 큐</strong>(Priority)</td><td>입력 순서가 아닌 <strong>우선순위가 높은 것부터 출력</strong> — 힙(Heap)으로 구현, O(log n)</td></tr><tr><td><strong>데크</strong>(Deque, 이중 종단 큐)</td><td><strong>양쪽 끝 모두에서 삽입·삭제 가능</strong> → 스택·큐 모두로 활용 가능</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="4-활용">4. 활용<a href="#4-활용" class="hash-link" aria-label="Direct link to 4. 활용" title="Direct link to 4. 활용" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>활용</th><th>내용</th></tr></thead><tbody><tr><td><strong>작업 스케줄링</strong></td><td><strong>CPU 스케줄링(FCFS)</strong>, 프로세스 준비 큐</td></tr><tr><td><strong>버퍼·대기열</strong></td><td>프린터 인쇄 대기열, 키보드 입력 버퍼, <strong>네트워크 패킷 큐</strong></td></tr><tr><td><strong>메시지 큐</strong></td><td><strong>Kafka·RabbitMQ</strong> — 비동기 처리, 시스템 간 <strong>결합도 완화</strong></td></tr><tr><td><strong>BFS</strong>(너비 우선 탐색)</td><td>그래프·트리 레벨 순회</td></tr><tr><td><strong>콜센터·티켓 시스템</strong></td><td>선착순 처리</td></tr><tr><td><strong>부하 분산·트래픽 완충</strong></td><td>요청 폭주 시 대기열로 처리량 조절</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅳ-리스트-list">Ⅳ. 리스트 (List)<a href="#ⅳ-리스트-list" class="hash-link" aria-label="Direct link to Ⅳ. 리스트 (List)" title="Direct link to Ⅳ. 리스트 (List)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-개념-및-입출력-원리-2">1. 개념 및 입출력 원리<a href="#1-개념-및-입출력-원리-2" class="hash-link" aria-label="Direct link to 1. 개념 및 입출력 원리" title="Direct link to 1. 개념 및 입출력 원리" translate="no">​</a></h3>
+<p><strong>리스트</strong>는 <strong>데이터를 순서(위치)에 따라 나열한 자료구조</strong>로, 스택·큐와 달리 <strong>임의의 위치에서 삽입·삭제·조회가 가능</strong>하다. 구현 방식에 따라 <strong>선형 리스트(배열)</strong> 와 <strong>연결 리스트(Linked List)</strong> 로 구분된다.</p>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [**리스트의 입출력 원리 — 위치 기반 자유 접근**]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">              insert(2, X)                    delete(1)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                   │                              │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                   ▼                              ▼</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ┌────┬────┬────┬────┬────┐        ┌────┬────┬────┬────┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │ A  │ B  │ C  │ D  │    │   ──▶  │ A  │ **X** │ B  │ C  │ D │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   └────┴────┴────┴────┴────┘        └────┴────┴────┴────┘</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">     0    1    2    3                   ⇒ **임의 위치 삽입·삭제 가능**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                          (뒤 원소들은 **이동** 필요)</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="2-선형-리스트-배열-array-list">2. 선형 리스트 (배열, Array List)<a href="#2-선형-리스트-배열-array-list" class="hash-link" aria-label="Direct link to 2. 선형 리스트 (배열, Array List)" title="Direct link to 2. 선형 리스트 (배열, Array List)" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [**메모리 구조 — 연속 할당**]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   메모리 주소 : 100  104  108  112  116</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                ┌────┬────┬────┬────┬────┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                │ A  │ B  │ C  │ D  │    │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                └────┴────┴────┴────┴────┘</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   인덱스        [0]  [1]  [2]  [3]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ⇒ **주소 = 시작주소 + (인덱스 × 자료크기)** → **O(1) 임의 접근**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ⇒ 그러나 중간 삽입·삭제 시 **뒤 원소 전체 이동** → **O(n)**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   [삽입 시 이동]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   insert(1, X) →  A │  → │ B │ C │ D  (뒤로 밀기)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                   A │ X │ B │ C │ D</span><br></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td><strong>메모리</strong></td><td><strong>연속된 공간에 순차 할당</strong></td></tr><tr><td><strong>접근</strong></td><td><strong>인덱스로 직접 접근 — O(1)</strong></td></tr><tr><td><strong>삽입·삭제</strong></td><td>중간 위치 시 <strong>원소 이동 필요 — O(n)</strong></td></tr><tr><td><strong>장점</strong></td><td><strong>임의 접근 빠름</strong>, 메모리 오버헤드 없음, <strong>캐시 지역성 우수</strong></td></tr><tr><td><strong>단점</strong></td><td>크기 변경 곤란(정적 배열), <strong>삽입·삭제 비용 큼</strong>, 연속 공간 필요</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="3-연결-리스트-linked-list">3. 연결 리스트 (Linked List)<a href="#3-연결-리스트-linked-list" class="hash-link" aria-label="Direct link to 3. 연결 리스트 (Linked List)" title="Direct link to 3. 연결 리스트 (Linked List)" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [**메모리 구조 — 노드와 포인터**]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **[단일 연결 리스트]**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   head</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    ▼</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ┌─────┬───┐   ┌─────┬───┐   ┌─────┬───┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │  A  │ ●─┼──▶│  B  │ ●─┼──▶│  C  │ ∅ │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   └─────┴───┘   └─────┴───┘   └─────┴───┘</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    데이터 링크    ※ 메모리상 **물리적으로 흩어져 있어도**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                     **링크로 논리적 순서 유지**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   [**삽입 원리 — 링크만 변경**]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   A와 B 사이에 X 삽입</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ┌─────┬───┐        ┌─────┬───┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   │  A  │ ●─┼──┐     │  B  │ ●─┼──▶</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   └─────┴───┘  │     └─────┴───┘</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                │      ▲</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                │  ┌─────┬───┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                └─▶│  X  │ ●─┘   ⇒ **원소 이동 없이 O(1)**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                   └─────┴───┘      (단, 위치 탐색은 O(n))</span><br></span></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>종류</th><th>구조</th></tr></thead><tbody><tr><td><strong>단일 연결 리스트</strong></td><td>각 노드가 <strong>다음 노드만</strong> 가리킴 → 역방향 탐색 불가</td></tr><tr><td><strong>이중 연결 리스트</strong></td><td><strong>이전·다음 노드 모두</strong> 가리킴 → 양방향 탐색, 메모리 추가 소요</td></tr><tr><td><strong>원형 연결 리스트</strong></td><td>마지막 노드가 <strong>첫 노드를 가리킴</strong> → 순환 순회</td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>항목</th><th>내용</th></tr></thead><tbody><tr><td><strong>메모리</strong></td><td><strong>불연속 할당</strong>, 노드 단위 동적 생성</td></tr><tr><td><strong>접근</strong></td><td><strong>처음부터 순차 탐색 — O(n)</strong>(인덱스 접근 불가)</td></tr><tr><td><strong>삽입·삭제</strong></td><td>위치를 알면 <strong>링크만 변경 — O(1)</strong></td></tr><tr><td><strong>장점</strong></td><td><strong>동적 크기 조절</strong>, 삽입·삭제 효율적, 연속 공간 불필요</td></tr><tr><td><strong>단점</strong></td><td><strong>임의 접근 불가</strong>, <strong>포인터 저장 공간 추가 필요</strong>, 캐시 효율 낮음</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅴ-세-자료구조의-종합-비교">Ⅴ. 세 자료구조의 종합 비교<a href="#ⅴ-세-자료구조의-종합-비교" class="hash-link" aria-label="Direct link to Ⅴ. 세 자료구조의 종합 비교" title="Direct link to Ⅴ. 세 자료구조의 종합 비교" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="1-입출력-원리-비교">1. 입출력 원리 비교<a href="#1-입출력-원리-비교" class="hash-link" aria-label="Direct link to 1. 입출력 원리 비교" title="Direct link to 1. 입출력 원리 비교" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>비교 기준</th><th><strong>스택</strong>(Stack)</th><th><strong>큐</strong>(Queue)</th><th><strong>리스트</strong>(List)</th></tr></thead><tbody><tr><td><strong>입출력 원리</strong></td><td><strong>LIFO</strong>(후입선출)</td><td><strong>FIFO</strong>(선입선출)</td><td><strong>자유 접근</strong>(제약 없음)</td></tr><tr><td><strong>삽입 위치</strong></td><td><strong>top</strong>(한쪽 끝)</td><td><strong>rear</strong>(뒤)</td><td><strong>임의 위치</strong></td></tr><tr><td><strong>삭제 위치</strong></td><td><strong>top</strong>(같은 쪽 끝)</td><td><strong>front</strong>(앞)</td><td><strong>임의 위치</strong></td></tr><tr><td><strong>입구/출구</strong></td><td><strong>동일</strong></td><td><strong>반대편</strong></td><td>제약 없음</td></tr><tr><td><strong>주요 연산</strong></td><td>push / pop / peek</td><td>enqueue / dequeue</td><td>insert / delete / get</td></tr><tr><td><strong>접근 제한</strong></td><td><strong>top만 접근 가능</strong></td><td>front·rear만</td><td><strong>모든 원소 접근 가능</strong></td></tr><tr><td><strong>삽입·삭제 복잡도</strong></td><td><strong>O(1)</strong></td><td><strong>O(1)</strong></td><td>배열 O(n) / 연결 O(1)*</td></tr><tr><td><strong>탐색 복잡도</strong></td><td>O(n)</td><td>O(n)</td><td>배열 <strong>O(1)</strong> / 연결 O(n)</td></tr><tr><td><strong>대표 활용</strong></td><td>함수 호출·Undo·DFS</td><td>스케줄링·버퍼·BFS</td><td>범용 데이터 관리</td></tr><tr><td><strong>비유</strong></td><td>접시 쌓기</td><td>줄서기</td><td>목록·명단</td></tr></tbody></table>
+<blockquote>
+<p>*연결 리스트의 삽입·삭제는 <strong>위치를 이미 알고 있는 경우</strong> O(1), 탐색 포함 시 O(n)</p>
+</blockquote>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="2-상호-관계">2. 상호 관계<a href="#2-상호-관계" class="hash-link" aria-label="Direct link to 2. 상호 관계" title="Direct link to 2. 상호 관계" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_luz4 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_JcVb"><pre tabindex="0" class="prism-code language-text codeBlock_WrMF thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_yFuS"><span class="token-line" style="color:#393A34"><span class="token plain">   [**리스트가 기본, 스택·큐는 제약을 가한 형태**]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   **리스트**(List) ── 임의 위치 입출력 자유</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        ├── **입출력을 한쪽 끝으로 제한** ────▶ **스택**(LIFO)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        ├── **입력은 뒤, 출력은 앞으로 제한** ─▶ **큐**(FIFO)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        └── **양쪽 끝 입출력 허용** ──────────▶ **데크**(Deque)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                                              ⇒ 스택·큐 **모두 구현 가능**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">   ⇒ **제약을 가하는 이유**</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      · **구현 단순화** → 오류 가능성 감소</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      · **핵심 연산 O(1) 보장** → 성능 예측 가능</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      · **문제의 의미에 부합**(순서 규칙 자체가 요구사항인 경우)</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar__gEy" id="3-배열-기반-vs-연결-기반-구현-비교">3. 배열 기반 vs 연결 기반 구현 비교<a href="#3-배열-기반-vs-연결-기반-구현-비교" class="hash-link" aria-label="Direct link to 3. 배열 기반 vs 연결 기반 구현 비교" title="Direct link to 3. 배열 기반 vs 연결 기반 구현 비교" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>구분</th><th><strong>배열 기반 구현</strong></th><th><strong>연결 기반 구현</strong></th></tr></thead><tbody><tr><td><strong>메모리 할당</strong></td><td><strong>연속·정적</strong>(또는 동적 배열)</td><td><strong>불연속·동적</strong></td></tr><tr><td><strong>크기</strong></td><td>사전 지정(초과 시 재할당)</td><td><strong>가변</strong></td></tr><tr><td><strong>임의 접근</strong></td><td><strong>O(1)</strong></td><td>O(n)</td></tr><tr><td><strong>삽입·삭제</strong></td><td>O(n)(이동 필요)</td><td><strong>O(1)</strong>(링크 변경)</td></tr><tr><td><strong>메모리 효율</strong></td><td>낭비 가능(미사용 공간)</td><td><strong>포인터 오버헤드</strong></td></tr><tr><td><strong>캐시 지역성</strong></td><td><strong>우수</strong>(실제 성능 유리)</td><td>낮음</td></tr><tr><td><strong>적합 상황</strong></td><td><strong>조회가 많고 크기가 안정적</strong></td><td><strong>삽입·삭제가 빈번</strong>, 크기 변동 큼</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅵ-활용-및-고려사항">Ⅵ. 활용 및 고려사항<a href="#ⅵ-활용-및-고려사항" class="hash-link" aria-label="Direct link to Ⅵ. 활용 및 고려사항" title="Direct link to Ⅵ. 활용 및 고려사항" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>상황</th><th>권장 자료구조</th></tr></thead><tbody><tr><td><strong>가장 최근 것부터 처리</strong>(Undo·역추적)</td><td><strong>스택</strong></td></tr><tr><td><strong>먼저 온 순서대로 공정하게 처리</strong>(대기열)</td><td><strong>큐</strong></td></tr><tr><td><strong>우선순위에 따라 처리</strong></td><td><strong>우선순위 큐</strong>(힙)</td></tr><tr><td><strong>인덱스로 빈번히 조회</strong>(랜덤 접근)</td><td><strong>배열 리스트</strong></td></tr><tr><td><strong>중간 삽입·삭제 빈번, 크기 변동 큼</strong></td><td><strong>연결 리스트</strong></td></tr><tr><td><strong>양쪽 끝에서 모두 처리</strong></td><td><strong>데크(Deque)</strong></td></tr><tr><td><strong>시스템 간 비동기 처리</strong></td><td><strong>메시지 큐</strong>(Kafka 등)</td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>고려사항</th><th>내용</th></tr></thead><tbody><tr><td><strong>① 접근 패턴 기반 선택</strong></td><td>&quot;무엇이 좋은가&quot;가 아니라 <strong>&quot;어떤 연산이 가장 빈번한가&quot;</strong> 로 판단</td></tr><tr><td><strong>② 실제 성능은 캐시 영향</strong></td><td>이론상 O(1)인 연결 리스트가 <strong>캐시 지역성 때문에 배열보다 느릴 수 있음</strong></td></tr><tr><td><strong>③ 오버플로·언더플로 처리</strong></td><td>배열 구현 시 <strong>경계 검사 필수</strong> — 스택 오버플로는 보안 취약점(<strong>버퍼 오버플로</strong>)으로 연결</td></tr><tr><td><strong>④ 재귀와 스택</strong></td><td>재귀 깊이가 깊으면 <strong>호출 스택 오버플로</strong> → 반복문 또는 명시적 스택으로 전환</td></tr><tr><td><strong>⑤ 원형 큐 사용</strong></td><td>배열 기반 큐는 <strong>반드시 원형 큐로 구현</strong>(선형 큐는 공간 낭비)</td></tr><tr><td><strong>⑥ 동시성</strong></td><td>멀티스레드 환경에서는 <strong>동시성 제어 필요</strong> → <code>ConcurrentLinkedQueue</code>, <code>BlockingQueue</code> 등 <strong>스레드 안전 자료구조</strong> 활용</td></tr><tr><td><strong>⑦ 언어 제공 라이브러리 활용</strong></td><td>Java <code>Deque</code>(스택 권장), <code>LinkedList</code>, <code>ArrayList</code>, Python <code>collections.deque</code> 등 <strong>검증된 구현 사용</strong></td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar__gEy" id="ⅶ-결론">Ⅶ. 결론<a href="#ⅶ-결론" class="hash-link" aria-label="Direct link to Ⅶ. 결론" title="Direct link to Ⅶ. 결론" translate="no">​</a></h2>
+<p>스택·큐·리스트는 모두 선형 자료구조이지만, <strong>입출력이 허용되는 위치에 따라 완전히 다른 성질을 갖는다</strong>. <strong>스택은 입구와 출구가 같아 LIFO</strong>, <strong>큐는 입구와 출구가 반대여서 FIFO</strong>, <strong>리스트는 위치 제약이 없어 자유로운 접근</strong>이 가능하다.</p>
+<p>이 세 구조의 관계를 이해하는 핵심은 <strong>&quot;리스트가 기본이고, 스택과 큐는 리스트에 의도적으로 제약을 가한 특수 형태&quot;</strong> 라는 점이다. 언뜻 제약은 손실처럼 보이지만, 그 대가로 <strong>핵심 연산의 O(1) 성능 보장과 구현의 단순화, 그리고 문제 의미에 대한 정확한 표현</strong>을 얻는다. 함수 호출 관리에 스택을, 작업 대기열에 큐를 쓰는 이유는 성능 때문만이 아니라 <strong>그 순서 규칙 자체가 문제의 요구사항</strong>이기 때문이다.</p>
+<p>실무 선택의 기준은 <strong>&quot;어떤 연산이 가장 빈번한가&quot;</strong> 이다. <strong>조회·인덱스 접근이 많으면 배열 기반</strong>, <strong>중간 삽입·삭제가 빈번하면 연결 기반</strong>을 택하되, 이론적 복잡도만으로 판단해서는 안 된다. <strong>연결 리스트는 O(1) 삽입이 가능하지만 캐시 지역성이 낮아 실제로는 배열보다 느린 경우가 많다</strong>는 점을 유념해야 한다.</p>
+<p>끝으로 이러한 기초 자료구조는 현대 시스템 아키텍처에도 그대로 확장된다. <strong>메시지 큐(Kafka·RabbitMQ)는 큐의 FIFO 원리를 분산 환경으로 확장한 것</strong>이고, <strong>함수 호출 스택은 모든 프로그램 실행의 기반</strong>이며, <strong>스택 오버플로는 여전히 대표적 보안 취약점</strong>이다. 따라서 자료구조의 입출력 원리에 대한 정확한 이해는 알고리즘 구현을 넘어 <strong>시스템 설계와 보안 판단의 기초</strong>가 된다.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_zkUn"><a href="https://github.com/electro9666/gisulsa/tree/main/docs/answer2-claudecode/132M/132M-2_6-스택, 큐, 리스트.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_QeP7" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_VbYH"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/gisulsa/docs/answer2-claudecode/132M/132M-2_5-ISO 14000"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">ISO 14000</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/gisulsa/docs/answer2-claudecode/132M/132M-3_1-SW 운영단계 대가산정"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">SW 운영단계 대가산정</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_oTRv thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#문제" class="table-of-contents__link toc-highlight">문제</a></li><li><a href="#ⅰ-개요" class="table-of-contents__link toc-highlight">Ⅰ. 개요</a><ul><li><a href="#1-선형-자료구조의-개념" class="table-of-contents__link toc-highlight">1. 선형 자료구조의 개념</a></li></ul></li><li><a href="#ⅱ-스택-stack" class="table-of-contents__link toc-highlight">Ⅱ. 스택 (Stack)</a><ul><li><a href="#1-개념-및-입출력-원리" class="table-of-contents__link toc-highlight">1. 개념 및 입출력 원리</a></li><li><a href="#2-주요-연산" class="table-of-contents__link toc-highlight">2. 주요 연산</a></li><li><a href="#3-활용" class="table-of-contents__link toc-highlight">3. 활용</a></li></ul></li><li><a href="#ⅲ-큐-queue" class="table-of-contents__link toc-highlight">Ⅲ. 큐 (Queue)</a><ul><li><a href="#1-개념-및-입출력-원리-1" class="table-of-contents__link toc-highlight">1. 개념 및 입출력 원리</a></li><li><a href="#2-주요-연산-1" class="table-of-contents__link toc-highlight">2. 주요 연산</a></li><li><a href="#3-큐의-변형" class="table-of-contents__link toc-highlight">3. 큐의 변형</a></li><li><a href="#4-활용" class="table-of-contents__link toc-highlight">4. 활용</a></li></ul></li><li><a href="#ⅳ-리스트-list" class="table-of-contents__link toc-highlight">Ⅳ. 리스트 (List)</a><ul><li><a href="#1-개념-및-입출력-원리-2" class="table-of-contents__link toc-highlight">1. 개념 및 입출력 원리</a></li><li><a href="#2-선형-리스트-배열-array-list" class="table-of-contents__link toc-highlight">2. 선형 리스트 (배열, Array List)</a></li><li><a href="#3-연결-리스트-linked-list" class="table-of-contents__link toc-highlight">3. 연결 리스트 (Linked List)</a></li></ul></li><li><a href="#ⅴ-세-자료구조의-종합-비교" class="table-of-contents__link toc-highlight">Ⅴ. 세 자료구조의 종합 비교</a><ul><li><a href="#1-입출력-원리-비교" class="table-of-contents__link toc-highlight">1. 입출력 원리 비교</a></li><li><a href="#2-상호-관계" class="table-of-contents__link toc-highlight">2. 상호 관계</a></li><li><a href="#3-배열-기반-vs-연결-기반-구현-비교" class="table-of-contents__link toc-highlight">3. 배열 기반 vs 연결 기반 구현 비교</a></li></ul></li><li><a href="#ⅵ-활용-및-고려사항" class="table-of-contents__link toc-highlight">Ⅵ. 활용 및 고려사항</a></li><li><a href="#ⅶ-결론" class="table-of-contents__link toc-highlight">Ⅶ. 결론</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/gisulsa/docs/intro">Tutorial</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://x.com/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">X<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/gisulsa/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 gisulsa. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

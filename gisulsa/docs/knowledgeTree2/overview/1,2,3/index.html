@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-knowledgeTree2/overview/1,2,3" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">1,2,3 | gisulsa</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://electro9666.github.io/gisulsa/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://electro9666.github.io/gisulsa/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://electro9666.github.io/gisulsa/docs/knowledgeTree2/overview/1,2,3"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="1,2,3 | gisulsa"><meta data-rh="true" name="description" content="01. 자료구조"><meta data-rh="true" property="og:description" content="01. 자료구조"><link data-rh="true" rel="icon" href="/gisulsa/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://electro9666.github.io/gisulsa/docs/knowledgeTree2/overview/1,2,3"><link data-rh="true" rel="alternate" href="https://electro9666.github.io/gisulsa/docs/knowledgeTree2/overview/1,2,3" hreflang="en"><link data-rh="true" rel="alternate" href="https://electro9666.github.io/gisulsa/docs/knowledgeTree2/overview/1,2,3" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"knowledgeTree2","item":"https://electro9666.github.io/gisulsa/docs/category/knowledgetree2"},{"@type":"ListItem","position":2,"name":"1,2,3","item":"https://electro9666.github.io/gisulsa/docs/knowledgeTree2/overview/1,2,3"}]}</script><link rel="alternate" type="application/rss+xml" href="/gisulsa/blog/rss.xml" title="gisulsa RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/gisulsa/blog/atom.xml" title="gisulsa Atom Feed">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/gisulsa/assets/css/styles.c89f6dc4.css">
+<script src="/gisulsa/assets/js/runtime~main.5dba9a82.js" defer="defer"></script>
+<script src="/gisulsa/assets/js/main.4563a94a.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/gisulsa/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_vkR3" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/gisulsa/"><div class="navbar__logo"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_IEiv themedComponent--light_RPL7"><img src="/gisulsa/img/logo.svg" alt="gisulsa Logo" class="themedComponent_IEiv themedComponent--dark_CQXo"></div><b class="navbar__title text--truncate">gisulsa</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/gisulsa/docs/category/analysis">Tutorial</a><a class="navbar__item navbar__link" href="/gisulsa/blog">Blog</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_PjNm colorModeToggle_TMeo"><button class="clean-btn toggleButton_VcKS toggleButtonDisabled_pgtH" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_pvfg lightToggleIcon_MST1"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_pvfg darkToggleIcon_YXKr"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_pvfg systemToggleIcon_lCGD"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_FpHK"><div class="navbar__search searchBarContainer_J6UD" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_WmZV" value=""><div class="loadingRing_Kp6M searchBarLoadingRing_Vdde"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_GqYq"><div class="docsWrapper_f6JN"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_B1Te" type="button"></button><div class="docRoot_Ki3G"><aside class="theme-doc-sidebar-container docSidebarContainer_LsqT"><div class="sidebarViewport_mUvM"><div class="sidebar_LKPT"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_ReP7"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/analysis"><span title="Analysis" class="categoryLinkLabel__m5q">Analysis</span></a><button aria-label="Expand sidebar category &#x27;Analysis&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m"><span title="category-M" class="categoryLinkLabel__m5q">category-M</span></a><button aria-label="Expand sidebar category &#x27;category-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/category-m-summary"><span title="category-M-summary" class="categoryLinkLabel__m5q">category-M-summary</span></a><button aria-label="Expand sidebar category &#x27;category-M-summary&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/category-mc"><span title="category-MC" class="categoryLinkLabel__m5q">category-MC</span></a><button aria-label="Expand sidebar category &#x27;category-MC&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/gisulsa/docs/intro"><span title="Tutorial Intro" class="linkLabel_fB60">Tutorial Intro</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-m"><span title="기출-과목-M" class="categoryLinkLabel__m5q">기출-과목-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/기출-과목-교재-m"><span title="기출-과목-교재-M" class="categoryLinkLabel__m5q">기출-과목-교재-M</span></a><button aria-label="Expand sidebar category &#x27;기출-과목-교재-M&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/etc"><span title="Etc" class="categoryLinkLabel__m5q">Etc</span></a><button aria-label="Expand sidebar category &#x27;Etc&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/answer"><span title="Answer" class="categoryLinkLabel__m5q">Answer</span></a><button aria-label="Expand sidebar category &#x27;Answer&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/answer2-claudecode"><span title="Answer2-claudecode" class="categoryLinkLabel__m5q">Answer2-claudecode</span></a><button aria-label="Expand sidebar category &#x27;Answer2-claudecode&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/answer2"><span title="Answer2" class="categoryLinkLabel__m5q">Answer2</span></a><button aria-label="Expand sidebar category &#x27;Answer2&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/knowledgetree"><span title="knowledgeTree" class="categoryLinkLabel__m5q">knowledgeTree</span></a><button aria-label="Expand sidebar category &#x27;knowledgeTree&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--active" href="/gisulsa/docs/category/knowledgetree2"><span title="knowledgeTree2" class="categoryLinkLabel__m5q">knowledgeTree2</span></a><button aria-label="Collapse sidebar category &#x27;knowledgeTree2&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/knowledgeTree2/자료구조"><span title="01. 자료구조" class="linkLabel_fB60">01. 자료구조</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/knowledgeTree2/컴퓨터구조"><span title="02. 컴퓨터구조" class="linkLabel_fB60">02. 컴퓨터구조</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/knowledgeTree2/운영체제"><span title="03. 운영체제" class="linkLabel_fB60">03. 운영체제</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/knowledgeTree2/네트워크"><span title="04. 네트워크" class="linkLabel_fB60">04. 네트워크</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/knowledgeTree2/소프트웨어공학"><span title="05. 소프트웨어공학" class="linkLabel_fB60">05. 소프트웨어공학</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/knowledgeTree2/소프트웨어아키텍처"><span title="06. 소프트웨어아키텍처" class="linkLabel_fB60">06. 소프트웨어아키텍처</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/knowledgeTree2/프로젝트관리(PMP)"><span title="07. 프로젝트관리(PMP)" class="linkLabel_fB60">07. 프로젝트관리(PMP)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/knowledgeTree2/데이터,DB"><span title="데이터,DB" class="linkLabel_fB60">데이터,DB</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/knowledgeTree2/AI,빅데이터"><span title="09. AI/빅데이터" class="linkLabel_fB60">09. AI/빅데이터</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/knowledgeTree2/클라우드"><span title="10. 클라우드" class="linkLabel_fB60">10. 클라우드</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/knowledgeTree2/정보보안"><span title="11. 정보보안" class="linkLabel_fB60">11. 정보보안</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/knowledgeTree2/IT서비스관리"><span title="12. IT서비스관리" class="linkLabel_fB60">12. IT서비스관리</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/knowledgeTree2/EA,IT거버넌스"><span title="13. EA/IT거버넌스" class="linkLabel_fB60">13. EA/IT거버넌스</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/knowledgeTree2/품질,표준"><span title="14. 품질/표준" class="linkLabel_fB60">14. 품질/표준</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/knowledgeTree2/디지털신기술"><span title="15. 디지털신기술" class="linkLabel_fB60">15. 디지털신기술</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/gisulsa/docs/knowledgeTree2/overview/1,2,3,4"><span title="overview" class="categoryLinkLabel__m5q">overview</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/knowledgeTree2/overview/1,2,3,4"><span title="1,2,3,4" class="linkLabel_fB60">1,2,3,4</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/gisulsa/docs/knowledgeTree2/overview/1,2,3"><span title="1,2,3" class="linkLabel_fB60">1,2,3</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/knowledgeTree2/overview/1,2"><span title="1,2" class="linkLabel_fB60">1,2</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/knowledgeTree2/question/자료구조-question"><span title="question" class="categoryLinkLabel__m5q">question</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/knowledgeTree2/request"><span title="from claude code" class="linkLabel_fB60">from claude code</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/knowledgeTree2/request2-question"><span title="from claude code" class="linkLabel_fB60">from claude code</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/knowledgeTree2/request3-statistic-result"><span title="기출문제 출제 개수 통계" class="linkLabel_fB60">기출문제 출제 개수 통계</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/gisulsa/docs/knowledgeTree2/request3-statistic"><span title="from claude code" class="linkLabel_fB60">from claude code</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/gisulsa/docs/knowledgeTree2/structure/자료구조"><span title="structure" class="categoryLinkLabel__m5q">structure</span></a></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/dap"><span title="DAP" class="categoryLinkLabel__m5q">DAP</span></a><button aria-label="Expand sidebar category &#x27;DAP&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist" href="/gisulsa/docs/category/gamrisa"><span title="Gamrisa" class="categoryLinkLabel__m5q">Gamrisa</span></a><button aria-label="Expand sidebar category &#x27;Gamrisa&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_cyNU menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/gisulsa/docs/keyword/IT서비스_통합/ISMP"><span title="keyword" class="categoryLinkLabel__m5q">keyword</span></a></div></li></ul></nav><button type="button" title="Collapse sidebar" aria-label="Collapse sidebar" class="button button--secondary button--outline collapseSidebarButton_YXDl"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_x8jL"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_nm12"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_wg8x"><div class="docItemContainer_Mqgw"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_rPiA" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/gisulsa/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_p0i5"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/gisulsa/docs/category/knowledgetree2"><span>knowledgeTree2</span></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">overview</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">1,2,3</span></li></ul></nav><div class="theme-doc-markdown markdown"><header><h1>1,2,3</h1></header><ol>
+<li class="">
+<p>자료구조
+├ 1. 자료구조 개요
+│   └ 1.1 자료구조 분류
+├ 2. 선형 자료구조
+│   ├ 2.1 배열과 리스트
+│   ├ 2.2 스택(Stack)
+│   └ 2.3 큐(Queue)
+├ 3. 비선형 자료구조
+│   ├ 3.1 트리(Tree)
+│   └ 3.2 그래프(Graph)
+├ 4. 해싱(Hashing)
+│   ├ 4.1 해시 함수
+│   └ 4.2 충돌 해결
+├ 5. 탐색과 색인 구조
+│   ├ 5.1 탐색 알고리즘
+│   └ 5.2 다차원 색인 구조
+├ 6. 정렬(Sorting)
+│   ├ 6.1 비교 기반 정렬
+│   └ 6.2 비비교 정렬
+└ 7. 알고리즘
+├ 7.1 알고리즘 복잡도
+├ 7.2 알고리즘 설계 기법
+├ 7.3 탐색 기반 문제 해결
+├ 7.4 최적화 알고리즘
+└ 7.5 계산 이론</p>
+</li>
+<li class="">
+<p>컴퓨터구조
+├ 1. 컴퓨터 시스템 개요
+│   ├ 1.1 컴퓨터 구조 기초
+│   └ 1.2 데이터 표현
+├ 2. 중앙처리장치(CPU)
+│   ├ 2.1 CPU 구조와 명령어
+│   ├ 2.2 인터럽트
+│   ├ 2.3 파이프라이닝
+│   └ 2.4 CPU 보안 취약점
+├ 3. 기억장치
+│   ├ 3.1 메모리 계층구조
+│   ├ 3.2 캐시 메모리
+│   └ 3.3 주기억장치
+├ 4. 입출력과 저장장치
+│   ├ 4.1 입출력 방식
+│   ├ 4.2 디스크와 RAID
+│   └ 4.3 스토리지 아키텍처
+├ 5. 병렬처리와 고성능 컴퓨팅
+│   ├ 5.1 병렬처리 구조
+│   └ 5.2 GPU와 AI 가속기
+└ 6. 차세대·특수 컴퓨팅 하드웨어
+├ 6.1 뉴로모픽·양자 컴퓨팅
+├ 6.2 저전력 컴퓨팅
+└ 6.3 하드웨어 보안 모듈</p>
+</li>
+<li class="">
+<p>운영체제
+├ 1. 운영체제 개요
+│   └ 1.1 운영체제 개념과 구조
+├ 2. 프로세스 관리
+│   ├ 2.1 프로세스와 스레드
+│   ├ 2.2 CPU 스케줄링
+│   ├ 2.3 병행성과 동기화
+│   └ 2.4 프로세스 간 통신(IPC)
+├ 3. 메모리 관리
+│   ├ 3.1 실기억장치 관리
+│   └ 3.2 가상메모리
+├ 4. 파일시스템 및 입출력 관리
+│   ├ 4.1 파일시스템
+│   ├ 4.2 입출력 관리
+│   ├ 4.3 디스크 스케줄링
+│   └ 4.4 저장장치 관리
+├ 5. UNIX/Linux 운영체제
+│   ├ 5.1 시스템 구조
+│   └ 5.2 계정과 인증
+├ 6. 임베디드·실시간 운영체제
+│   ├ 6.1 실시간 운영체제(RTOS)
+│   └ 6.2 임베디드 시스템
+└ 7. 시스템 성능 평가
+├ 7.1 대기행렬 이론
+└ 7.2 성능 측정 지표</p>
+</li>
+<li class="">
+<p>네트워크
+├ 1. 네트워크 기초
+│   ├ 1.1 네트워크 참조모델
+│   ├ 1.2 통신 이론 및 교환방식
+│   └ 1.3 오류 제어 및 흐름 제어
+├ 2. 전송 계층
+│   ├ 2.1 TCP
+│   ├ 2.2 UDP 및 기타 전송 프로토콜
+│   └ 2.3 소켓 통신
+├ 3. 응용 계층 프로토콜
+│   ├ 3.1 웹 프로토콜
+│   ├ 3.2 파일 전송 및 디렉토리 서비스
+│   └ 3.3 이름 해석 및 기타 프로토콜
+├ 4. IP 주소체계 및 라우팅
+│   ├ 4.1 IP 주소체계
+│   ├ 4.2 라우팅
+│   └ 4.3 멀티캐스트
+├ 5. 네트워크 장비 및 네트워크 가상화
+│   ├ 5.1 스위칭 및 부하분산
+│   ├ 5.2 가상 네트워크
+│   └ 5.3 SDN/NFV
+├ 6. 무선 및 이동통신
+│   ├ 6.1 무선 LAN 및 근거리 무선통신
+│   └ 6.2 이동통신
+├ 7. IoT 및 특수 목적 네트워크
+│   ├ 7.1 IoT 네트워크 프로토콜
+│   ├ 7.2 무선 센서 및 애드혹 네트워크
+│   └ 7.3 P2P 네트워크
+├ 8. 네트워크 성능 및 QoS
+│   ├ 8.1 QoS
+│   ├ 8.2 성능 분석
+│   └ 8.3 데이터센터 네트워크
+└ 9. 네트워크 정책 및 이슈
+├ 9.1 망중립성
+└ 9.2 네트워크 인프라 이슈</p>
+</li>
+<li class="">
+<p>소프트웨어공학
+├ 1. 소프트웨어공학 개요
+│   └ 1.1 소프트웨어공학 기초
+├ 2. 개발방법론
+│   ├ 2.1 전통적 방법론
+│   ├ 2.2 컴포넌트 기반 개발과 재사용
+│   ├ 2.3 Agile 방법론
+│   ├ 2.4 DevOps
+│   └ 2.5 최신 개발방법
+├ 3. 요구사항공학
+│   ├ 3.1 요구사항 개발
+│   ├ 3.2 요구사항 관리
+│   └ 3.3 요구사항 유형과 품질
+├ 4. 분석 및 설계
+│   ├ 4.1 설계 원리
+│   ├ 4.2 객체지향
+│   ├ 4.3 UML
+│   ├ 4.4 디자인패턴
+│   └ 4.5 UI/UX 설계
+├ 5. 구현
+│   ├ 5.1 코딩 품질
+│   ├ 5.2 프로그래밍 기술
+│   └ 5.3 개발 보안
+├ 6. 테스트
+│   ├ 6.1 테스트 기본
+│   ├ 6.2 테스트 기법
+│   └ 6.3 테스트 자동화와 관리
+├ 7. 형상관리
+│   └ 7.1 SCM
+├ 8. 품질관리
+│   ├ 8.1 품질보증
+│   └ 8.2 프로세스 성숙도
+├ 9. 유지보수 및 재공학
+│   ├ 9.1 유지보수
+│   └ 9.2 재공학
+├ 10. 비용산정 및 생산성
+│   └ 10.1 비용산정
+├ 11. 소프트웨어 안전
+│   ├ 11.1 기능안전
+│   └ 11.2 안전성 분석
+└ 12. 오픈소스와 공급망 관리
+├ 12.1 오픈소스
+└ 12.2 공급망 보안</p>
+</li>
+<li class="">
+<p>소프트웨어아키텍처
+├ 1. 아키텍처 기초
+│   ├ 1.1 아키텍처 개념
+│   └ 1.2 아키텍트 역할
+├ 2. 아키텍처 스타일
+│   ├ 2.1 스타일 개요
+│   ├ 2.2 계층형 구조
+│   ├ 2.3 데이터 중심 및 흐름 구조
+│   ├ 2.4 이벤트 기반 구조
+│   └ 2.5 웹 아키텍처
+├ 3. 서비스 지향 아키텍처와 MSA
+│   ├ 3.1 서비스 아키텍처
+│   └ 3.2 서비스 통신
+├ 4. 미들웨어 및 시스템 통합
+│   ├ 4.1 통합 패턴
+│   └ 4.2 메시지 지향 미들웨어
+├ 5. 분산 시스템 아키텍처
+│   └ 5.1 분산 구조
+├ 6. 품질속성(Quality Attribute)
+│   ├ 6.1 성능
+│   ├ 6.2 가용성
+│   └ 6.3 기타 품질속성
+└ 7. 아키텍처 설계 및 평가
+├ 7.1 아키텍처 설계
+└ 7.2 아키텍처 평가</p>
+</li>
+<li class="">
+<p>프로젝트관리(PMP)
+├ 1. 프로젝트관리 개요
+│   ├ 1.1 프로젝트 기본
+│   ├ 1.2 프로젝트 생명주기
+│   └ 1.3 프로젝트 조직
+├ 2. 통합관리
+│   ├ 2.1 프로젝트 착수 및 계획
+│   ├ 2.2 프로젝트 실행 및 통제
+│   └ 2.3 프로젝트 종료
+├ 3. 범위관리
+│   ├ 3.1 요구사항
+│   ├ 3.2 WBS
+│   └ 3.3 범위통제
+├ 4. 일정관리
+│   ├ 4.1 일정계획
+│   ├ 4.2 일정기법
+│   └ 4.3 일정통제
+├ 5. 원가관리
+│   ├ 5.1 비용산정
+│   └ 5.2 원가통제
+├ 6. 품질관리
+│   ├ 6.1 품질계획
+│   └ 6.2 품질보증 및 품질통제
+├ 7. 자원 및 의사소통관리
+│   ├ 7.1 팀관리
+│   └ 7.2 의사소통 및 이해관계자관리
+├ 8. 위험관리
+│   ├ 8.1 위험관리 체계
+│   ├ 8.2 위험분석
+│   └ 8.3 위험대응
+├ 9. 조달 및 계약관리
+│   ├ 9.1 계약방식
+│   └ 9.2 제안 및 평가
+├ 10. SW사업 대가산정 및 발주관리
+│   ├ 10.1 규모산정
+│   ├ 10.2 대가산정
+│   └ 10.3 공공 SW사업 발주제도
+└ 11. 애자일 프로젝트관리
+├ 11.1 Agile PM
+└ 11.2 Agile 추정 및 통제</p>
+</li>
+<li class="">
+<p>데이터/DB
+├ 1. 데이터 모델링
+│   ├ 1.1 데이터 모델링 기초
+│   ├ 1.2 관계와 식별자
+│   └ 1.3 정규화
+├ 2. 관계형 데이터베이스와 SQL
+│   ├ 2.1 DBMS 기초
+│   ├ 2.2 SQL
+│   ├ 2.3 질의 최적화와 튜닝
+│   └ 2.4 인덱스
+├ 3. 트랜잭션과 동시성 제어
+│   ├ 3.1 트랜잭션
+│   ├ 3.2 동시성 제어
+│   └ 3.3 회복
+├ 4. NoSQL과 특수 데이터베이스
+│   ├ 4.1 NoSQL
+│   └ 4.2 특수 목적 데이터베이스
+├ 5. 분산 데이터베이스
+│   ├ 5.1 분산/병렬 데이터베이스
+│   ├ 5.2 분할과 샤딩
+│   └ 5.3 복제와 가용성
+├ 6. 데이터웨어하우스와 데이터 플랫폼
+│   ├ 6.1 데이터웨어하우스
+│   ├ 6.2 데이터 레이크
+│   └ 6.3 데이터 통합과 파이프라인
+├ 7. 데이터 관리와 거버넌스
+│   ├ 7.1 데이터 아키텍처와 조직
+│   ├ 7.2 데이터 표준화
+│   ├ 7.3 데이터 품질
+│   └ 7.4 데이터 거버넌스
+└ 8. 데이터 활용과 가치
+├ 8.1 오픈데이터
+├ 8.2 데이터 경제
+└ 8.3 데이터 법제도</p>
+</li>
+<li class="">
+<p>AI/빅데이터
+├ 1. AI 기초
+│   ├ 1.1 인공지능 개요
+│   ├ 1.2 탐색 알고리즘
+│   └ 1.3 최적화와 진화연산
+├ 2. 머신러닝
+│   ├ 2.1 학습 방법
+│   ├ 2.2 지도학습 모델
+│   ├ 2.3 비지도학습
+│   ├ 2.4 모델 학습과 최적화
+│   └ 2.5 모델 평가
+├ 3. 딥러닝
+│   ├ 3.1 인공신경망
+│   ├ 3.2 딥러닝 모델
+│   └ 3.3 AI 하드웨어와 인프라
+├ 4. 자연어처리와 생성형 AI
+│   ├ 4.1 자연어처리
+│   ├ 4.2 LLM과 생성형 AI
+│   ├ 4.3 RAG와 벡터 검색
+│   └ 4.4 AI 에이전트
+├ 5. AI 응용
+│   ├ 5.1 컴퓨터비전
+│   ├ 5.2 대화형 AI
+│   └ 5.3 산업 AI
+├ 6. 통계와 데이터분석
+│   ├ 6.1 기초 통계
+│   ├ 6.2 추정과 가설검정
+│   ├ 6.3 회귀분석
+│   ├ 6.4 시계열분석
+│   └ 6.5 데이터 탐색과 시각화
+├ 7. 데이터마이닝
+│   ├ 7.1 분석 방법론
+│   ├ 7.2 연관분석과 네트워크 분석
+│   └ 7.3 텍스트/비정형 마이닝
+├ 8. 빅데이터 플랫폼
+│   ├ 8.1 빅데이터 개요
+│   ├ 8.2 빅데이터 아키텍처
+│   ├ 8.3 데이터 수집과 파이프라인
+│   └ 8.4 오픈데이터
+├ 9. AI 학습 데이터와 MLOps
+│   ├ 9.1 AI 학습용 데이터
+│   └ 9.2 MLOps
+├ 10. AI 윤리와 신뢰성
+│   ├ 10.1 AI 윤리
+│   └ 10.2 AI 신뢰성
+└ 11. AI 거버넌스와 보안
+├ 11.1 AI 거버넌스와 법제도
+└ 11.2 AI 보안</p>
+</li>
+<li class="">
+<p>클라우드
+├ 1. 클라우드 컴퓨팅 기초
+│   ├ 1.1 클라우드 개요
+│   ├ 1.2 서비스 모델
+│   └ 1.3 클라우드 전환(Migration)
+├ 2. 가상화
+│   ├ 2.1 서버 가상화
+│   ├ 2.2 데스크톱 가상화
+│   └ 2.3 컨테이너
+├ 3. 클라우드 네이티브
+│   ├ 3.1 클라우드 네이티브 아키텍처
+│   ├ 3.2 DevOps / 자동화
+│   └ 3.3 서버리스
+├ 4. 클라우드 운영
+│   └ 4.1 자원 운영/확장
+├ 5. 클라우드 아키텍처
+│   ├ 5.1 아키텍처 설계
+│   └ 5.2 멀티/하이브리드 클라우드
+├ 6. 클라우드 보안
+│   ├ 6.1 보안 위협과 대응
+│   └ 6.2 클라우드 보안 인증/컴플라이언스
+├ 7. 클라우드 거버넌스
+│   ├ 7.1 거버넌스/리스크 관리
+│   └ 7.2 서비스 수준 관리
+└ 8. 엣지 컴퓨팅
+└ 8.1 엣지 컴퓨팅</p>
+</li>
+<li class="">
+<p>정보보안
+├ 1. 정보보안 관리체계
+│   ├ 1.1 정보보안 개요
+│   └ 1.2 보안 인증제도와 표준
+├ 2. 암호기술
+│   ├ 2.1 대칭키 암호
+│   ├ 2.2 공개키 암호
+│   ├ 2.3 해시와 메시지 인증
+│   ├ 2.4 전자서명과 PKI
+│   └ 2.5 차세대 암호기술
+├ 3. 인증 및 접근통제
+│   ├ 3.1 사용자 인증
+│   ├ 3.2 디지털 신원
+│   └ 3.3 접근통제
+├ 4. 네트워크 보안
+│   ├ 4.1 네트워크 보안 시스템
+│   ├ 4.2 보안 통신 프로토콜
+│   └ 4.3 네트워크 공격과 대응
+├ 5. 시스템 및 물리 보안
+│   ├ 5.1 시스템 보안
+│   └ 5.2 물리 보안과 영상 보안
+├ 6. 애플리케이션 보안
+│   ├ 6.1 소프트웨어 개발보안
+│   ├ 6.2 웹·API 보안
+│   └ 6.3 소프트웨어 공급망 보안
+├ 7. 악성코드와 공격기법
+│   ├ 7.1 악성코드
+│   └ 7.2 공격 기법
+├ 8. 보안관제 및 사고대응
+│   ├ 8.1 보안관제
+│   └ 8.2 디지털 포렌식
+├ 9. 개인정보보호와 프라이버시
+│   ├ 9.1 개인정보보호 법제도
+│   ├ 9.2 비식별화와 가명처리
+│   ├ 9.3 프라이버시 강화 기술
+│   └ 9.4 프라이버시 관리
+├ 10. 클라우드 보안과 제로트러스트
+│   ├ 10.1 클라우드 보안
+│   └ 10.2 제로트러스트
+└ 11. 신기술 보안
+├ 11.1 AI 보안
+├ 11.2 IoT·OT 보안
+├ 11.3 블록체인·핀테크 보안
+└ 11.4 메타버스 보안</p>
+</li>
+<li class="">
+<p>IT서비스관리
+├ 1. IT서비스관리 개요
+│   └ 1.1 ITSM 기본
+├ 2. 서비스수준관리(SLA·SLM)
+│   ├ 2.1 SLA
+│   └ 2.2 SLM
+├ 3. 서비스 전환관리
+│   ├ 3.1 변경관리
+│   ├ 3.2 릴리즈 및 배포관리
+│   └ 3.3 구성관리
+├ 4. 서비스 운영 및 장애관리
+│   ├ 4.1 운영 프로세스
+│   ├ 4.2 운영 성과관리
+│   └ 4.3 IT 운영관리 및 자산관리
+├ 5. 가용성 및 서비스 연속성 관리
+│   ├ 5.1 가용성 관리
+│   ├ 5.2 업무연속성계획(BCP)
+│   └ 5.3 재해복구(DR)
+├ 6. 데이터센터 운영
+│   ├ 6.1 데이터센터 구축 및 운영
+│   └ 6.2 그린 데이터센터
+├ 7. IT아웃소싱 관리
+│   ├ 7.1 아웃소싱 체계
+│   └ 7.2 IT서비스 산업
+└ 8. 디지털 서비스관리(DevOps·SRE·AIOps)
+├ 8.1 DevOps
+├ 8.2 SRE·Observability
+└ 8.3 AIOps</p>
+</li>
+<li class="">
+<p>EA/IT거버넌스
+├ 1. 엔터프라이즈 아키텍처(EA)
+│   ├ 1.1 EA 개요
+│   └ 1.2 EA 관리
+├ 2. 정보화 전략 (ISP/ISMP)
+│   ├ 2.1 정보화 전략 계획
+│   └ 2.2 경영환경 분석 기법
+├ 3. IT 거버넌스와 컴플라이언스
+│   ├ 3.1 IT 거버넌스
+│   └ 3.2 컴플라이언스
+├ 4. IT 투자관리와 성과평가
+│   ├ 4.1 IT 투자관리
+│   └ 4.2 IT 성과평가
+├ 5. 경영혁신과 전사적 정보시스템
+│   ├ 5.1 프로세스 혁신
+│   ├ 5.2 전사적 정보시스템
+│   └ 5.3 디지털 전환
+├ 6. 전자정부
+│   ├ 6.1 전자정부 평가
+│   └ 6.2 디지털 정부
+├ 7. IT 법제도와 정책
+│   ├ 7.1 SW 법제도
+│   ├ 7.2 지능정보·데이터 법제도
+│   └ 7.3 IT 정책
+├ 8. 공공 SW 발주·계약·대가산정
+│   ├ 8.1 발주제도
+│   ├ 8.2 계약제도
+│   ├ 8.3 대가산정·규모산정
+│   └ 8.4 IT 아웃소싱
+└ 9. 감리와 PMO
+├ 9.1 정보시스템 감리
+└ 9.2 PMO</p>
+</li>
+<li class="">
+<p>품질/표준
+├ 1. 품질경영 일반
+│   ├ 1.1 품질 개념
+│   └ 1.2 품질보증 활동
+├ 2. 소프트웨어 품질 모델
+│   ├ 2.1 품질 모델
+│   └ 2.2 품질 특성 평가
+├ 3. 프로세스 품질과 성숙도
+│   ├ 3.1 프로세스 성숙도 모델
+│   └ 3.2 SW 생명주기 프로세스 표준
+├ 4. 소프트웨어 안전 (Safety)
+│   ├ 4.1 기능안전 표준
+│   └ 4.2 안전성 분석
+├ 5. 신뢰성 (Reliability)
+│   └ 5.1 SW 신뢰성
+├ 6. 품질 인증과 시험
+│   ├ 6.1 SW 품질 인증
+│   └ 6.2 보안·산업 인증 표준
+├ 7. 사용성과 접근성
+│   ├ 7.1 사용성 (Usability)
+│   └ 7.2 접근성과 UI/UX 기준
+├ 8. AI 품질과 신뢰성
+│   ├ 8.1 AI 신뢰성
+│   └ 8.2 AI SW 품질보증
+└ 9. 표준화
+├ 9.1 경영시스템·관리 표준
+└ 9.2 표준화 기구와 단체표준</p>
+</li>
+<li class="">
+<p>디지털신기술
+├ 1. 디지털 전환(DX)
+│   ├ 1.1 4차 산업혁명과 디지털 전환
+│   ├ 1.2 디지털 비즈니스
+│   └ 1.3 디지털 정책과 윤리
+├ 2. 블록체인 / Web3
+│   ├ 2.1 블록체인 기반 기술
+│   └ 2.2 Web3 / 토큰 경제
+├ 3. 메타버스 / XR / 디지털트윈
+│   ├ 3.1 XR(확장현실)
+│   ├ 3.2 메타버스
+│   ├ 3.3 디지털트윈
+│   └ 3.4 인터페이스 / 휴먼증강
+├ 4. IoT / CPS
+│   ├ 4.1 IoT
+│   ├ 4.2 CPS / 스마트팩토리
+│   └ 4.3 스마트시티 / 스마트그리드
+├ 5. 로봇 / 자율시스템
+│   ├ 5.1 로봇
+│   └ 5.2 자율주행 / 드론
+├ 6. 양자기술
+│   ├ 6.1 양자컴퓨팅
+│   └ 6.2 양자암호
+├ 7. 차세대 네트워크 (5G/6G)
+│   ├ 7.1 5G
+│   └ 7.2 6G / 미래 네트워크
+├ 8. 핀테크
+│   ├ 8.1 핀테크 서비스
+│   └ 8.2 금융 보안/규제
+└ 9. ESG / Green IT
+├ 9.1 ESG
+└ 9.2 Green IT</p>
+</li>
+</ol></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_zkUn"><a href="https://github.com/electro9666/gisulsa/tree/main/docs/knowledgeTree2/overview/1,2,3.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_QeP7" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_VbYH"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/gisulsa/docs/knowledgeTree2/overview/1,2,3,4"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">1,2,3,4</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/gisulsa/docs/knowledgeTree2/overview/1,2"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">1,2</div></a></nav></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/gisulsa/docs/intro">Tutorial</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://x.com/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">X<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/gisulsa/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/electro9666/gisulsa" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_J8pY"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 gisulsa. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
