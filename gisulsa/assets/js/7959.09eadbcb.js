@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunkgisulsa=globalThis.webpackChunkgisulsa||[]).push([[7959],{340(s,a,l){l.r(a)}}]);
