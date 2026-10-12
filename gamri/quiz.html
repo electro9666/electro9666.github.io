@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>정보시스템감리사 기출 퀴즈</title>
+  <style>
+    :root {
+      --bg: #fff; --fg: #1d2127; --muted: #6b7280; --line: #e3e6ea;
+      --soft: #f6f7f9; --accent: #2563eb;
+      --ok: #16a34a; --ok-bg: #e9f8ee; --ng: #dc2626; --ng-bg: #fdeceb;
+      --head: 104px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; color: var(--fg); background: var(--bg);
+      font-family: system-ui, -apple-system, "Segoe UI", "Malgun Gothic", sans-serif;
+      font-size: 15px; line-height: 1.65;
+    }
+
+    /* ---------- 헤더 ---------- */
+    header {
+      position: sticky; top: 0; z-index: 20; background: var(--bg);
+      border-bottom: 1px solid var(--line); padding: 10px 16px 0;
+    }
+    .bar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    h1 { font-size: 16px; margin: 0; white-space: nowrap; }
+    .spacer { flex: 1; }
+    .tabs { display: flex; gap: 4px; margin-top: 8px; }
+    .tabs button {
+      border: none; border-bottom: 2px solid transparent; background: none;
+      padding: 7px 14px; font-size: 14px; color: var(--muted); cursor: pointer;
+    }
+    .tabs button.on { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+
+    button.btn {
+      padding: 5px 11px; border: 1px solid var(--line); border-radius: 6px;
+      background: var(--bg); font-size: 13px; cursor: pointer; color: var(--fg);
+    }
+    button.btn:hover:not(:disabled) { background: var(--soft); }
+    button.btn:disabled { opacity: .45; cursor: default; }
+
+    #status { font-size: 12.5px; color: var(--muted); padding: 6px 16px; min-height: 26px; }
+    #status.error { color: var(--ng); }
+
+    main { padding: 0 16px 48px; }
+
+    /* ---------- 선택 칩 ---------- */
+    .chips { display: flex; gap: 6px; flex-wrap: wrap; margin: 14px 0; }
+    .chips button {
+      padding: 5px 13px; border: 1px solid var(--line); border-radius: 999px;
+      background: var(--bg); font-size: 13.5px; cursor: pointer; color: var(--fg);
+    }
+    .chips button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    /* ---------- 대시보드 ---------- */
+    .stat-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0; }
+    .stat {
+      border: 1px solid var(--line); border-radius: 10px; padding: 10px 16px; min-width: 104px;
+    }
+    .stat b { display: block; font-size: 21px; line-height: 1.3; }
+    .stat span { font-size: 12px; color: var(--muted); }
+
+    .dash-row { margin-bottom: 18px; }
+    .dash-head {
+      display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px;
+      font-size: 13.5px;
+    }
+    .dash-head b { font-size: 15px; }
+    .dash-head span { color: var(--muted); font-size: 12.5px; }
+    .grid { display: grid; grid-template-columns: repeat(40, 1fr); gap: 2px; }
+    .grid i {
+      aspect-ratio: 1; border-radius: 2px; background: var(--soft);
+      border: 1px solid var(--line); cursor: pointer; font-style: normal;
+    }
+    .grid i.o { background: var(--ok); border-color: var(--ok); }
+    .grid i.x { background: var(--ng); border-color: var(--ng); }
+    .grid i:hover { outline: 2px solid var(--accent); outline-offset: 1px; }
+    @media (max-width: 720px) { .grid { grid-template-columns: repeat(20, 1fr); } }
+
+    .legend { display: flex; gap: 14px; font-size: 12px; color: var(--muted); margin-top: 10px; }
+    .legend span::before {
+      content: ''; display: inline-block; width: 10px; height: 10px; border-radius: 2px;
+      margin-right: 5px; vertical-align: -1px; border: 1px solid var(--line);
+    }
+    .legend .l-o::before { background: var(--ok); border-color: var(--ok); }
+    .legend .l-x::before { background: var(--ng); border-color: var(--ng); }
+    .legend .l-n::before { background: var(--soft); }
+
+    /* ---------- 문제 ---------- */
+    .group-title {
+      margin: 26px 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--line);
+      font-size: 14px; font-weight: 600; color: var(--muted);
+    }
+    .q {
+      border: 1px solid var(--line); border-radius: 10px;
+      padding: 16px 18px; margin-bottom: 14px; max-width: 920px;
+    }
+    .q-head {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+      font-size: 12.5px; color: var(--muted); margin-bottom: 10px;
+    }
+    .q-no { font-weight: 700; color: var(--fg); font-size: 14px; }
+    .tag { border: 1px solid var(--line); border-radius: 999px; padding: 1px 9px; }
+    .mark { font-weight: 700; font-size: 15px; }
+    .mark.o { color: var(--ok); }
+    .mark.x { color: var(--ng); }
+
+    .stem { margin-bottom: 14px; }
+    .stem img { max-width: 100%; display: block; margin: 10px 0; }
+    .stem table, .opt table { border-collapse: collapse; margin: 10px 0; font-size: 13.5px; }
+    .stem th, .stem td, .opt th, .opt td { border: 1px solid var(--line); padding: 5px 9px; }
+    .stem pre, .opt pre {
+      background: var(--soft); border: 1px solid var(--line); border-radius: 6px;
+      padding: 10px 12px; overflow-x: auto; font-size: 13px; line-height: 1.5; margin: 10px 0;
+    }
+    .stem code, .opt code { font-family: ui-monospace, Consolas, monospace; font-size: 13px; }
+    .stem blockquote, .opt blockquote {
+      margin: 10px 0; padding: 2px 14px; border-left: 3px solid var(--line); color: #374151;
+    }
+    .scroll-x { overflow-x: auto; }
+
+    .opts { display: flex; flex-direction: column; gap: 7px; }
+    .opt {
+      display: flex; gap: 10px; align-items: flex-start; text-align: left; width: 100%;
+      padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px;
+      background: var(--bg); font: inherit; color: inherit; cursor: pointer;
+    }
+    .opt:hover:not(:disabled) { background: var(--soft); }
+    .opt:disabled { cursor: default; }
+    .opt .num { flex: none; font-weight: 700; color: var(--muted); }
+    .opt .body { flex: 1; min-width: 0; }
+    .opt .body > :first-child { margin-top: 0; }
+    .opt .body > :last-child { margin-bottom: 0; }
+    .opt.correct { background: var(--ok-bg); border-color: var(--ok); }
+    .opt.correct .num { color: var(--ok); }
+    .opt.wrong { background: var(--ng-bg); border-color: var(--ng); opacity: .75; }
+    .opt.wrong .num { color: var(--ng); }
+
+    .q-foot { margin-top: 10px; font-size: 12.5px; color: var(--muted); min-height: 19px; }
+    .q-foot.ok { color: var(--ok); }
+    .q-foot.ng { color: var(--ng); }
+
+    /* ---------- 연도별 모드 (스와이프) ---------- */
+    .swiper {
+      height: calc(100vh - var(--head)); overflow-y: auto;
+      scroll-snap-type: y mandatory; scroll-behavior: smooth;
+      margin: 0 -16px; padding: 0 16px;
+    }
+    .swiper > .slide {
+      height: calc(100vh - var(--head)); scroll-snap-align: start; scroll-snap-stop: always;
+      display: flex; align-items: flex-start; padding: 10px 0 20px;
+    }
+    .swiper .q { width: 100%; max-height: 100%; overflow-y: auto; margin: 0; }
+    .nav-float {
+      position: fixed; right: 18px; bottom: 18px; z-index: 15;
+      display: flex; flex-direction: column; gap: 6px; align-items: center;
+    }
+    .nav-float .pos {
+      background: var(--fg); color: #fff; border-radius: 999px;
+      padding: 3px 11px; font-size: 12px; font-variant-numeric: tabular-nums;
+    }
+
+    .empty { color: var(--muted); padding: 40px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <h1>정보시스템감리사 기출 퀴즈</h1>
+      <span class="spacer"></span>
+      <span id="who" style="font-size:12.5px;color:var(--muted)"></span>
+      <button class="btn" id="btnLogin">Google 로그인</button>
+      <button class="btn" id="btnLogout" hidden>로그아웃</button>
+    </div>
+    <div class="tabs">
+      <button data-view="dash">대시보드</button>
+      <button data-view="subject" class="on">과목별</button>
+      <button data-view="year">연도별</button>
+    </div>
+  </header>
+
+  <div id="status"></div>
+
+  <main>
+    <section id="view-dash" hidden></section>
+    <section id="view-subject" hidden></section>
+    <section id="view-year" hidden></section>
+  </main>
+
+  <script src="gsheet.js"></script>
+  <script src="quiz-data.js"></script>
+  <script>
+  /* ==================================================================
+   * 설정
+   * ================================================================== */
+
+  const SHEET_ID   = '1Sk2oBAoPIo3fCV-vmQHdqgp0GS_ktZSRZS-E0tM7NnY';
+  const SHEET_NAME = 'gamri';
+  const CLIENT_ID  = '173186405660-6fibo7qvfe1finjsuh8dauqakap37cvg.apps.googleusercontent.com';
+
+  // 시트 1행(헤더) 중 이 앱이 쓰는 열.
+  // key / seq / category / question 은 시트에 이미 채워져 있으므로 읽기만 한다.
+  const COL_KEY = 'key';
+  const COL_ANSWER = 'answer';
+  const COL_DATE = 'answer-date';
+
+  GSheet.configure({
+    spreadsheetId: SHEET_ID,
+    clientId: CLIENT_ID,
+    defaultSheet: SHEET_NAME,
+    scopes: GSheet.SCOPE_RW,
+  });
+
+  const DATA = window.QUIZ_DATA;
+  const CIRCLED = ['①', '②', '③', '④'];
+  const UNGROUPED = '미분류';
+
+  const $ = (sel, el) => (el || document).querySelector(sel);
+
+  /* ==================================================================
+   * 풀이 기록 — 메모리 + Google Sheet
+   * ================================================================== */
+
+  const Records = {
+    map: new Map(),        // 'Y-N' → { row, choice, result }
+    loaded: false,
+    unmatched: 0,          // 시트에서 행을 찾지 못한 문항 수
+    _queue: Promise.resolve(),
+    _pending: 0,
+
+    key: (y, n) => y + '-' + n,
+
+    get(y, n) {
+      return this.map.get(this.key(y, n)) || null;
+    },
+
+    /**
+     * 시트를 읽어 문항별 행 번호와 기존 답안을 적재한다.
+     * key / seq / category / question 은 시트에 이미 채워져 있다고 보고 건드리지 않는다.
+     */
+    async load() {
+      const { header, rows } = await GSheet.list();
+
+      if (!header.length) {
+        throw new Error('시트 "' + SHEET_NAME + '"가 비어 있습니다. 1행에 헤더가 있어야 합니다.');
+      }
+      this.header = header;
+      const missing = [COL_KEY, COL_ANSWER, COL_DATE].filter((c) => !header.includes(c));
+      if (missing.length) {
+        throw new Error(
+          '시트 "' + SHEET_NAME + '"의 헤더에 [' + missing.join(', ') + '] 열이 없습니다. ' +
+          '현재 헤더: [' + header.join(' | ') + ']'
+        );
+      }
+
+      this.map.clear();
+      let matched = 0;
+
+      rows.forEach((r) => {
+        const id = parseKey(r[COL_KEY]);
+        if (!id) return;
+
+        const choice = parseChoice(r[COL_ANSWER]);
+        this.map.set(this.key(id.y, id.n), {
+          row: r._row,
+          choice: choice || null,
+          result: null,        // 정답 여부는 quiz-data 와 대조해 아래에서 채운다
+          date: r[COL_DATE] || '',
+        });
+        matched++;
+      });
+
+      // 저장된 답안을 정답과 대조해 O/X 를 복원한다
+      DATA.questions.forEach((q) => {
+        const rec = this.get(q.y, q.n);
+        if (rec && rec.choice) rec.result = q.a.includes(rec.choice) ? 'O' : 'X';
+      });
+
+      this.unmatched = DATA.questions.length - matched;
+      this.loaded = true;
+      return {
+        total: rows.length,
+        matched,
+        // 매칭에 실패했을 때 원인을 보여주기 위한 샘플
+        sampleKeys: rows.slice(0, 3).map((r) => String(r[COL_KEY])),
+      };
+    },
+
+    /**
+     * 한 문항의 답안을 기록한다. answer / answer-date 두 열만 수정한다.
+     * 쓰기는 순차 처리해서 같은 행에 동시에 쓰는 일을 막는다.
+     */
+    save(q, rec) {
+      // isSignedIn() 으로 막으면 안 된다. 토큰은 1시간이면 만료되는데,
+      // 만료 상태라도 _request 가 자동으로 재발급하므로 저장은 계속 가능하다.
+      // 기준은 "시트를 읽어둔 상태인가"(= 로그인해서 행 번호를 알고 있는가)다.
+      if (!this.loaded) {
+        setStatus('로그인하지 않아 이 답안은 시트에 저장되지 않았습니다. ' +
+                  '상단의 "Google 로그인"을 눌러주세요.', true);
+        blinkLogin();
+        return;
+      }
+
+      if (!rec.row) {
+        setStatus('시트에서 ' + q.y + '-' + String(q.n).padStart(3, '0') +
+                  ' 행을 찾지 못해 저장하지 못했습니다. key 열 값을 확인해 주세요.', true);
+        return;
+      }
+
+      this._pending++;
+      updateSyncStatus();
+
+      this._queue = this._queue.then(async () => {
+        const data = {};
+        data[COL_ANSWER] = rec.choice == null ? '' : rec.choice;   // 1~4 숫자로 기록
+        data[COL_DATE] = new Date().toLocaleString('sv-SE');   // YYYY-MM-DD HH:MM:SS
+        rec.date = data[COL_DATE];
+        await GSheet.update(rec.row, data);
+      }).catch((e) => {
+        setStatus('시트 저장 실패: ' + e.message, true);
+      }).then(() => {
+        this._pending--;
+        updateSyncStatus();
+      });
+
+      return this._queue;
+    },
+  };
+
+  /**
+   * 시트의 key 값에서 (연도, 번호)를 뽑는다.
+   * '2021-001', '2021_1', '2021 1번', '2021A001' 같은 표기를 모두 받아들인다.
+   */
+  /**
+   * answer 열의 값을 보기 번호(1~4)로 읽는다.
+   * 숫자로 쓰지만, 예전에 원문자(①~④)로 적힌 값도 그대로 읽어들인다.
+   */
+  function parseChoice(raw) {
+    const s = String(raw == null ? '' : raw).trim();
+    if (!s) return null;
+
+    const circled = CIRCLED.indexOf(s) + 1;
+    if (circled) return circled;
+
+    const n = Number(s);
+    return n >= 1 && n <= 4 ? n : null;
+  }
+
+  function parseKey(raw) {
+    const m = String(raw == null ? '' : raw).match(/(20\d{2})\D{0,3}(\d{1,3})/);
+    if (!m) return null;
+    const y = Number(m[1]), n = Number(m[2]);
+    if (!DATA.years.includes(y) || n < 1 || n > 120) return null;
+    return { y, n };
+  }
+
+  /* ==================================================================
+   * 최소 마크다운 렌더러
+   *   지문에 쓰이는 문법만 지원한다 — 코드블록, 표, 인용, 이미지,
+   *   인라인 코드, 굵게/기울임. 그 외 입력은 그대로 escape 된다.
+   * ================================================================== */
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  }
+
+  function mdToHtml(src) {
+    if (!src) return '';
+    const blocks = [];
+
+    // 1) 펜스 코드블록을 먼저 빼둔다 (내부를 다른 규칙이 건드리지 못하게)
+    let text = String(src).replace(/```[^\n]*\n([\s\S]*?)```/g, (_, code) => {
+      blocks.push('<pre><code>' + escapeHtml(code.replace(/\n$/, '')) + '</code></pre>');
+      return '@@CODE' + (blocks.length - 1) + '@@';
+    });
+
+    text = escapeHtml(text);
+
+    const lines = text.split('\n');
+    const out = [];
+    let i = 0;
+
+    while (i < lines.length) {
+      const line = lines[i];
+
+      // 빼둔 코드블록 자리
+      const ph = line.match(/^@@CODE(\d+)@@$/);
+      if (ph) { out.push(blocks[Number(ph[1])]); i++; continue; }
+
+      // 표: | ... | 가 연속으로 나오고 두 번째 줄이 구분선
+      if (/^\s*\|/.test(line) && i + 1 < lines.length && /^\s*\|[\s:|-]+\|\s*$/.test(lines[i + 1])) {
+        const rows = [];
+        while (i < lines.length && /^\s*\|/.test(lines[i])) { rows.push(lines[i]); i++; }
+        out.push(renderTable(rows));
+        continue;
+      }
+
+      // 인용
+      if (/^\s*&gt;\s?/.test(line)) {
+        const buf = [];
+        while (i < lines.length && /^\s*&gt;\s?/.test(lines[i])) {
+          buf.push(lines[i].replace(/^\s*&gt;\s?/, ''));
+          i++;
+        }
+        out.push('<blockquote>' + inline(buf.join('\n')).replace(/\n/g, '<br>') + '</blockquote>');
+        continue;
+      }
+
+      // 빈 줄
+      if (!line.trim()) { i++; continue; }
+
+      // 단락: 빈 줄 또는 다음 블록 시작 전까지.
+      // 첫 줄은 무조건 가져가야 한다. 표로 보이지만 구분선이 없는 줄
+      // (예: 집합 크기 표기 |R∪S|)에서 i 가 멈추는 것을 막는다.
+      const buf = [lines[i]];
+      i++;
+      while (i < lines.length && lines[i].trim() && !isBlockStart(lines, i)) {
+        buf.push(lines[i]);
+        i++;
+      }
+      out.push('<p>' + inline(buf.join('\n')).replace(/\n/g, '<br>') + '</p>');
+    }
+
+    return out.join('\n');
+  }
+
+  /** lines[i] 가 새 블록(코드블록 자리·인용·표)의 시작인지 */
+  function isBlockStart(lines, i) {
+    const ln = lines[i];
+    if (/^@@CODE\d+@@$/.test(ln)) return true;
+    if (/^\s*&gt;\s?/.test(ln)) return true;
+    // 표는 구분선이 뒤따를 때만 표로 본다
+    return /^\s*\|/.test(ln) && i + 1 < lines.length && /^\s*\|[\s:|-]+\|\s*$/.test(lines[i + 1]);
+  }
+
+  function renderTable(rows) {
+    const cells = (ln) => ln.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map((c) => c.trim());
+    const head = cells(rows[0]);
+    const body = rows.slice(2).map(cells);
+    const th = '<tr>' + head.map((c) => '<th>' + inline(c) + '</th>').join('') + '</tr>';
+    const tb = body.map((r) => '<tr>' + r.map((c) => '<td>' + inline(c) + '</td>').join('') + '</tr>').join('');
+    return '<div class="scroll-x"><table><thead>' + th + '</thead><tbody>' + tb + '</tbody></table></div>';
+  }
+
+  function inline(s) {
+    return s
+      .replace(/!\[([^\]]*)\]\(([^)]+)\)/g,
+        (_, alt, src) => '<img src="' + src + '" alt="' + alt + '" loading="lazy">')
+      .replace(/`([^`]+)`/g, '<code>$1</code>')
+      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+      .replace(/(^|[\s(])_([^_\n]+)_(?=[\s).,]|$)/g, '$1<em>$2</em>');
+  }
+
+  /* ==================================================================
+   * 문제 카드
+   * ================================================================== */
+
+  function questionCard(q) {
+    const rec = Records.get(q.y, q.n);
+
+    const el = document.createElement('article');
+    el.className = 'q';
+    el.dataset.y = q.y;
+    el.dataset.n = q.n;
+
+    const tags = ['<span class="tag">' + q.s + '</span>'];
+    if (q.g) tags.push('<span class="tag">' + escapeHtml(q.g) + '</span>');
+    if (q.a.length > 1) tags.push('<span class="tag">복수정답</span>');
+
+    el.innerHTML =
+      '<div class="q-head">' +
+        '<span class="q-no">' + q.y + ' · ' + q.n + '번</span>' +
+        tags.join('') +
+        (q.t ? '<span>' + escapeHtml(q.t) + '</span>' : '') +
+        '<span class="spacer"></span><span class="mark"></span>' +
+      '</div>' +
+      '<div class="stem">' + mdToHtml(q.q) + '</div>' +
+      '<div class="opts">' +
+        q.o.map((o, i) =>
+          '<button class="opt" data-i="' + (i + 1) + '">' +
+            '<span class="num">' + CIRCLED[i] + '</span>' +
+            '<span class="body">' + mdToHtml(o) + '</span>' +
+          '</button>'
+        ).join('') +
+      '</div>' +
+      '<div class="q-foot"></div>';
+
+    el.querySelector('.opts').addEventListener('click', (e) => {
+      const btn = e.target.closest('.opt');
+      if (btn && !btn.disabled) choose(q, el, Number(btn.dataset.i));
+    });
+
+    paint(q, el, rec);
+    return el;
+  }
+
+  /** 보기 선택 */
+  function choose(q, el, choice) {
+    const prev = Records.get(q.y, q.n);
+    if (prev && prev.result === 'O') return;        // 이미 맞춘 문제
+
+    // 시트에 없는 문항이면 row 가 없다 (저장 시 안내한다)
+    const rec = prev || { row: null, choice: null, result: null, tries: 0 };
+    rec.tries = (rec.tries || 0) + 1;     // 시도 횟수는 이번 세션 동안만 센다
+    rec.choice = choice;
+    rec.result = q.a.includes(choice) ? 'O' : 'X';
+    Records.map.set(Records.key(q.y, q.n), rec);
+
+    paint(q, el, rec, choice);
+    Records.save(q, rec);
+    if (!$('#view-dash').hidden) renderDash();
+  }
+
+  /**
+   * 카드에 현재 상태를 반영한다.
+   * @param last 이번에 고른 보기 (없으면 복원 렌더링)
+   */
+  function paint(q, el, rec, last) {
+    const opts = [...el.querySelectorAll('.opt')];
+    const mark = el.querySelector('.mark');
+    const foot = el.querySelector('.q-foot');
+
+    mark.className = 'mark';
+    mark.textContent = '';
+    foot.className = 'q-foot';
+    foot.textContent = '';
+
+    if (!rec || !rec.result) {
+      opts.forEach((b) => { b.className = 'opt'; b.disabled = false; });
+      return;
+    }
+
+    if (rec.result === 'O') {
+      // 정답 — 더 못 고르게 하고 정답 보기를 표시
+      opts.forEach((b) => {
+        const i = Number(b.dataset.i);
+        b.className = 'opt' + (q.a.includes(i) ? ' correct' : '');
+        b.disabled = true;
+      });
+      mark.classList.add('o');
+      mark.textContent = 'O';
+      foot.classList.add('ok');
+      foot.textContent = rec.tries ? '정답입니다. (시도 ' + rec.tries + '회)' : '정답입니다.';
+      return;
+    }
+
+    // 오답 — 맞출 때까지 다시 도전
+    opts.forEach((b) => {
+      const i = Number(b.dataset.i);
+      const isLast = last ? i === last : i === rec.choice;
+      b.className = 'opt' + (isLast ? ' wrong' : '');
+      b.disabled = false;
+    });
+    mark.classList.add('x');
+    mark.textContent = 'X';
+    foot.classList.add('ng');
+    foot.textContent = '틀렸습니다. 다시 선택해 보세요.' + (rec.tries ? ' (시도 ' + rec.tries + '회)' : '');
+  }
+
+  /* ==================================================================
+   * 대시보드
+   * ================================================================== */
+
+  function tally(list) {
+    let o = 0, x = 0;
+    list.forEach((q) => {
+      const r = Records.get(q.y, q.n);
+      if (!r || !r.result) return;
+      if (r.result === 'O') o++; else x++;
+    });
+    return { o, x, none: list.length - o - x, total: list.length };
+  }
+
+  function renderDash() {
+    const view = $('#view-dash');
+    const all = tally(DATA.questions);
+
+    const stat = (label, value, sub) =>
+      '<div class="stat"><b>' + value + '</b><span>' + label + (sub ? ' · ' + sub : '') + '</span></div>';
+
+    let html =
+      '<div class="stat-row">' +
+        stat('전체 문항', all.total) +
+        stat('맞춤', all.o, pct(all.o, all.total)) +
+        stat('틀림', all.x, pct(all.x, all.total)) +
+        stat('미응시', all.none, pct(all.none, all.total)) +
+      '</div>';
+
+    // 과목별
+    html += '<div class="group-title">과목별</div><div class="stat-row">';
+    DATA.subjects.forEach((s) => {
+      const t = tally(DATA.questions.filter((q) => q.s === s));
+      html += stat(s, t.o + '/' + t.total, pct(t.o, t.total));
+    });
+    html += '</div>';
+
+    // 연도별 × 문제별 그리드
+    html += '<div class="group-title">연도별 · 문제별</div>';
+    DATA.years.forEach((y) => {
+      const list = DATA.questions.filter((q) => q.y === y);
+      const t = tally(list);
+      html +=
+        '<div class="dash-row">' +
+          '<div class="dash-head"><b>' + y + '</b>' +
+            '<span>맞춤 ' + t.o + ' · 틀림 ' + t.x + ' · 미응시 ' + t.none + ' (' + pct(t.o, t.total) + ')</span>' +
+          '</div>' +
+          '<div class="grid">' +
+            list.map((q) => {
+              const r = Records.get(q.y, q.n);
+              const cls = r && r.result === 'O' ? 'o' : (r && r.result === 'X' ? 'x' : '');
+              return '<i class="' + cls + '" data-y="' + q.y + '" data-n="' + q.n +
+                     '" title="' + q.n + '번 · ' + q.s + (r && r.result ? ' · ' + r.result : '') + '"></i>';
+            }).join('') +
+          '</div>' +
+        '</div>';
+    });
+
+    html +=
+      '<div class="legend">' +
+        '<span class="l-o">맞춤</span><span class="l-x">틀림</span><span class="l-n">미응시</span>' +
+        '<span style="color:var(--muted)">칸을 누르면 해당 문제로 이동합니다</span>' +
+      '</div>';
+
+    view.innerHTML = html;
+
+    view.querySelectorAll('.grid i').forEach((cell) => {
+      cell.addEventListener('click', () => {
+        gotoQuestion(Number(cell.dataset.y), Number(cell.dataset.n));
+      });
+    });
+  }
+
+  function pct(a, b) {
+    return b ? Math.round((a / b) * 100) + '%' : '0%';
+  }
+
+  /* ==================================================================
+   * 과목별 모드 (기본)
+   * ================================================================== */
+
+  let curSubject = DATA.subjects[0];
+
+  function renderSubject() {
+    const view = $('#view-subject');
+    view.replaceChildren();
+
+    // 과목 선택 칩
+    const chips = document.createElement('div');
+    chips.className = 'chips';
+    DATA.subjects.forEach((s) => {
+      const b = document.createElement('button');
+      b.textContent = s;
+      if (s === curSubject) b.className = 'on';
+      b.addEventListener('click', () => { curSubject = s; renderSubject(); window.scrollTo(0, 0); });
+      chips.appendChild(b);
+    });
+    view.appendChild(chips);
+
+    // 목차별로 묶는다 (목차 정보가 없는 과목은 전부 '미분류')
+    const list = DATA.questions.filter((q) => q.s === curSubject);
+    const groups = new Map();
+    list.forEach((q) => {
+      const g = q.g || UNGROUPED;
+      if (!groups.has(g)) groups.set(g, { order: q.go == null ? 9999 : q.go, items: [] });
+      groups.get(g).items.push(q);
+    });
+
+    const ordered = [...groups.entries()].sort((a, b) =>
+      a[1].order - b[1].order || a[0].localeCompare(b[0], 'ko'));
+
+    ordered.forEach(([name, g]) => {
+      const t = tally(g.items);
+      const h = document.createElement('div');
+      h.className = 'group-title';
+      h.textContent = name + ' (' + g.items.length + '문항 · 맞춤 ' + t.o + ')';
+      view.appendChild(h);
+      g.items.forEach((q) => view.appendChild(questionCard(q)));
+    });
+
+    if (!ordered.length) {
+      view.insertAdjacentHTML('beforeend', '<p class="empty">문항이 없습니다.</p>');
+    }
+  }
+
+  /* ==================================================================
+   * 연도별 모드 (스크롤 스냅 = 스와이프)
+   * ================================================================== */
+
+  let curYear = DATA.years[DATA.years.length - 1];
+
+  function renderYear(focusNum) {
+    const view = $('#view-year');
+    view.replaceChildren();
+
+    const chips = document.createElement('div');
+    chips.className = 'chips';
+    DATA.years.forEach((y) => {
+      const b = document.createElement('button');
+      b.textContent = y;
+      if (y === curYear) b.className = 'on';
+      b.addEventListener('click', () => { curYear = y; renderYear(); });
+      chips.appendChild(b);
+    });
+    view.appendChild(chips);
+
+    const list = DATA.questions.filter((q) => q.y === curYear);
+    const swiper = document.createElement('div');
+    swiper.className = 'swiper';
+    list.forEach((q) => {
+      const slide = document.createElement('div');
+      slide.className = 'slide';
+      slide.appendChild(questionCard(q));
+      swiper.appendChild(slide);
+    });
+    view.appendChild(swiper);
+
+    // 현재 위치 표시
+    const nav = document.createElement('div');
+    nav.className = 'nav-float';
+    nav.innerHTML =
+      '<button class="btn" data-d="-1">▲</button>' +
+      '<span class="pos">1 / ' + list.length + '</span>' +
+      '<button class="btn" data-d="1">▼</button>';
+    view.appendChild(nav);
+
+    const slides = [...swiper.children];
+    const pos = nav.querySelector('.pos');
+
+    swiper.addEventListener('scroll', () => {
+      const idx = Math.round(swiper.scrollTop / swiper.clientHeight);
+      pos.textContent = Math.min(idx + 1, slides.length) + ' / ' + slides.length;
+    }, { passive: true });
+
+    nav.addEventListener('click', (e) => {
+      const b = e.target.closest('button[data-d]');
+      if (!b) return;
+      const idx = Math.round(swiper.scrollTop / swiper.clientHeight) + Number(b.dataset.d);
+      if (slides[idx]) slides[idx].scrollIntoView({ behavior: 'smooth' });
+    });
+
+    if (focusNum) {
+      const i = list.findIndex((q) => q.n === focusNum);
+      if (i >= 0) swiper.scrollTop = i * swiper.clientHeight;   // 즉시 이동
+    }
+  }
+
+  /** 대시보드에서 특정 문제로 이동 */
+  function gotoQuestion(y, n) {
+    curYear = y;
+    showView('year');
+    renderYear(n);
+  }
+
+  /* ==================================================================
+   * 화면 전환
+   * ================================================================== */
+
+  let curView = 'subject';
+  const RENDER = { dash: renderDash, subject: renderSubject, year: () => renderYear() };
+
+  function showView(name) {
+    curView = name;
+    document.querySelectorAll('.tabs button').forEach((b) => {
+      b.classList.toggle('on', b.dataset.view === name);
+    });
+    ['dash', 'subject', 'year'].forEach((v) => { $('#view-' + v).hidden = v !== name; });
+    RENDER[name]();
+  }
+
+  document.querySelector('.tabs').addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-view]');
+    if (b) { showView(b.dataset.view); window.scrollTo(0, 0); }
+  });
+
+  /* ==================================================================
+   * 상태 표시 / 로그인
+   * ================================================================== */
+
+  function setStatus(msg, isError) {
+    $('#status').textContent = msg;
+    $('#status').classList.toggle('error', !!isError);
+  }
+
+  function updateSyncStatus() {
+    if (Records._pending > 0) {
+      setStatus('시트에 저장 중... (' + Records._pending + ')');
+      return;
+    }
+    if (!Records.loaded) return;
+
+    const answered = [...Records.map.values()].filter((r) => r.choice).length;
+    let msg = '시트 "' + SHEET_NAME + '" 연결됨 · ' + Records.map.size +
+              '문항 매칭 · 답안 ' + answered + '건';
+    if (Records.unmatched > 0) {
+      msg += ' · 시트에서 찾지 못한 문항 ' + Records.unmatched + '개';
+    }
+    setStatus(msg, Records.unmatched > 0);
+  }
+
+  /** 저장이 안 될 때 로그인 버튼으로 시선을 끈다 */
+  function blinkLogin() {
+    const b = $('#btnLogin');
+    if (b.hidden) return;
+    b.animate(
+      [{ background: '#fdeceb' }, { background: '#fff' }],
+      { duration: 500, iterations: 3 }
+    );
+  }
+
+  function setAuthUI(on) {
+    $('#btnLogin').hidden = on;
+    $('#btnLogout').hidden = !on;
+    $('#who').textContent = on ? '기록 저장: ' + SHEET_NAME : '로그인하지 않아 기록이 저장되지 않습니다';
+  }
+
+  async function loadRecords() {
+    setStatus('시트를 읽는 중...');
+    const { total, matched, sampleKeys } = await Records.load();
+    if (matched === 0) {
+      throw new Error(
+        '시트 ' + total + '행을 읽었지만 key 열에서 문항을 하나도 식별하지 못했습니다. ' +
+        'key 는 연도(2021~2025)와 번호(1~120)를 포함해야 합니다 (예: 2021-001). ' +
+        '읽은 key 예시: [' + sampleKeys.join(' | ') + ']'
+      );
+    }
+    updateSyncStatus();
+    RENDER[curView]();
+  }
+
+  $('#btnLogin').addEventListener('click', async () => {
+    try {
+      await GSheet.signIn();
+      setAuthUI(true);
+      await loadRecords();
+    } catch (e) {
+      setStatus(e.message, true);
+    }
+  });
+
+  $('#btnLogout').addEventListener('click', () => {
+    GSheet.signOut();
+    Records.map.clear();
+    Records.loaded = false;
+    Records.unmatched = 0;
+    setAuthUI(false);
+    setStatus('로그아웃되었습니다. 이후 기록은 저장되지 않습니다.');
+    RENDER[curView]();
+  });
+
+  /* ==================================================================
+   * 시작
+   * ================================================================== */
+
+  // 스크립트 오류가 조용히 사라지지 않도록 상태줄에 띄운다
+  window.addEventListener('error', (e) => {
+    setStatus('오류: ' + (e.message || e.error), true);
+  });
+  window.addEventListener('unhandledrejection', (e) => {
+    setStatus('오류: ' + ((e.reason && e.reason.message) || e.reason), true);
+  });
+
+  setAuthUI(false);
+  showView('subject');        // 과목별 모드가 기본
+  setStatus('Google 인증 준비 중...');
+
+  GSheet.init().then(({ signedIn }) => {
+    setAuthUI(signedIn);
+    if (signedIn) return loadRecords();
+    setStatus('로그인하면 풀이 기록이 시트에 저장됩니다. 로그인 없이도 문제는 풀 수 있습니다.');
+  }).catch((e) => {
+    setStatus(e.message, true);
+    $('#btnLogin').disabled = true;
+  });
+  </script>
+</body>
+</html>
