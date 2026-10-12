@@ -6,7 +6,9 @@
 
 입력
     gamri/original-converted-md/{연도}-A.md   문제 본문과 보기
-    gamri/answer2/{연도}/{번호}.md            정답(## 정답 섹션)
+    gamri/answer2/{연도}/{번호}.md            정답(## 정답 섹션), 주제(title)
+    gamri/answer/{연도}-A.md                  해설(**[해설]** 이후), 정답(**[정답]** 줄)
+                                              — answer2 가 없는 연도(2015~2020)는 여기서 정답을 읽는다
     gamri/category/05.보안목차-result.md      보안 과목 목차
 
 출력
@@ -22,11 +24,12 @@ import sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 QDIR = os.path.join(ROOT, 'gamri', 'original-converted-md')
 ADIR = os.path.join(ROOT, 'gamri', 'answer2')
+EDIR = os.path.join(ROOT, 'gamri', 'answer')
 TOC_SEC = os.path.join(ROOT, 'gamri', 'category', '05.보안목차-result.md')
 OUT = os.path.join(ROOT, 'example', 'quiz-data.js')
 IMGDIR = os.path.join(ROOT, 'example', 'images')
 
-YEARS = [2021, 2022, 2023, 2024, 2025]
+YEARS = list(range(2015, 2026))
 
 # 긴 과목명 → 화면에 쓸 짧은 이름
 SUBJECTS = [
@@ -96,8 +99,9 @@ def split_stem_options(body, year, num):
             starts.setdefault(int(m.group(1)), []).append(idx)
 
     if not all(k in starts for k in (1, 2, 3, 4)):
-        warn('%d-%03d: 보기 1~4를 찾지 못함' % (year, num))
-        return '\n'.join(lines).strip(), []
+        # 보기가 그림 안에만 있는 문항(예: 2018-016) — 번호만 고를 수 있게 한다
+        warn('%d-%03d: 보기 1~4를 찾지 못해 (그림 참조)로 채움' % (year, num))
+        return '\n'.join(lines).strip(), ['(그림 참조)'] * 4
 
     # 1<2<3<4 순서로 증가하는 마지막 조합을 고른다 (지문 안의 번호 목록과 구분)
     i4 = starts[4][-1]
@@ -155,6 +159,45 @@ def parse_title(year, num):
         return ''
     # '001번 · PERT 완료확률과 계획기간' → 'PERT 완료확률과 계획기간'
     return re.sub(r'^\d+번\s*·\s*', '', m.group(1).strip())
+
+
+# --------------------------------------------------------------------
+# 해설
+# --------------------------------------------------------------------
+
+def parse_explanations(year):
+    """{번호: (정답 리스트, 해설 md)} 반환.
+    정답은 '**[정답] ②**' 줄, 해설은 '**[해설]**' 이후 ~ 다음 헤딩 전까지."""
+    path = os.path.join(EDIR, '%d-A.md' % year)
+    if not os.path.exists(path):
+        warn('%d: 해설 파일 없음' % year)
+        return {}
+
+    src = io.open(path, encoding='utf-8').read()
+    heads = [(m.end(), int(m.group(1)))
+             for m in re.finditer(r'^### (\d+)번\s*$', src, re.M)]
+
+    out = {}
+    for i, (e, num) in enumerate(heads):
+        end = heads[i + 1][0] if i + 1 < len(heads) else len(src)
+        body = src[e:end]
+        nx = re.search(r'^#{2,3} .+$', body, re.M)      # 다음 과목/문항 헤딩
+        if nx:
+            body = body[:nx.start()]
+
+        a = re.search(r'^\*\*\[정답\](.*)', body, re.M)
+        ans = sorted({CIRCLED.index(ch) + 1 for ch in (a.group(1) if a else '') if ch in CIRCLED})
+
+        m = re.search(r'^\*\*\[해설\]\*\*\s*', body, re.M)
+        if not m:
+            warn('%d-%03d: 해설 없음' % (year, num))
+            out[num] = (ans, '')
+            continue
+        text = body[m.end():].strip()
+        # 이미지 경로를 문제와 같은 형태(./images/...)로 맞춰 copy_images 가 처리하게 한다
+        text = text.replace('](../original-converted-md/images/', '](./images/')
+        out[num] = (ans, text)
+    return out
 
 
 # --------------------------------------------------------------------
@@ -257,6 +300,8 @@ def copy_images(questions):
         where = '%d-%03d' % (it['y'], it['n'])
         it['q'] = fix(it['q'], where)
         it['o'] = [fix(o, where) for o in it['o']]
+        if it.get('e'):
+            it['e'] = fix(it['e'], where)
 
     for m in missing:
         warn('이미지 없음 %s' % m)
@@ -271,9 +316,18 @@ def main():
 
     for year in YEARS:
         qs = parse_questions(year)
+        expl = parse_explanations(year)
         for num in sorted(qs):
             q = qs[num]
-            ans = parse_answer(year, num)
+            e_ans, e_text = expl.get(num, ([], ''))
+            if os.path.isdir(os.path.join(ADIR, str(year))):
+                ans = parse_answer(year, num)
+                if e_ans and e_ans != ans:
+                    warn('%d-%03d: 정답 불일치 answer2=%s answer=%s' % (year, num, ans, e_ans))
+            else:
+                ans = e_ans
+                if not ans:
+                    warn('%d-%03d: 정답 없음 (answer)' % (year, num))
             item = dict(
                 y=year,
                 n=num,
@@ -283,6 +337,8 @@ def main():
                 o=q['options'],
                 a=ans,
             )
+            if e_text:
+                item['e'] = e_text      # 해설 (md)
             g = toc.get((year, num))
             if g:
                 item['go'] = g[0]    # 목차 순번
@@ -309,10 +365,12 @@ def main():
     no_opt = [q for q in questions if len(q['o']) != 4]
     multi = [q for q in questions if len(q['a']) > 1]
     tagged = [q for q in questions if q.get('g')]
+    explained = [q for q in questions if q.get('e')]
 
     print('생성: %s (%.2f MB)' % (OUT, os.path.getsize(OUT) / 1048576))
     print('문항 %d개 / 정답 없음 %d / 보기 4개 아님 %d / 복수정답 %d / 보안목차 태깅 %d'
           % (len(questions), len(no_ans), len(no_opt), len(multi), len(tagged)))
+    print('해설 %d개' % len(explained))
     print('이미지 %d개 → %s (누락 %d)' % (copied, IMGDIR, len(missing)))
 
     for label, group in (('정답 없음', no_ans), ('보기 이상', no_opt)):

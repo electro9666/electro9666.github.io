@@ -45,6 +45,14 @@
     }
     .dot.on { background: var(--ok); }
 
+    /* 시트 저장 중 표시 */
+    .saving {
+      width: 14px; height: 14px; margin-right: 8px; flex: none;
+      border: 2px solid var(--line); border-top-color: var(--accent); border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
     /* ---------- 사이드바 ---------- */
     #scrim { position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 30; }
     #sidebar {
@@ -76,6 +84,8 @@
 
     #status { font-size: 12.5px; color: var(--muted); padding: 6px 16px; min-height: 26px; }
     #status.error { color: var(--ng); }
+    #syncInfo.error { color: var(--ng); }
+    .side-link { display: block; margin-top: 14px; font-size: 13px; color: var(--fg); }
 
     main { padding: 0 16px 48px; }
 
@@ -141,15 +151,15 @@
     .mark.x { color: var(--ng); }
 
     .stem { margin-bottom: 14px; }
-    .stem img { max-width: 100%; display: block; margin: 10px 0; }
-    .stem table, .opt table { border-collapse: collapse; margin: 10px 0; font-size: 13.5px; }
-    .stem th, .stem td, .opt th, .opt td { border: 1px solid var(--line); padding: 5px 9px; }
-    .stem pre, .opt pre {
+    .stem img, .expl img { max-width: 100%; display: block; margin: 10px 0; }
+    .stem table, .opt table, .expl table { border-collapse: collapse; margin: 10px 0; font-size: 13.5px; }
+    .stem th, .stem td, .opt th, .opt td, .expl th, .expl td { border: 1px solid var(--line); padding: 5px 9px; }
+    .stem pre, .opt pre, .expl pre {
       background: var(--soft); border: 1px solid var(--line); border-radius: 6px;
       padding: 10px 12px; overflow-x: auto; font-size: 13px; line-height: 1.5; margin: 10px 0;
     }
-    .stem code, .opt code { font-family: ui-monospace, Consolas, monospace; font-size: 13px; }
-    .stem blockquote, .opt blockquote {
+    .stem code, .opt code, .expl code { font-family: ui-monospace, Consolas, monospace; font-size: 13px; }
+    .stem blockquote, .opt blockquote, .expl blockquote {
       margin: 10px 0; padding: 2px 14px; border-left: 3px solid var(--line); color: #374151;
     }
     .scroll-x { overflow-x: auto; }
@@ -174,6 +184,12 @@
     .q-foot { margin-top: 10px; font-size: 12.5px; color: var(--muted); min-height: 19px; }
     .q-foot.ok { color: var(--ok); }
     .q-foot.ng { color: var(--ng); }
+    .expl {
+      margin-top: 10px; padding: 10px 12px; border-left: 3px solid var(--ok);
+      background: var(--soft); border-radius: 0 6px 6px 0; font-size: 13.5px; line-height: 1.65;
+    }
+    .expl > b:first-child { display: block; margin-bottom: 4px; color: var(--ok); font-size: 12.5px; }
+    .expl p { margin: 0 0 8px; }
 
     /* ---------- 연도별 모드 (스와이프) ---------- */
     .swiper {
@@ -183,9 +199,10 @@
     }
     .swiper > .slide {
       height: calc(100vh - var(--head)); scroll-snap-align: start; scroll-snap-stop: always;
-      display: flex; align-items: flex-start; padding: 10px 0 20px;
+      display: flex; flex-direction: column; padding: 10px 0 20px;
     }
-    .swiper .q { width: 100%; max-height: 100%; overflow-y: auto; margin: 0; }
+    .swiper .group-title { flex: none; margin-top: 0; }
+    .swiper .q { width: 100%; flex: 0 1 auto; min-height: 0; overflow-y: auto; margin: 0; }
     .nav-float {
       position: fixed; right: 18px; bottom: 18px; z-index: 15;
       display: flex; flex-direction: column; gap: 6px; align-items: center;
@@ -222,6 +239,7 @@
       <button data-view="subject" class="on">과목별</button>
       <button data-view="year">연도별</button>
       <span class="spacer"></span>
+      <span id="saving" class="saving" hidden></span>
       <span id="authDot" class="dot" title="로그인하지 않음"></span>
     </div>
   </header>
@@ -241,6 +259,8 @@
       <button class="btn block" id="btnLogin">Google 로그인</button>
       <button class="btn block" id="btnLogout" hidden>로그아웃</button>
       <p class="side-note" id="sideInfo"></p>
+      <p class="side-note" id="syncInfo" hidden></p>
+      <a class="side-link" id="sheetLink" target="_blank" rel="noopener">Google 시트 열기 ↗</a>
     </div>
   </aside>
 
@@ -548,7 +568,8 @@
           '</button>'
         ).join('') +
       '</div>' +
-      '<div class="q-foot"></div>';
+      '<div class="q-foot"></div>' +
+      '<div class="expl" hidden></div>';
 
     el.querySelector('.opts').addEventListener('click', (e) => {
       const btn = e.target.closest('.opt');
@@ -562,7 +583,20 @@
   /** 보기 선택 */
   function choose(q, el, choice) {
     const prev = Records.get(q.y, q.n);
-    if (prev && prev.result === 'O') return;        // 이미 맞춘 문제
+    if (prev && prev.result) {
+      // 이미 고른 보기를 다시 누르면 선택을 취소한다 (정답·오답 모두 토글)
+      // 맞춘 문제는 다른 보기를 고를 수 없다
+      if (choice === prev.choice) {
+        prev.choice = null;
+        prev.result = null;
+        prev.tries = 0;
+        paint(q, el, prev);
+        Records.save(q, prev);
+        if (!$('#view-dash').hidden) renderDash();
+        return;
+      }
+      if (prev.result === 'O') return;
+    }
 
     // 시트에 없는 문항이면 row 가 없다 (저장 시 안내한다)
     const rec = prev || { row: null, choice: null, result: null, tries: 0 };
@@ -584,28 +618,36 @@
     const opts = [...el.querySelectorAll('.opt')];
     const mark = el.querySelector('.mark');
     const foot = el.querySelector('.q-foot');
+    const expl = el.querySelector('.expl');
 
     mark.className = 'mark';
     mark.textContent = '';
     foot.className = 'q-foot';
     foot.textContent = '';
+    expl.hidden = true;
+    expl.replaceChildren();
 
     if (!rec || !rec.result) {
-      opts.forEach((b) => { b.className = 'opt'; b.disabled = false; });
+      opts.forEach((b) => { b.className = 'opt'; b.disabled = false; b.title = ''; });
       return;
     }
 
     if (rec.result === 'O') {
-      // 정답 — 더 못 고르게 하고 정답 보기를 표시
+      // 정답 — 정답 보기를 표시. 고른 보기만 눌러서 선택 취소할 수 있다
       opts.forEach((b) => {
         const i = Number(b.dataset.i);
         b.className = 'opt' + (q.a.includes(i) ? ' correct' : '');
-        b.disabled = true;
+        b.disabled = i !== rec.choice;
+        b.title = i === rec.choice ? '다시 누르면 선택이 취소됩니다' : '';
       });
       mark.classList.add('o');
       mark.textContent = 'O';
       foot.classList.add('ok');
       foot.textContent = rec.tries ? '정답입니다. (시도 ' + rec.tries + '회)' : '정답입니다.';
+      if (q.e) {
+        expl.innerHTML = '<b>해설</b>' + mdToHtml(q.e);
+        expl.hidden = false;
+      }
       return;
     }
 
@@ -615,6 +657,7 @@
       const isLast = last ? i === last : i === rec.choice;
       b.className = 'opt' + (isLast ? ' wrong' : '');
       b.disabled = false;
+      b.title = isLast ? '다시 누르면 선택이 취소됩니다' : '';
     });
     mark.classList.add('x');
     mark.textContent = 'X';
@@ -733,18 +776,68 @@
     const ordered = [...groups.entries()].sort((a, b) =>
       a[1].order - b[1].order || a[0].localeCompare(b[0], 'ko'));
 
+    // 문제당 한 장씩 넘기고, 각 장 위에 목차 이름을 붙인다
+    const slides = [];
     ordered.forEach(([name, g]) => {
       const t = tally(g.items);
-      const h = document.createElement('div');
-      h.className = 'group-title';
-      h.textContent = name + ' (' + g.items.length + '문항 · 맞춤 ' + t.o + ')';
-      view.appendChild(h);
-      g.items.forEach((q) => view.appendChild(questionCard(q)));
+      const title = name + ' (' + g.items.length + '문항 · 맞춤 ' + t.o + ')';
+      g.items.forEach((q) => slides.push({ q, title }));
     });
 
-    if (!ordered.length) {
+    if (!slides.length) {
       view.insertAdjacentHTML('beforeend', '<p class="empty">문항이 없습니다.</p>');
+      return;
     }
+    buildSwiper(view, slides);
+  }
+
+  /**
+   * 문제당 한 화면씩 넘기는 스와이퍼(스크롤 스냅)를 view 에 붙인다.
+   * @param items [{ q, title? }] — title 이 있으면 카드 위에 표시
+   * @param focusIdx 처음 보여줄 위치
+   */
+  function buildSwiper(view, items, focusIdx) {
+    const swiper = document.createElement('div');
+    swiper.className = 'swiper';
+    items.forEach(({ q, title }) => {
+      const slide = document.createElement('div');
+      slide.className = 'slide';
+      if (title) {
+        const h = document.createElement('div');
+        h.className = 'group-title';
+        h.textContent = title;
+        slide.appendChild(h);
+      }
+      slide.appendChild(questionCard(q));
+      swiper.appendChild(slide);
+    });
+    view.appendChild(swiper);
+
+    // 현재 위치 표시
+    const nav = document.createElement('div');
+    nav.className = 'nav-float';
+    nav.innerHTML =
+      '<button class="btn" data-d="-1">▲</button>' +
+      '<span class="pos">1 / ' + items.length + '</span>' +
+      '<button class="btn" data-d="1">▼</button>';
+    view.appendChild(nav);
+
+    const slides = [...swiper.children];
+    const pos = nav.querySelector('.pos');
+
+    swiper.addEventListener('scroll', () => {
+      const idx = Math.round(swiper.scrollTop / swiper.clientHeight);
+      pos.textContent = Math.min(idx + 1, slides.length) + ' / ' + slides.length;
+    }, { passive: true });
+
+    nav.addEventListener('click', (e) => {
+      const b = e.target.closest('button[data-d]');
+      if (!b) return;
+      const idx = Math.round(swiper.scrollTop / swiper.clientHeight) + Number(b.dataset.d);
+      if (slides[idx]) slides[idx].scrollIntoView({ behavior: 'smooth' });
+    });
+
+    if (focusIdx > 0) swiper.scrollTop = focusIdx * swiper.clientHeight;   // 즉시 이동
   }
 
   /* ==================================================================
@@ -769,44 +862,8 @@
     view.appendChild(chips);
 
     const list = DATA.questions.filter((q) => q.y === curYear);
-    const swiper = document.createElement('div');
-    swiper.className = 'swiper';
-    list.forEach((q) => {
-      const slide = document.createElement('div');
-      slide.className = 'slide';
-      slide.appendChild(questionCard(q));
-      swiper.appendChild(slide);
-    });
-    view.appendChild(swiper);
-
-    // 현재 위치 표시
-    const nav = document.createElement('div');
-    nav.className = 'nav-float';
-    nav.innerHTML =
-      '<button class="btn" data-d="-1">▲</button>' +
-      '<span class="pos">1 / ' + list.length + '</span>' +
-      '<button class="btn" data-d="1">▼</button>';
-    view.appendChild(nav);
-
-    const slides = [...swiper.children];
-    const pos = nav.querySelector('.pos');
-
-    swiper.addEventListener('scroll', () => {
-      const idx = Math.round(swiper.scrollTop / swiper.clientHeight);
-      pos.textContent = Math.min(idx + 1, slides.length) + ' / ' + slides.length;
-    }, { passive: true });
-
-    nav.addEventListener('click', (e) => {
-      const b = e.target.closest('button[data-d]');
-      if (!b) return;
-      const idx = Math.round(swiper.scrollTop / swiper.clientHeight) + Number(b.dataset.d);
-      if (slides[idx]) slides[idx].scrollIntoView({ behavior: 'smooth' });
-    });
-
-    if (focusNum) {
-      const i = list.findIndex((q) => q.n === focusNum);
-      if (i >= 0) swiper.scrollTop = i * swiper.clientHeight;   // 즉시 이동
-    }
+    const focusIdx = focusNum ? list.findIndex((q) => q.n === focusNum) : -1;
+    buildSwiper(view, list.map((q) => ({ q })), focusIdx);
   }
 
   /** 대시보드에서 특정 문제로 이동 */
@@ -842,16 +899,21 @@
    * ================================================================== */
 
   function setStatus(msg, isError) {
-    $('#status').textContent = msg;
+    $('#status').textContent = msg || '';
+    $('#status').hidden = !msg;           // 비어 있으면 자리도 차지하지 않는다
     $('#status').classList.toggle('error', !!isError);
     syncHeadHeight();            // 상태줄이 여러 줄로 늘어나면 슬라이드 높이도 바뀐다
   }
 
+  /** 저장 진행 상황은 탭 우측 아이콘으로, 시트 연결 요약은 사이드바에 표시한다 */
   function updateSyncStatus() {
-    if (Records._pending > 0) {
-      setStatus('시트에 저장 중... (' + Records._pending + ')');
-      return;
-    }
+    // 저장 중이면 탭 우측에 스피너를 돌린다
+    const n = Records._pending;
+    $('#saving').hidden = n === 0;
+    $('#saving').title = n ? '시트에 저장 중 (' + n + ')' : '';
+
+    const info = $('#syncInfo');
+    info.hidden = !Records.loaded;
     if (!Records.loaded) return;
 
     const answered = [...Records.map.values()].filter((r) => r.choice).length;
@@ -860,7 +922,8 @@
     if (Records.unmatched > 0) {
       msg += ' · 시트에서 찾지 못한 문항 ' + Records.unmatched + '개';
     }
-    setStatus(msg, Records.unmatched > 0);
+    info.textContent = msg;
+    info.classList.toggle('error', Records.unmatched > 0);
   }
 
   /** 저장이 안 될 때 로그인 버튼을 바로 보여준다 */
@@ -914,10 +977,12 @@
     if (matched === 0) {
       throw new Error(
         '시트 ' + total + '행을 읽었지만 key 열에서 문항을 하나도 식별하지 못했습니다. ' +
-        'key 는 연도(2021~2025)와 번호(1~120)를 포함해야 합니다 (예: 2021-001). ' +
+        'key 는 연도(' + DATA.years[0] + '~' + DATA.years[DATA.years.length - 1] +
+        ')와 번호(1~120)를 포함해야 합니다 (예: 2021-001). ' +
         '읽은 key 예시: [' + sampleKeys.join(' | ') + ']'
       );
     }
+    setStatus('');              // 연결 요약은 사이드바에 표시된다
     updateSyncStatus();
     RENDER[curView]();
   }
@@ -938,6 +1003,7 @@
     Records.map.clear();
     Records.loaded = false;
     Records.unmatched = 0;
+    updateSyncStatus();
     setAuthUI(false);
     openSide(false);
     setStatus('로그아웃되었습니다. 이후 기록은 저장되지 않습니다.');
@@ -956,6 +1022,7 @@
     setStatus('오류: ' + ((e.reason && e.reason.message) || e.reason), true);
   });
 
+  $('#sheetLink').href = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/edit';
   setAuthUI(false);
   openSide(false);
   showView('subject');        // 과목별 모드가 기본
