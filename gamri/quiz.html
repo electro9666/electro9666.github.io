@@ -12,6 +12,10 @@
       --head: 104px;
     }
     * { box-sizing: border-box; }
+    /* hidden 속성이 항상 이기도록. 작성자 스타일의 display 지정(예: #sidebar 의
+       display:flex)이 브라우저 기본 [hidden]{display:none} 보다 우선하기 때문에
+       이 규칙이 없으면 hidden 을 붙여도 요소가 사라지지 않는다. */
+    [hidden] { display: none !important; }
     body {
       margin: 0; color: var(--fg); background: var(--bg);
       font-family: system-ui, -apple-system, "Segoe UI", "Malgun Gothic", sans-serif;
@@ -21,17 +25,47 @@
     /* ---------- 헤더 ---------- */
     header {
       position: sticky; top: 0; z-index: 20; background: var(--bg);
-      border-bottom: 1px solid var(--line); padding: 10px 16px 0;
+      border-bottom: 1px solid var(--line);
     }
-    .bar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-    h1 { font-size: 16px; margin: 0; white-space: nowrap; }
     .spacer { flex: 1; }
-    .tabs { display: flex; gap: 4px; margin-top: 8px; }
+    .tabs { display: flex; align-items: center; gap: 2px; padding: 0 8px; }
     .tabs button {
       border: none; border-bottom: 2px solid transparent; background: none;
-      padding: 7px 14px; font-size: 14px; color: var(--muted); cursor: pointer;
+      padding: 10px 12px; font-size: 14px; color: var(--muted); cursor: pointer;
     }
     .tabs button.on { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+    .tabs button.icon {
+      display: flex; align-items: center; padding: 10px 8px; color: var(--fg); border-bottom: none;
+    }
+
+    /* 로그인 여부 표시 */
+    .dot {
+      width: 8px; height: 8px; border-radius: 50%; margin-right: 8px;
+      background: var(--line); flex: none;
+    }
+    .dot.on { background: var(--ok); }
+
+    /* ---------- 사이드바 ---------- */
+    #scrim { position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 30; }
+    #sidebar {
+      position: fixed; top: 0; left: 0; bottom: 0; width: min(280px, 82vw); z-index: 31;
+      background: var(--bg); border-right: 1px solid var(--line);
+      display: flex; flex-direction: column;
+      box-shadow: 0 0 24px rgba(0,0,0,.12);
+    }
+    .side-head {
+      display: flex; align-items: center; gap: 8px;
+      padding: 12px 10px 12px 16px; border-bottom: 1px solid var(--line);
+    }
+    .side-head b { flex: 1; font-size: 14px; line-height: 1.4; }
+    .side-head button.icon {
+      border: none; background: none; padding: 6px; cursor: pointer; color: var(--fg);
+      display: flex; align-items: center;
+    }
+    .side-body { padding: 16px; }
+    .side-body p { margin: 0 0 12px; font-size: 13px; color: var(--muted); }
+    .side-note { font-size: 12px; line-height: 1.6; margin-top: 14px !important; }
+    button.btn.block { display: block; width: 100%; padding: 9px; font-size: 14px; }
 
     button.btn {
       padding: 5px 11px; border: 1px solid var(--line); border-radius: 6px;
@@ -162,23 +196,53 @@
     }
 
     .empty { color: var(--muted); padding: 40px 0; }
+
+    /* ---------- 좁은 화면 ---------- */
+    @media (max-width: 600px) {
+      body { font-size: 14.5px; }
+      main { padding: 0 10px 40px; }
+      .swiper { margin: 0 -10px; padding: 0 10px; }
+      .q { padding: 12px 13px; border-radius: 8px; }
+      .tabs button { padding: 10px 9px; font-size: 13.5px; }
+      .opt { padding: 8px 10px; }
+      #status { padding: 5px 10px; }
+      .nav-float { right: 10px; bottom: 10px; }
+    }
   </style>
 </head>
 <body>
   <header>
-    <div class="bar">
-      <h1>정보시스템감리사 기출 퀴즈</h1>
-      <span class="spacer"></span>
-      <span id="who" style="font-size:12.5px;color:var(--muted)"></span>
-      <button class="btn" id="btnLogin">Google 로그인</button>
-      <button class="btn" id="btnLogout" hidden>로그아웃</button>
-    </div>
     <div class="tabs">
+      <button id="btnMenu" class="icon" aria-label="메뉴 열기" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+          <path d="M2 4.5h14M2 9h14M2 13.5h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
       <button data-view="dash">대시보드</button>
       <button data-view="subject" class="on">과목별</button>
       <button data-view="year">연도별</button>
+      <span class="spacer"></span>
+      <span id="authDot" class="dot" title="로그인하지 않음"></span>
     </div>
   </header>
+
+  <div id="scrim" hidden></div>
+  <aside id="sidebar" hidden>
+    <div class="side-head">
+      <b>정보시스템감리사 기출 퀴즈</b>
+      <button class="icon" id="btnClose" aria-label="메뉴 닫기">
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+          <path d="M4 4l10 10M14 4L4 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <div class="side-body">
+      <p id="who"></p>
+      <button class="btn block" id="btnLogin">Google 로그인</button>
+      <button class="btn block" id="btnLogout" hidden>로그아웃</button>
+      <p class="side-note" id="sideInfo"></p>
+    </div>
+  </aside>
 
   <div id="status"></div>
 
@@ -780,6 +844,7 @@
   function setStatus(msg, isError) {
     $('#status').textContent = msg;
     $('#status').classList.toggle('error', !!isError);
+    syncHeadHeight();            // 상태줄이 여러 줄로 늘어나면 슬라이드 높이도 바뀐다
   }
 
   function updateSyncStatus() {
@@ -798,21 +863,50 @@
     setStatus(msg, Records.unmatched > 0);
   }
 
-  /** 저장이 안 될 때 로그인 버튼으로 시선을 끈다 */
+  /** 저장이 안 될 때 로그인 버튼을 바로 보여준다 */
   function blinkLogin() {
-    const b = $('#btnLogin');
-    if (b.hidden) return;
-    b.animate(
-      [{ background: '#fdeceb' }, { background: '#fff' }],
-      { duration: 500, iterations: 3 }
-    );
+    if ($('#btnLogin').hidden) return;
+    openSide(true);
   }
+
+  /**
+   * 연도별 모드의 한 화면 높이를 계산한다.
+   * 헤더와 상태줄 높이가 글자 수/화면 폭에 따라 달라지므로 실측해서 넣는다.
+   */
+  function syncHeadHeight() {
+    const h = document.querySelector('header').offsetHeight + $('#status').offsetHeight;
+    document.documentElement.style.setProperty('--head', h + 'px');
+  }
+  window.addEventListener('resize', syncHeadHeight);
 
   function setAuthUI(on) {
     $('#btnLogin').hidden = on;
     $('#btnLogout').hidden = !on;
-    $('#who').textContent = on ? '기록 저장: ' + SHEET_NAME : '로그인하지 않아 기록이 저장되지 않습니다';
+    $('#authDot').classList.toggle('on', on);
+    $('#authDot').title = on ? '시트에 기록 중' : '로그인하지 않음';
+    $('#who').textContent = on
+      ? '시트 "' + SHEET_NAME + '"에 기록합니다.'
+      : '로그인하지 않아 풀이 기록이 저장되지 않습니다.';
+    $('#sideInfo').textContent = on
+      ? ''
+      : '로그인 없이도 문제는 풀 수 있지만, 새로고침하면 결과가 사라집니다.';
   }
+
+  /* ---------- 사이드바 ---------- */
+
+  function openSide(on) {
+    $('#sidebar').hidden = !on;
+    $('#scrim').hidden = !on;
+    $('#btnMenu').setAttribute('aria-expanded', String(on));
+    if (on) $('#btnLogin').hidden ? $('#btnLogout').focus() : $('#btnLogin').focus();
+  }
+
+  $('#btnMenu').addEventListener('click', () => openSide(true));
+  $('#btnClose').addEventListener('click', () => openSide(false));
+  $('#scrim').addEventListener('click', () => openSide(false));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') openSide(false);
+  });
 
   async function loadRecords() {
     setStatus('시트를 읽는 중...');
@@ -832,6 +926,7 @@
     try {
       await GSheet.signIn();
       setAuthUI(true);
+      openSide(false);
       await loadRecords();
     } catch (e) {
       setStatus(e.message, true);
@@ -844,6 +939,7 @@
     Records.loaded = false;
     Records.unmatched = 0;
     setAuthUI(false);
+    openSide(false);
     setStatus('로그아웃되었습니다. 이후 기록은 저장되지 않습니다.');
     RENDER[curView]();
   });
@@ -861,8 +957,10 @@
   });
 
   setAuthUI(false);
+  openSide(false);
   showView('subject');        // 과목별 모드가 기본
   setStatus('Google 인증 준비 중...');
+  syncHeadHeight();
 
   GSheet.init().then(({ signedIn }) => {
     setAuthUI(signedIn);
